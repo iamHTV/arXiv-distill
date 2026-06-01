@@ -1,0 +1,11 @@
+{
+  "name": "Workspace-Bench 1.0: Benchmarking AI Agents on Workspace Tasks with Large-Scale File Dependencies",
+  "authors": ["Zirui Tang", "Xuanhe Zhou", "Yumou Liu", "Linchun Li", "Yukai Wu", "Weizheng Wang", "Hongzhang Huang", "Wei Zhou", "Jun Zhou", "Jiachen Song"],
+  "link": "https://arxiv.org/abs/2605.03596",
+  "arxiv_id": "2605.03596",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "N/A"
+}
