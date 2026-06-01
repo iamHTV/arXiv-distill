@@ -1,0 +1,15 @@
+{
+  "name": "LLM-Generated Ads: From Personalization Parity to Persuasion Superiority",
+  "arxiv_id": "2512.03373",
+  "authors": ["Elyas Meguellati", "Stefano Civelli", "Lei Han", "Abraham Bernstein", "Shazia Sadiq", "Gianluca Demartini"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-12-03",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2512.03373",
+  "link_abs": "https://arxiv.org/abs/2512.03373",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "llm-ad-persuasion-optimization"
+}

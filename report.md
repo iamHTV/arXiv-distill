@@ -74,6 +74,9 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất. Mục tiêu: ~300 pape
 ✓ Skill: fived-sentiment-triplet-verification | Insight: +3.53 F1, plug-and-play verification
 
 ## Paper #24 — Sword, Shield, Achilles' Heel (2605.31404v1) [applied]
-✓ Skill: llm-spatial-representation-bias | Insight: Topology = Shield (backbone). Format = Sword (double-edged). Semantics = Achilles' Heel (fatal). Preserve topology, calibrate compression, ensure semantic correctness.
+✓ Skill: llm-spatial-representation-bias | Insight: Topology = Shield, Format = Sword, Semantics = Achilles' Heel
+
+## Paper #25 — LLM-Generated Ads (2512.03373) [applied]
+✓ Skill: llm-ad-persuasion-optimization | Insight: LLM ads parity personalization (51.1% vs 48.9%), superiority persuasion (59.1% vs 40.9%). Authority + Consensus best. Scarcity doesn't work. Near-zero cost.
 
 → Tiếp tục: [YES]
