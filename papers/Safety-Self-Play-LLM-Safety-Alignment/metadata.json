@@ -1,0 +1,11 @@
+{
+  "name": "Safety Self-Play (SSP): Be Your Own Red Teamer",
+  "authors": ["Hao Wang", "Yanting Wang", "Hao Li", "Rui Li", "Lei Sha"],
+  "link": "https://arxiv.org/abs/2601.10589",
+  "arxiv_id": "2601.10589",
+  "year": 2026,
+  "category": "cs.AI, cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "safety-self-play-alignment"
+}
