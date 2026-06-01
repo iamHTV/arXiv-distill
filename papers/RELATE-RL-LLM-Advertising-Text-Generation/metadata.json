@@ -1,0 +1,15 @@
+{
+  "name": "RELATE: A Reinforcement Learning-Enhanced LLM Framework for Advertising Text Generation",
+  "arxiv_id": "2602.11780",
+  "authors": ["Jinfang Wang", "Jiajie Liu", "Jianwei Wu", "Ziqin Luo", "Zhen Chen", "Chunlei Li", "Biao Han", "Tao Deng", "Yi Li", "Shuanglong Li", "Lin Liu"],
+  "institution": "Baidu Inc.",
+  "year": 2026,
+  "published": "2026-02-12",
+  "categories": ["cs.CL", "cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2602.11780",
+  "link_abs": "https://arxiv.org/abs/2602.11780",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "rl-end-to-end-ad-generation"
+}
