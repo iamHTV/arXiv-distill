@@ -1,0 +1,15 @@
+{
+  "name": "A-RAG: Scaling Agentic Retrieval-Augmented Generation via Hierarchical Retrieval Interfaces",
+  "arxiv_id": "2602.03442",
+  "authors": ["Mingxuan Du", "Benfeng Xu", "Chiwei Zhu", "Shaohan Wang", "Pengyu Wang", "Xiaorui Wang", "Zhendong Mao"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-02-03",
+  "categories": ["cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2602.03442",
+  "link_abs": "https://arxiv.org/abs/2602.03442",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "a-rag-hierarchical-retrieval"
+}
