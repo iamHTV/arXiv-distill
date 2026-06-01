@@ -1,0 +1,11 @@
+{
+  "name": "Pay for Hints, Not Answers: LLM Shepherding for Cost-Efficient Inference",
+  "authors": ["Ziming Dong", "Hardik Sharma", "Evan O'Toole", "Jaya Prakash Champati", "Kui Wu"],
+  "link": "https://arxiv.org/abs/2601.22132",
+  "arxiv_id": "2601.22132",
+  "year": 2026,
+  "category": "cs.AI, cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "llm-shepherding-cost-optimization"
+}
