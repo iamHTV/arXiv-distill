@@ -48,4 +48,8 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 ✓ Nhãn: [applied] | Skill: ai-persuasion-contextualization-warmth [VALID]
 ✓ Insight: Contextualization alone GIẢM persuasive power. Phải kết hợp warmth. AI literacy paradox: literate users MORE reliant despite lower trust.
 
+## Paper #12 — Multi-Agent AI Oracle for Prediction Markets (2605.30802v1)
+✓ Nhãn: [applied] | Skill: multi-agent-oracle-hybrid-routing [VALID]
+✓ Insight: Independent aggregation 83.43% accuracy. Deliberative consensus HẠI accuracy (76%). Unanimous + high confidence → 97.87% trên 47% questions. Dùng disagreement làm escalation signal.
+
 → Tiếp tục: [YES]
