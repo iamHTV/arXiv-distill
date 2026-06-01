@@ -1,0 +1,15 @@
+{
+  "name": "Recon: Reconstruction-Guided Reasoning Synthesis for User Modeling",
+  "arxiv_id": "2605.26969v1",
+  "authors": ["Alan Zhu", "Mihran Miroyan", "Carolyn Wang", "Andrew Zhou", "Lisa Dunlap", "Narges Norouzi", "Joseph E. Gonzalez"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.CL", "cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.26969v1",
+  "link_abs": "https://arxiv.org/abs/2605.26969v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "recon-reasoning-quality-evaluation"
+}

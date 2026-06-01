@@ -54,6 +54,10 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #13 — Paper Agents, Paper Gains: DeFi Investment Agents (2605.29174v1)
 ✓ Nhãn: [applied] | Skill: defi-agent-maturity-framework [VALID]
-✓ Insight: DeFi AI agents $3B+ valuation nhưng token holders lost $191.7M. Top 1% captures 81.4% gains. Market-cap/AUM >10,000x = pure speculation. Maturity framework: autonomous execution + profitability + alignment.
+✓ Insight: DeFi AI agents $3B+ valuation nhưng token holders lost $191.7M. Top 1% captures 81.4% gains. Market-cap/AUM >10,000x = pure speculation.
+
+## Paper #14 — Recon: Reconstruction-Guided Reasoning Synthesis (2605.26969v1)
+✓ Nhãn: [applied] | Skill: recon-reasoning-quality-evaluation [VALID]
+✓ Insight: Post-hoc rationalization ≠ reasoning. Dùng action reconstruction để evaluate reasoning quality. Recon-Select 54.7% win rate, Recon-GRPO 70%. Reasoning phải có predictive power, không chỉ justify observed action.
 
 → Tiếp tục: [YES]
