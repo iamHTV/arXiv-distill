@@ -1,0 +1,15 @@
+{
+  "name": "Preserving Privacy and Utility in LLM-Based Product Recommendations",
+  "arxiv_id": "2505.00951",
+  "authors": ["Tina Khezresmaeilzadeh", "Jiang Zhang", "Dimitrios Andreadis", "Konstantinos Psounis"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-05-02",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2505.00951",
+  "link_abs": "https://arxiv.org/abs/2505.00951",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "privacy-preserving-llm-recommendations"
+}
