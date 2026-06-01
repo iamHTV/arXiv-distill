@@ -42,6 +42,10 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #10 — From Augmentation to Reconstruction (2605.29207v1)
 ✓ Nhãn: [theoretical] | Skill: ai-disruption-three-stage-lens [VALID]
-✓ Insight: 3 stages: Augmentation → Automation → Reconstruction. Stage 3 là disruption thực sự — redesign workflows around AI. J-curve bình thường. Institutional constraints > technical constraints.
+✓ Insight: 3 stages: Augmentation → Automation → Reconstruction. Stage 3 là disruption thực sự — redesign workflows around AI.
+
+## Paper #11 — Personalized to Persuade (2605.31275v1)
+✓ Nhãn: [applied] | Skill: ai-persuasion-contextualization-warmth [VALID]
+✓ Insight: Contextualization alone GIẢM persuasive power. Phải kết hợp warmth. AI literacy paradox: literate users MORE reliant despite lower trust.
 
 → Tiếp tục: [YES]
