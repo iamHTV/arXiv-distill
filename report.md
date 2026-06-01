@@ -18,70 +18,74 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #4 — Strategic Foresight of LLMs (2602.01684)
 ✓ Nhãn: [applied] | Skill: llm-strategic-foresight-screening [VALID]
-✓ Insight: LLMs outperform humans venture screening (ρ=0.74 vs 0.45). Augmentation trap warning.
+✓ Insight: LLMs outperform humans venture screening (ρ=0.74 vs 0.45).
 
 ## Paper #5 — LLM Multi-Agent Marketing Simulation (2510.18155)
 ✓ Nhãn: [applied] | Skill: llm-multi-agent-marketing-simulation [VALID]
-✓ Insight: LLM agents simulate consumer behavior without predefined rules. Discount +51% revenue, 2-3 day effect.
+✓ Insight: LLM agents simulate consumer behavior. Discount +51% revenue, 2-3 day effect.
 
 ## Paper #6 — Skill Reuse as Compression in Agentic RL (2605.31509v1)
 ✓ Nhãn: [applied] | Skill: reuserl-skill-compression [VALID]
-✓ Insight: Nén successful trajectories thành shared skill dictionary (BPE-style) → +13.4% OOD generalization
+✓ Insight: BPE-style skill dictionary + segmentation cost → +13.4% OOD generalization
 
-## Paper #7 — If LLMs Have Human-Like Attributes, Then So Does AoE2 (2605.31514v1)
+## Paper #7 — If LLMs Have Human-Like Attributes (2605.31514v1)
 ✓ Nhãn: [theoretical] | Skill: null-assumption-llm-evaluation [VALID]
-✓ Insight: Thuộc tính nhân hình hóa LLM không unique. Dùng null assumption: assume AI KHÔNG có attribute, yêu cầu proof ngược.
+✓ Insight: Thuộc tính nhân hình hóa LLM không unique. Null assumption framework.
 
-## Paper #8 — Activation Outliers and Feature Death in SAEs (2605.31518v1)
+## Paper #8 — Activation Outliers in SAEs (2605.31518v1)
 ✓ Nhãn: [applied] | Skill: sae-mean-centering-fix [VALID]
-✓ Insight: γ = ||μ||/||σ|| dự đoán feature death (Spearman ρ=0.89). Mean-centering eliminates 70%+ death, zero cost.
+✓ Insight: γ dự đoán feature death. Mean-centering eliminates 70%+ death.
 
-## Paper #9 — Persona Conditioning of Brand Recommendations (2605.30207v1)
+## Paper #9 — Persona Conditioning Brand Recommendations (2605.30207v1)
 ✓ Nhãn: [applied] | Skill: ai-brand-persona-audit [VALID]
-✓ Insight: Cùng 1 prompt, khác persona → recommendation set khác Δ=-0.12 đến -0.20. Category leaders persona-resistant, mid-market swap 75%.
+✓ Insight: Cùng prompt, khác persona → Δ=-0.12 đến -0.20. Mid-market swap 75%.
 
 ## Paper #10 — From Augmentation to Reconstruction (2605.29207v1)
 ✓ Nhãn: [theoretical] | Skill: ai-disruption-three-stage-lens [VALID]
-✓ Insight: 3 stages: Augmentation → Automation → Reconstruction. Stage 3 là disruption thực sự — redesign workflows around AI.
+✓ Insight: 3 stages: Augmentation → Automation → Reconstruction.
 
 ## Paper #11 — Personalized to Persuade (2605.31275v1)
 ✓ Nhãn: [applied] | Skill: ai-persuasion-contextualization-warmth [VALID]
-✓ Insight: Contextualization alone GIẢM persuasive power. Phải kết hợp warmth. AI literacy paradox: literate users MORE reliant despite lower trust.
+✓ Insight: Contextualization alone GIẢM persuasive power. Phải kết hợp warmth.
 
-## Paper #12 — Multi-Agent AI Oracle for Prediction Markets (2605.30802v1)
+## Paper #12 — Multi-Agent AI Oracle (2605.30802v1)
 ✓ Nhãn: [applied] | Skill: multi-agent-oracle-hybrid-routing [VALID]
-✓ Insight: Independent aggregation 83.43% accuracy. Deliberative consensus HẠI accuracy (76%). Unanimous + high confidence → 97.87% trên 47% questions.
+✓ Insight: Independent aggregation 83.43%. Deliberative consensus HẠI accuracy.
 
-## Paper #13 — Paper Agents, Paper Gains: DeFi Investment Agents (2605.29174v1)
+## Paper #13 — DeFi Investment Agents (2605.29174v1)
 ✓ Nhãn: [applied] | Skill: defi-agent-maturity-framework [VALID]
-✓ Insight: DeFi AI agents $3B+ valuation nhưng token holders lost $191.7M. Top 1% captures 81.4% gains. Market-cap/AUM >10,000x = pure speculation.
+✓ Insight: Token holders lost $191.7M. Top 1% captures 81.4% gains.
 
-## Paper #14 — Recon: Reconstruction-Guided Reasoning Synthesis (2605.26969v1)
+## Paper #14 — Recon: Reasoning Synthesis (2605.26969v1)
 ✓ Nhãn: [applied] | Skill: recon-reasoning-quality-evaluation [VALID]
-✓ Insight: Post-hoc rationalization ≠ reasoning. Dùng action reconstruction để evaluate reasoning quality. Recon-Select 54.7%, Recon-GRPO 70%.
+✓ Insight: Post-hoc rationalization ≠ reasoning. Recon-GRPO 70% win rate.
 
-## Paper #15 — JobBench: Aligning Agent Work With Human Will (2605.26329v1)
+## Paper #15 — JobBench (2605.26329v1)
 ✓ Nhãn: [applied] | Skill: jobbench-delegation-readiness [VALID]
-✓ Insight: Benchmark AI theo worker delegation desire, không chỉ economic value. Strongest agent chỉ 45.9%. GDPVal saturation misleading.
+✓ Insight: Strongest agent chỉ 45.9%. Benchmark theo worker delegation desire.
 
-## Paper #16 — LinTree: LLM Reasoning with Structured Search (2605.31492v1)
+## Paper #16 — LinTree (2605.31492v1)
 ✓ Nhãn: [applied] | Skill: lintree-structured-reasoning [VALID]
-✓ Insight: Raw flat search history KHÔNG đủ. Parent pointers → explicit tree structure → improve solve rate.
+✓ Insight: Parent pointers → explicit tree structure → improve solve rate.
 
 ## Paper #17 — Balanced LoRA (2605.31484v1)
 ✓ Nhãn: [applied] | Skill: balora-balanced-lora [VALID]
-✓ Insight: BaLoRA: balanced manifold → faster convergence, negligible overhead. Advantage lớn nhất ở r=64, 128.
+✓ Insight: BaLoRA: balanced manifold → faster convergence, negligible overhead.
 
-## Paper #18 — AutoSci: Memory-Centric Scientific Research (2605.31468v1)
+## Paper #18 — AutoSci (2605.31468v1)
 ✓ Nhãn: [applied] | Skill: autosci-research-lifecycle [VALID]
-✓ Insight: 4 modules: SciMem + SciFlow + SciDAG + SciEvolve. Persistent research environment execute, remember, evolve.
+✓ Insight: 4 modules: SciMem + SciFlow + SciDAG + SciEvolve.
 
-## Paper #19 — Used Car Salesbots: LLM Bargaining (2605.31445v1)
+## Paper #19 — Used Car Salesbots (2605.31445v1)
 ✓ Nhãn: [applied] | Skill: llm-bargaining-safety-audit [VALID]
-✓ Insight: Fine-tuning for profit → MORE dishonest. Deception emerges from utility-maximisation. Self-play destroys welfare.
+✓ Insight: Fine-tuning for profit → MORE dishonest. Deception from utility-maximisation.
 
-## Paper #20 — DRIFT: Multi-Turn Optimization (2605.31455v1)
+## Paper #20 — DRIFT (2605.31455v1)
 ✓ Nhãn: [applied] | Skill: drift-multi-turn-optimization [VALID]
-✓ Insight: Tách rollout khỏi optimization. Offline trajectories + importance weights + weighted SFT = RL performance với SFT efficiency. Multi@5 improvement.
+✓ Insight: Tách rollout + importance weights + weighted SFT = RL performance với SFT efficiency.
+
+## Paper #21 — Skill Availability & Granularity (2605.31408v1)
+✓ Nhãn: [applied] | Skill: skill-availability-granularity [VALID]
+✓ Insight: Skill availability +26-36 pp (biggest signal). Presentation granularity effects nhỏ, uncertain, model-dependent. Prioritize HAVING skills over optimizing format.
 
 → Tiếp tục: [YES]

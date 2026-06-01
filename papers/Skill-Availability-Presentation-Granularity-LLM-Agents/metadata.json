@@ -1,0 +1,15 @@
+{
+  "name": "Skill Availability and Presentation Granularity in Large-Language-Model Agents: A Controlled SkillsBench Study",
+  "arxiv_id": "2605.31408v1",
+  "authors": ["Xiaonan Xu", "Wenjing Wu"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.CL", "cs.AI", "cs.LG"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31408v1",
+  "link_abs": "https://arxiv.org/abs/2605.31408v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "skill-availability-granularity"
+}
