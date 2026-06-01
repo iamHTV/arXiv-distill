@@ -1,0 +1,15 @@
+{
+  "name": "Fine-grained Verification via Diagnostic Reasoning Supervision for Aspect Sentiment Triplet Extraction",
+  "arxiv_id": "2605.31446v1",
+  "authors": ["Wenna Lai", "Haoran Xie", "Guandong Xu", "Qing Li", "S. Joe Qin"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.CL", "cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31446v1",
+  "link_abs": "https://arxiv.org/abs/2605.31446v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "fived-sentiment-triplet-verification"
+}

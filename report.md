@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp sau mỗi paper đã chưng cất.
+Báo cáo tổng hợp sau mỗi paper đã chưng cất. Mục tiêu: ~300 papers, chất lượng ưu tiên.
 
 ---
 
@@ -68,6 +68,9 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 ✓ Skill: skill-availability-granularity | Insight: Skill availability +26-36 pp, presentation doesn't matter
 
 ## Paper #22 — SCOPE (2605.31433v1) [applied]
-✓ Skill: scope-data-free-self-play | Insight: Co-evolving Challenger + Solver + self-judge → +10.4 points. Data-free self-play cho open-ended tasks. Rubric quality is bottleneck.
+✓ Skill: scope-data-free-self-play | Insight: Co-evolving Challenger + Solver → +10.4 points
+
+## Paper #23 — FiVeD (2605.31446v1) [applied]
+✓ Skill: fived-sentiment-triplet-verification | Insight: Post-hoc verification + diagnostic reasoning → +3.53 F1. Plug-and-play, adjustable precision-recall.
 
 → Tiếp tục: [YES]
