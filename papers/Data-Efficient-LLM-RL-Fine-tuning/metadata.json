@@ -1,0 +1,11 @@
+{
+  "name": "Improving Data Efficiency for LLM Reinforcement Fine-tuning Through Difficulty-Targeted Selection and Rollout Replay",
+  "authors": ["Yifan Sun", "Jingyan Shen", "Yibin Wang", "Tianyu Chen", "Zhendong Wang", "Mingyuan Zhou", "Huan Zhang"],
+  "link": "https://arxiv.org/abs/2506.05316",
+  "arxiv_id": "2506.05316",
+  "year": 2026,
+  "category": "cs.LG, cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "data-efficient-rl-finetuning"
+}
