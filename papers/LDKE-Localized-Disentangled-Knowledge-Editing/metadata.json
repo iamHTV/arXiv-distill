@@ -1,0 +1,11 @@
+{
+  "name": "LDKE: Localized and Disentangled Knowledge Editing for Multimodal LLMs",
+  "authors": ["Leijiang Gu", "Zhen Zeng", "Feng Li", "Xinjian Gao", "Zenglin Shi"],
+  "link": "https://arxiv.org/abs/2605.29826",
+  "arxiv_id": "2605.29826",
+  "year": 2026,
+  "category": "cs.AI, cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "ldke-knowledge-editing"
+}
