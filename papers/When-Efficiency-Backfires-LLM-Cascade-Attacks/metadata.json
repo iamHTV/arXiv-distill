@@ -1,0 +1,11 @@
+{
+  "name": "When Efficiency Backfires: Cascading LLMs Trigger Cascade Failure under Adversarial Attack",
+  "authors": ["Zehan Sun", "Dingfan Chen", "Songze Li"],
+  "link": "https://arxiv.org/abs/2605.17288",
+  "arxiv_id": "2605.17288",
+  "year": 2026,
+  "category": "cs.AI, cs.CR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "cascade-attack-awareness"
+}
