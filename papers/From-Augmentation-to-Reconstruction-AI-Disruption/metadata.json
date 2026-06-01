@@ -1,0 +1,15 @@
+{
+  "name": "From Augmentation to Reconstruction: Guiding the AI Disruption to the Good Place",
+  "arxiv_id": "2605.29207v1",
+  "authors": ["David M. Rothschild", "Jake M. Hofman", "Markus Mobius", "Brendan Lucier", "Eleanor Dillon", "Daniel G. Goldstein", "Nicole Immorlica", "Aleksandrs Slivkins"],
+  "institution": "Microsoft Research",
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["econ.GN"],
+  "link_pdf": "https://arxiv.org/pdf/2605.29207v1",
+  "link_abs": "https://arxiv.org/abs/2605.29207v1",
+  "github": null,
+  "classification": "theoretical",
+  "skill_status": "created",
+  "skill_name": "ai-disruption-three-stage-lens"
+}

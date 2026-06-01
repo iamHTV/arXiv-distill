@@ -38,6 +38,10 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #9 — Persona Conditioning of Brand Recommendations (2605.30207v1)
 ✓ Nhãn: [applied] | Skill: ai-brand-persona-audit [VALID]
-✓ Insight: Cùng 1 prompt, khác persona → recommendation set khác Δ=-0.12 đến -0.20. Category leaders persona-resistant (80% consistency), mid-market brands swap 75%. Phải conditioning on persona khi đo AI brand perception.
+✓ Insight: Cùng 1 prompt, khác persona → recommendation set khác Δ=-0.12 đến -0.20. Category leaders persona-resistant, mid-market swap 75%.
+
+## Paper #10 — From Augmentation to Reconstruction (2605.29207v1)
+✓ Nhãn: [theoretical] | Skill: ai-disruption-three-stage-lens [VALID]
+✓ Insight: 3 stages: Augmentation → Automation → Reconstruction. Stage 3 là disruption thực sự — redesign workflows around AI. J-curve bình thường. Institutional constraints > technical constraints.
 
 → Tiếp tục: [YES]
