@@ -1,0 +1,15 @@
+{
+  "name": "The Few-shot Dilemma: Over-prompting Large Language Models",
+  "arxiv_id": "2509.13196",
+  "authors": ["Yongjian Tang", "Doruk Tuncel", "Christian Koerner", "Thomas Runkler"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-09-16",
+  "categories": ["cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2509.13196",
+  "link_abs": "https://arxiv.org/abs/2509.13196",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "few-shot-optimal-selection"
+}
