@@ -1,0 +1,11 @@
+{
+  "name": "MSumBench: Towards Multi-dimensional Evaluation of LLM Summarization",
+  "authors": ["Hyangsuk Min", "Yuho Lee", "Minjeong Ban", "Jiaqi Deng", "Nicole Hee-Yeon Kim", "Taewon Yun", "Hang Su", "Jason Cai", "Hwanjun Song"],
+  "link": "https://arxiv.org/abs/2506.00549",
+  "arxiv_id": "2506.00549",
+  "year": 2026,
+  "category": "cs.CL, cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "multi-agent-debate-annotation"
+}
