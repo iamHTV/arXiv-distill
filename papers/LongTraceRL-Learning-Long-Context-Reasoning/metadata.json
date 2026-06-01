@@ -1,0 +1,15 @@
+{
+  "name": "LongTraceRL: Learning Long-Context Reasoning from Search Agent Trajectories with Rubric Rewards",
+  "arxiv_id": "2605.31584v1",
+  "authors": ["Nianyi Lin", "Jiajie Zhang", "Lei Hou", "Juanzi Li"],
+  "institution": "Tsinghua University",
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.CL", "cs.AI", "cs.LG"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31584v1",
+  "link_abs": "https://arxiv.org/abs/2605.31584v1",
+  "github": "https://github.com/THU-KEG/LongTraceRL",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "rubric-reward-long-context-rl"
+}
