@@ -1,0 +1,15 @@
+{
+  "name": "GRASP: Gated Regression-Aware Skill Proposer for Self-Improving LLM Agents",
+  "arxiv_id": "2605.29668",
+  "authors": ["Johannes Moll", "Jean-Philippe Corbeil", "Jiazhen Pan", "Martin Hadamitzky", "Daniel Rueckert", "Lisa Adams", "Keno Bressem"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.29668",
+  "link_abs": "https://arxiv.org/abs/2605.29668",
+  "github": "https://github.com/jomoll/GRASP",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "grasp-gated-self-improvement"
+}
