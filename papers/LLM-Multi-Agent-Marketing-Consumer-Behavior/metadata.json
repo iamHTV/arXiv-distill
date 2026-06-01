@@ -1,0 +1,15 @@
+{
+  "name": "LLM-Based Multi-Agent System for Simulating and Analyzing Marketing and Consumer Behavior",
+  "arxiv_id": "2510.18155",
+  "authors": ["Man-Lin Chu", "Lucian Terhorst", "Kadin Reed", "Tom Ni", "Weiwei Chen", "Rongyu Lin"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-10-20",
+  "categories": ["cs.AI", "cs.MA"],
+  "link_pdf": "https://arxiv.org/pdf/2510.18155",
+  "link_abs": "https://arxiv.org/abs/2510.18155",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "llm-multi-agent-marketing-simulation"
+}
