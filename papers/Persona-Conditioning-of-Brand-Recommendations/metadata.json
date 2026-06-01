@@ -1,0 +1,15 @@
+{
+  "name": "Persona Conditioning of Brand Recommendations in Retrieval-Augmented Commercial Chat: A Prominence-Stratified Cross-Provider Audit",
+  "arxiv_id": "2605.30207v1",
+  "authors": ["Will Jack", "Noah Lehman", "Keller Maloney", "Sarah Xu"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.30207v1",
+  "link_abs": "https://arxiv.org/abs/2605.30207v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "ai-brand-persona-audit"
+}

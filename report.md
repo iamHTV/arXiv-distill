@@ -34,6 +34,10 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #8 — Activation Outliers and Feature Death in SAEs (2605.31518v1)
 ✓ Nhãn: [applied] | Skill: sae-mean-centering-fix [VALID]
-✓ Insight: γ = ||μ||/||σ|| dự đoán feature death (Spearman ρ=0.89). Mean-centering bằng geometric median eliminates death từ 70%+ → 0%, zero runtime cost. Mean-centered SAE match 4× larger baseline.
+✓ Insight: γ = ||μ||/||σ|| dự đoán feature death (Spearman ρ=0.89). Mean-centering eliminates 70%+ death, zero cost.
+
+## Paper #9 — Persona Conditioning of Brand Recommendations (2605.30207v1)
+✓ Nhãn: [applied] | Skill: ai-brand-persona-audit [VALID]
+✓ Insight: Cùng 1 prompt, khác persona → recommendation set khác Δ=-0.12 đến -0.20. Category leaders persona-resistant (80% consistency), mid-market brands swap 75%. Phải conditioning on persona khi đo AI brand perception.
 
 → Tiếp tục: [YES]
