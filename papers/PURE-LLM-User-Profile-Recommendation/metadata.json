@@ -1,0 +1,15 @@
+{
+  "name": "LLM-based User Profile Management for Recommender System",
+  "arxiv_id": "2502.14541",
+  "authors": ["Seunghwan Bang", "Hwanjun Song"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-02-20",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2502.14541",
+  "link_abs": "https://arxiv.org/abs/2502.14541",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "pure-user-profile-recommendation"
+}
