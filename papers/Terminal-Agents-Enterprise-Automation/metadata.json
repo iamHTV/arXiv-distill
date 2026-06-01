@@ -1,0 +1,15 @@
+{
+  "name": "Terminal Agents Suffice for Enterprise Automation",
+  "arxiv_id": "2604.00073",
+  "authors": ["Patrice Bechard", "Orlando Marquez Ayala", "Emily Chen", "Jordan Skelton", "Sagar Davasam", "Srinivas Sunkara", "Vikas Yadav", "Sai Rajeswar"],
+  "institution": "ServiceNow",
+  "year": 2026,
+  "published": "2026-03-31",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2604.00073",
+  "link_abs": "https://arxiv.org/abs/2604.00073",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "terminal-agent-enterprise-automation"
+}
