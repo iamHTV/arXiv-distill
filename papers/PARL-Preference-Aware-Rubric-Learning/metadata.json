@@ -1,0 +1,15 @@
+{
+  "name": "Preference-Aware Rubric Learning for Personalized Evaluation",
+  "arxiv_id": "2605.31545v1",
+  "authors": ["Yilun Qiu", "Xiaoyan Zhao", "Yang Zhang", "Yuxin Chen", "Cilin Yan", "Jiayin Cai", "Xiaolong Jiang", "Yao Hu", "Yoko Yamakata", "Tat-Seng Chua"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31545v1",
+  "link_abs": "https://arxiv.org/abs/2605.31545v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "parl-personalized-evaluation"
+}
