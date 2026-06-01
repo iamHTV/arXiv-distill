@@ -1,0 +1,15 @@
+{
+  "name": "SCOPE: Self-Play via Co-Evolving Policies for Open-Ended Tasks",
+  "arxiv_id": "2605.31433v1",
+  "authors": ["Wai-Chung Kwan", "Aryo Pradipta Gema", "Joshua Ong Jun Leang", "Pasquale Minervini"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31433v1",
+  "link_abs": "https://arxiv.org/abs/2605.31433v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "scope-data-free-self-play"
+}
