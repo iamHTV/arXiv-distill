@@ -1,0 +1,15 @@
+{
+  "name": "Look Back to Reason Forward: Revisitable Memory for Long-Context LLM Agents",
+  "arxiv_id": "2509.23040",
+  "authors": ["Yaorui Shi", "Yuxin Chen", "Siyuan Wang", "Sihang Li", "Hengxing Cai", "Qi Gu", "Xiang Wang", "An Zhang"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-09-29",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2509.23040",
+  "link_abs": "https://arxiv.org/abs/2509.23040",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "rememr1-revisitable-memory"
+}
