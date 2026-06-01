@@ -80,6 +80,9 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất. Mục tiêu: ~300 pape
 ✓ Skill: llm-ad-persuasion-optimization | Insight: LLM ads parity personalization, superiority persuasion (59.1% vs 40.9%)
 
 ## Paper #26 — What Is Your AI Agent Buying? (2508.02630) [applied]
-✓ Skill: agentic-ecommerce-audit | Insight: Choice homogeneity → winner-take-all. Strong position biases. Sponsored penalized, endorsed rewarded. Seller-side tweaks → market share gains. Agentic markets volatile.
+✓ Skill: agentic-ecommerce-audit | Insight: Choice homogeneity, position biases, seller-side optimization
+
+## Paper #27 — RAMP: Reliable Multi-Agent Marketing (2508.11120) [applied]
+✓ Skill: ramp-marketing-multi-agent | Insight: Semantic memory + planner = +28 pp accuracy. Iterative verification +20 pp recall. Without memory → hallucination.
 
 → Tiếp tục: [YES]

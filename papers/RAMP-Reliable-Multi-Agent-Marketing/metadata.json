@@ -1,0 +1,15 @@
+{
+  "name": "Towards Reliable Multi-Agent Systems for Marketing Applications via Reflection, Memory, and Planning",
+  "arxiv_id": "2508.11120",
+  "authors": ["Lorenzo Jaime Yu Flores", "Junyi Shen", "Goodman Gu"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-08-18",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2508.11120",
+  "link_abs": "https://arxiv.org/abs/2508.11120",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "ramp-marketing-multi-agent"
+}
