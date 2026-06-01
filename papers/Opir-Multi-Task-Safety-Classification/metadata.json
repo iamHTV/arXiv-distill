@@ -1,0 +1,15 @@
+{
+  "name": "Opir: Efficient Multi-Task Safety Classification for Toxicity, Jailbreaks, Hate Speech, and Harmful Content",
+  "arxiv_id": "2605.29659",
+  "authors": ["Ihor Stepanov", "Aleksandr Smechov"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.29659",
+  "link_abs": "https://arxiv.org/abs/2605.29659",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "opir-safety-classification"
+}
