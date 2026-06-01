@@ -1,6 +1,6 @@
-# Skill: Strategic Perspective Activation for Decision Influence
-Source: 2605.31581v1
-Type: framework
+# Skill: Kích hoạt Perspective Chiến lược để Ảnh hưởng Quyết định
+Nguồn: 2605.31581v1
+Loại: framework
 
 ## Khi nào dùng skill này
 - Khi cần thuyết phục stakeholders bằng cách chọn evaluation framework có lợi
@@ -10,7 +10,7 @@ Type: framework
 ## KHÔNG nên dùng khi
 - Arguments dựa trên facts/objective data (không cần strategic framing)
 - Không có influence over evaluation process
-- Ethical constraint: không nên dùng để manipulate thông qua hiding relevant information
+- Ranh giới đạo đức: không nên dùng để manipulate thông qua hiding relevant information
 
 ## Input cần có
 - Danh sách tất cả arguments (pros/cons) của proposal
@@ -52,7 +52,7 @@ Type: framework
 - Stakeholders aligned với evaluation framework bạn chọn
 
 ## Ví dụ áp dụng
-**Scenario**: Engineering team propose microservice migration. Arguments: latency improvement (performance), operational complexity (reliability), deployment cost (finance), regression risk (reliability). Finance reviewer strongly opposes.
+**Tình huống**: Engineering team propose microservice migration. Arguments: latency improvement (performance), operational complexity (reliability), deployment cost (finance), regression risk (reliability). Finance reviewer strongly opposes.
 
 **Áp dụng**:
 - Perspectives: Π = {performance, reliability, finance}
@@ -62,9 +62,9 @@ Type: framework
 - Action: Schedule review with performance + reliability leads first, present as technical decision not cost decision
 - Result: proposal accepted under technical evaluation, finance deferred to later phase
 
-## Gotchas
-1. **Ethical boundary**: Deactivating perspective = hiding relevant information. Chỉ ethical khi proposal thực sự phù hợp với lens đã chọn
-2. **Backfire risk**: Nếu stakeholder bị deactivated cảm thấy bị bypass → political backlash
+## Lưu ý quan trọng
+1. **Ranh giới đạo đức**: Deactivating perspective = hiding relevant information. Chỉ đạo đức khi proposal thực sự phù hợp với lens đã chọn
+2. **Rủi ro backfire**: Nếu stakeholder bị deactivated cảm thấy bị bypass → political backlash
 3. **Dynamic arguments**: Attack relations có thể thay đổi khi new information xuất hiện → revisit map thường xuyên
 4. **Incomplete information**: Bạn có thể không biết đầy đủ attack relations → structural trap analysis có thể sai
 5. **Priority π cố định**: Bạn chọn được ρ nhưng không thay đổi π — nếu priority trong lens đó bất lợi, deactivation không đủ

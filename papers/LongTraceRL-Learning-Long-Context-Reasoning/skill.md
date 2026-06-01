@@ -1,6 +1,6 @@
-# Skill: Rubric Reward for Long-Context RL Training
-Source: 2605.31584v1
-Type: framework
+# Skill: Rubric Reward cho Long-Context RL Training
+Nguồn: 2605.31584v1
+Loại: framework
 
 ## Khi nào dùng skill này
 - Khi train LLM reasoning trên long-context (10K+ tokens) với nhiều distractor
@@ -59,10 +59,10 @@ Type: framework
 - Model reasoning tốt hơn trên long-context benchmarks
 - Response grounded in evidence hơn (higher entity recall)
 - Longer, more deliberate reasoning chains
-- Improvement: +3-6 points average trên long-context benchmarks
+- Cải thiện: +3-6 điểm average trên long-context benchmarks
 
 ## Ví dụ áp dụng
-**Scenario**: Company có internal knowledge base 10K documents. Muốn train AI assistant trả lời câu hỏi phức tạp cần thông tin từ nhiều documents.
+**Tình huống**: Company có internal knowledge base 10K documents. Muốn train AI assistant trả lời câu hỏi phức tạp cần thông tin từ nhiều documents.
 
 **Áp dụng**:
 1. Build KG từ internal docs (entity extraction + linking)
@@ -72,7 +72,7 @@ Type: framework
 5. Tier-2: docs hiện trong search nhưng agent không mở
 6. Train với rubric reward: check model có mention đúng entities (division name, acquisition date, revenue figure) không
 
-## Gotchas
+## Lưu ý quan trọng
 1. **α quá cao (≥0.5)**: Model học enumerate entities thay vì reasoning thật → giữ α=0.3
 2. **Distractor quá dễ**: Random distractor không challenge đủ → phải dùng agent trajectory
 3. **Reward hacking**: Nếu apply rubric cho cả wrong answers → model liệt kê entities lung tung → positive-only strategy
