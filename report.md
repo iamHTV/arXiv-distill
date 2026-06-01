@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp sau mỗi paper đã chưng cất. Mục tiêu: ~300 papers, chất lượng ưu tiên.
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 28 papers.
 
 ---
 
@@ -77,12 +77,15 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất. Mục tiêu: ~300 pape
 ✓ Skill: llm-spatial-representation-bias | Insight: Topology = Shield, Format = Sword, Semantics = Achilles' Heel
 
 ## Paper #25 — LLM-Generated Ads (2512.03373) [applied]
-✓ Skill: llm-ad-persuasion-optimization | Insight: LLM ads parity personalization, superiority persuasion (59.1% vs 40.9%)
+✓ Skill: llm-ad-persuasion-optimization | Insight: LLM ads parity personalization, superiority persuasion
 
 ## Paper #26 — What Is Your AI Agent Buying? (2508.02630) [applied]
 ✓ Skill: agentic-ecommerce-audit | Insight: Choice homogeneity, position biases, seller-side optimization
 
 ## Paper #27 — RAMP: Reliable Multi-Agent Marketing (2508.11120) [applied]
-✓ Skill: ramp-marketing-multi-agent | Insight: Semantic memory + planner = +28 pp accuracy. Iterative verification +20 pp recall. Without memory → hallucination.
+✓ Skill: ramp-marketing-multi-agent | Insight: Semantic memory + planner = +28 pp accuracy
+
+## Paper #28 — AI is the Strategy (2506.17339) [theoretical]
+✓ Skill: autonomous-business-model-strategy | Insight: AI not tool but THE strategy. Autonomous Business Models. Synthetic competition at machine-level speed. Gradual offloading of human decisions.
 
 → Tiếp tục: [YES]
