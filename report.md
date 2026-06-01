@@ -22,14 +22,18 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #5 — LLM Multi-Agent Marketing Simulation (2510.18155)
 ✓ Nhãn: [applied] | Skill: llm-multi-agent-marketing-simulation [VALID]
-✓ Insight: LLM agents simulate consumer behavior without predefined rules. Discount +51% revenue, 2-3 day effect. Emergent social dynamics: word-of-mouth, habit formation.
+✓ Insight: LLM agents simulate consumer behavior without predefined rules. Discount +51% revenue, 2-3 day effect.
 
 ## Paper #6 — Skill Reuse as Compression in Agentic RL (2605.31509v1)
 ✓ Nhãn: [applied] | Skill: reuserl-skill-compression [VALID]
-✓ Insight: Nén successful trajectories thành shared skill dictionary (BPE-style) + phạt hành vi đặc thù → cải thiện +13.4% OOD generalization
+✓ Insight: Nén successful trajectories thành shared skill dictionary (BPE-style) → +13.4% OOD generalization
 
 ## Paper #7 — If LLMs Have Human-Like Attributes, Then So Does AoE2 (2605.31514v1)
 ✓ Nhãn: [theoretical] | Skill: null-assumption-llm-evaluation [VALID]
-✓ Insight: Thuộc tính nhân hình hóa của LLM không unique — bất kỳ substrate đủ mạnh nào cũng exhibit. Dùng null assumption: assume AI KHÔNG có attribute, yêu cầu proof ngược.
+✓ Insight: Thuộc tính nhân hình hóa LLM không unique. Dùng null assumption: assume AI KHÔNG có attribute, yêu cầu proof ngược.
+
+## Paper #8 — Activation Outliers and Feature Death in SAEs (2605.31518v1)
+✓ Nhãn: [applied] | Skill: sae-mean-centering-fix [VALID]
+✓ Insight: γ = ||μ||/||σ|| dự đoán feature death (Spearman ρ=0.89). Mean-centering bằng geometric median eliminates death từ 70%+ → 0%, zero runtime cost. Mean-centered SAE match 4× larger baseline.
 
 → Tiếp tục: [YES]
