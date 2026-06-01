@@ -1,0 +1,15 @@
+{
+  "name": "JobBench: Aligning Agent Work With Human Will",
+  "arxiv_id": "2605.26329v1",
+  "authors": ["Yuetai Li", "Yichen Feng", "Zhangchen Xu", "Zixian Ma", "Kaiyuan Zheng", "Fengqing Jiang", "Xinghua Sun", "Rulin Shao", "Zichen Chen", "Yue Huang", "Xinyang Han", "Brian Lee", "Kayla Xu", "Shenglai Zeng", "Hang Hua", "Xiangliang Zhang", "Basel Alomair", "Ranjay Krishna", "Luke Zettlemoyer", "Pang Wei Koh", "Bhaskar Ramasubramanian", "Luyao Niu", "Xiang Yue", "Radha Poovendran"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.26329v1",
+  "link_abs": "https://arxiv.org/abs/2605.26329v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "jobbench-delegation-readiness"
+}

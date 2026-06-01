@@ -58,6 +58,10 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #14 — Recon: Reconstruction-Guided Reasoning Synthesis (2605.26969v1)
 ✓ Nhãn: [applied] | Skill: recon-reasoning-quality-evaluation [VALID]
-✓ Insight: Post-hoc rationalization ≠ reasoning. Dùng action reconstruction để evaluate reasoning quality. Recon-Select 54.7% win rate, Recon-GRPO 70%. Reasoning phải có predictive power, không chỉ justify observed action.
+✓ Insight: Post-hoc rationalization ≠ reasoning. Dùng action reconstruction để evaluate reasoning quality. Recon-Select 54.7%, Recon-GRPO 70%.
+
+## Paper #15 — JobBench: Aligning Agent Work With Human Will (2605.26329v1)
+✓ Nhãn: [applied] | Skill: jobbench-delegation-readiness [VALID]
+✓ Insight: Benchmark AI theo worker delegation desire, không chỉ economic value. Strongest agent (Claude Opus 4.7) chỉ 45.9%. GDPVal saturation misleading (83% vs 38.9% thực). 130 tasks, 35 occupations.
 
 → Tiếp tục: [YES]
