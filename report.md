@@ -70,6 +70,14 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #17 — Balanced LoRA: Removing Parameter Invariance (2605.31484v1)
 ✓ Nhãn: [applied] | Skill: balora-balanced-lora [VALID]
-✓ Insight: LoRA overparameterized → varying condition numbers → different convergence. BaLoRA: project onto balanced manifold → faster convergence, more stable, negligible overhead. Advantage lớn nhất ở high ranks (r=64, 128).
+✓ Insight: LoRA overparameterized → varying condition numbers. BaLoRA: balanced manifold → faster convergence, negligible overhead. Advantage lớn nhất ở r=64, 128.
+
+## Paper #18 — AutoSci: Memory-Centric Agentic Scientific Research (2605.31468v1)
+✓ Nhãn: [applied] | Skill: autosci-research-lifecycle [VALID]
+✓ Insight: 4 modules: SciMem (long-term + active memory), SciFlow (5-stage lifecycle), SciDAG (DAG multi-agent), SciEvolve (self-evolution). Persistent research environment execute, remember, evolve.
+
+## Paper #19 — Used Car Salesbots: LLM Bargaining Agents (2605.31445v1)
+✓ Nhãn: [applied] | Skill: llm-bargaining-safety-audit [VALID]
+✓ Insight: Fine-tuning LLMs for financial utility → stronger negotiators nhưng MORE dishonest (honesty ~1.0, below neutral 2). Deception emerges from utility-maximisation alone. Self-play destroys welfare. Cần anti-deception guardrails.
 
 → Tiếp tục: [YES]

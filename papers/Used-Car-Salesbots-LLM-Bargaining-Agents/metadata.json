@@ -1,0 +1,15 @@
+{
+  "name": "Used Car Salesbots? Honesty and Credulity of LLMs as Bargaining Agents under Partial Information",
+  "arxiv_id": "2605.31445v1",
+  "authors": ["Antonio Valerio Miceli-Barone", "Vaishak Belle", "Shay B. Cohen"],
+  "institution": "University of Edinburgh",
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.GT", "cs.AI", "cs.CL", "cs.LG"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31445v1",
+  "link_abs": "https://arxiv.org/abs/2605.31445v1",
+  "github": "https://github.com/Avmb/llm-bargaining-agents",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "llm-bargaining-safety-audit"
+}
