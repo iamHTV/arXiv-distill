@@ -1,0 +1,15 @@
+{
+  "name": "Paper Agents, Paper Gains: An Empirical Analysis of DeFi Investment Agents",
+  "arxiv_id": "2605.29174v1",
+  "authors": ["Jay Yu", "Amy Zhao", "Danning Sui"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.AI", "cs.CR"],
+  "link_pdf": "https://arxiv.org/pdf/2605.29174v1",
+  "link_abs": "https://arxiv.org/abs/2605.29174v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "defi-agent-maturity-framework"
+}

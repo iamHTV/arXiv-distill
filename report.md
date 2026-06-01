@@ -50,6 +50,10 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #12 — Multi-Agent AI Oracle for Prediction Markets (2605.30802v1)
 ✓ Nhãn: [applied] | Skill: multi-agent-oracle-hybrid-routing [VALID]
-✓ Insight: Independent aggregation 83.43% accuracy. Deliberative consensus HẠI accuracy (76%). Unanimous + high confidence → 97.87% trên 47% questions. Dùng disagreement làm escalation signal.
+✓ Insight: Independent aggregation 83.43% accuracy. Deliberative consensus HẠI accuracy (76%). Unanimous + high confidence → 97.87% trên 47% questions.
+
+## Paper #13 — Paper Agents, Paper Gains: DeFi Investment Agents (2605.29174v1)
+✓ Nhãn: [applied] | Skill: defi-agent-maturity-framework [VALID]
+✓ Insight: DeFi AI agents $3B+ valuation nhưng token holders lost $191.7M. Top 1% captures 81.4% gains. Market-cap/AUM >10,000x = pure speculation. Maturity framework: autonomous execution + profitability + alignment.
 
 → Tiếp tục: [YES]
