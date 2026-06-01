@@ -1,0 +1,11 @@
+{
+  "name": "Pre-Route: Activating Latent Routing Abilities of LLMs for RAG vs. Long-Context",
+  "authors": ["Yiwen Chen", "Kuan Li", "Fuzhen Zhuang", "Deqing Wang", "Zhao Zhang", "Liwen Zhang", "Yong Jiang", "Shuai Wang", "Minhao Cheng"],
+  "link": "https://arxiv.org/abs/2605.10235",
+  "arxiv_id": "2605.10235",
+  "year": 2026,
+  "category": "cs.CL, cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "pre-route-rag-lc-routing"
+}
