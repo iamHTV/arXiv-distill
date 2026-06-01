@@ -1,0 +1,15 @@
+{
+  "name": "Comprehensive Evaluation of Large Language Models on Software Engineering Tasks: A Multi-Task Benchmark",
+  "arxiv_id": "2602.07079",
+  "authors": ["Go Frendi Gunawan", "Mukhlis Amien"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-02-10",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2602.07079",
+  "link_abs": "https://arxiv.org/abs/2602.07079",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "llm-se-efficiency-evaluation"
+}
