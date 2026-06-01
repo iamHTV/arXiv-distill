@@ -1,0 +1,15 @@
+{
+  "name": "Agent-First Tool API: A Semantic Interface Paradigm for Enterprise AI Agent Systems",
+  "arxiv_id": "2605.10555",
+  "authors": ["Kai Pan"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-15",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.10555",
+  "link_abs": "https://arxiv.org/abs/2605.10555",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "agent-first-tool-api"
+}
