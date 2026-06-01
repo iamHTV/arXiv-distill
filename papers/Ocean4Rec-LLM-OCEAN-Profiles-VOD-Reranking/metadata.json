@@ -1,0 +1,11 @@
+{
+  "name": "Ocean4Rec: Offline LLM-Derived OCEAN Profiles for Request-Time VOD Reranking",
+  "authors": ["Wonkyun Kim", "Sehyun Bae", "Kwanki Ahn", "Mungyu Bae", "Saeun Choi", "Soyeon You", "Chandra Prabhakar", "Sehyun Kim"],
+  "link": "https://arxiv.org/abs/2605.27429",
+  "arxiv_id": "2605.27429",
+  "year": 2026,
+  "category": "cs.IR, cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "ocean4rec-offline-personality-profiling"
+}
