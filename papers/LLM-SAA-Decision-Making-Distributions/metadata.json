@@ -1,0 +1,11 @@
+{
+  "name": "LLM-SAA: LLM-persona Generated Distributions for Decision Making",
+  "authors": ["Jackie Baek", "Yunhan Chen", "Ziyu Chi", "Will Ma"],
+  "link": "https://arxiv.org/abs/2602.06357",
+  "arxiv_id": "2602.06357",
+  "year": 2026,
+  "category": "cs.AI, cs.CL, econ.GN",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "llm-saa-decision-simulation"
+}
