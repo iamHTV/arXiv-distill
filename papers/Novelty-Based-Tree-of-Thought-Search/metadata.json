@@ -1,0 +1,11 @@
+{
+  "name": "Novelty-based Tree-of-Thought Search for LLM Reasoning",
+  "authors": ["Leon Hamm", "Zlatan Ajanovic"],
+  "link": "https://arxiv.org/abs/2605.06040",
+  "arxiv_id": "2605.06040",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "novelty-pruning-tree-of-thought"
+}
