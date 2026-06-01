@@ -1,0 +1,15 @@
+{
+  "name": "Know When To Fold 'Em: Token-Efficient LLM Synthetic Data Generation via Multi-Stage In-Flight Rejection",
+  "arxiv_id": "2605.14062",
+  "authors": ["Anjir Ahmed Chowdhury", "Syed Zawad", "Feng Yan"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-19",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.14062",
+  "link_abs": "https://arxiv.org/abs/2605.14062",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "msifr-token-efficient-synthetic-data"
+}
