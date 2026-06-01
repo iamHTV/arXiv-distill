@@ -1,0 +1,15 @@
+{
+  "name": "AutoSci: A Memory-Centric Agentic System for the Full Scientific Research Lifecycle",
+  "arxiv_id": "2605.31468v1",
+  "authors": ["Weitong Qian", "Beicheng Xu", "Zhongao Xie", "Bowen Fan", "Guozheng Tang", "Jiale Chen", "Xinzhe Wu", "Mingtian Yang", "Chenyang Di", "Jiajun Li", "Lingching Tung", "Peichao Lai", "Yifei Xia", "Ziyi Guo", "Yanwei Xu", "Yanzhao Qin", "Shaoduo Gan", "Xupeng Miao", "Bin Cui"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31468v1",
+  "link_abs": "https://arxiv.org/abs/2605.31468v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "autosci-research-lifecycle"
+}
