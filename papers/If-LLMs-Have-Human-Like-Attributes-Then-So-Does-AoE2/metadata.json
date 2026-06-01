@@ -1,0 +1,15 @@
+{
+  "name": "If LLMs Have Human-Like Attributes, Then So Does Age of Empires II",
+  "arxiv_id": "2605.31514v1",
+  "authors": ["Adrian de Wynter"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.CL", "cs.AI", "cs.CY"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31514v1",
+  "link_abs": "https://arxiv.org/abs/2605.31514v1",
+  "github": null,
+  "classification": "theoretical",
+  "skill_status": "created",
+  "skill_name": "null-assumption-llm-evaluation"
+}

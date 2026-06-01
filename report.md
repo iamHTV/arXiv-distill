@@ -26,6 +26,10 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #6 — Skill Reuse as Compression in Agentic RL (2605.31509v1)
 ✓ Nhãn: [applied] | Skill: reuserl-skill-compression [VALID]
-✓ Insight: Nén successful trajectories thành shared skill dictionary (BPE-style) + phạt hành vi đặc thù → cải thiện +13.4% OOD generalization trên agentic benchmarks
+✓ Insight: Nén successful trajectories thành shared skill dictionary (BPE-style) + phạt hành vi đặc thù → cải thiện +13.4% OOD generalization
+
+## Paper #7 — If LLMs Have Human-Like Attributes, Then So Does AoE2 (2605.31514v1)
+✓ Nhãn: [theoretical] | Skill: null-assumption-llm-evaluation [VALID]
+✓ Insight: Thuộc tính nhân hình hóa của LLM không unique — bất kỳ substrate đủ mạnh nào cũng exhibit. Dùng null assumption: assume AI KHÔNG có attribute, yêu cầu proof ngược.
 
 → Tiếp tục: [YES]
