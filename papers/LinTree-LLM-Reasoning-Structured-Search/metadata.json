@@ -1,0 +1,15 @@
+{
+  "name": "LinTree: Improving LLM Reasoning with Explicitly Structured Search Histories",
+  "arxiv_id": "2605.31492v1",
+  "authors": ["Liwei Kang", "Yee Whye Teh", "Wee Sun Lee"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31492v1",
+  "link_abs": "https://arxiv.org/abs/2605.31492v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "lintree-structured-reasoning"
+}
