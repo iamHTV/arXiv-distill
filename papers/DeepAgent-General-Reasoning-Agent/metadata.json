@@ -1,0 +1,15 @@
+{
+  "name": "DeepAgent: A General Reasoning Agent with Scalable Toolsets",
+  "arxiv_id": "2510.21618",
+  "authors": ["Xiaoxi Li", "Wenxiang Jiao", "Jiarui Jin", "Guanting Dong", "Jiajie Jin", "Yinuo Wang", "Hao Wang", "Yutao Zhu", "Ji-Rong Wen", "Yuan Lu", "Zhicheng Dou"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-10-21",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2510.21618",
+  "link_abs": "https://arxiv.org/abs/2510.21618",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "deepagent-tool-use-rl"
+}
