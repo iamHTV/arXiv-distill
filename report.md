@@ -71,6 +71,9 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất. Mục tiêu: ~300 pape
 ✓ Skill: scope-data-free-self-play | Insight: Co-evolving Challenger + Solver → +10.4 points
 
 ## Paper #23 — FiVeD (2605.31446v1) [applied]
-✓ Skill: fived-sentiment-triplet-verification | Insight: Post-hoc verification + diagnostic reasoning → +3.53 F1. Plug-and-play, adjustable precision-recall.
+✓ Skill: fived-sentiment-triplet-verification | Insight: +3.53 F1, plug-and-play verification
+
+## Paper #24 — Sword, Shield, Achilles' Heel (2605.31404v1) [applied]
+✓ Skill: llm-spatial-representation-bias | Insight: Topology = Shield (backbone). Format = Sword (double-edged). Semantics = Achilles' Heel (fatal). Preserve topology, calibrate compression, ensure semantic correctness.
 
 → Tiếp tục: [YES]
