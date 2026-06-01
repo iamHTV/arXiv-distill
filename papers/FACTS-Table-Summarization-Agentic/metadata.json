@@ -1,0 +1,15 @@
+{
+  "name": "FACTS: Table Summarization via Offline Template Generation with Agentic Workflows",
+  "arxiv_id": "2510.13920",
+  "authors": ["Ye Yuan", "Mohammad Amin Shabani", "Siqi Liu"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-10-13",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2510.13920",
+  "link_abs": "https://arxiv.org/abs/2510.13920",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "facts-table-summarization"
+}
