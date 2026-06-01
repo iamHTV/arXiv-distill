@@ -1,0 +1,15 @@
+{
+  "name": "AgencyBench: Benchmarking the Frontiers of Autonomous Agents in 1M-Token Real-World Contexts",
+  "arxiv_id": "2601.11044",
+  "authors": ["Keyu Li", "Junhao Shi", "Yang Xiao", "Mohan Jiang", "Jie Sun", "Yunze Wu", "Dayuan Fu", "Shijie Xia", "Xiaojie Cai", "Tianze Xu", "Weiye Si", "Wenjie Li", "Dequan Wang", "Pengfei Liu"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-01-16",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2601.11044",
+  "link_abs": "https://arxiv.org/abs/2601.11044",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "N/A — benchmark paper, no workflow to extract",
+  "skill_name": null
+}
