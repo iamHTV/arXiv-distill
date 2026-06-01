@@ -66,6 +66,10 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 
 ## Paper #16 — LinTree: LLM Reasoning with Structured Search Histories (2605.31492v1)
 ✓ Nhãn: [applied] | Skill: lintree-structured-reasoning [VALID]
-✓ Insight: Raw search history flat KHÔNG đủ để outperform heuristic search. Thêm parent pointers (LinTree) → explicit tree structure → cải thiện solve rate và search efficiency. Minimal change, big impact.
+✓ Insight: Raw flat search history KHÔNG đủ. Thêm parent pointers (LinTree) → explicit tree structure → cải thiện solve rate. Minimal change, big impact.
+
+## Paper #17 — Balanced LoRA: Removing Parameter Invariance (2605.31484v1)
+✓ Nhãn: [applied] | Skill: balora-balanced-lora [VALID]
+✓ Insight: LoRA overparameterized → varying condition numbers → different convergence. BaLoRA: project onto balanced manifold → faster convergence, more stable, negligible overhead. Advantage lớn nhất ở high ranks (r=64, 128).
 
 → Tiếp tục: [YES]

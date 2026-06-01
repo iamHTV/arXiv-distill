@@ -1,0 +1,15 @@
+{
+  "name": "Balanced LoRA: Removing Parameter Invariance to Accelerate Convergence",
+  "arxiv_id": "2605.31484v1",
+  "authors": ["Valérie Castin", "Kimia Nadjahi", "Pierre Ablin", "Gabriel Peyré"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.LG"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31484v1",
+  "link_abs": "https://arxiv.org/abs/2605.31484v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "balora-balanced-lora"
+}
