@@ -1,0 +1,15 @@
+{
+  "name": "Efficient Post-training of LLMs for Code Generation With Offline Reinforcement Learning",
+  "arxiv_id": "2605.28409",
+  "authors": ["Mingze Wu", "Abhinav Anand", "Shweta Verma", "Mira Mezini"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-28",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.28409",
+  "link_abs": "https://arxiv.org/abs/2605.28409",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "offline-rl-code-generation"
+}
