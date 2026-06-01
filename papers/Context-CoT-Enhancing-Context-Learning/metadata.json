@@ -1,0 +1,11 @@
+{
+  "name": "Context-CoT: Enhancing Context Learning via High-Quality Reasoning Synthesis",
+  "authors": ["Hongbo Jin", "Mingnan Zhu", "Jingqi Tian", "Xu Jiang", "Zhongjing Du", "Haoran Tang", "Siyi Xie", "Qiaoman Zhang", "Jiayu Ding"],
+  "link": "https://arxiv.org/abs/2605.25354",
+  "arxiv_id": "2605.25354",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "context-cot-data-synthesis"
+}
