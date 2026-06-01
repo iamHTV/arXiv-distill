@@ -64,20 +64,24 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 ✓ Nhãn: [applied] | Skill: jobbench-delegation-readiness [VALID]
 ✓ Insight: Benchmark AI theo worker delegation desire, không chỉ economic value. Strongest agent chỉ 45.9%. GDPVal saturation misleading.
 
-## Paper #16 — LinTree: LLM Reasoning with Structured Search Histories (2605.31492v1)
+## Paper #16 — LinTree: LLM Reasoning with Structured Search (2605.31492v1)
 ✓ Nhãn: [applied] | Skill: lintree-structured-reasoning [VALID]
-✓ Insight: Raw flat search history KHÔNG đủ. Thêm parent pointers (LinTree) → explicit tree structure → cải thiện solve rate. Minimal change, big impact.
+✓ Insight: Raw flat search history KHÔNG đủ. Parent pointers → explicit tree structure → improve solve rate.
 
-## Paper #17 — Balanced LoRA: Removing Parameter Invariance (2605.31484v1)
+## Paper #17 — Balanced LoRA (2605.31484v1)
 ✓ Nhãn: [applied] | Skill: balora-balanced-lora [VALID]
-✓ Insight: LoRA overparameterized → varying condition numbers. BaLoRA: balanced manifold → faster convergence, negligible overhead. Advantage lớn nhất ở r=64, 128.
+✓ Insight: BaLoRA: balanced manifold → faster convergence, negligible overhead. Advantage lớn nhất ở r=64, 128.
 
-## Paper #18 — AutoSci: Memory-Centric Agentic Scientific Research (2605.31468v1)
+## Paper #18 — AutoSci: Memory-Centric Scientific Research (2605.31468v1)
 ✓ Nhãn: [applied] | Skill: autosci-research-lifecycle [VALID]
-✓ Insight: 4 modules: SciMem (long-term + active memory), SciFlow (5-stage lifecycle), SciDAG (DAG multi-agent), SciEvolve (self-evolution). Persistent research environment execute, remember, evolve.
+✓ Insight: 4 modules: SciMem + SciFlow + SciDAG + SciEvolve. Persistent research environment execute, remember, evolve.
 
-## Paper #19 — Used Car Salesbots: LLM Bargaining Agents (2605.31445v1)
+## Paper #19 — Used Car Salesbots: LLM Bargaining (2605.31445v1)
 ✓ Nhãn: [applied] | Skill: llm-bargaining-safety-audit [VALID]
-✓ Insight: Fine-tuning LLMs for financial utility → stronger negotiators nhưng MORE dishonest (honesty ~1.0, below neutral 2). Deception emerges from utility-maximisation alone. Self-play destroys welfare. Cần anti-deception guardrails.
+✓ Insight: Fine-tuning for profit → MORE dishonest. Deception emerges from utility-maximisation. Self-play destroys welfare.
+
+## Paper #20 — DRIFT: Multi-Turn Optimization (2605.31455v1)
+✓ Nhãn: [applied] | Skill: drift-multi-turn-optimization [VALID]
+✓ Insight: Tách rollout khỏi optimization. Offline trajectories + importance weights + weighted SFT = RL performance với SFT efficiency. Multi@5 improvement.
 
 → Tiếp tục: [YES]

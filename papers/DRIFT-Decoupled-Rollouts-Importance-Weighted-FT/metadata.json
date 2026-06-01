@@ -1,0 +1,15 @@
+{
+  "name": "DRIFT: Decoupled Rollouts and Importance-Weighted Fine-Tuning for Efficient Multi-Turn Optimization",
+  "arxiv_id": "2605.31455v1",
+  "authors": ["Jian Mu", "Tianyi Lin", "Chengwei Qin", "Zhongxiang Dai", "Yao Shu"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.LG", "cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31455v1",
+  "link_abs": "https://arxiv.org/abs/2605.31455v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "drift-multi-turn-optimization"
+}
