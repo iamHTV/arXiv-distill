@@ -1,0 +1,15 @@
+{
+  "name": "AgentsNet: Coordination and Collaborative Reasoning in Multi-Agent LLMs",
+  "arxiv_id": "2507.08616",
+  "authors": ["Florian Grötschla", "Luis Müller", "Jan Tönshoff", "Mikhail Galkin", "Bryan Perozzi"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-07-11",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2507.08616",
+  "link_abs": "https://arxiv.org/abs/2507.08616",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "N/A — benchmark paper, no workflow to extract",
+  "skill_name": null
+}
