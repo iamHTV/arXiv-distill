@@ -1,0 +1,15 @@
+{
+  "name": "Less is More: Benchmarking LLM Based Recommendation Agents",
+  "arxiv_id": "2601.20316",
+  "authors": ["Kargi Chauhan", "Mahalakshmi Venkateswarlu"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-01-28",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2601.20316",
+  "link_abs": "https://arxiv.org/abs/2601.20316",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "llm-recommendation-context-optimization"
+}
