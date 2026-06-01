@@ -1,0 +1,15 @@
+{
+  "name": "Evaluation and Benchmarking of LLM Agents: A Survey",
+  "arxiv_id": "2507.21504",
+  "authors": ["Mahmoud Mohammadi", "Yipeng Li", "Jane Lo", "Wendy Yip"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-07-21",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2507.21504",
+  "link_abs": "https://arxiv.org/abs/2507.21504",
+  "github": null,
+  "classification": "survey",
+  "skill_status": "N/A — survey, no workflow to extract",
+  "skill_name": null
+}
