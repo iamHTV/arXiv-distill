@@ -1,0 +1,15 @@
+{
+  "name": "Knowledge Updating? No More Model Editing! Just Selective Contextual Reasoning",
+  "arxiv_id": "2503.05212",
+  "authors": ["Guoxiu He", "Xin Song", "Aixin Sun"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-03-07",
+  "categories": ["cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2503.05212",
+  "link_abs": "https://arxiv.org/abs/2503.05212",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "scr-knowledge-updating"
+}
