@@ -1,0 +1,15 @@
+{
+  "name": "The Efficiency Frontier: A Unified Framework for Cost-Performance Optimization in LLM Context Management",
+  "arxiv_id": "2605.23071",
+  "authors": ["Binqi Shen", "Lier Jin", "Hanyu Cai", "Lan Hu", "Yuting Xin"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-21",
+  "categories": ["cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2605.23071",
+  "link_abs": "https://arxiv.org/abs/2605.23071",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "efficiency-frontier-cost-optimization"
+}
