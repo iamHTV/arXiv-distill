@@ -1,0 +1,15 @@
+{
+  "name": "LLMs for Customized Marketing Content Generation and Evaluation at Scale",
+  "arxiv_id": "2506.17863",
+  "authors": ["Haoran Liu", "Amir Tahmasbi", "Ehtesham Sam Haque", "Purak Jain"],
+  "institution": ["Texas A&M University", "Amazon Inc."],
+  "year": 2025,
+  "published": "2025-06-22",
+  "categories": ["cs.CL", "cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2506.17863",
+  "link_abs": "https://arxiv.org/abs/2506.17863",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "rag-marketing-content-autoeval"
+}

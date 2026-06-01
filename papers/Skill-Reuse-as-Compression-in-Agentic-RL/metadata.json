@@ -1,0 +1,15 @@
+{
+  "name": "Skill Reuse as Compression in Agentic RL",
+  "arxiv_id": "2605.31509v1",
+  "authors": ["Zhikun Xu", "Yu Feng", "Jacob Dineen", "Taiwei Shi", "Jieyu Zhao", "Ben Zhou"],
+  "institution": null,
+  "year": 2026,
+  "published": "2026-05-29",
+  "categories": ["cs.LG", "cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2605.31509v1",
+  "link_abs": "https://arxiv.org/abs/2605.31509v1",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "reuserl-skill-compression"
+}

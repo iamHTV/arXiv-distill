@@ -23,4 +23,9 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất.
 ## Paper #5 — LLM Multi-Agent Marketing Simulation (2510.18155)
 ✓ Nhãn: [applied] | Skill: llm-multi-agent-marketing-simulation [VALID]
 ✓ Insight: LLM agents simulate consumer behavior without predefined rules. Discount +51% revenue, 2-3 day effect. Emergent social dynamics: word-of-mouth, habit formation.
+
+## Paper #6 — Skill Reuse as Compression in Agentic RL (2605.31509v1)
+✓ Nhãn: [applied] | Skill: reuserl-skill-compression [VALID]
+✓ Insight: Nén successful trajectories thành shared skill dictionary (BPE-style) + phạt hành vi đặc thù → cải thiện +13.4% OOD generalization trên agentic benchmarks
+
 → Tiếp tục: [YES]
