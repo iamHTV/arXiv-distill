@@ -1,0 +1,11 @@
+{
+  "name": "HAGE: Harnessing Agentic Memory via RL-Driven Weighted Graph Evolution",
+  "authors": ["Dongming Jiang", "Yi Li", "Guanpeng Li", "Qiannan Li", "Bingzhe Li"],
+  "link": "https://arxiv.org/abs/2605.09942",
+  "arxiv_id": "2605.09942",
+  "year": 2026,
+  "category": "cs.AI, cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "hage-weighted-graph-memory"
+}

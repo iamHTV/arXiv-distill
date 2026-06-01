@@ -58,3 +58,9 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Insight: Prioritize moderate-difficulty questions + reuse rollouts → 40.7% average training time reduction. 256 reference questions sufficient for difficulty estimation.
 
 → Tiếp tục: [YES]
+
+## Paper #58 — MSumBench: Multi-dimensional Summarization Evaluation (2506.00549) [applied]
+✓ Skill: multi-agent-debate-annotation | Test: SKILL VALID
+✓ Insight: Multi-agent debate (Advocate+Skeptic+Adjudicator) improves evaluation quality. LLMs have systematic self-bias when evaluating own outputs.
+
+→ Tiếp tục: [YES]
