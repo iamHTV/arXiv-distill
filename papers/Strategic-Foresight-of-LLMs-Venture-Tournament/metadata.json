@@ -1,0 +1,15 @@
+{
+  "name": "The Strategic Foresight of LLMs: Evidence from a Fully Prospective Venture Tournament",
+  "arxiv_id": "2602.01684",
+  "authors": ["Felipe A. Csaszar", "Aticus Peterson", "Daniel Wilde"],
+  "institution": ["University of Michigan", "NYU Stern", "Indiana University"],
+  "year": 2026,
+  "published": "2026-02-02",
+  "categories": ["cs.AI", "econ.GN"],
+  "link_pdf": "https://arxiv.org/pdf/2602.01684",
+  "link_abs": "https://arxiv.org/abs/2602.01684",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "llm-strategic-foresight-screening"
+}
