@@ -1,0 +1,15 @@
+{
+  "name": "What Is Your AI Agent Buying? Evaluation, Biases, Model Dependence, & Emerging Implications for Agentic E-Commerce",
+  "arxiv_id": "2508.02630",
+  "authors": ["Amine Allouah", "Omar Besbes", "Josué D Figueroa", "Yash Kanoria", "Akshit Kumar"],
+  "institution": null,
+  "year": 2025,
+  "published": "2025-12-17",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2508.02630",
+  "link_abs": "https://arxiv.org/abs/2508.02630",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "agentic-ecommerce-audit"
+}

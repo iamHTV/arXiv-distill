@@ -77,6 +77,9 @@ Báo cáo tổng hợp sau mỗi paper đã chưng cất. Mục tiêu: ~300 pape
 ✓ Skill: llm-spatial-representation-bias | Insight: Topology = Shield, Format = Sword, Semantics = Achilles' Heel
 
 ## Paper #25 — LLM-Generated Ads (2512.03373) [applied]
-✓ Skill: llm-ad-persuasion-optimization | Insight: LLM ads parity personalization (51.1% vs 48.9%), superiority persuasion (59.1% vs 40.9%). Authority + Consensus best. Scarcity doesn't work. Near-zero cost.
+✓ Skill: llm-ad-persuasion-optimization | Insight: LLM ads parity personalization, superiority persuasion (59.1% vs 40.9%)
+
+## Paper #26 — What Is Your AI Agent Buying? (2508.02630) [applied]
+✓ Skill: agentic-ecommerce-audit | Insight: Choice homogeneity → winner-take-all. Strong position biases. Sponsored penalized, endorsed rewarded. Seller-side tweaks → market share gains. Agentic markets volatile.
 
 → Tiếp tục: [YES]
