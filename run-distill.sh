@@ -16,7 +16,7 @@
 # ============================================================================
 set -uo pipefail
 
-REPO="$HOME/work/arXiv-distill"
+REPO="/home/iamhtv/work/arXiv-distill"
 PROFILE="research-arxiv"
 LOGDIR="$REPO/logs"
 PIDFILE="$LOGDIR/supervisor.pid"

@@ -13,7 +13,7 @@
 # ============================================================================
 set -uo pipefail
 
-REPO="$HOME/work/arXiv-distill"
+REPO="/home/iamhtv/work/arXiv-distill"
 PROFILE="research-arxiv"
 cd "$REPO" || exit 1
 
