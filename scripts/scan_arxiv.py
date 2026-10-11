@@ -297,14 +297,14 @@ def main():
     }, open(outfile, "w"), ensure_ascii=False, indent=2)
     print("\nĐã lưu: %s" % outfile)
 
-    # 7) Cập nhật watermark — CHỈ khi quét được bài.
-    # Nếu quét 0 bài (arXiv nghỉ, lỗi mạng), GIỮ nguyên watermark cũ để lần sau
-    # quét lại từ mốc đó — tránh bỏ sót bài.
-    if len(all_papers) > 0:
+    # 7) Cập nhật watermark — CHỈ khi có bài MỚI (fresh), không phải mọi lần quét.
+    # Nếu fresh=0 (chưa có bài mới / arXiv nghỉ / lỗi mạng), GIỮ nguyên watermark
+    # để lần sau quét lại từ mốc đó — tránh bỏ sót bài.
+    if len(fresh) > 0:
         save_watermark(dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
         print("Watermark mới: %s" % dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     else:
-        print("Quét 0 bài → GIỮ nguyên watermark (không cập nhật).")
+        print("Không có bài mới (fresh=0) → GIỮ nguyên watermark.")
 
     # 8) Tóm tắt nhóm
     if not args.dry_run:

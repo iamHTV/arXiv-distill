@@ -273,11 +273,31 @@ papers/<tên-paper>/
 
 # PHẦN 6 — VẬN HÀNH
 
-## 6.1 Chạy tự động cả ngày
+## 6.1 Chạy tự động
+
+**Cronjob đã setup:** `arxiv-daily-scan` (job_id a4f281f16f13), chạy **5h sáng mỗi ngày**.
+```
+Chạy: scan → lọc → chấm điểm → gửi Telegram (KHÔNG tự distill)
+     → để user thức dậy duyệt rồi tự chạy distill
+Lịch: 0 5 * * *  (cron)  |  profile: research-arxiv  |  no_agent: true
+Log : ~/work/arXiv-distill/logs/daily-scan-<ngày>.log
+```
+
+Quản lý cronjob:
 ```bash
-# Trong Herdr pane (không dùng tmux)
-cd ~/work/arXiv-distill && ./run-distill.sh
-# Dừng: ./run-distill.sh --stop
+hermes --profile research-arxiv cron list
+hermes --profile research-arxiv cron run arxiv-daily-scan    # chạy ngay
+hermes --profile research-arxiv cron pause arxiv-daily-scan
+hermes --profile research-arxiv cron remove arxiv-daily-scan
+```
+
+## 6.1b Distill thủ công (khi thức dậy)
+Sau khi nhận Telegram + duyệt nhóm mơ hồ:
+```bash
+cd ~/work/arXiv-distill
+hermes --profile research-arxiv chat       # agent đọc queue + distill
+# hoặc chạy supervisor cho cả ngày:
+./run-distill.sh
 ```
 
 ## 6.2 Chạy 1 vòng pipeline thủ công
