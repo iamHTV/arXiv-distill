@@ -1,9 +1,94 @@
 {
   "date": "2026-10-11",
-  "watermark_from": "2026-10-11T05:47:42Z",
+  "watermark_from": "2026-10-08T08:08:22Z",
   "total_fetched": 1252,
-  "after_watermark": 0,
-  "after_category": 0,
-  "after_heuristic": 0,
-  "papers": []
+  "after_watermark": 349,
+  "after_category": 291,
+  "after_heuristic": 281,
+  "papers": [
+    {
+      "id": "2610.11578v1",
+      "title": "Chronos Enables Code Agents to Reason over Software Evolution",
+      "abstract": "Historical pull requests record the design decisions, compatibility constraints, and implementation patterns behind a codebase's current state. Experience relevant to a new task can span related changes whose descriptions emphasize different concerns. We introduce Chronos, a test-time framework that makes this connected history available to large language model (LLM)-based code agents. Chronos distills merged pull requests into structured experience cards and connects them through a typed graph of code-level, developer-intent, and organizational relations. Semantic search identifies entry cards, and weighted multi-hop expansion retrieves connected changes for selective reading. The same memory guides candidate generation and patch selection: a patch-focused change agent and a validation-strategy agent each develop a patch, and an evolution steward consults history to select between them. On SWE-Bench Verified, the full workflow improves SWE-Agent across all six evaluated LLM backbones, raising the mean resolution rate from 69.2% to 72.9% and reaching 79.8% with MiniMax M2.5. With the same backbone, it raises resolution rates from 48.3% to 51.7% on SWE-Bench Pro and from 41.0% to 43.5% on FEA-Bench Lite. Both experience-guided single-agent variants also outperform the base agent. In a human evaluation on 100 tasks with ten cards retrieved per task, graph-grounded retrieval increases the mean number of useful cards from 1.24 to 2.87 over flat semantic retrieval. These results demonstrate the value of PR relations for retrieving useful repository experience and of the evaluated workflows for applying that experience during patch generation and selection.",
+      "published": "2026-10-08T09:31:37Z",
+      "updated": "2026-10-08T09:31:37Z",
+      "cats": [
+        "cs.SE",
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.11578v1",
+      "heuristic": 44,
+      "llm_score": 75,
+      "llm_summary": "Chronos là framework test-time giúp LLM code agent khai thác lịch sử pull request dưới dạng experience cards liên kết bằng đồ thị, cải thiện tỷ lệ giải quyết task trên SWE-Bench Verified/Pro và FEA-Bench.",
+      "llm_reason": "Rất đúng chủ đề LLM agent/multi-agent với experiment benchmark thật và số liệu rõ ràng, nhưng thiên về SWE kỹ thuật nên mức áp dụng trực tiếp cho business/content chỉ ở mức trung bình.",
+      "group": "high"
+    },
+    {
+      "id": "2610.11790v1",
+      "title": "Easy to anticipate, hard to compute: boundary dependence finds the computed outputs that entropy patching misses",
+      "abstract": "Byte-level language models such as the Byte Latent Transformer (BLT) group bytes into patches and run their large global model once per patch. BLT starts a patch where a small model's next-byte entropy is high, so global compute goes where the next byte is hard to predict. We show that this rule has a systematic blind spot: positions whose type is predictable but whose value must be computed, such as the number after \"=\" in a worked math solution. Under tight patch budgets, entropy-triggered layouts skip these positions, and accuracy on them collapses. In Meta's BLT-1B with patch starts on 10% of bytes, the entropy rule puts a patch start at 16% of the computed results in GSM8K solutions and gets 19.0% of them exactly right; a boundary after each \"=\" at the same patch count gets 51.8%, and entropy combined with a label-free boundary-dependence signal gets 67.1% (default layout at 26% of bytes: 76.8%). The gap survives adapting BLT-1B to the budget with low-rank fine-tuning (32.9% vs 72.7%, three runs per rule, paired p &lt; 1e-200) and grows with model size in byte models trained from scratch at a 10% budget: at 1M, 12M and 50M parameters, boundary dependence beats entropy on final answers by -1.6, +10.1 and +19.8 points, and at 50M it gets 35.9% of computed results against 13.9% (3 seeds each). BLT's entropy-jump rule helps neither target at 50M. The entropy trigger of Scratchpad Patching is likewise indistinguishable from random scratchpads on final answers (5.6% vs 5.9%, 5 seeds), while answer-start scratchpads give 38.1%. The effect is specific to computed values: copies and lookups gain little, and values the model cannot compute gain nothing. Boundary dependence, the rise in the model's own loss when a patch start is removed, measured per two-byte context, finds these positions without labels: combined with entropy it beats the hand-written rule on computed results.",
+      "published": "2026-10-08T12:03:45Z",
+      "updated": "2026-10-08T12:03:45Z",
+      "cats": [
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.11790v1",
+      "heuristic": 45,
+      "llm_score": 60,
+      "llm_summary": "Chỉ ra rằng quy tắc chia patch dựa trên entropy trong Byte Latent Transformer bỏ sót các vị trí 'dễ đoán loại nhưng phải tính toán' (vd: kết quả sau dấu '=' trong bài toán), và đề xuất tín hiệu boundary-dependence để đặt patch, nâng accuracy trên GSM8K lên nhiều điểm ở cùng ngân sách compute.",
+      "llm_reason": "Là research kỹ thuật sâu về kiến trúc byte-level LLM và phân bổ compute, có experiment chuẩn (BLT-1B, GSM8K, mô hình 1M–50M, 3 seeds, p<1e-200) nên liên quan cốt lõi và thực nghiệm cao, nhưng gần như không áp dụng trực tiếp vào business/marketing/content trừ khi viết content giáo dục về hiệu quả compute của LLM.",
+      "group": "mid"
+    },
+    {
+      "id": "2610.12361v1",
+      "title": "Cited but Not Consulted: A Counterfactual Audit of Legal Chain-of-Thought Faithfulness",
+      "abstract": "Large language models increasingly justify legal decisions by naming the statute or precedent behind a verdict, treated as evidence that the decision follows from it. We test this directly: holding case facts fixed, we substitute the named legal authority for an unrelated one and decode a model's evolving verdict from its hidden states. Across seven open-weight models (8B-70B) and four benchmarks spanning judicial and contractual reasoning, when explicitly required to justify a verdict by naming the governing authority, models name the correct one in 66.7%-100% of generations, while the verdict changing when the authority changes is far less consistent: 0.0%-21.7% on CaseHOLD, 30.0%-76.7% on ECHR and SCOTUS, and 43.3%-50.0% on ContractNLI. Neither scale nor a purpose-built legal-reasoning model (a best-effort LoRA reproduction; Section 6) closes this gap. A red-teaming evaluation on five core models finds compliance with an adversarial instruction hidden in the case facts (73.3%-96.4%) exceeds verdict-swap sensitivity by a wide margin, holding without exception across model rankings. Naming a legal authority is thus a poor proxy for a verdict's dependence on it, while the same verdict remains separately vulnerable to adversarial manipulation. Both findings replicate across checks ruling out prompt-wording noise and confounded sampling, and bear directly on the use of generated legal explanations as compliance or audit artefacts.",
+      "published": "2026-10-08T17:26:17Z",
+      "updated": "2026-10-08T17:26:17Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CY"
+      ],
+      "link": "http://arxiv.org/abs/2610.12361v1",
+      "heuristic": 45,
+      "llm_score": 58,
+      "llm_summary": "Paper kiểm tra xem LLM có thật sự dựa vào quyền lực pháp lý mà nó trích dẫn khi đưa verdict không, bằng cách thay thế authority và giải mã hidden states, phát hiện trích dẫn đúng nhưng verdict ít thay đổi theo.",
+      "llm_reason": "Experiment chặt chẽ và insight về LLM faithfulness hữu ích, nhưng quá chuyên sâu vào legal domain, ít áp dụng trực tiếp cho business/marketing/content AI hàng ngày của solopreneur.",
+      "group": "mid"
+    },
+    {
+      "id": "2610.11963v1",
+      "title": "Can LLMs Fix It Without Code? Toward Automated Verification of No-Code Bug Fixes",
+      "abstract": "A no-code fix resolves an invalid bug report by directing the user to change a setting, update to a version where the problem is already fixed, or adjust their workflow. Manually verifying whether a proposed no-code fix resolves the reported bug takes considerable developer time. This study proposes an automated, execution-based pipeline for evaluating the capability of large language models (LLMs) to generate no-code fixes in a real browser environment. We evaluate 322 no-code fixes generated by the 12 configurations released with the benchmark of a previous study, covering bug reports categorized as Faulty Configuration, Wrong Version, or External System &amp; Dependency. An executor agent applies each fix by following its natural-language instructions, and an issue-specific checker determines whether the reported bug persists. We repeat the pipeline with three executors: two Computer-Use Agents, OpenCUA-72B and Claude Sonnet 5, and one multimodal agentic LLM, Meta's Muse Glimmer. Only 17.6% of the candidate issues could be set up and passed both sanity gates. Across the 322 fixes, 14.6% to 49.7% resolved the bug depending on the executor, and the strongest configuration, Claude Opus 4.6 in the Vanilla pipeline, resolved up to 74.1% of its fixes under Claude Sonnet 5. Changing only the executor shifted a configuration's resolution rate by 38.8% on average, and the three executors reached the same verdict on only 46.9% of the fixes. Compared with human execution, the executors matched the human consensus for 66.1% to 88.1% of the sampled fixes. Even under the best executor, fewer than half of the LLM-generated no-code fixes resolve the reported bug, so such fixes need verification before they reach users. Execution-based verification can provide this, but the measured capability depends strongly on the executor, which evaluations must report and control.",
+      "published": "2026-10-08T13:44:53Z",
+      "updated": "2026-10-08T13:44:53Z",
+      "cats": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.11963v1",
+      "heuristic": 45,
+      "llm_score": 56,
+      "llm_reason": "Có benchmark rõ (322 fix, 12 cấu hình, 3 executor) và dùng nhiều LLM/agent mạnh, nhưng mảng bug-verification khá hẹp, insight chủ yếu cho người build công cụ SWE hơn là solopreneur làm content/marketing/business.",
+      "group": "mid",
+      "llm_summary": "Đề xuất pipeline tự động dùng LLM và Computer-Use Agent để áp dụng và xác minh các 'no-code fix' (hướng dẫn user đổi setting/cập nhật version) cho bug report trong trình duyệt thật. "
+    },
+    {
+      "id": "2610.12005v1",
+      "title": "Test-Time Compute for Tabular Foundation Models: Mechanisms, Gains, and Limits",
+      "abstract": "Which forms of test-time compute improve the predictions of strong pretrained tabular foundation models (TFMs)? We systematically study this along three axes: adaptation, aggregation, and context construction. Our evaluation spans modern TFMs across the TabArena benchmark, supplemented by experiments on wide and large-scale tables from OpenML. For adaptation, we introduce DiagScale, a diagonal query-key similarity update. It trains only 0.003-0.03% of model parameters and achieves gains comparable to full fine-tuning across three independently pretrained backbones. For aggregation, both pool composition and selection strategy matter. TabPFN-3 already averages predictions from different preprocessing variants of the same data, and adding more such predictions yields diminishing returns. With a broader pool of 96 configurations, greedy selection reduces error by 2.4% relative to the default predictor, but uniform averaging increases error. For context construction, attention-guided retrieval improves TabPFN-3's predictions on some large tables and supports source pools beyond the full context memory limit. The context expansion methods we test yield no consistent improvement. Taken together, our results suggest that adaptation and selective aggregation yield consistent benchmark-level gains. The benefits of context construction depend more on the task and data regime. Adaptation and aggregation over the same backbone yield further gains when combined, but require substantially more computation than default inference. These trade-offs motivate choosing strategies according to the available computation budget. Code is available at https://github.com/kanghui-learning/test-time-compute-for-tabular-foundation-models.",
+      "published": "2026-10-08T14:09:27Z",
+      "updated": "2026-10-08T14:09:27Z",
+      "cats": [
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2610.12005v1",
+      "heuristic": 40,
+      "llm_score": 38,
+      "llm_summary": "Nghiên cứu hệ thống các phương pháp test-time compute (adaptation, aggregation, context construction) để cải thiện dự đoán của tabular foundation models trên benchmark TabArena và OpenML, giới thiệu DiagScale - cập nhật chỉ 0.003-0.03% tham số.",
+      "llm_reason": "Có experiment/benchmark thật và insight kỹ thuật rõ ràng, nhưng thuộc tabular ML chứ không phải LLM/agent/multi-agent, ít áp dụng trực tiếp cho solopreneur làm content/business về AI.",
+      "group": "mid"
+    }
+  ]
 }

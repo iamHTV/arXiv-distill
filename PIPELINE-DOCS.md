@@ -49,7 +49,8 @@ distill từ điểm cao xuống, chưng cất thành tri thức có giá trị 
 │   ├── send_telegram.py        # Gửi Telegram
 │   └── run_pipeline.sh         # (sắp có) Orchestrator 1 vòng đầy đủ
 └── papers/
-    └── <tên-paper>/            # 5 files/paper (xem Phần 5)
+    └── <năm>/<tháng>/<ngày>/  # ngày = NGÀY DISTILL (commit), vd 2026/10/11/
+        └── <tên-paper>/        # 5 files/paper (xem Phần 5)
 ```
 
 ---

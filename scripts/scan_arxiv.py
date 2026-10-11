@@ -138,7 +138,9 @@ def llm_score_batch(papers, key, max_llm):
             "- Liên quan business/content (0-20): áp dụng được cho business/marketing/content?\n"
             "- Insight hành động được (0-20): đọc xong làm được gì cụ thể?\n\n"
             "TITLE: %s\n\nABSTRACT: %s\n\n"
-            "Trả về DUY NHẤT JSON: {\"score\": <0-100>, \"reason\": \"<1 câu>\", "
+            "Trả về DUY NHẤT JSON: {\"score\": <0-100>, "
+            "\"summary\": \"<1 câu nói paper LÀM GÌ, tiếng Việt>\", "
+            "\"reason\": \"<1 câu vì sao điểm này>\", "
             "\"group\": \"<high|mid|fuzzy|drop>\"}" % (p["title"], p["abstract"][:1500])
         )
         body = json.dumps({
@@ -162,9 +164,17 @@ def llm_score_batch(papers, key, max_llm):
             if not m:
                 m = re.search(r"\{.*\}", txt, re.S)
             j = json.loads(m.group(0)) if m else {}
-            p["llm_score"] = int(j.get("score", 0))
-            p["llm_reason"] = j.get("reason", "")
-            p["group"] = j.get("group") or _group_from_score(p["llm_score"])
+            if not j or "score" not in j:
+                # Không parse được → coi là lỗi, không phải điểm 0
+                p["llm_score"] = -1
+                p["llm_summary"] = ""
+                p["llm_reason"] = "PARSE_FAIL: %s" % (txt[:60].replace("\n", " "))
+                p["group"] = "error"
+            else:
+                p["llm_score"] = int(j.get("score", 0))
+                p["llm_summary"] = j.get("summary", "")
+                p["llm_reason"] = j.get("reason", "")
+                p["group"] = j.get("group") or _group_from_score(p["llm_score"])
         except Exception as ex:
             p["llm_score"] = -1
             p["llm_reason"] = "LLM_FAIL: %s" % str(ex)[:60]
@@ -174,13 +184,15 @@ def llm_score_batch(papers, key, max_llm):
                                       p["id"], p.get("llm_score")))
         time.sleep(3)  # ling rate limit ~12 req/cửa sổ ngắn → giãn 3s cho an toàn
 
-    # Retry các bài lỗi (-1) — thường do 429. Chờ lâu hơn rồi thử lại 1 lần.
-    failed = [p for p in scored if p.get("llm_score", -1) == -1]
-    if failed:
-        print("  Retry %d bài lỗi sau khi chờ..." % len(failed))
-        time.sleep(10)
+    # Retry các bài lỗi (-1) — thường do 429. Chờ lâu rồi thử lại, tối đa 2 vòng.
+    for attempt in (1, 2):
+        failed = [p for p in scored if p.get("llm_score", -1) == -1]
+        if not failed:
+            break
+        wait = 15 * attempt
+        print("  Retry vòng %d: %d bài lỗi (chờ %ds)..." % (attempt, len(failed), wait))
+        time.sleep(wait)
         for p in failed:
-            print("  retry %s" % p["id"])
             _score_one(p, key)
             time.sleep(4)
     return scored
@@ -195,7 +207,9 @@ def _score_one(p, key):
         "- Liên quan business/marketing/content: 0-20\n"
         "- Insight hành động được: 0-20\n\n"
         "TITLE: %s\n\nABSTRACT: %s\n\n"
-        "Trả về DUY NHẤT JSON: {\"score\": <0-100>, \"reason\": \"<1 câu>\", "
+        "Trả về DUY NHẤT JSON: {\"score\": <0-100>, "
+        "\"summary\": \"<1 câu nói paper LÀM GÌ, tiếng Việt>\", "
+        "\"reason\": \"<1 câu vì sao điểm này>\", "
         "\"group\": \"<high|mid|fuzzy|drop>\"}" % (p["title"], p["abstract"][:1500])
     )
     body = json.dumps({"model": LLM_MODEL,
@@ -211,9 +225,16 @@ def _score_one(p, key):
         txt = msg.get("content") or msg.get("reasoning") or ""
         m = re.search(r"\{[^{}]*\"score\"[^{}]*\}", txt, re.S) or re.search(r"\{.*\}", txt, re.S)
         j = json.loads(m.group(0)) if m else {}
-        p["llm_score"] = int(j.get("score", 0))
-        p["llm_reason"] = j.get("reason", "")
-        p["group"] = j.get("group") or _group_from_score(p["llm_score"])
+        if not j or "score" not in j:
+            p["llm_score"] = -1
+            p["llm_summary"] = ""
+            p["llm_reason"] = "RETRY_PARSE_FAIL"
+            p["group"] = "error"
+        else:
+            p["llm_score"] = int(j.get("score", 0))
+            p["llm_summary"] = j.get("summary", "")
+            p["llm_reason"] = j.get("reason", "")
+            p["group"] = j.get("group") or _group_from_score(p["llm_score"])
     except Exception as ex:
         p["llm_reason"] = "RETRY_FAIL: %s" % str(ex)[:50]
     return p

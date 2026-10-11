@@ -2,6 +2,13 @@
 """
 send_telegram.py — Gửi danh sách paper đã chấm điểm lên Telegram.
 
+Gửi 3 section (theo yêu cầu user — bài máy cho đúng chưa chắc user thấy đúng):
+  1. 🔥 DISTILL NGAY   (điểm 75+)   — máy tự làm
+  2. ⏳ LÀM SAU        (điểm 55-74) — máy tự làm sau
+  3. ❓ CẦN BẠN DUYỆT  (điểm 35-54) — chờ user quyết khi dậy
+
+Mỗi bài kèm tóm tắt gọn (1-2 câu) để user hiểu paper làm gì.
+
 Chờ user setup bot: đặt TELEGRAM_BOT_TOKEN và TELEGRAM_CHAT_ID vào .env
 Chạy:  python3 send_telegram.py scans/<ngày>.json
 """
@@ -12,6 +19,7 @@ import urllib.parse
 import urllib.request
 
 ENV_FILE = os.path.expanduser("~/.hermes/profiles/research-arxiv/.env")
+MAX_PER_SECTION = 15   # tránh tele message quá dài
 
 
 def load_env():
@@ -38,37 +46,56 @@ def send(text, token, chat_id):
         return json.load(r)
 
 
+def _short(s, n=140):
+    s = " ".join((s or "").split())
+    return s[:n] + ("…" if len(s) > n else "")
+
+
 def build_message(scan):
     papers = scan.get("papers", [])
-    high = [p for p in papers if p.get("group") == "high"]
-    fuzzy = [p for p in papers if p.get("group") == "fuzzy"]
+    high = sorted([p for p in papers if p.get("group") == "high"],
+                  key=lambda x: -x.get("llm_score", 0))
+    mid = sorted([p for p in papers if p.get("group") == "mid"],
+                 key=lambda x: -x.get("llm_score", 0))
+    fuzzy = sorted([p for p in papers if p.get("group") == "fuzzy"],
+                   key=lambda x: -x.get("llm_score", 0))
 
-    lines = []
-    lines.append("*arXiv scan %s*" % scan.get("date", "?"))
-    lines.append("Quét %d → lọc %d → chấm %d bài" % (
-        scan.get("total_fetched", 0), scan.get("after_category", 0), len(papers)))
-    lines.append("")
+    L = []
+    L.append("*arXiv scan %s*" % scan.get("date", "?"))
+    L.append("Quét %d → lọc %d bài → chấm %d | 🔥%d ⏳%d ❓%d" % (
+        scan.get("total_fetched", 0), scan.get("after_category", 0),
+        len(papers), len(high), len(mid), len(fuzzy)))
 
-    if high:
-        lines.append("*🔥 DISTILL NGAY (%d bài)*" % len(high))
-        for p in high[:12]:
-            lines.append("`%d` [%s](%s)" % (
-                p.get("llm_score", 0), p["title"][:80], p.get("link", "")))
-            if p.get("llm_reason"):
-                lines.append("   _%s_" % p["llm_reason"][:90])
-        lines.append("")
+    def section(icon, title, items, note):
+        if not items:
+            return
+        L.append("")
+        L.append("%s *%s (%d)* — _%s_" % (icon, title, len(items), note))
+        for p in items[:MAX_PER_SECTION]:
+            L.append("")
+            L.append("*%d* · [%s](%s)" % (p.get("llm_score", 0),
+                                         _short(p["title"], 90), p.get("link", "")))
+            # Tóm tắt gọn paper LÀM GÌ (để user hiểu), rồi lý do chấm điểm
+            sm = p.get("llm_summary") or ""
+            if sm:
+                L.append("   📄 %s" % _short(sm, 220))
+            rs = p.get("llm_reason") or ""
+            if rs:
+                L.append("   📝 %s" % _short(rs, 160))
+            L.append("   `%s`" % p["id"])
+        if len(items) > MAX_PER_SECTION:
+            L.append("_…và %d bài nữa (xem scans/%s.json)_" % (
+                len(items) - MAX_PER_SECTION, scan.get("date", "")))
 
-    if fuzzy:
-        lines.append("*❓ CẦN BẠN DUYỆT (%d bài)*" % len(fuzzy))
-        for p in fuzzy[:12]:
-            lines.append("`%d` [%s](%s)" % (
-                p.get("llm_score", 0), p["title"][:80], p.get("link", "")))
-        lines.append("")
+    section("🔥", "DISTILL NGAY", high, "máy tự làm")
+    section("⏳", "LÀM SAU", mid, "máy tự làm sau khi xong nhóm trên")
+    section("❓", "CẦN BẠN DUYỆT", fuzzy, "mơ hồ — chờ bạn quyết khi dậy")
 
-    if not high and not fuzzy:
-        lines.append("_Không có paper đáng chú ý hôm nay._")
+    if not (high or mid or fuzzy):
+        L.append("")
+        L.append("_Không có bài đáng chú ý — có thể arXiv nghỉ (cuối tuần) hoặc chưa có bài mới._")
 
-    return "\n".join(lines)
+    return "\n".join(L)
 
 
 def main():
@@ -78,16 +105,29 @@ def main():
     env = load_env()
     token = env.get("TELEGRAM_BOT_TOKEN")
     chat = env.get("TELEGRAM_CHAT_ID")
+    msg = build_message(scan)
+
     if not token or not chat:
         print("CHƯA SETUP TELEGRAM. Cần thêm vào %s:" % ENV_FILE)
         print("  TELEGRAM_BOT_TOKEN=<token từ @BotFather>")
         print("  TELEGRAM_CHAT_ID=<chat id của bạn>")
         print("\n--- Nội dung SẼ gửi ---")
-        print(build_message(scan))
+        print(msg)
         sys.exit(0)
-    msg = build_message(scan)
-    r = send(msg, token, chat)
-    print("Đã gửi:", r.get("ok"), "| message_id:", r.get("result", {}).get("message_id"))
+
+    # Telegram giới hạn 4096 ký tự/message → tách nếu dài
+    chunks, cur = [], ""
+    for line in msg.split("\n"):
+        if len(cur) + len(line) + 1 > 3900:
+            chunks.append(cur)
+            cur = ""
+        cur += line + "\n"
+    if cur.strip():
+        chunks.append(cur)
+
+    for i, c in enumerate(chunks, 1):
+        r = send(c, token, chat)
+        print("Đã gửi phần %d/%d: %s" % (i, len(chunks), r.get("ok")))
 
 
 if __name__ == "__main__":
