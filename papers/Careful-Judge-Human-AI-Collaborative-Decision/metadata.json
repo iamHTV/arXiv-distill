@@ -1,0 +1,20 @@
+{
+  "name": "Careful Judge: Safe and Efficient Human-AI Collaborative Decision Making",
+  "arxiv_id": "2610.09043",
+  "authors": ["Chenyu Zhang (MIT)", "Rachel Luo (NVIDIA)", "Boyi Li (NVIDIA)", "Anjali Parashar (MIT)", "Marco Pavone (NVIDIA/Stanford)", "Apoorva Sharma (NVIDIA)"],
+  "year": 2026,
+  "category": "stat.ML (cs.AI, cs.LG)",
+  "link_pdf": "https://arxiv.org/pdf/2610.09043",
+  "citation_count": "not found (submitted 6 Oct 2026)",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "CARE human-AI escalation with risk control",
+  "skill_test": "SKILL VALID",
+  "datasets": ["nuPlan (driving, 10000)", "HateBench (hate speech, 7054)", "iSafetyBench (workplace hazard video, 1100)", "ASIMOV (robotic tool use, 1437)"],
+  "key_numbers": {
+    "query_reduction_overall": "25-81% vs baselines",
+    "iSafetyBench_5pct": "CARE 21.7% vs SE 57.1% escalation (-62%)",
+    "HateBench_savings": "49-66% vs SE, 26-48% vs PPI+SE; error reduction 15.5-70.5% over 8 black-box models (raw error 14.5-44.7%)",
+    "robustness": "SE/PPI +28.0pp/+11.8pp query rate when switching to direct overconfident confidence; CARE stable"
+  }
+}
