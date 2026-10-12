@@ -126,9 +126,45 @@ def _group_from_score(s):
     return "error"
 
 
+def _call_llm(p, key, body):
+    """Gọi LLM 1 lần, parse JSON vào p. Dùng chung cho chấm điểm + retry."""
+    req = urllib.request.Request(
+        "https://openrouter.ai/api/v1/chat/completions", data=body,
+        headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            d = json.load(r)
+        msg = d["choices"][0]["message"]
+        txt = msg.get("content") or ""
+        # Fallback: ling đôi khi trả JSON trong "reasoning" thay vì "content"
+        if not txt.strip() and msg.get("reasoning"):
+            txt = msg["reasoning"]
+        m = re.search(r"\{[^{}]*\"score\"[^{}]*\}", txt, re.S)
+        if not m:
+            m = re.search(r"\{.*\}", txt, re.S)
+        j = json.loads(m.group(0)) if m else {}
+        if not j or "score" not in j:
+            p["llm_score"] = -1
+            p["llm_summary"] = ""
+            p["llm_reason"] = "PARSE_FAIL: %s" % (txt[:60].replace("\n", " "))
+            p["group"] = "error"
+        else:
+            p["llm_score"] = int(j.get("score", 0))
+            p["llm_summary"] = j.get("summary", "")
+            p["llm_reason"] = j.get("reason", "")
+            p["group"] = j.get("group") or _group_from_score(p["llm_score"])
+    except Exception as ex:
+        p["llm_score"] = -1
+        p["llm_summary"] = ""
+        p["llm_reason"] = "LLM_FAIL: %s" % str(ex)[:60]
+        p["group"] = "error"
+    return p
+
+
 def llm_score_batch(papers, key, max_llm):
-    """Chấm điểm bằng LLM. Batch để tiết kiệm call."""
+    """Chấm điểm bằng LLM, tuần tự với adaptive sleep chống 429."""
     scored = []
+    consec_429 = 0
     for i, p in enumerate(papers[:max_llm]):
         prompt = (
             "Bạn chấm điểm mức độ liên quan của paper arXiv cho một solopreneur "
@@ -149,40 +185,19 @@ def llm_score_batch(papers, key, max_llm):
             "max_tokens": 2000,   # PHẢI lớn: ling là model reasoning, dồn token vào
                                   # reasoning trước khi trả content. 300 → content rỗng.
         }).encode()
-        req = urllib.request.Request(
-            "https://openrouter.ai/api/v1/chat/completions", data=body,
-            headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
-        try:
-            with urllib.request.urlopen(req, timeout=120) as r:
-                d = json.load(r)
-            msg = d["choices"][0]["message"]
-            txt = msg.get("content") or ""
-            # Fallback: ling đôi khi trả JSON trong "reasoning" thay vì "content"
-            if not txt.strip() and msg.get("reasoning"):
-                txt = msg["reasoning"]
-            m = re.search(r"\{[^{}]*\"score\"[^{}]*\}", txt, re.S)
-            if not m:
-                m = re.search(r"\{.*\}", txt, re.S)
-            j = json.loads(m.group(0)) if m else {}
-            if not j or "score" not in j:
-                # Không parse được → coi là lỗi, không phải điểm 0
-                p["llm_score"] = -1
-                p["llm_summary"] = ""
-                p["llm_reason"] = "PARSE_FAIL: %s" % (txt[:60].replace("\n", " "))
-                p["group"] = "error"
-            else:
-                p["llm_score"] = int(j.get("score", 0))
-                p["llm_summary"] = j.get("summary", "")
-                p["llm_reason"] = j.get("reason", "")
-                p["group"] = j.get("group") or _group_from_score(p["llm_score"])
-        except Exception as ex:
-            p["llm_score"] = -1
-            p["llm_reason"] = "LLM_FAIL: %s" % str(ex)[:60]
-            p["group"] = "error"
+        _call_llm(p, key, body)
         scored.append(p)
         print("  [%d/%d] %s -> %s" % (i + 1, min(max_llm, len(papers)),
                                       p["id"], p.get("llm_score")))
-        time.sleep(3)  # ling rate limit ~12 req/cửa sổ ngắn → giãn 3s cho an toàn
+
+        # Adaptive sleep: càng gặp 429 liên tiếp, nghỉ càng lâu (giảm dần khi OK).
+        if p.get("llm_score", -1) == -1:
+            consec_429 += 1
+            wait = min(5 * consec_429, 30)
+        else:
+            consec_429 = 0
+            wait = 4
+        time.sleep(wait)
 
     # Retry các bài lỗi (-1) — thường do 429. Chờ lâu rồi thử lại, tối đa 2 vòng.
     for attempt in (1, 2):
@@ -215,29 +230,7 @@ def _score_one(p, key):
     body = json.dumps({"model": LLM_MODEL,
                        "messages": [{"role": "user", "content": prompt}],
                        "max_tokens": 2000}).encode()
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions", data=body,
-        headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=120) as r:
-            d = json.load(r)
-        msg = d["choices"][0]["message"]
-        txt = msg.get("content") or msg.get("reasoning") or ""
-        m = re.search(r"\{[^{}]*\"score\"[^{}]*\}", txt, re.S) or re.search(r"\{.*\}", txt, re.S)
-        j = json.loads(m.group(0)) if m else {}
-        if not j or "score" not in j:
-            p["llm_score"] = -1
-            p["llm_summary"] = ""
-            p["llm_reason"] = "RETRY_PARSE_FAIL"
-            p["group"] = "error"
-        else:
-            p["llm_score"] = int(j.get("score", 0))
-            p["llm_summary"] = j.get("summary", "")
-            p["llm_reason"] = j.get("reason", "")
-            p["group"] = j.get("group") or _group_from_score(p["llm_score"])
-    except Exception as ex:
-        p["llm_reason"] = "RETRY_FAIL: %s" % str(ex)[:50]
-    return p
+    return _call_llm(p, key, body)
 
 
 def main():

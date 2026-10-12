@@ -24,11 +24,14 @@ Agent tự: đọc report.md → biết tới paper nào → distill tiếp → 
 ## 2. TRONG NGÀY — Thăm nom (30 giây/lần, 1-2 lần)
 
 ```bash
-# Xem tiến độ (không vào tmux)
+# Đọc file tóm tắt hôm nay (GIỐNG HỆT nội dung gửi tele — mở là hiểu)
+cat ~/work/arXiv-distill/scans/$(date +%F)/SUMMARY.md
+
+# Xem tiến độ distill
 tail -30 ~/work/arXiv-distill/logs/watchdog.log
 
 # Đếm paper đã xong
-ls ~/work/arXiv-distill/papers/ | wc -l
+find ~/work/arXiv-distill/papers -mindepth 4 -maxdepth 4 -type d | wc -l
 
 # Xem commit mới nhất (bằng chứng thật đã push)
 git -C ~/work/arXiv-distill log --oneline -5

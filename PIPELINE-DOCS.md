@@ -43,15 +43,24 @@ distill từ điểm cao xuống, chưng cất thành tri thức có giá trị 
 ├── state/
 │   └── last_scan.json          # Watermark lần quét cuối
 ├── scans/
-│   └── <ngày>.json             # Kết quả quét + điểm từng ngày
+│   └── <ngày>/
+│       ├── <ngày>.json         # Dữ liệu thô + điểm từng bài
+│       └── SUMMARY.md          # ⭐ FILE TÓM TẮT — giống hệt nội dung gửi tele,
+│                               #    mở ra đọc là hiểu (3 section + tóm tắt)
 ├── scripts/
 │   ├── scan_arxiv.py           # Quét + lọc + chấm điểm
-│   ├── send_telegram.py        # Gửi Telegram
-│   └── run_pipeline.sh         # (sắp có) Orchestrator 1 vòng đầy đủ
+│   ├── send_telegram.py        # Ghi SUMMARY.md + gửi Telegram
+│   ├── daily_scan.sh           # Wrapper cronjob
+│   └── run_pipeline.sh         # Orchestrator đầy đủ
 └── papers/
     └── <năm>/<tháng>/<ngày>/  # ngày = NGÀY DISTILL (commit), vd 2026/10/11/
         └── <tên-paper>/        # 5 files/paper (xem Phần 5)
 ```
+
+**Mỗi lần chạy scan → luôn có `scans/<ngày>/SUMMARY.md`.** Nội dung giống hệt
+đã gửi qua Telegram: 3 section (🔥 distill ngay / ⏳ làm sau / ❓ cần duyệt),
+mỗi bài kèm điểm + tóm tắt paper làm gì + lý do chấm điểm + link. Sau vào đọc
+hiểu ngay, không cần chạy lại.
 
 ---
 
@@ -67,9 +76,14 @@ distill từ điểm cao xuống, chưng cất thành tri thức có giá trị 
 ```
 - arXiv NGHỈ CUỐI TUẦN (skipDays: Saturday, Sunday)
 - Công bố ~20h ET các ngày trong tuần (~7-8h sáng VN hôm sau)
-- Thứ 2 có bài dồn từ thứ 5,6 tuần trước
+- Thứ 2 có bài dồn từ thứ 5,6 tuần trước  →  ĐO THỰC TẾ: thứ 2 = 260 bài
 - cs.AI một mình: ~100-300 bài/ngày
+- Bình quân: ~110-136 bài/ngày (tính cả ngày nghỉ)
 ```
+
+**Chi phí chấm điểm thực tế:** ~260 bài (ngày dồn) × 4-8s/bài = **20-35 phút**.
+Nhiều 429 (ling rate limit) làm chậm gấp đôi → có thể tới ~45 phút. Chấp nhận
+được cho job 5h sáng (xong trước 6h). Nếu cần nhanh hơn → giảm `--max-llm`.
 
 ## 2.3 WATERMARK (chống bỏ sót)
 Lưu `state/last_scan.json` = mốc thời gian quét cuối. Mỗi lần chạy, query từ mốc

@@ -14,6 +14,7 @@ Chạy:  python3 send_telegram.py scans/<ngày>.json
 """
 import json
 import os
+import re
 import sys
 import urllib.parse
 import urllib.request
@@ -107,12 +108,28 @@ def main():
     chat = env.get("TELEGRAM_CHAT_ID")
     msg = build_message(scan)
 
+    # LUÔN ghi file tóm tắt vào folder ngày — để sau này vào đọc hiểu ngay,
+    # giống hệt nội dung gửi tele.
+    date = scan.get("date", "unknown")
+    summary_dir = os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), "scans", date)
+    os.makedirs(summary_dir, exist_ok=True)
+    summary_path = os.path.join(summary_dir, "SUMMARY.md")
+
+    # Bản text thuần (bỏ markdown link/format cho dễ đọc)
+    plain = msg.replace("*", "").replace("_", "").replace("`", "")
+    plain = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r"\1 — \2", plain)
+    with open(summary_path, "w") as f:
+        f.write("# arXiv scan %s\n\n" % date)
+        f.write("_Nội dung này giống hệt đã gửi qua Telegram._\n\n")
+        f.write(plain)
+        f.write("\n")
+    print("Đã ghi file tóm tắt: %s" % summary_path)
+
     if not token or not chat:
-        print("CHƯA SETUP TELEGRAM. Cần thêm vào %s:" % ENV_FILE)
-        print("  TELEGRAM_BOT_TOKEN=<token từ @BotFather>")
+        print("CHƯA SETUP TELEGRAM (bỏ qua gửi). Cần thêm vào %s:" % ENV_FILE)
+        print("  TELEGRAM_BOT_TOKEN=*** từ @BotFather>")
         print("  TELEGRAM_CHAT_ID=<chat id của bạn>")
-        print("\n--- Nội dung SẼ gửi ---")
-        print(msg)
         sys.exit(0)
 
     # Telegram giới hạn 4096 ký tự/message → tách nếu dài
