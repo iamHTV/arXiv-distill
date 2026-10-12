@@ -14,6 +14,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+import urllib.error
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATE_FILE = os.path.join(REPO, "state", "last_scan.json")
@@ -31,6 +32,7 @@ CATS_BLOCK = [
 HEURISTIC_MIN = 4           # rất thấp: chỉ loại bài hoàn toàn lạc đề
 LLM_MODEL = "inclusionai/ling-3.1-flash"
 LLM_MAX = 10000             # gần như không trần — token free, chạy 24/7
+BATCH_SIZE = 10             # chấm 10 bài/prompt → giảm 10x số request (chống 429)
 
 API = "https://export.arxiv.org/api/query"
 USER_AGENT = "arxiv-distill-research/1.0 (personal use)"
@@ -64,13 +66,29 @@ def save_watermark(ts):
               open(STATE_FILE, "w"), indent=2)
 
 
-def fetch_cat(cat, max_results=200):
+def fetch_cat(cat, max_results=200, retries=3):
+    """Quét 1 category, retry khi arXiv rate limit (429)."""
     q = urllib.parse.quote("cat:%s" % cat)
     url = ("%s?search_query=%s&sortBy=submittedDate&sortOrder=descending"
            "&max_results=%d" % (API, q, max_results))
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read().decode()
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return r.read().decode()
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < retries - 1:
+                wait = 15 * (attempt + 1)
+                print("    (arXiv 429, chờ %ds rồi thử lại)" % wait)
+                time.sleep(wait)
+                continue
+            raise
+        except Exception:
+            if attempt < retries - 1:
+                time.sleep(10 * (attempt + 1))
+                continue
+            raise
+    return ""
 
 
 def parse_entries(xml):
@@ -136,7 +154,6 @@ def _call_llm(p, key, body):
             d = json.load(r)
         msg = d["choices"][0]["message"]
         txt = msg.get("content") or ""
-        # Fallback: ling đôi khi trả JSON trong "reasoning" thay vì "content"
         if not txt.strip() and msg.get("reasoning"):
             txt = msg["reasoning"]
         m = re.search(r"\{[^{}]*\"score\"[^{}]*\}", txt, re.S)
@@ -161,76 +178,92 @@ def _call_llm(p, key, body):
     return p
 
 
+def _batch_prompt(batch):
+    """Tạo prompt chấm nhiều bài cùng lúc (1 request)."""
+    pr = (
+        "Bạn chấm điểm mức độ liên quan của TỪNG paper arXiv cho một solopreneur "
+        "làm content/business về AI (cờ tướng, content 30+, nhiều kênh). "
+        "Mỗi paper chấm 0-100 theo 4 tiêu chí:\n"
+        "- Liên quan cốt lõi AI/LLM/agent/multi-agent/tool-use (0-35)\n"
+        "- Ứng dụng thực tiễn, có experiment/benchmark thật (0-25)\n"
+        "- Liên quan business/marketing/content/decision (0-20)\n"
+        "- Insight hành động được, đọc xong làm được gì (0-20)\n\n"
+    )
+    for p in batch:
+        pr += "ID: %s\nTITLE: %s\nABSTRACT: %s\n\n" % (
+            p["id"], p["title"], p["abstract"][:1400])
+    pr += ("Trả về DUY NHẤT JSON MẢNG, mỗi phần tử 1 paper, đủ mọi ID:\n"
+           "[{\"id\":\"<id>\",\"score\":<0-100>,"
+           "\"summary\":\"<1 câu paper LÀM GÌ, tiếng Việt>\","
+           "\"reason\":\"<1 câu vì sao điểm này>\"}, ...]")
+    return pr
+
+
+def _call_llm_batch(batch, key):
+    """Chấm 1 loạt bài trong 1 request. Trả về số bài parse được."""
+    prompt = _batch_prompt(batch)
+    body = json.dumps({
+        "model": LLM_MODEL,
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": 8000,   # batch → cần nhiều token cho reasoning + JSON
+    }).encode()
+    req = urllib.request.Request(
+        "https://openrouter.ai/api/v1/chat/completions", data=body,
+        headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=240) as r:
+            d = json.load(r)
+        msg = d["choices"][0]["message"]
+        txt = msg.get("content") or msg.get("reasoning") or ""
+        m = re.search(r"\[.*\]", txt, re.S)
+        if not m:
+            return 0
+        arr = json.loads(m.group(0))
+        by_id = {str(x.get("id", "")): x for x in arr if isinstance(x, dict)}
+        n = 0
+        for p in batch:
+            x = by_id.get(p["id"])
+            if x and "score" in x:
+                p["llm_score"] = int(x.get("score", 0))
+                p["llm_summary"] = x.get("summary", "")
+                p["llm_reason"] = x.get("reason", "")
+                p["group"] = _group_from_score(p["llm_score"])
+                n += 1
+        return n
+    except Exception:
+        return 0
+
+
 def llm_score_batch(papers, key, max_llm):
-    """Chấm điểm bằng LLM, tuần tự với adaptive sleep chống 429."""
-    scored = []
-    consec_429 = 0
-    for i, p in enumerate(papers[:max_llm]):
-        prompt = (
-            "Bạn chấm điểm mức độ liên quan của paper arXiv cho một solopreneur "
-            "làm content/business về AI. Chấm 0-100 theo 4 tiêu chí:\n"
-            "- Liên quan cốt lõi (0-35): AI/LLM/agent/multi-agent/tool-use?\n"
-            "- Ứng dụng thực tiễn (0-25): có experiment/benchmark thật?\n"
-            "- Liên quan business/content (0-20): áp dụng được cho business/marketing/content?\n"
-            "- Insight hành động được (0-20): đọc xong làm được gì cụ thể?\n\n"
-            "TITLE: %s\n\nABSTRACT: %s\n\n"
-            "Trả về DUY NHẤT JSON: {\"score\": <0-100>, "
-            "\"summary\": \"<1 câu nói paper LÀM GÌ, tiếng Việt>\", "
-            "\"reason\": \"<1 câu vì sao điểm này>\", "
-            "\"group\": \"<high|mid|fuzzy|drop>\"}" % (p["title"], p["abstract"][:1500])
-        )
-        body = json.dumps({
-            "model": LLM_MODEL,
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 2000,   # PHẢI lớn: ling là model reasoning, dồn token vào
-                                  # reasoning trước khi trả content. 300 → content rỗng.
-        }).encode()
-        _call_llm(p, key, body)
-        scored.append(p)
-        print("  [%d/%d] %s -> %s" % (i + 1, min(max_llm, len(papers)),
-                                      p["id"], p.get("llm_score")))
+    """Chấm điểm bằng LLM theo BATCH (10 bài/request) → giảm 10x số request.
 
-        # Adaptive sleep: càng gặp 429 liên tiếp, nghỉ càng lâu (giảm dần khi OK).
-        if p.get("llm_score", -1) == -1:
-            consec_429 += 1
-            wait = min(5 * consec_429, 30)
-        else:
-            consec_429 = 0
-            wait = 4
-        time.sleep(wait)
+    ling qua provider Novita bị rate limit nặng (~50% 429 dù nghỉ 10s).
+    Batch là cách duy nhất hiệu quả: 260 bài → 26 request thay vì 260.
+    """
+    todo = papers[:max_llm]
+    total = len(todo)
+    print("  Chấm %d bài theo batch %d bài/request (~%d request)..." %
+          (total, BATCH_SIZE, (total + BATCH_SIZE - 1) // BATCH_SIZE))
 
-    # Retry các bài lỗi (-1) — thường do 429. Chờ lâu rồi thử lại, tối đa 2 vòng.
+    for bi in range(0, total, BATCH_SIZE):
+        batch = todo[bi:bi + BATCH_SIZE]
+        n = _call_llm_batch(batch, key)
+        ids = ",".join(p["id"] for p in batch)
+        print("  batch %d-%d: %d/%d ok" % (bi + 1, bi + len(batch), n, len(batch)))
+        # sleep ngắn giữa các batch (mỗi batch là 1 request)
+        time.sleep(4)
+
+    # Retry các bài lỗi (batch nhỏ hơn để dễ thành công)
     for attempt in (1, 2):
-        failed = [p for p in scored if p.get("llm_score", -1) == -1]
+        failed = [p for p in todo if p.get("llm_score", -1) == -1]
         if not failed:
             break
-        wait = 15 * attempt
-        print("  Retry vòng %d: %d bài lỗi (chờ %ds)..." % (attempt, len(failed), wait))
-        time.sleep(wait)
-        for p in failed:
-            _score_one(p, key)
-            time.sleep(4)
-    return scored
-
-
-def _score_one(p, key):
-    """Chấm điểm 1 paper (dùng cho retry)."""
-    prompt = (
-        "Chấm điểm paper arXiv cho solopreneur content/business về AI, thang 0-100.\n"
-        "- Liên quan cốt lõi AI/LLM/agent: 0-35\n"
-        "- Ứng dụng thực tiễn (experiment/benchmark): 0-25\n"
-        "- Liên quan business/marketing/content: 0-20\n"
-        "- Insight hành động được: 0-20\n\n"
-        "TITLE: %s\n\nABSTRACT: %s\n\n"
-        "Trả về DUY NHẤT JSON: {\"score\": <0-100>, "
-        "\"summary\": \"<1 câu nói paper LÀM GÌ, tiếng Việt>\", "
-        "\"reason\": \"<1 câu vì sao điểm này>\", "
-        "\"group\": \"<high|mid|fuzzy|drop>\"}" % (p["title"], p["abstract"][:1500])
-    )
-    body = json.dumps({"model": LLM_MODEL,
-                       "messages": [{"role": "user", "content": prompt}],
-                       "max_tokens": 2000}).encode()
-    return _call_llm(p, key, body)
+        print("  Retry vòng %d: %d bài lỗi..." % (attempt, len(failed)))
+        time.sleep(10 * attempt)
+        for bi in range(0, len(failed), 5):   # batch 5 khi retry
+            _call_llm_batch(failed[bi:bi + 5], key)
+            time.sleep(5)
+    return todo
 
 
 def main():
@@ -254,7 +287,7 @@ def main():
                 seen.add(p["id"])
                 all_papers.append(p)
             print("  %-8s -> %d bài" % (cat, len(entries)))
-            time.sleep(3)  # arXiv rate limit
+            time.sleep(8)  # arXiv rate limit: ~3 req nhanh → chặn. Giãn 8s cho an toàn
         except Exception as e:
             print("  %-8s -> LỖI: %s" % (cat, str(e)[:80]))
 
