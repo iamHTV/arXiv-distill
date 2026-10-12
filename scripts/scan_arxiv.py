@@ -30,7 +30,10 @@ CATS_BLOCK = [
 # Heuristic CHỈ để loại bài rõ ràng ngoài chủ đề — KHÔNG lọc mạnh.
 # Máy chạy 24/7 + token free → không cần tiết kiệm. Thà chấm thừa còn hơn bỏ sót.
 HEURISTIC_MIN = 4           # rất thấp: chỉ loại bài hoàn toàn lạc đề
-LLM_MODEL = "inclusionai/ling-3.1-flash"
+# Fallback chain model chấm điểm (đều giá $0).
+# 3.1 bị provider Novita rate-limit nặng → tự chuyển 3.0 khi 429.
+LLM_MODELS = ["inclusionai/ling-3.1-flash", "inclusionai/ling-3.0-flash"]
+LLM_MODEL = LLM_MODELS[0]   # model chính (giữ tên cũ cho tương thích)
 LLM_MAX = 10000             # gần như không trần — token free, chạy 24/7
 BATCH_SIZE = 10             # chấm 10 bài/prompt → giảm 10x số request (chống 429)
 
@@ -200,38 +203,45 @@ def _batch_prompt(batch):
 
 
 def _call_llm_batch(batch, key):
-    """Chấm 1 loạt bài trong 1 request. Trả về số bài parse được."""
+    """Chấm 1 loạt bài trong 1 request. Thử lần lượt fallback chain khi 429."""
     prompt = _batch_prompt(batch)
-    body = json.dumps({
-        "model": LLM_MODEL,
-        "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 8000,   # batch → cần nhiều token cho reasoning + JSON
-    }).encode()
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions", data=body,
-        headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=240) as r:
-            d = json.load(r)
-        msg = d["choices"][0]["message"]
-        txt = msg.get("content") or msg.get("reasoning") or ""
-        m = re.search(r"\[.*\]", txt, re.S)
-        if not m:
-            return 0
-        arr = json.loads(m.group(0))
-        by_id = {str(x.get("id", "")): x for x in arr if isinstance(x, dict)}
-        n = 0
-        for p in batch:
-            x = by_id.get(p["id"])
-            if x and "score" in x:
-                p["llm_score"] = int(x.get("score", 0))
-                p["llm_summary"] = x.get("summary", "")
-                p["llm_reason"] = x.get("reason", "")
-                p["group"] = _group_from_score(p["llm_score"])
-                n += 1
-        return n
-    except Exception:
-        return 0
+    for model in LLM_MODELS:
+        body = json.dumps({
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": 8000,   # batch → cần nhiều token cho reasoning + JSON
+        }).encode()
+        req = urllib.request.Request(
+            "https://openrouter.ai/api/v1/chat/completions", data=body,
+            headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=240) as r:
+                d = json.load(r)
+            msg = d["choices"][0]["message"]
+            txt = msg.get("content") or msg.get("reasoning") or ""
+            m = re.search(r"\[.*\]", txt, re.S)
+            if not m:
+                continue   # model này không trả JSON → thử model kế
+            arr = json.loads(m.group(0))
+            by_id = {str(x.get("id", "")): x for x in arr if isinstance(x, dict)}
+            n = 0
+            for p in batch:
+                x = by_id.get(p["id"])
+                if x and "score" in x:
+                    p["llm_score"] = int(x.get("score", 0))
+                    p["llm_summary"] = x.get("summary", "")
+                    p["llm_reason"] = x.get("reason", "")
+                    p["group"] = _group_from_score(p["llm_score"])
+                    n += 1
+            if n > 0:
+                return n
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                continue   # 429 → thử model kế trong chain
+            continue
+        except Exception:
+            continue
+    return 0
 
 
 def llm_score_batch(papers, key, max_llm):

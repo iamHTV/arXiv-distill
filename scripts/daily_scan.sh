@@ -13,12 +13,21 @@ cd "$REPO" || exit 1
 TODAY="$(date +%F)"
 LOGDIR="$REPO/logs"; mkdir -p "$LOGDIR"
 LOG="$LOGDIR/daily-scan-$TODAY.log"
+SCAN_JSON="scans/$TODAY.json"
 
 {
   echo "=== DAILY SCAN $(date '+%F %T %Z') ==="
   python3 scripts/scan_arxiv.py
-  echo "--- ghi tóm tắt + gửi Telegram ---"
-  python3 scripts/send_telegram.py "scans/$TODAY.json"
+  SCAN_RC=${PIPESTATUS[0]:-$?}
+
+  # Chỉ ghi tóm tắt + gửi tele khi CÓ file scan (tránh lỗi khi scan fail giữa chừng)
+  if [[ -f "$SCAN_JSON" ]]; then
+    echo "--- ghi tóm tắt + gửi Telegram ---"
+    python3 scripts/send_telegram.py "$SCAN_JSON"
+    echo "File tóm tắt: scans/$TODAY/SUMMARY.md"
+  else
+    echo "!!! Không có $SCAN_JSON — scan thất bại (arXiv rate limit?). Bỏ qua tele."
+    echo "!!! Sẽ thử quét lại ở lần chạy sau (watermark không đổi)."
+  fi
   echo "=== XONG $(date '+%F %T %Z') ==="
-  echo "File tóm tắt: scans/$TODAY/SUMMARY.md"
 } >> "$LOG" 2>&1
