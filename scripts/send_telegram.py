@@ -19,7 +19,8 @@ import sys
 import urllib.parse
 import urllib.request
 
-ENV_FILE = os.path.expanduser("~/.hermes/profiles/research-arxiv/.env")
+# ĐƯỜNG DẪN TUYỆT ĐỐI — KHÔNG dùng expanduser/$HOME (xem scan_arxiv.py để biết lý do).
+ENV_FILE = "/home/iamhtv/.hermes/profiles/research-arxiv/.env"
 MAX_PER_SECTION = 15   # tránh tele message quá dài
 
 

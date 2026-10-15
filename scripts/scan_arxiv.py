@@ -19,7 +19,11 @@ import urllib.error
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATE_FILE = os.path.join(REPO, "state", "last_scan.json")
 SCANS_DIR = os.path.join(REPO, "scans")
-ENV_FILE = os.path.expanduser("~/.hermes/profiles/research-arxiv/.env")
+# ĐƯỜNG DẪN TUYỆT ĐỐI — KHÔNG dùng expanduser/$HOME.
+# Khi cronjob chạy dưới profile research-arxiv, $HOME bị override thành
+# /home/iamhtv/.hermes/profiles/research-arxiv/home → expanduser("~/.hermes/...")
+# sẽ ghép nhân đôi path và FileNotFoundError. Bug thật đã gặp 13/10 + 15/10/2026.
+ENV_FILE = "/home/iamhtv/.hermes/profiles/research-arxiv/.env"
 
 # ── Cấu hình ────────────────────────────────────────────────────────────────
 CATS_KEEP = ["cs.AI", "cs.CL", "cs.LG", "cs.MA", "cs.IR", "cs.SE", "cs.HC"]
