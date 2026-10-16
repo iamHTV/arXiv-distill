@@ -1,0 +1,15 @@
+{
+  "name": "Harness Engineering in LLM Tool Use via Agent-Native Reusable Tool Primitives",
+  "arxiv_id": "2609.01736v1",
+  "authors": ["Haibo Jin", "Suijin Wang", "Xucheng Yu", "Haojing Luo", "Haohan Wang"],
+  "institution": ["University of Illinois Urbana-Champaign", "Starc Institute"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.01736",
+  "link_abs": "https://arxiv.org/abs/2609.01736",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "heart-tool-use-planner-router-verifier"
+}
