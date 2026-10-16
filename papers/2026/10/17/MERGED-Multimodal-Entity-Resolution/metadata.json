@@ -1,0 +1,16 @@
+{
+  "name": "MERGED: Multimodal Entity Resolution via Generated Expert Reasoning Distillation",
+  "arxiv_id": "2609.01913v2",
+  "authors": ["You-Lin Chen", "Kyoungjun Park", "Abhishek Prasad", "Ram Tripathi", "Prithviraj Sen", "Bin Xu", "Pedro Herrero-Vidal"],
+  "institution": "Amazon; University of Texas at Austin",
+  "year": 2026,
+  "published": "2026-10-07",
+  "venue": "NeurIPS 2026 Workshop VLM4RWD",
+  "categories": ["cs.IR"],
+  "link_pdf": "https://arxiv.org/pdf/2609.01913",
+  "link_abs": "https://arxiv.org/abs/2609.01913",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "MERGED Multi-Teacher Reasoning Distillation"
+}

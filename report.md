@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 106 papers. 🎉
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 107 papers. 🎉
 
 ---
 
@@ -297,4 +297,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #105 — Better Together: Complementary Query Rewriting Under a Strong RAG Baseline (2609.05637v2) [applied]
 ✓ Skill: complementary-rewrite-router | Test: SKILL VALID
 ✓ Insight: Rewrite solo chỉ competitive at best (+0.2–3.7pp) nhưng methods fail trên DISJOINT queries → ensemble S1+S3+S4+HyDE = 51.70 HIT@10 (+12.5, enterprise), five-way 52.98 (+13.8); budget-matched controls chỉ capture ~40% → ~60% là complementarity thật; confidence-gated router (S1 top-1 reranker score < τ=0.65 → chạy Query2Doc) bắt nửa gain (+4.33) với 40% cost, answer F1 +1.92; AmbigNQ high-overlap (Jaccard 0.55–0.99) → combining HẠI −2.49pp, router tự abstain (7.2%).
+→ Tiếp tục: [YES]
+## Paper #106 — MERGED: Multimodal Entity Resolution via Generated Expert Reasoning Distillation (2609.01913v2) [applied]
+✓ Skill: merged-teacher-distillation-er | Test: SKILL VALID
+✓ Insight: 2-teacher VLM consensus→SFT, disagreement→meta-judge DPO: 7B student 90.96% PR-AUC = +13.79 over human-label SFT, +6.32 over Qwen2.5-32B-VL zero-shot tại $600/1M (6× cheaper, <1s/sample); gain decomposition: reasoning +6.14, DPO +4.15, label source chỉ +3.50; warm-start từ checkpoint + 10K samples adapt definition mới 89.48 (+6.97 over zero-shot, beats from-scratch) — days không phải months.
 → Tiếp tục: [YES]
