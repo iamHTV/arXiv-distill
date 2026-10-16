@@ -237,3 +237,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: workflow-constraint-erosion-agent-handoffs | Test: SKILL VALID
 ✓ Insight: Ownership deferral gây 76.7% blocker deactivation; full blocker description nâng recognition 6.2%→99.2% và giảm forbidden action 85.2%→0.0%.
 → Tiếp tục: [YES]
+
+## Paper #92 — When Efficiency Backfires: Cascading LLMs Trigger Cascade Failure under Adversarial Attack (2605.17288v1) [applied]
+✓ Skill: cascade-attack-awareness | Test: SKILL VALID
+✓ Insight: Tấn công đối thủ làm giảm accuracy 84.6%, tăng token cost 148.9%, thời gian 108.9%, attack success rate 81.4%; cascade LLM không an toàn tự động.
+→ Tiếp tục: [YES]
