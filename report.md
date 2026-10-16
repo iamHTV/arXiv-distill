@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 50 papers. 🎉 MILESTONE!
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 98 papers. 🎉 MILESTONE!
 
 ---
 
@@ -262,3 +262,7 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: chronos-code-agents-software-evolution | Test: SKILL VALID
 ✓ Insight: Lịch sử pull requests giúp agent hiểu tại sao code viết như vậy; mean resolution 69.2%→72.9%, SWE-Bench Pro 48.3%→51.7%, useful experience 68%→89%.
 → Tiếp tục: [STOP — 30/30 bài đã distill xong]
+## Paper #97 — AutoResearch at Production Scale: Failure Modes and a Multi-Agent Framework (2609.30541v1) [applied]
+✓ Skill: autoresearch-production-scaffolding | Test: SKILL VALID
+✓ Insight: 5 failure mode production scale (infrastructure fragility, memory decay, stagnation, cost asymmetry, metric fixation); scaffold prevent-persist-redirect thành 3 agent; Criticizer chỉ bắn khi plateau (8%/5 iteration) → directive lớn nhất +50bps; Code Fixer single-pass bắt 14 latent bugs.
+→ Tiếp tục: [YES]
