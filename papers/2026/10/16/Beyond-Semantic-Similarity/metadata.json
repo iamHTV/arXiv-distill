@@ -1,0 +1,15 @@
+{
+  "name": "Beyond Semantic Similarity: Performance and Costs of Agentic Retrieval for Complex Tasks",
+  "arxiv_id": "2610.05750v1",
+  "authors": ["Reza Esfandiarpoor", "Radek Osmulski", "Yauhen Babakhin", "Gabriel de Souza P. Moreira", "Oliver Holworthy", "Jie He", "Ronay Ak", "Jiarui Cai", "Ryan Chesler", "Bo Liu", "Even Oldridge"],
+  "institution": ["NVIDIA", "University of Edinburgh"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI", "cs.IR"],
+  "link_pdf": "https://arxiv.org/pdf/2610.05750",
+  "link_abs": "https://arxiv.org/abs/2610.05750",
+  "github": "https://github.com/NVIDIA/NeMo-Retriever/tree/main/retrieval-bench",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "agentic-retrieval-react-loop"
+}
