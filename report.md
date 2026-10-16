@@ -187,3 +187,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: rag-retrieval-strategy-comparison | Test: SKILL VALID
 ✓ Insight: ColBERTv2 late interaction answer rate 99.9%, top-3 gold paper 92.8–94.8% (gấp đôi single-vector); rewriting đơn lẻ không kèm re-ranking làm giảm Hit@3.
 → Tiếp tục: [YES]
+
+## Paper #82 — What LLM Trading Agents Actually Do in Production (2609.05663v1) [applied]
+✓ Skill: llm-trading-agents-production-lessons | Test: SKILL VALID
+✓ Insight: Agent giao dịch chỉ 41% win rate vs retail 50%, 16.2% vaults lời; giữ vị thế 24h+ có lợi (+0.23%), viết hướng dẫn số cụ thể lời 4.2×.
+→ Tiếp tục: [YES]

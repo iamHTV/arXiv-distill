@@ -1,0 +1,15 @@
+{
+  "name": "What LLM Trading Agents Actually Do in Production: A Six-Month, Population-Scale Record from Two Fleets",
+  "arxiv_id": "2609.05663v1",
+  "authors": ["T.J. Barton", "Chris Constantakis", "Patti Hauseman", "Annie Mous", "Alaska Hoffman", "Brian Bergeron", "Hunter Goodreau"],
+  "institution": "DX Research Group (DXRG)",
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.05663",
+  "link_abs": "https://arxiv.org/abs/2609.05663",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "llm-trading-agents-production-lessons"
+}
