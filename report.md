@@ -257,3 +257,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: datamagic-declarative-multi-agent-data-videos | Test: SKILL VALID
 ✓ Insight: DataMagic cải thiện chất lượng video dữ liệu từ 2.13/5 lên 3.89/5 (+83%), tỷ lệ thực thi 48.62%–86.24%→95%+, thời gian tạo từ 39.2→8.0 phút (-79.7%).
 → Tiếp tục: [YES]
+
+## Paper #96 — Chronos Enables Code Agents to Reason over Software Evolution (2610.11578v1) [applied]
+✓ Skill: chronos-code-agents-software-evolution | Test: SKILL VALID
+✓ Insight: Lịch sử pull requests giúp agent hiểu tại sao code viết như vậy; mean resolution 69.2%→72.9%, SWE-Bench Pro 48.3%→51.7%, useful experience 68%→89%.
+→ Tiếp tục: [STOP — 30/30 bài đã distill xong]

@@ -1,0 +1,15 @@
+{
+  "name": "Chronos Enables Code Agents to Reason over Software Evolution",
+  "arxiv_id": "2610.11578v1",
+  "authors": ["Xin Yin", "Yiang Zhang", "Zhiyuan Peng", "Chao Ni", "Zhe Cui", "Xiaohua Xin"],
+  "institution": ["Zhejiang University, China", "Shanghai Jiao Tong University, China", "Hithink Research, China", "National Industrial Information Security Development Research Center, China"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2610.11578",
+  "link_abs": "https://arxiv.org/abs/2610.11578",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "chronos-code-agents-software-evolution"
+}
