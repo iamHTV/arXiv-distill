@@ -17,7 +17,8 @@ SCAN_JSON="scans/$TODAY.json"
 
 {
   echo "=== DAILY SCAN $(date '+%F %T %Z') ==="
-  python3 scripts/scan_arxiv.py
+  # python3 -u: unbuffered → log ghi realtime, thấy được tiến trình khi chạy nền/cron.
+  python3 -u scripts/scan_arxiv.py
   SCAN_RC=${PIPESTATUS[0]:-$?}
 
   # Chỉ ghi tóm tắt + gửi tele khi CÓ file scan (tránh lỗi khi scan fail giữa chừng)
