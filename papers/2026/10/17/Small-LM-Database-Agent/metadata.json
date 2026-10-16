@@ -1,0 +1,15 @@
+{
+  "name": "What Stops a Small Language Model From Driving a Database Agent",
+  "arxiv_id": "2609.21341v1",
+  "authors": ["Cevheri Bozoğlan", "Yusuf Gündoğdu", "Abdullah Kaya", "Koray Şirin"],
+  "institution": "Independent researchers (LibreDB Studio contributors)",
+  "year": 2026,
+  "published": "2026-09-18",
+  "categories": ["cs.SE"],
+  "link_pdf": "https://arxiv.org/pdf/2609.21341",
+  "link_abs": "https://arxiv.org/abs/2609.21341",
+  "github": "https://github.com/libredb/libredb-studio",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Agent Failure Ledger Taxonomy"
+}
