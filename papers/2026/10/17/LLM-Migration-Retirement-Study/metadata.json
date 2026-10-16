@@ -1,0 +1,15 @@
+{
+  "name": "When the Model Retires: An Empirical Study of LLM Migration in Open-Source Applications",
+  "arxiv_id": "2609.31288v1",
+  "authors": ["Hyungjin Lukas Kim"],
+  "institution": "Myongji University, Seoul",
+  "year": 2026,
+  "published": "2026-09-25",
+  "categories": ["cs.SE"],
+  "link_pdf": "https://arxiv.org/pdf/2609.31288",
+  "link_abs": "https://arxiv.org/abs/2609.31288",
+  "github": "",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "LLM Retirement Readiness Audit"
+}
