@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 112 papers. 🎉
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 113 papers. 🎉
 
 ---
 
@@ -322,3 +322,12 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: lotus-pairwise-touchpoint-selection | Test: SKILL VALID
 ✓ Insight: Implicit touchpoint = 14.91% hành trình conversion mà heuristic taxonomy/CF hoàn toàn blind (explicit 19.09%); LLM pairwise prompting phát hiện được chúng nhưng implicit F1 ceiling chỉ 0.5426 vs explicit 0.9095 — semantic gap vẫn lớn; pairwise beats listwise trên MỌI model (avg overall F1 0.6490→0.6954, gap 6–12pp ở small models); strong open-weight (GLM-5.1 0.7086, DeepSeek-V4-Pro 0.7056) gần proprietary (GPT-5.5 0.7197); LOTUS dùng LLM labels làm auxiliary positives cho CVR training → GAUC +0.35pp over in-shop baseline, +0.15pp over heuristic CABB (0.1pp GAUC ≈ material revenue growth).
 → Tiếp tục: [YES]
+
+## Paper #112 — Do Tool Calls Execute as Intended? Intent-Execution Correspondence — IEC/IntAct (2610.04375v1) [applied]
+✓ Skill: iec-hop-witness-audit | Test: SKILL VALID
+✓ Insight: 10.0% exposed calls bị đổi tại 1 trong 5 hops (Claude Code Bash 12.0%; backslash-pair calls 67.0%), 80.7% merged-backslash changes CHẠY SAI MÀ KHÔNG BÁO LỖI; trajectory judges quy 97/102 failures cho LLM (κ≤0.04) trong khi IEC protocol (witness + receiver's own parser) đạt κ 0.77; IntAct rendering tại named hop recover 79.2% path-caused losses (137/173, Fisher p<.001), tokens per passed task −2.4× (đến 12.3×); evidence trong tool result KHÔNG giúp agent sửa path (p≥.500) — phải sửa harness.
+→ Tiếp tục: [YES]
+
+---
+
+**Ghi chú 2026-10-17 (corruption + recovery):** `top30_20261017.json` entries #16–#30 bị corrupted ids (verified qua arXiv API: 2609.04241 = VocalCoachBench cs.SD, 2610.10539 = Tetris3D cs.CV, 2610.07414 = physics.flu-dyn, 2608.17437 = math.PR, 2609.26288 = cs.LG protocol uncertainty, 2610.03960 = cs.CR poisoning, 2609.03475 = cs.CV SafeRestore, 2608.15893 = bot detection, 2610.00758 = cs.LG inverse RL, 2609.15053 = hep-ex, 2609.05162 = q-fin.GN, 2609.24605 = math.OC — KHÔNG có trong scan). Đã rebuild top30 từ `scans/2026-10-17.json` (source of truth, 60 papers, ids/titles/scores thật) → `state/top30_20261017_rebuilt.json` (30 papers chưa distill, sorted by llm_score). Entries #1–#15 verified đúng (đã distill thành papers #97–#111).

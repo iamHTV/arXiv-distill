@@ -1,0 +1,15 @@
+{
+  "name": "Do Tool Calls Execute as Intended? Measuring and Repairing Intent-Execution Correspondence in LLM Agents",
+  "arxiv_id": "2610.04375v1",
+  "authors": ["Boyang Yang", "Zhenhao Li", "Ziyao Yang", "Kanghui Jia", "Xin Yin", "Mingmou Liu", "Haoye Tian"],
+  "institution": "Yanshan University; Zhejiang University; Nanjing University; Aalto University",
+  "year": 2026,
+  "published": "2026-10-03",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2610.04375",
+  "link_abs": "https://arxiv.org/abs/2610.04375",
+  "github": "https://github.com/GLEAM-Lab/intact-bash-mod",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "IEC Hop-Witness Audit"
+}
