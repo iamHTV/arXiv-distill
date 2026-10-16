@@ -44,6 +44,7 @@ LLM_MAX = 10000             # gần như không trần — token free, chạy 24
 BATCH_SIZE = 10             # chấm 10 bài/prompt → giảm 10x số request (chống 429)
 FETCH_PER_CAT = 1000        # bài/category/lần quét. 200 chỉ phủ ~14h → hở 1 ngày là mất bài.
 SEEN_KEEP = 40000           # giữ tối đa bao nhiêu ID đã xử lý (dedupe)
+CHECKPOINT_EVERY = 20       # ghi seen_ids mỗi N batch → job chết không mất kết quả
 
 API = "https://export.arxiv.org/api/query"
 USER_AGENT = "arxiv-distill-research/1.0 (personal use)"
@@ -305,11 +306,11 @@ def _call_llm_batch(batch, key):
     return 0
 
 
-def llm_score_batch(papers, key, max_llm):
+def llm_score_batch(papers, key, max_llm, on_progress=None):
     """Chấm điểm bằng LLM theo BATCH (10 bài/request) → giảm 10x số request.
 
-    ling qua provider Novita bị rate limit nặng (~50% 429 dù nghỉ 10s).
-    Batch là cách duy nhất hiệu quả: 260 bài → 26 request thay vì 260.
+    on_progress: callback nhận list ID đã chấm OK, gọi sau mỗi CHECKPOINT_EVERY batch.
+    Dùng để ghi seen_ids dần → job chết giữa chừng KHÔNG mất kết quả (resume tự nhiên).
     """
     todo = papers[:max_llm]
     total = len(todo)
@@ -319,9 +320,11 @@ def llm_score_batch(papers, key, max_llm):
     for bi in range(0, total, BATCH_SIZE):
         batch = todo[bi:bi + BATCH_SIZE]
         n = _call_llm_batch(batch, key)
-        ids = ",".join(p["id"] for p in batch)
         print("  batch %d-%d: %d/%d ok" % (bi + 1, bi + len(batch), n, len(batch)))
-        # sleep ngắn giữa các batch (mỗi batch là 1 request)
+        # CHECKPOINT: ghi tiến độ mỗi 20 batch → chết giữa chừng vẫn giữ được.
+        if on_progress and (bi // BATCH_SIZE + 1) % CHECKPOINT_EVERY == 0:
+            done = [p["id"] for p in todo[:bi + len(batch)] if p.get("llm_score", -1) >= 0]
+            on_progress(done)
         time.sleep(4)
 
     # Retry các bài lỗi (batch nhỏ hơn để dễ thành công)
@@ -401,7 +404,16 @@ def main():
     else:
         print("\nChấm điểm LLM (tối đa %d bài)..." % args.max_llm)
         key = load_key()
-        result = llm_score_batch(passed, key, args.max_llm)
+        # Checkpoint: ghi seen_ids dần trong lúc chấm. Job chết giữa chừng →
+        # lần sau chỉ chấm phần còn lại, KHÔNG mất bài đã chấm (bug 16/10:
+        # chạy 3h50 chưa ghi gì, chết là mất sạch 2287 bài).
+        base_seen = list(seen)
+
+        def _ckpt(done_ids):
+            save_seen(base_seen + done_ids)
+            print("    [checkpoint] đã lưu %d ID vào seen_ids" % len(set(base_seen + done_ids)))
+
+        result = llm_score_batch(passed, key, args.max_llm, on_progress=_ckpt)
         result.sort(key=lambda x: -x.get("llm_score", 0))
         backlog = len(passed) - len(result)
         if backlog > 0:
