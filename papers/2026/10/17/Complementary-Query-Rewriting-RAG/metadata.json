@@ -1,0 +1,16 @@
+{
+  "name": "Better Together: Complementary Query Rewriting Under a Strong RAG Baseline",
+  "arxiv_id": "2609.05637v2",
+  "authors": ["Sara Shanian", "Xiaoqin Yi", "Pavlo Ruban", "Kurt MacDonald"],
+  "institution": "ServiceNow",
+  "year": 2026,
+  "published": "2026-09-09",
+  "venue": "EMNLP 2026 (accepted)",
+  "categories": ["cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2609.05637",
+  "link_abs": "https://arxiv.org/abs/2609.05637",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Complementary Rewrite Router"
+}

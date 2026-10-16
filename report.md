@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 105 papers. 🎉
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 106 papers. 🎉
 
 ---
 
@@ -293,4 +293,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #104 — When Deep Research Agents Stagnate: Retrieval-Aware Agent Control — RAAC (2608.15191v1) [applied]
 ✓ Skill: raac-stagnation-controller | Test: SKILL VALID
 ✓ Insight: Reasoning stagnation xác nhận bằng intermediate recall — saturate sau vài iteration, new relevant docs biến mất dần (agent lặp local optimum). 4 unsupervised signals (Document Novelty AUROC 0.81 là mạnh nhất, Criteria Coverage chỉ dùng với human criteria, Query Diversity, Question Similarity guardrail) → controller {continue, intervene, stop}: −14 search calls avg (up to 44, Tongyi-DR 77.8→33.6), accuracy +up to 10%/+3% avg, overhead ~10% latency; intervene win gấp ~2× loss.
+→ Tiếp tục: [YES]
+## Paper #105 — Better Together: Complementary Query Rewriting Under a Strong RAG Baseline (2609.05637v2) [applied]
+✓ Skill: complementary-rewrite-router | Test: SKILL VALID
+✓ Insight: Rewrite solo chỉ competitive at best (+0.2–3.7pp) nhưng methods fail trên DISJOINT queries → ensemble S1+S3+S4+HyDE = 51.70 HIT@10 (+12.5, enterprise), five-way 52.98 (+13.8); budget-matched controls chỉ capture ~40% → ~60% là complementarity thật; confidence-gated router (S1 top-1 reranker score < τ=0.65 → chạy Query2Doc) bắt nửa gain (+4.33) với 40% cost, answer F1 +1.92; AmbigNQ high-overlap (Jaccard 0.55–0.99) → combining HẠI −2.49pp, router tự abstain (7.2%).
 → Tiếp tục: [YES]
