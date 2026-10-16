@@ -1,0 +1,15 @@
+{
+  "name": "Engineering Sustainable Agents: A Systematic Comparison of Agentic LLMs for Developer Workflows",
+  "arxiv_id": "2610.03010v1",
+  "authors": ["Merve Astekin", "Yan Naing Tun", "Arda Goknil", "Erik Johannes Husom", "Lwin Khin Shar", "Hasan Sozer", "Ratnadira Widyastari", "Hui Song"],
+  "institution": ["SINTEF, Norway", "Singapore Management University, Singapore", "Ozyegin University, Turkiye"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI", "cs.SE"],
+  "link_pdf": "https://arxiv.org/pdf/2610.03010",
+  "link_abs": "https://arxiv.org/abs/2610.03010",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "sustainable-agent-design-pareto"
+}
