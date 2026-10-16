@@ -7,6 +7,7 @@ Output: scans/<ngày>.json  +  state/last_scan.json (cập nhật watermark)
 """
 import argparse
 import datetime as dt
+import glob
 import json
 import os
 import re
@@ -18,6 +19,7 @@ import urllib.error
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATE_FILE = os.path.join(REPO, "state", "last_scan.json")
+SEEN_FILE = os.path.join(REPO, "state", "seen_ids.json")
 SCANS_DIR = os.path.join(REPO, "scans")
 # ĐƯỜNG DẪN TUYỆT ĐỐI — KHÔNG dùng expanduser/$HOME.
 # Khi cronjob chạy dưới profile research-arxiv, $HOME bị override thành
@@ -40,6 +42,8 @@ LLM_MODELS = ["inclusionai/ling-3.1-flash", "inclusionai/ling-3.0-flash"]
 LLM_MODEL = LLM_MODELS[0]   # model chính (giữ tên cũ cho tương thích)
 LLM_MAX = 10000             # gần như không trần — token free, chạy 24/7
 BATCH_SIZE = 10             # chấm 10 bài/prompt → giảm 10x số request (chống 429)
+FETCH_PER_CAT = 1000        # bài/category/lần quét. 200 chỉ phủ ~14h → hở 1 ngày là mất bài.
+SEEN_KEEP = 40000           # giữ tối đa bao nhiêu ID đã xử lý (dedupe)
 
 API = "https://export.arxiv.org/api/query"
 USER_AGENT = "arxiv-distill-research/1.0 (personal use)"
@@ -58,12 +62,19 @@ def load_key():
 
 
 def load_watermark():
+    """Sàn an toàn: mốc published cũ nhất từng được coi là 'đã xử lý'.
+
+    Từ khi chuyển sang dedupe-theo-ID (B), watermark KHÔNG còn là nguồn chân lý
+    để lọc bài mới. Nó chỉ là lưới an toàn: nếu seen_ids.json hỏng/mất, ta vẫn
+    có mốc thời gian để không phải quét lại từ đầu. Mặc định 3 ngày trước.
+    """
     if os.path.exists(STATE_FILE):
         try:
-            return json.load(open(STATE_FILE)).get("last_scan")
+            wm = json.load(open(STATE_FILE)).get("last_scan")
+            if wm:
+                return wm
         except Exception:
             pass
-    # Mặc định: 3 ngày trước
     return (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=3)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
@@ -73,7 +84,43 @@ def save_watermark(ts):
               open(STATE_FILE, "w"), indent=2)
 
 
-def fetch_cat(cat, max_results=200, retries=3):
+def load_seen():
+    """Nạp set các arXiv ID đã xử lý. Nếu file chưa có → migrate từ scans/*.json.
+
+    Đây là NGUỒN CHÂN LÝ cho việc lọc bài mới. Lọc theo tập ID (không theo mốc
+    thời gian) nên KHÔNG BAO GIỜ mất bài, bất kể cron hở bao nhiêu ngày.
+    """
+    if os.path.exists(SEEN_FILE):
+        try:
+            data = json.load(open(SEEN_FILE))
+            ids = data.get("ids", []) if isinstance(data, dict) else data
+            return list(ids)
+        except Exception:
+            pass
+    # Migrate: nạp ID từ mọi scans/*.json đã có (giữ thứ tự thời gian tăng dần)
+    ids = []
+    for f in sorted(glob.glob(os.path.join(SCANS_DIR, "20*.json"))):
+        try:
+            for p in json.load(open(f)).get("papers", []):
+                if p.get("id"):
+                    ids.append(p["id"])
+        except Exception:
+            continue
+    return list(dict.fromkeys(ids))
+
+
+def save_seen(ids):
+    """Ghi set ID, giữ tối đa SEEN_KEEP phần tử mới nhất (chống file phình vô hạn)."""
+    os.makedirs(os.path.dirname(SEEN_FILE), exist_ok=True)
+    ids = list(dict.fromkeys(ids))          # dedupe, giữ thứ tự
+    if len(ids) > SEEN_KEEP:
+        ids = ids[-SEEN_KEEP:]
+    json.dump({"updated": dt.datetime.now(dt.timezone.utc).isoformat(),
+               "count": len(ids), "ids": ids},
+              open(SEEN_FILE, "w"), indent=1)
+
+
+def fetch_cat(cat, max_results=FETCH_PER_CAT, retries=3):
     """Quét 1 category, retry khi arXiv rate limit (429)."""
     q = urllib.parse.quote("cat:%s" % cat)
     url = ("%s?search_query=%s&sortBy=submittedDate&sortOrder=descending"
@@ -287,18 +334,20 @@ def main():
     args = ap.parse_args()
 
     wm = load_watermark()
-    print("Watermark lần quét trước: %s" % wm)
+    seen = set(load_seen())
+    print("Watermark (sàn an toàn): %s" % wm)
+    print("Đã biết (seen_ids): %d ID" % len(seen))
 
     # 1) Quét
-    all_papers, seen = [], set()
+    all_papers, seen_batch = [], set()
     for cat in CATS_KEEP:
         try:
             xml = fetch_cat(cat)
             entries = parse_entries(xml)
             for p in entries:
-                if p["id"] in seen:
+                if p["id"] in seen_batch:
                     continue
-                seen.add(p["id"])
+                seen_batch.add(p["id"])
                 all_papers.append(p)
             print("  %-8s -> %d bài" % (cat, len(entries)))
             time.sleep(8)  # arXiv rate limit: ~3 req nhanh → chặn. Giãn 8s cho an toàn
@@ -307,9 +356,11 @@ def main():
 
     print("\nTổng unique: %d bài" % len(all_papers))
 
-    # 2) Lọc theo watermark
-    fresh = [p for p in all_papers if p["published"] >= wm]
-    print("Sau watermark (%s): %d bài" % (wm, len(fresh)))
+    # 2) Lọc bài MỚI theo tập ID đã xử lý (nguồn chân lý).
+    # Đã chấm rồi → có trong seen → bỏ. Chưa có → bài mới, đem chấm.
+    # Không phụ thuộc mốc thời gian nên hở bao nhiêu ngày cũng không mất bài.
+    fresh = [p for p in all_papers if p["id"] not in seen]
+    print("Sau lọc seen-ID: %d bài mới" % len(fresh))
 
     # 3) Lọc category (bỏ block)
     kept = []
@@ -342,6 +393,10 @@ def main():
         key = load_key()
         result = llm_score_batch(passed, key, args.max_llm)
         result.sort(key=lambda x: -x.get("llm_score", 0))
+        backlog = len(passed) - len(result)
+        if backlog > 0:
+            print("  ⚠ Tồn đọng %d bài vượt trần --max-llm → sẽ chấm ở lần chạy sau "
+                  "(KHÔNG mất, vì không nạp vào seen)." % backlog)
 
     # 6) Lưu
     os.makedirs(SCANS_DIR, exist_ok=True)
@@ -350,22 +405,36 @@ def main():
     json.dump({
         "date": today,
         "watermark_from": wm,
+        "seen_before": len(seen),
         "total_fetched": len(all_papers),
-        "after_watermark": len(fresh),
+        "after_seen": len(fresh),
         "after_category": len(kept),
         "after_heuristic": len(passed),
         "papers": result,
     }, open(outfile, "w"), ensure_ascii=False, indent=2)
     print("\nĐã lưu: %s" % outfile)
 
-    # 7) Cập nhật watermark — CHỈ khi có bài MỚI (fresh), không phải mọi lần quét.
-    # Nếu fresh=0 (chưa có bài mới / arXiv nghỉ / lỗi mạng), GIỮ nguyên watermark
-    # để lần sau quét lại từ mốc đó — tránh bỏ sót bài.
-    if len(fresh) > 0:
-        save_watermark(dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
-        print("Watermark mới: %s" % dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+    # 7) Cập nhật state:
+    #    a) seen_ids: CHỈ nạp bài đã thực sự xử lý xong (đã chấm LLM, hoặc bị lọc
+    #       category/heuristic hợp lệ). Bài vượt trần --max-llm KHÔNG được nạp →
+    #       lần sau chấm tiếp. Đây là điểm dễ sai nhất, gây mất bài vĩnh viễn.
+    #    b) watermark: = max(published) THẬT của bài đã quét, KHÔNG phải giờ chạy.
+    #       Ghi giờ chạy (now) là bug gốc: bài đăng giữa max(published) và now bị mất.
+    done_ids = [p["id"] for p in result]                       # đã chấm (hoặc dry-run)
+    if args.dry_run:
+        # dry-run không chấm LLM → không được đánh dấu đã xử lý, tránh bỏ sót khi chạy thật
+        done_ids = []
+    all_ids = list(seen) + done_ids
+    save_seen(all_ids)
+    print("seen_ids: %d ID (+%d đã xử lý)" % (len(set(all_ids)), len(set(done_ids))))
+
+    pubs = [p["published"] for p in all_papers if p.get("published")]
+    if pubs and not args.dry_run:
+        wm_new = max(pubs)
+        save_watermark(wm_new)
+        print("Watermark mới (= max published thật): %s" % wm_new)
     else:
-        print("Không có bài mới (fresh=0) → GIỮ nguyên watermark.")
+        print("Không cập nhật watermark/seen (quét rỗng hoặc dry-run).")
 
     # 8) Tóm tắt nhóm
     if not args.dry_run:

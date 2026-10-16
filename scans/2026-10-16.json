@@ -1,9 +1,99 @@
 {
   "date": "2026-10-16",
-  "watermark_from": "2026-10-15T15:25:40Z",
-  "total_fetched": 1213,
-  "after_watermark": 0,
-  "after_category": 0,
-  "after_heuristic": 0,
-  "papers": []
+  "watermark_from": "2026-10-15T17:59:59Z",
+  "seen_before": 25,
+  "total_fetched": 6043,
+  "after_seen": 6019,
+  "after_category": 5502,
+  "after_heuristic": 5205,
+  "papers": [
+    {
+      "id": "2610.17869v1",
+      "title": "ECMR: Evidence-Aware Deliberation Control for Multi-Agent LLM Reasoning",
+      "abstract": "Multi-agent Large Language Model (LLM) systems typically commit to a deliberation protocol before inference. A fixed protocol cannot allocate computation differently to resolved and unresolved instances, and it may mistake repeated support for independent confirmation. We study this failure as semantic false consensus: a confident group answer supported by narrow, duplicated, or correlated rationales. We introduce ECMR, an evidence-aware controller over frozen role-conditioned LLMs. At each step, ECMR summarizes answer concentration, support diversity and independence, contradictions, role behavior, verification history, and remaining budget, then selects whether to propose, challenge, verify, arbitrate, diversify, correct a role, or stop. We formulate this decision as finite-horizon budgeted control and derive sufficient conditions under which state conditioning, risk-triggered verification, and role correction improve cost-adjusted utility. Across a declared held-out evaluation of 9,000 records from MedQA, CaseHOLD, and FinQA, ECMR-Full increases pooled accuracy from 62.1% to 84.9%, reduces false-consensus rate from 40.7% to 17.0%, and raises evidence-support rate from 58.0% to 88.7%. State shuffling loses 11.7 accuracy points with only 0.7 fewer rounds, while harder traces shift from early stopping toward arbitration. ECMR-Full uses the largest token budget, yielding the strongest absolute reliability rather than uniformly superior token efficiency.",
+      "published": "2026-10-13T07:30:30Z",
+      "updated": "2026-10-13T07:30:30Z",
+      "cats": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.17869v1",
+      "heuristic": 46,
+      "llm_score": 84,
+      "llm_summary": "ECMR controller multi-agent LLM điều khiển deliberation theo evidence, chống semantic false-consensus, quyết định propose/challenge/verify/arbitrate/stop theo budget.",
+      "llm_reason": "Multi-agent + decision-making core, kết quả mạnh (62.1→84.9% acc, false-consensus 40.7→17.0% trên 9k records MedQA/CaseHOLD/FinQA), pattern state conditioning + risk-triggered verification dùng được cho workflow content/decision, trừ token budget lớn.",
+      "group": "high"
+    },
+    {
+      "id": "2608.21095v1",
+      "title": "Trustworthy RAG: An Evaluation Agent for Detecting Misinformation and Knowledge Poisoning in Generative AI Systems",
+      "abstract": "Retrieval-Augmented Generation (RAG) grounds Large Language Model (LLM) outputs in external knowledge, but RAG systems usually trust whatever they retrieve, creating a Security-Reliability Gap: high semantic relevance does not guarantee factual truth. Adversaries exploit this through knowledge poisoning, inserting malicious documents to cause targeted misinformation. We propose an Evaluation Agent, middleware that combines Natural Language Inference (NLI) factual verification, a five-signal poison detector with relevance-weighted aggregation, and a Trust Index T = 0.4 F + 0.35 C + 0.25 (1 - P ) with a non-linear dampener for high-contamination contexts. On TruthfulQA with Llama 3.3 70B, the agent reaches 91% accuracy and 100% precision, with 100% recall on instruction injection, while in-place edits, such as entity swaps, remain hard to detect. Across three LLMs the Trust Index stays discriminative, with a Receiver Operating Characteristic Area Under the Curve (ROC-AUC) of 0.73 to 0.81; generation style matters more than model size, and per-LLM threshold calibration restores baseline competitive accuracy, whereas a weaker FEVER result shows that cross-dataset generalization requires domain-specific calibration. In a software-engineering use case, a secure-coding assistant over guidance from the Open Worldwide Application Security Project (OWASP) Top 10 and the Common Weakness Enumeration (CWE), the agent reliably blocks instruction injection of unsafe advice (F1 92%), while contradiction and subtle semantic weakening remain hard. Throughout, the agent measures detection of poisoned context before generation, not whether the LLM adopts the injected misinformation. We release the proposed approach, attack generator, and experimental artifacts at the link: https://github.com/GPT-Laboratory/TrustworthyRAG.",
+      "published": "2026-08-21T13:42:41Z",
+      "updated": "2026-08-21T13:42:41Z",
+      "cats": [
+        "cs.SE",
+        "cs.AI",
+        "cs.CL",
+        "cs.CR",
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2608.21095v1",
+      "heuristic": 47,
+      "llm_score": 83,
+      "llm_summary": "Evaluation Agent middleware phát hiện misinformation và knowledge poisoning trong RAG bằng NLI + 5 tín hiệu + Trust Index T=0.4F+0.35C+0.25(1-P).",
+      "llm_reason": "RAG là core AI, experiment thật trên TruthfulQA/Llama 70B (91% acc, 100% precision), Trust Index và threshold calibration áp dụng ngay cho solopreneur dùng RAG làm content/chatbot, thiếu sót là entity-swap vẫn khó phát hiện.",
+      "group": "high"
+    },
+    {
+      "id": "2609.14896v1",
+      "title": "Forty Shades of Blue: Quality-Diversity Alignment via Mode-Conditioned Reinforcement Learning",
+      "abstract": "A notable byproduct of LLM alignment training is mode collapse: the progressive loss of output diversity that narrows a model's expressivity at inference time. This degradation is especially limiting for applications requiring open-ended exploration and pluralistic perspectives, such as scientific ideation and creative writing. We present MoDA (Mode-conditioned Diversity Alignment), an online post-training RL algorithm that jointly optimizes generation quality and diversity, inspired by the coordination perspective in multi-agent reinforcement learning (MARL). MoDA trains a single shared LLM policy conditioned on abstract numbered roles, where each role acts as an agent competing to produce outputs distinct from the others. This formulation encourages mode-conditioned agents to explore complementary regions of the high-quality output space without requiring hand-crafted personas or architectural modifications. MoDA employs a prompt-adaptive quality gating mechanism that calibrates a reference quality threshold and grants diversity rewards only to responses that meet the threshold, preventing reward-hacking behaviors that compromise response quality. To study quality-diversity tradeoffs, we evaluate MoDA on a comprehensive suite of benchmarks spanning seven general capability tasks and four domain-specific diversity tasks in scientific ideation and creative writing. MoDA improves SBERT diversity by 265% on the Infinite-Chat held-out prompts, while increasing average general capability pass@1 by 10.3% over the Qwen3-8B baseline. Compared with the strongest DivPO baseline, MoDA improves SBERT diversity from 0.274 to 0.482 (+75.9%) and E-Vendi from 2.86 to 4.4 (+53.8%), while improving average general capability pass@1 by 7.0%. Overall, MoDA provides a drop-in alternative to standard post-training methods that preserves and expands the model's expressive output space while improving quality.",
+      "published": "2026-09-14T01:30:23Z",
+      "updated": "2026-09-14T01:30:23Z",
+      "cats": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2609.14896v1",
+      "heuristic": 47,
+      "llm_score": 80,
+      "llm_summary": "MoDA dùng RL có điều kiện vai trò (mode-conditioned) để đồng thời tối ưu chất lượng và đa dạng đầu ra của LLM, chống mode collapse.",
+      "llm_reason": "Rất phù hợp content creator cần đa dạng góc nhìn (sáng tạo, viết, ideation), có benchmark thật 7+4 task và cơ chế quality gating chống reward-hacking, nhưng thiênên về creative writing hơn business trực tiếp.",
+      "group": "high"
+    },
+    {
+      "id": "2609.24928v2",
+      "title": "Trajectory-Aware Benchmark Subset Selection for Cost-Efficient Software Engineering Agent Regression Testing",
+      "abstract": "Autonomous software engineering agents (SWE-agents) automate coding tasks. Each agent update may require re-running the full benchmark to detect regressions and improvements, at a cost of hundreds of millions of LLM tokens per run, which makes evaluation a bottleneck. One solution is to evaluate only a subset of benchmark instances. Yet, simple approaches, such as random sampling or stratified random sampling based on past pass/fail outcomes, risk producing high variance and unrepresentative subsets. We turn to agent trajectories, the step-by-step record of the actions an agent took. We propose a trajectory-aware subset selection approach that replaces random sampling with deterministic selection based on trajectory embeddings. We first group test set instances by their test outcome in a recent full test run to preserve the historical pass/fail rate, then select the subset using the trajectory's embedding space. We evaluate 76 subset selection configurations, including random sampling, embedding-based selection, clustering-based selection, and hybrid shortlist-then-subsample strategies, across three regression scenarios: same-configuration reruns, model and configuration changes, and agent framework changes. Our best trajectory-aware method is the one selecting benchmark instances closest to the centroid of each outcome group in the embedding space. It achieves the lowest estimation error among all methods we evaluate. For instance, when evaluating a given agent version on a selected subset of 5% or 10% of the test instances, our approach reduces the average estimation error by 3--11% and the worst-case error by 4--11% relative to the typical draw and 38--46% relative to the 95th-percentile draw of the strongest baseline. Our results show that a 10% trajectory-aware subset keeps the median estimation error below 5% while cutting token cost by roughly 90%.",
+      "published": "2026-09-21T17:23:28Z",
+      "updated": "2026-09-28T15:48:38Z",
+      "cats": [
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2609.24928v2",
+      "heuristic": 47,
+      "llm_score": 70,
+      "llm_summary": "Chọn subset benchmark dựa trên trajectory embedding để test regression SWE-agent tiết kiệm token mà vẫn đại diện.",
+      "llm_reason": "Cực kỳ thực tiễn nếu bạn tự vận hành agent (tiết kiệm hàng trăm triệu token/lần chạy, 76 cấu hình), nhưng gắn SWE-agent nên relevance business/content chỉ trung bình.",
+      "group": "mid"
+    },
+    {
+      "id": "2610.19970v1",
+      "title": "Temporal Adaptive Fine-Tuning for Code Comprehension",
+      "abstract": "Repository-level code comprehension question answering (QA) supports developer reasoning over functionality and usage distributed across codebases. However, repository-specialized large language models (LLMs) can become misaligned as code evolves. We study this challenge as temporal repository adaptation: acquiring new knowledge, suppressing obsolete, retaining still-valid, and preserving semantically neighboring knowledge. Existing retrieval, fine-tuning, and model-editing methods address only parts of this problem. We propose Temporal Adaptive Fine-Tuning (TAFT), a novel adaptation approach that treats repository transitions as supervision. TAFT derives temporally grounded QA data from repository transitions, pairs newly valid with obsolete knowledge through preference optimization, and replays transition-conditioned retention examples to preserve still-valid knowledge. We evaluate TAFT on an augmented temporal SWE-bench dataset comprising 255,295 QA entries across ten temporal slices, comparing deferred (Baseline), per-slice retrained (Baseline-Batched), and variants with knowledge anchors along four dimensions: updated knowledge, obsolete-answer suppression, retention, and neighbor stability. TAFT consistently outperforms both the deferred and batched baselines, with an average relative improvement of 18% in updated/suppressed knowledge accuracy, doubled retention accuracy, and roughly 1.5 times the neighbor accuracy. With directly supplied knowledge anchors, TAFT-KANT further improves mean updated/suppressed, retention, and neighbor accuracy over TAFT by 3.55%, 8.35%, and 13.00%, respectively. Overall, TAFT demonstrates its effectiveness across all evaluated areas, effectively enabling code comprehension QA alignment with repository evolution.",
+      "published": "2026-10-14T10:53:35Z",
+      "updated": "2026-10-14T10:53:35Z",
+      "cats": [
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2610.19970v1",
+      "heuristic": 47,
+      "llm_score": 68,
+      "llm_summary": "TAFT fine-tuning thích ứng theo thời gian cho repository code QA, dùng transition làm supervision để cập nhật/triệt tiêu/giữ kiến thức.",
+      "llm_reason": "AI/LLM core và benchmark SWE-bench 255k QA mạnh, nhưng quá code-specific, ít liên quan content/marketing 30+ hay chess, insight khó chuyển sang business nội dung.",
+      "group": "mid"
+    }
+  ]
 }
