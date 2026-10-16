@@ -242,3 +242,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: cascade-attack-awareness | Test: SKILL VALID
 ✓ Insight: Tấn công đối thủ làm giảm accuracy 84.6%, tăng token cost 148.9%, thời gian 108.9%, attack success rate 81.4%; cascade LLM không an toàn tự động.
 → Tiếp tục: [YES]
+
+## Paper #93 — INFUSE: A Unified Surface Benchmark for Indirect Prompt Injection in Agentic Systems (2610.20776v1) [applied]
+✓ Skill: infuse-indirect-prompt-injection-benchmark | Test: SKILL VALID
+✓ Insight: Mean attack success 19.6% (LLM-based), 15.4% (heuristic); instructional hardening giảm từ 58.2% xuống 14.3%; Meta-SecAlign giảm ASR-L 55% (8B) và 74% (70B).
+→ Tiếp tục: [YES]

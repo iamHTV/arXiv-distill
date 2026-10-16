@@ -1,0 +1,15 @@
+{
+  "name": "INFUSE: A Unified Surface Benchmark for Indirect Prompt Injection in Agentic Systems",
+  "arxiv_id": "2610.20776v1",
+  "authors": ["Thuy Dung Nguyen", "Jingyi Guo", "Rana Seda Dubauskas", "Sreepriya Damuluru", "Taylor T. Johnson", "Kevin Leach"],
+  "institution": "Vanderbilt University",
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2610.20776",
+  "link_abs": "https://arxiv.org/abs/2610.20776",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "infuse-indirect-prompt-injection-benchmark"
+}
