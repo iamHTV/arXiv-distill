@@ -1,0 +1,15 @@
+{
+  "name": "Planner-as-Router: Joint Plan-Time Model Routing for Cost-Efficient Multi-Agent Workflows",
+  "arxiv_id": "2609.32917v1",
+  "authors": ["Vivek Kumar Singh", "Preeti Priyam", "Gautam Bhowmick"],
+  "institution": "Independent Researcher",
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.32917",
+  "link_abs": "https://arxiv.org/abs/2609.32917",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "planner-as-router-model-routing"
+}
