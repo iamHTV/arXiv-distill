@@ -16,6 +16,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -36,21 +37,49 @@ def load_env():
 
 
 def send(text, token, chat_id):
+    """Gửi 1 tin. Nếu Markdown lỗi parse → tự fallback sang plain text.
+
+    Không bao giờ để mất thông báo vì lỗi format (bug 16/10: 400 parse entities).
+    """
     url = "https://api.telegram.org/bot%s/sendMessage" % token
-    data = urllib.parse.urlencode({
-        "chat_id": chat_id,
-        "text": text,
-        "parse_mode": "Markdown",
-        "disable_web_page_preview": "true",
-    }).encode()
-    req = urllib.request.Request(url, data=data)
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)
+    for mode in ("Markdown", None):
+        payload = {
+            "chat_id": chat_id,
+            "text": text,
+            "disable_web_page_preview": "true",
+        }
+        if mode:
+            payload["parse_mode"] = mode
+        data = urllib.parse.urlencode(payload).encode()
+        req = urllib.request.Request(url, data=data)
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            body = e.read().decode()[:200]
+            if mode is None:
+                raise
+            print("    (Markdown lỗi %s → gửi lại plain text)" % e.code)
+    return {"ok": False}
 
 
-def _short(s, n=140):
+_MD_SPECIAL = re.compile(r"([*_`\[\]])")
+
+
+def _esc(s):
+    """Escape ký tự Markdown legacy trong text ĐỘNG (title/summary/reason).
+
+    Telegram parse_mode=Markdown: dấu * _ ` [ ] không cân cặp → HTTP 400
+    'can't parse entities'. Bug thật 16/10: summary chứa '_' làm cả tin
+    không gửi được. Escape mọi ký tự đặc biệt → an toàn tuyệt đối.
+    """
+    return _MD_SPECIAL.sub(r"\\\1", s or "")
+
+
+def _short(s, n=140, esc=True):
     s = " ".join((s or "").split())
-    return s[:n] + ("…" if len(s) > n else "")
+    s = s[:n] + ("…" if len(s) > n else "")
+    return _esc(s) if esc else s
 
 
 def build_message(scan):
