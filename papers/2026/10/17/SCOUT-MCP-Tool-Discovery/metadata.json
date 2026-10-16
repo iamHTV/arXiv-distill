@@ -1,0 +1,15 @@
+{
+  "name": "Hybrid Semantic Tool Discovery for Enterprise MCP Gateway: Architecture and Implementation (SCOUT)",
+  "arxiv_id": "2608.23992v1",
+  "authors": ["Olympia Saha", "Amy Wang", "Srinivasan Manoharan"],
+  "institution": "PayPal, Inc.",
+  "year": 2026,
+  "published": "2026-08-25",
+  "categories": ["cs.IR", "cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2608.23992",
+  "link_abs": "https://arxiv.org/abs/2608.23992",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "SCOUT MCP Meta-Tool Gateway"
+}

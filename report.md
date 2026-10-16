@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 103 papers. 🎉
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 104 papers. 🎉
 
 ---
 
@@ -285,4 +285,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #102 — What Stops a Small Language Model From Driving a Database Agent (2609.21341v1) [applied]
 ✓ Skill: agent-failure-ledger-taxonomy | Test: SKILL VALID
 ✓ Insight: 75.7% agent failure đến từ runs ĐÃ invoke tool (transport 36.2% là class lớn nhất, capability chỉ 17.3%) — "model yếu" framing sai; 27/69 stopping turns chứa tool call đúng nhưng nằm trong text channel; 5 server changes (không đụng model/prompt/sampling) move 6 models 6–21 cells/30; uncapped context (262k-token window, 51GB RAM) tạo fake yếu 0/5→5/5.
+→ Tiếp tục: [YES]
+## Paper #103 — Hybrid Semantic Tool Discovery for Enterprise MCP Gateway: SCOUT (2608.23992v1) [applied]
+✓ Skill: scout-mcp-meta-tool-gateway | Test: SKILL VALID
+✓ Insight: 2 synthetic meta-tool (tool_search + execute_tool) collapse 2,000-tool catalog thành 1,300 token (0.8% context, giảm 99% từ 140.2k/70.1%) — orchestration nằm hết trong tool description text, không fine-tune, không sửa client (6 clients); hybrid BM25+dense RRF k=60 + 3× over-fetch → Hit@1 84.8%, Hit@5 95.6%, MRR 0.821; dense branch cứu vocabulary gap (Slack query → Teams tool, BM25 = 0 match); authorization enforced BÊN TRONG vector DB; P95 latency 936ms VƯỢT mục tiêu 500ms.
 → Tiếp tục: [YES]
