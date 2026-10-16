@@ -1,0 +1,15 @@
+{
+  "name": "Grow the Harness, Not the Context: From Strategy-Free Scaffolds to Reusable Specialist Agents",
+  "arxiv_id": "2609.26760v2",
+  "authors": ["Laizhen Li", "Jiarui Li", "Juanjuan Zhao", "Kejiang Ye", "Ye Li", "Cheng-zhong Xu", "Xitong Gao"],
+  "institution": ["Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences", "University of Chinese Academy of Sciences", "Shenzhen University of Advanced Technology", "Institute of AI and Brain Sciences, CS Dept., University of Macau"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.26760",
+  "link_abs": "https://arxiv.org/abs/2609.26760",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "harness-learning-reusable-specialist-agents"
+}
