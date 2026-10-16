@@ -292,6 +292,16 @@ def _call_llm_batch(batch, key):
             continue
         except Exception:
             continue
+    # Hết chain mà không chấm được bài nào → đánh dấu LỖI cho MỌI bài trong batch.
+    # Bắt buộc: nếu không set llm_score, các bài này (a) không được retry
+    # (retry tìm llm_score==-1), (b) vẫn lọt vào seen_ids → MẤT VĨNH VIỄN.
+    # Bug thật gặp 16/10: 8 batch 0/10 → 93 bài suýt mất.
+    for p in batch:
+        if "llm_score" not in p:
+            p["llm_score"] = -1
+            p["llm_summary"] = ""
+            p["llm_reason"] = "BATCH_FAIL: hết fallback chain, không parse được JSON"
+            p["group"] = "error"
     return 0
 
 
@@ -415,18 +425,22 @@ def main():
     print("\nĐã lưu: %s" % outfile)
 
     # 7) Cập nhật state:
-    #    a) seen_ids: CHỈ nạp bài đã thực sự xử lý xong (đã chấm LLM, hoặc bị lọc
-    #       category/heuristic hợp lệ). Bài vượt trần --max-llm KHÔNG được nạp →
-    #       lần sau chấm tiếp. Đây là điểm dễ sai nhất, gây mất bài vĩnh viễn.
-    #    b) watermark: = max(published) THẬT của bài đã quét, KHÔNG phải giờ chạy.
-    #       Ghi giờ chạy (now) là bug gốc: bài đăng giữa max(published) và now bị mất.
-    done_ids = [p["id"] for p in result]                       # đã chấm (hoặc dry-run)
+    #    a) seen_ids: CHỈ nạp bài đã CHẤM THÀNH CÔNG (llm_score >= 0).
+    #       - Bài vượt trần --max-llm → không nạp → lần sau chấm tiếp.
+    #       - Bài lỗi (llm_score == -1) → KHÔNG nạp → lần sau chấm lại.
+    #       - dry-run → không nạp gì.
+    #       Đây là chốt chống mất bài quan trọng nhất.
+    #    b) watermark: = max(published) THẬT, KHÔNG phải giờ chạy (bug gốc).
     if args.dry_run:
-        # dry-run không chấm LLM → không được đánh dấu đã xử lý, tránh bỏ sót khi chạy thật
         done_ids = []
+    else:
+        done_ids = [p["id"] for p in result if p.get("llm_score", -1) >= 0]
+    n_err = sum(1 for p in result if p.get("llm_score", -1) == -1)
     all_ids = list(seen) + done_ids
     save_seen(all_ids)
-    print("seen_ids: %d ID (+%d đã xử lý)" % (len(set(all_ids)), len(set(done_ids))))
+    print("seen_ids: %d ID (+%d đã xử lý OK)" % (len(set(all_ids)), len(set(done_ids))))
+    if n_err:
+        print("  ⚠ %d bài lỗi KHÔNG nạp vào seen → sẽ chấm lại lần sau." % n_err)
 
     pubs = [p["published"] for p in all_papers if p.get("published")]
     if pubs and not args.dry_run:
