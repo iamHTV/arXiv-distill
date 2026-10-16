@@ -1,0 +1,15 @@
+{
+  "name": "Structured pre-generation elicitation versus single-shot prompting in AI-assisted enterprise decision-making: a randomised online experiment",
+  "arxiv_id": "2610.09593v1",
+  "authors": ["William Scott-Jackson"],
+  "institution": ["Oxford Centre for Impact Research (OCIR)"],
+  "year": 2026,
+  "published": "2026-10-07",
+  "categories": ["cs.HC", "cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2610.09593",
+  "link_abs": "https://arxiv.org/abs/2610.09593",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "pre-generation-elicitation-scaffold"
+}
