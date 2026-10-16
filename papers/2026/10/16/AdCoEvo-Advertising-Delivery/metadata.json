@@ -1,0 +1,15 @@
+{
+  "name": "AdCoEvo: A Co-Evolving Multi-Agent Advertising Delivery System",
+  "arxiv_id": "2610.19454v1",
+  "authors": ["Tianzhu Hu", "Hang Yu", "Zeyuan Zhao", "Zeyu Pan", "Huan Luo", "Chun Gan", "Mingzhe Cao", "Liubin Wang", "Mingming Li", "Jiao Dai", "Jizhong Han", "Songlin Hu"],
+  "institution": ["Institute of Information Engineering, Chinese Academy of Sciences", "School of Cyberspace Security, University of Chinese Academy of Sciences", "The University of Sydney", "JD.COM"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2610.19454",
+  "link_abs": "https://arxiv.org/abs/2610.19454",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "adcoevo-co-evolving-multi-agent-advertising"
+}

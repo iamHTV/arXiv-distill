@@ -247,3 +247,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: infuse-indirect-prompt-injection-benchmark | Test: SKILL VALID
 ✓ Insight: Mean attack success 19.6% (LLM-based), 15.4% (heuristic); instructional hardening giảm từ 58.2% xuống 14.3%; Meta-SecAlign giảm ASR-L 55% (8B) và 74% (70B).
 → Tiếp tục: [YES]
+
+## Paper #94 — AdCoEvo: A Co-Evolving Multi-Agent Advertising Delivery System (2610.19454v1) [applied]
+✓ Skill: adcoevo-co-evolving-multi-agent-advertising | Test: SKILL VALID
+✓ Insight: AdCoEvo tăng ADV 14.02%, giảm CPA 7.07% (vs Rule); Inspector +4.95% ADV, -9.57% CPA; API cost CNY 0.235, 65.59% thấp hơn Gemini-3.1-Flash-Lite.
+→ Tiếp tục: [YES]
