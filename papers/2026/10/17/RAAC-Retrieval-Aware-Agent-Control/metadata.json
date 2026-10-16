@@ -1,0 +1,15 @@
+{
+  "name": "When Deep Research Agents Stagnate: Enhancing Reasoning with Retrieval-Aware Agent Control (RAAC)",
+  "arxiv_id": "2608.15191v1",
+  "authors": ["Heydar Soudani", "Elizabeth Lingg", "Faegheh Hasibi", "Navid Rekabsaz"],
+  "institution": "Radboud University; Thomson Reuters Labs",
+  "year": 2026,
+  "published": "2026-08-15",
+  "categories": ["cs.IR"],
+  "link_pdf": "https://arxiv.org/pdf/2608.15191",
+  "link_abs": "https://arxiv.org/abs/2608.15191",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "RAAC Retrieval-Aware Agent Controller"
+}
