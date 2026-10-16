@@ -1,0 +1,15 @@
+{
+  "name": "On Evaluating and Improving Conversational Agents in Production",
+  "arxiv_id": "2609.32092v1",
+  "authors": ["Kasra Hosseini", "Wen-Sen Cheng", "Marco-Andrea Buchmann", "Emir Mulabegovic", "Weiwei Cheng"],
+  "institution": "Zalando SE Berlin; Zalando Switzerland",
+  "year": 2026,
+  "published": "2026-09-25",
+  "categories": ["cs.MA"],
+  "link_pdf": "https://arxiv.org/pdf/2609.32092",
+  "link_abs": "https://arxiv.org/abs/2609.32092",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Commissioned Agent Evaluation"
+}

@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 110 papers. 🎉
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 111 papers. 🎉
 
 ---
 
@@ -313,4 +313,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #109 — TRACER: Trajectory-Aware Tool Retrieval for LLM Agents (2610.21267v1) [applied]
 ✓ Skill: tracer-trajectory-tool-trie | Test: SKILL VALID
 ✓ Insight: Tool retrieval là sequential prediction, không phải independent search: execution trie (prefix→candidates) + edge memory (conversations transition được thực hiện) + learned per-state blend beats full-registry 21/24 model-environment pairs (avg +6–10 points) với k=5/128 tools và −80% tokens/step (2.8k vs 14.2k); free-running parity 58.3% vs 58.2% với 23% tools, −61% input tokens; specificity trap 36.4%→16.4%, procedural unlock-before-write enforced miễn phí; cold start là blocker chính (−38 points khi không có trajectory history).
+→ Tiếp tục: [YES]
+## Paper #110 — On Evaluating and Improving Conversational Agents in Production (2609.32092v1) [applied]
+✓ Skill: commissioned-agent-evaluation | Test: SKILL VALID
+✓ Insight: Production agent improvement cần commissioned behavior-specific evaluation, không aggregate metrics: assertion profiles ở nhiều strictness levels (any/first/≥75%/all) chỉ ra failure nằm ở prominent carousel positions (first 0.833 vs all 0.640) → fix đúng chỗ (curation prompt strict rule, +0.060 first-product); paired per-scenario bootstrap (2,000 resamples) tách run-to-run variation khỏi scenario difficulty — h1 borderline (+0.067 [−0.022,+0.178]) bị reject, h2 signal+ (+0.267 [+0.067,+0.511]) được confirm sau 3 reproduce runs; audit judge như software phát hiện temperature=0 configured but not applied.
 → Tiếp tục: [YES]
