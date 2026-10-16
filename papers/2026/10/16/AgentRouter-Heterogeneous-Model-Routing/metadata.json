@@ -1,0 +1,15 @@
+{
+  "name": "AgentRouter: Heterogeneous Model Routing for Cost-Optimal Multi-Step Agentic Workflows",
+  "arxiv_id": "2609.22951v1",
+  "authors": ["Rudrendu Kumar Paul", "Sourav Nandy"],
+  "institution": null,
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.22951",
+  "link_abs": "https://arxiv.org/abs/2609.22951",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "agentrouter-step-level-model-routing"
+}
