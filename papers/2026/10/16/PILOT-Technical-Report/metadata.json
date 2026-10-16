@@ -1,0 +1,15 @@
+{
+  "name": "PILOT Technical Report",
+  "arxiv_id": "2608.18637v2",
+  "authors": ["PILOT Team"],
+  "institution": null,
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2608.18637",
+  "link_abs": "https://arxiv.org/abs/2608.18637",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "pilot-proactive-insight-learner-experiments"
+}
