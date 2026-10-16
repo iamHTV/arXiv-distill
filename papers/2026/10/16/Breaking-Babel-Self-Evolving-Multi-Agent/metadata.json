@@ -1,0 +1,15 @@
+{
+  "name": "Breaking Babel: A Self-Evolving Multi-Agent System for Long-Form Subtitle Translation",
+  "arxiv_id": "2609.38660v2",
+  "authors": ["Haibo Jin", "Xinjie Li", "Najmeh Sadoughi", "Yang Liu", "Yibo Wang", "Zhu Liu", "Yuzong Liu"],
+  "institution": ["University of Illinois Urbana-Champaign, USA", "Amazon, USA"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI", "cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2609.38660",
+  "link_abs": "https://arxiv.org/abs/2609.38660",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "self-evolving-multi-agent-translation"
+}
