@@ -1,0 +1,15 @@
+{
+  "name": "Retrieval-Augmented Generation for Scientific Code Understanding",
+  "arxiv_id": "2609.12190v1",
+  "authors": ["Aaron Nobile", "Andreas Adelmann", "Mohsen Sadr"],
+  "institution": ["ETH Zürich, Switzerland", "Paul Scherrer Institute, Switzerland", "MIT, USA"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI", "cs.SE"],
+  "link_pdf": "https://arxiv.org/pdf/2609.12190",
+  "link_abs": "https://arxiv.org/abs/2609.12190",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "rag-scientific-code-understanding"
+}

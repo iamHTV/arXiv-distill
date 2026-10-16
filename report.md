@@ -217,3 +217,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: cognitive-diversity-multi-agent-debate | Test: SKILL VALID
 ✓ Insight: Không coi agent là cùng cấp — đa dạng nhận thức tạo lợi ích; debate chỉ có ích vòng đầu tiên, independent pooling tốt hơn debate (+8.9pp).
 → Tiếp tục: [YES]
+
+## Paper #88 — RAG for Scientific Code Understanding (2609.12190v1) [applied]
+✓ Skill: rag-scientific-code-understanding | Test: SKILL VALID
+✓ Insight: Mô hình nhỏ (9B) đạt 0.795 trên 100-question benchmark, vượt qua mô hình lớn hơn; tách biệt offline ingestion khỏi online answering để chạy local, bảo mật dữ liệu.
+→ Tiếp tục: [YES]
