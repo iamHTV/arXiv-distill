@@ -1,0 +1,15 @@
+{
+  "name": "AutoTailor: Automatic, User-Aligned Capability Selection and Adaptation for Web Agents",
+  "arxiv_id": "2609.13548v1",
+  "authors": ["Xinyun Cao", "Adriana Szekeres", "Fazle Elahi Faisal"],
+  "institution": "University of Michigan; Microsoft Research Redmond",
+  "year": 2026,
+  "published": "2026-09-11",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.13548",
+  "link_abs": "https://arxiv.org/abs/2609.13548",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "AutoTailor Capability Inventory"
+}

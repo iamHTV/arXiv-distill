@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 108 papers. 🎉
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 109 papers. 🎉
 
 ---
 
@@ -305,4 +305,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #107 — A Large-Scale Empirical Study of QA Practices and Gaps in AI Agents (2609.17698v1) [applied]
 ✓ Skill: agent-qa-four-layer-audit | Test: SKILL VALID
 ✓ Insight: QA gap lớn nhất nằm ở COMMON routes (credentials, network/API, file, shell, dynamic code) không phải obscure surfaces; prompt-injection/adversarial tests chỉ 5.1% repos có (97.8% affected projects thiếu), security/safety tests 60.5%, red-team-like paths 49.7%; controls không đồng nhất qua equivalent routes (96.8% projects); remedy: define controls by protected action/asset + failure-oriented test FAIL khi bỏ safeguard + convert 8 risk chains thành bounded-action requirements.
+→ Tiếp tục: [YES]
+## Paper #108 — AutoTailor: Automatic, User-Aligned Capability Selection and Adaptation for Web Agents (2609.13548v1) [applied]
+✓ Skill: autotailor-capability-inventory | Test: SKILL VALID
+✓ Insight: Tool-set composition là first-class optimization: QF+ULF nén 1,283→87 APIs (−93%) gần như không mất direct coverage (60.4→59.9 without fallback); DR online adapt thành 33 APIs match runtime distribution → 90.6% correctness (+3.1pp over ReAct alone 87.5%), −57.8% total request-token cost, −29.4% latency, >24× reduction tooling tokens vs full set; bài học: aggressive static filtering một mình ĐÁNH ĐỔI (SULF total cost 1.42m→1.52m vì đẩy tasks sang fallback), ULF alone −9.7pp coverage (50.2%) — phải giữ best API mỗi semantic cluster + ReAct fallback.
 → Tiếp tục: [YES]
