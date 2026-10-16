@@ -1,0 +1,15 @@
+{
+  "name": "Knowledge-as-Skill: A Structural Design for Autonomous Knowledge-Base Use by LLM Agents",
+  "arxiv_id": "2609.25991v1",
+  "authors": ["Jiangxu Wu"],
+  "institution": "Sun Yat-sen University",
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.25991",
+  "link_abs": "https://arxiv.org/abs/2609.25991",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "knowledge-as-skill-3-layer-kb"
+}
