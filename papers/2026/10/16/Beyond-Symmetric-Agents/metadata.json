@@ -1,0 +1,15 @@
+{
+  "name": "Beyond Symmetric Agents: Cognitive Diversity and Multi-Agent Debate in Small Language Models",
+  "arxiv_id": "2609.35875v1",
+  "authors": ["Leonardo Ferreira", "Gardenia Liu", "Kaden Zheng"],
+  "institution": ["Boston Children's Hospital, Harvard Medical School", "Harvard School of Engineering and Applied Sciences, Harvard College"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.35875",
+  "link_abs": "https://arxiv.org/abs/2609.35875",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "cognitive-diversity-multi-agent-debate"
+}
