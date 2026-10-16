@@ -1,0 +1,15 @@
+{
+  "name": "A Large-Scale Empirical Study of Quality Assurance Practices and Gaps in AI Agents",
+  "arxiv_id": "2609.17698v1",
+  "authors": ["Wuyang Dai", "Moses Openja", "Jiho Shin", "Hung Viet Pham", "Song Wang"],
+  "institution": "York University; Polytechnique Montréal",
+  "year": 2026,
+  "published": "2026-09-15",
+  "categories": ["cs.SE"],
+  "link_pdf": "https://arxiv.org/pdf/2609.17698",
+  "link_abs": "https://arxiv.org/abs/2609.17698",
+  "github": "anonymous.4open.science/r/Data-Quality-Assurance-Practices-and-Gaps-in-AI-Agents-85F2/",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Agent QA Four-Layer Audit"
+}

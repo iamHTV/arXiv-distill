@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 107 papers. 🎉
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 108 papers. 🎉
 
 ---
 
@@ -301,4 +301,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #106 — MERGED: Multimodal Entity Resolution via Generated Expert Reasoning Distillation (2609.01913v2) [applied]
 ✓ Skill: merged-teacher-distillation-er | Test: SKILL VALID
 ✓ Insight: 2-teacher VLM consensus→SFT, disagreement→meta-judge DPO: 7B student 90.96% PR-AUC = +13.79 over human-label SFT, +6.32 over Qwen2.5-32B-VL zero-shot tại $600/1M (6× cheaper, <1s/sample); gain decomposition: reasoning +6.14, DPO +4.15, label source chỉ +3.50; warm-start từ checkpoint + 10K samples adapt definition mới 89.48 (+6.97 over zero-shot, beats from-scratch) — days không phải months.
+→ Tiếp tục: [YES]
+## Paper #107 — A Large-Scale Empirical Study of QA Practices and Gaps in AI Agents (2609.17698v1) [applied]
+✓ Skill: agent-qa-four-layer-audit | Test: SKILL VALID
+✓ Insight: QA gap lớn nhất nằm ở COMMON routes (credentials, network/API, file, shell, dynamic code) không phải obscure surfaces; prompt-injection/adversarial tests chỉ 5.1% repos có (97.8% affected projects thiếu), security/safety tests 60.5%, red-team-like paths 49.7%; controls không đồng nhất qua equivalent routes (96.8% projects); remedy: define controls by protected action/asset + failure-oriented test FAIL khi bỏ safeguard + convert 8 risk chains thành bounded-action requirements.
 → Tiếp tục: [YES]
