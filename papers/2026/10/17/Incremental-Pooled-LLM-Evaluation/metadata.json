@@ -1,0 +1,15 @@
+{
+  "name": "Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+  "arxiv_id": "2609.02745v1",
+  "authors": ["Max Nelson", "Hanoz Bhathena", "Aviral Joshi", "Saket Sharma"],
+  "institution": "JPMorganChase",
+  "year": 2026,
+  "published": "2026-09-02",
+  "categories": ["cs.IR"],
+  "link_pdf": "https://arxiv.org/pdf/2609.02745",
+  "link_abs": "https://arxiv.org/abs/2609.02745",
+  "github": "",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Incremental Pooled LLM Evaluation"
+}
