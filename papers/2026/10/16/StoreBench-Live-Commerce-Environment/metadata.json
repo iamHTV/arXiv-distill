@@ -1,0 +1,15 @@
+{
+  "name": "StoreBench: A Live-Commerce Environment for Evaluating and Training Autonomous Operator Agents",
+  "arxiv_id": "2610.10942v1",
+  "authors": ["Daksh Raghuvanshi", "Ved Vedere", "Yifan Wang"],
+  "institution": "AfterQuery",
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2610.10942",
+  "link_abs": "https://arxiv.org/abs/2610.10942",
+  "github": null,
+  "classification": "survey",
+  "skill_status": "N/A",
+  "skill_name": null
+}
