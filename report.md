@@ -331,3 +331,9 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ---
 
 **Ghi chú 2026-10-17 (corruption + recovery):** `top30_20261017.json` entries #16–#30 bị corrupted ids (verified qua arXiv API: 2609.04241 = VocalCoachBench cs.SD, 2610.10539 = Tetris3D cs.CV, 2610.07414 = physics.flu-dyn, 2608.17437 = math.PR, 2609.26288 = cs.LG protocol uncertainty, 2610.03960 = cs.CR poisoning, 2609.03475 = cs.CV SafeRestore, 2608.15893 = bot detection, 2610.00758 = cs.LG inverse RL, 2609.15053 = hep-ex, 2609.05162 = q-fin.GN, 2609.24605 = math.OC — KHÔNG có trong scan). Đã rebuild top30 từ `scans/2026-10-17.json` (source of truth, 60 papers, ids/titles/scores thật) → `state/top30_20261017_rebuilt.json` (30 papers chưa distill, sorted by llm_score). Entries #1–#15 verified đúng (đã distill thành papers #97–#111).
+
+
+## Paper #113 — Learning How Much to Collaborate: Difficulty-Aware Topology Selection — Dats (2609.13890v1) [applied]
+✓ Skill: dats-topology-router | Test: SKILL VALID
+✓ Insight: Collaboration benefit scales với difficulty (HRM vs Single gap 2.4→10.7→21.1 points qua easy/mid/hard tertiles) nhưng cost cố định 9.95× — fixed HRM tốn 60% spend buying nothing; Dats (predict-then-optimize: topology-graph GNN 13.7K params + bisection λ) đạt 77.69% pass@1 tại 40% always-HRM budget ($0.377/problem), +4.07 over always-HRM (cả 11 McNemar comparisons significant sau Holm–Bonferroni), +6.03 over direct classification, +9.12 over Random; gain ổn định 4.11±0.07 trên 4 backbones (13.8-point capability span) và transfer sang math (400 problems, +3.5 points, gap 2.5→20.9 theo MATH level); budget-matched protocol REVERSE rankings — shared λ=0.2 để RandomForest first (76.55% nhưng tốn $0.489 = 51.9% budget), calibrated → Dats first với gap 3.42 points; fine-tuned GraphCodeBERT 125M params mua +0.49 points KHÔNG significant (p>0.35, seed SD 0.71).
+→ Tiếp tục: [YES]

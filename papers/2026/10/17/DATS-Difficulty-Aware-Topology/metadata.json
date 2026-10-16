@@ -1,0 +1,15 @@
+{
+  "name": "Learning How Much to Collaborate: Difficulty-Aware Topology Selection for Multi-Agent Code Generation (Dats)",
+  "arxiv_id": "2609.13890v1",
+  "authors": ["Yunsong Hong"],
+  "institution": "The University of Sydney",
+  "year": 2026,
+  "published": "2026-09-12",
+  "categories": ["cs.MA"],
+  "link_pdf": "https://arxiv.org/pdf/2609.13890",
+  "link_abs": "https://arxiv.org/abs/2609.13890",
+  "github": "",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Dats Topology Router"
+}
