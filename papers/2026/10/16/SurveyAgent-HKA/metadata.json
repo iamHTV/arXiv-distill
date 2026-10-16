@@ -1,0 +1,15 @@
+{
+  "name": "SurveyAgent-HKA: A multi-agent framework for scientific survey generation with LLMs and human knowledge augmentation",
+  "arxiv_id": "2609.05938v1",
+  "authors": ["Tong Bao", "Mir Tafseer Nayeem", "Yi Zhao", "Davood Rafiei", "Chengzhi Zhang"],
+  "institution": ["Nanjing University of Science and Technology, China", "University of Alberta, Canada", "Anhui University, China"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI", "cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2609.05938",
+  "link_abs": "https://arxiv.org/abs/2609.05938",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "surveyagent-hka-scientific-survey"
+}
