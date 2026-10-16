@@ -1,0 +1,15 @@
+{
+  "name": "When \"Must\" Becomes \"Maybe\": Erosion of Workflow Constraints in LLM Agent Handoffs",
+  "arxiv_id": "2608.24569v2",
+  "authors": ["Yiheng Sun", "Huifei Wang", "Yancheng Zhu", "Zhenyu Li", "Zebin Zhao", "Yifan Yuan"],
+  "institution": "Shenzhen University",
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2608.24569",
+  "link_abs": "https://arxiv.org/abs/2608.24569",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "workflow-constraint-erosion-agent-handoffs"
+}

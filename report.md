@@ -232,3 +232,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: strata-self-maintaining-experience-graphs | Test: SKILL VALID
 ✓ Insight: Tổ chức kinh nghiệm agent thành hệ thống phân cấp (metas→episodes→traces) + cơ chế quên → deletion precision 13.2%→4.8%, churn 28.6%→3.1%, best average score at lowest latency.
 → Tiếp tục: [YES]
+
+## Paper #91 — When "Must" Becomes "Maybe": Erosion of Workflow Constraints in LLM Agent Handoffs (2608.24569v2) [applied]
+✓ Skill: workflow-constraint-erosion-agent-handoffs | Test: SKILL VALID
+✓ Insight: Ownership deferral gây 76.7% blocker deactivation; full blocker description nâng recognition 6.2%→99.2% và giảm forbidden action 85.2%→0.0%.
+→ Tiếp tục: [YES]
