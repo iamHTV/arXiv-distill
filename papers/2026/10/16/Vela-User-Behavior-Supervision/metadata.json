@@ -1,0 +1,15 @@
+{
+  "name": "Vela: User Behavior as Supervision Sparks LLM Intelligence",
+  "arxiv_id": "2610.14709v1",
+  "authors": ["AllSpark Team"],
+  "institution": null,
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2610.14709",
+  "link_abs": "https://arxiv.org/abs/2610.14709",
+  "github": "https://github.com/AllSpark-Research/Vela",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "vela-user-behavior-as-supervision"
+}
