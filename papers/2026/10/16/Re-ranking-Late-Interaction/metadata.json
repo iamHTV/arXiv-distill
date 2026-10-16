@@ -1,0 +1,15 @@
+{
+  "name": "Re-ranking and Late Interaction Drive Retrieval Quality: A Controlled Comparison of RAG Strategies for Scientific Question Answering",
+  "arxiv_id": "2609.38473v1",
+  "authors": ["Bhagyesh Rathi", "Eshan Chawla", "William B. Andreopoulos"],
+  "institution": "San Jose State University, Department of Computer Science",
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.IR", "cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.38473",
+  "link_abs": "https://arxiv.org/abs/2609.38473",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "rag-retrieval-strategy-comparison"
+}

@@ -182,3 +182,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: hybrid-agentic-supply-chain-analytics | Test: SKILL VALID
 ✓ Insight: Reasoning model đạt >90% accuracy vs non-reasoning ~65%; multi-agent coordinator+specialist cho supply chain analytics.
 → Tiếp tục: [YES]
+
+## Paper #81 — Re-ranking and Late Interaction Drive Retrieval Quality (2609.38473v1) [applied]
+✓ Skill: rag-retrieval-strategy-comparison | Test: SKILL VALID
+✓ Insight: ColBERTv2 late interaction answer rate 99.9%, top-3 gold paper 92.8–94.8% (gấp đôi single-vector); rewriting đơn lẻ không kèm re-ranking làm giảm Hit@3.
+→ Tiếp tục: [YES]
