@@ -1,0 +1,15 @@
+{
+  "name": "Understanding Issues, Causes and Solutions in Open-Source LLM-based Multi-Agent Systems",
+  "arxiv_id": "2610.00905v1",
+  "authors": ["Asad Ur Rehman", "Syed Mohammad Kashif", "Ruiyin Li", "Peng Liang", "Zengyang Li", "Arif Ali Khan"],
+  "institution": ["Wuhan University, China", "Central China Normal University, China", "University of Oulu, Finland"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI", "cs.SE"],
+  "link_pdf": "https://arxiv.org/pdf/2610.00905",
+  "link_abs": "https://arxiv.org/abs/2610.00905",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "open-source-mas-issues-causes-solutions"
+}
