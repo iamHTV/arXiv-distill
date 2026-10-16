@@ -1,0 +1,15 @@
+{
+  "name": "A Hybrid Agentic AI Framework for Intelligent Supply Chain Analytics",
+  "arxiv_id": "2609.13561v1",
+  "authors": ["Xian Yeow Lee", "Teppei Inoue", "Haiyan Wang", "Chetan Gupta"],
+  "institution": "Hitachi America, Industrial AI Lab",
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.13561",
+  "link_abs": "https://arxiv.org/abs/2609.13561",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "hybrid-agentic-supply-chain-analytics"
+}
