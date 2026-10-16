@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 100 papers 🎉 MILESTONE!. 🎉 MILESTONE!
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 101 papers. 🎉 MILESTONE!
 
 ---
 
@@ -273,4 +273,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #99 — Structured Pre-generation Elicitation vs Single-shot Prompting (2610.09593v1) [applied]
 ✓ Skill: pre-generation-elicitation-scaffold | Test: SKILL VALID
 ✓ Insight: Elicit trước generate (3 clarification Q + posture choice + rationale) → composite quality +32.2% (d=1.02), off-task 34.2%→4.9%; gain tập trung trade-off articulation + strategic coherence, technical specificity KHÔNG cải thiện; self-rating không track quality thật.
+→ Tiếp tục: [YES]
+## Paper #100 — (When) Should a Software Factory be Lights-off? CRBugBench (2610.13668v1) [applied]
+✓ Skill: crbugbench-review-agent-evaluation | Test: SKILL VALID
+✓ Insight: Review agent catch 71.9% bugs top-5 (47.7%→71.9% trong 5 tháng model evolution), vẫn miss 20%+ → chưa lights-off; proprietary repo drop 25.5% (cần project context); exploration-nudging prompt +5.8% @1.10× cost hiệu quả hơn multi-agent +4.7% @5.55×.
 → Tiếp tục: [YES]

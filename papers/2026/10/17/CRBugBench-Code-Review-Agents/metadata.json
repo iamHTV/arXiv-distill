@@ -1,0 +1,15 @@
+{
+  "name": "(When) Should a Software Factory be Lights-off? Benchmarking Code Review Agents on Bug Detection",
+  "arxiv_id": "2610.13668v1",
+  "authors": ["Chenyang Yang", "Hao He", "Ti-Chung Cheng", "Jenna Butler", "Emerson Murphy-Hill", "Carmen Badea", "Christian Bird"],
+  "institution": ["Carnegie Mellon University, USA", "Microsoft, USA", "Microsoft Research, USA"],
+  "year": 2026,
+  "published": "2026-10-09",
+  "categories": ["cs.SE"],
+  "link_pdf": "https://arxiv.org/pdf/2610.13668",
+  "link_abs": "https://arxiv.org/abs/2610.13668",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "crbugbench-review-agent-evaluation"
+}
