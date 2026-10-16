@@ -33,18 +33,23 @@ CATS_BLOCK = [
     "physics.", "math.", "q-bio.", "q-fin.", "stat.", "eess.",
     "cond-mat", "astro-ph", "gr-qc", "hep-", "nucl-",
 ]
-# Heuristic CHỈ để loại bài rõ ràng ngoài chủ đề — KHÔNG lọc mạnh.
-# Máy chạy 24/7 + token free → không cần tiết kiệm. Thà chấm thừa còn hơn bỏ sót.
-HEURISTIC_MIN = 4           # rất thấp: chỉ loại bài hoàn toàn lạc đề
+# Lọc 2 lớp để còn ~vài chục bài/ngày (yêu cầu user 16/10):
+#   Lớp 1: heuristic xếp hạng → lấy TOP CANDIDATES (rẻ, không tốn API)
+#   Lớp 2: LLM chấm top ứng viên → giữ bài điểm cao
+# Heuristic chỉ ĐẾM KEYWORD nên không phân biệt hay/dở → dùng nó để RANKING
+# lấy top N, KHÔNG dùng ngưỡng cứng (ngưỡng cao sẽ lọc mất bài hay).
+HEURISTIC_MIN = 4           # sàn tối thiểu: loại bài hoàn toàn lạc đề
+TOP_CANDIDATES = 150        # số bài đưa sang LLM chấm (đã xếp hạng)
+TARGET_KEEP = 60            # số bài giữ lại cuối cùng (điểm LLM cao nhất)
 # Fallback chain model chấm điểm (đều giá $0).
 # 3.1 bị provider Novita rate-limit nặng → tự chuyển 3.0 khi 429.
 LLM_MODELS = ["inclusionai/ling-3.1-flash", "inclusionai/ling-3.0-flash"]
 LLM_MODEL = LLM_MODELS[0]   # model chính (giữ tên cũ cho tương thích)
-LLM_MAX = 10000             # gần như không trần — token free, chạy 24/7
+LLM_MAX = TOP_CANDIDATES    # trần chấm = số ứng viên (mặc định)
 BATCH_SIZE = 10             # chấm 10 bài/prompt → giảm 10x số request (chống 429)
 FETCH_PER_CAT = 1000        # bài/category/lần quét. 200 chỉ phủ ~14h → hở 1 ngày là mất bài.
 SEEN_KEEP = 40000           # giữ tối đa bao nhiêu ID đã xử lý (dedupe)
-CHECKPOINT_EVERY = 20       # ghi seen_ids mỗi N batch → job chết không mất kết quả
+CHECKPOINT_EVERY = 1        # ghi tiến độ mỗi N batch (1 = mỗi batch, an toàn nhất)
 
 API = "https://export.arxiv.org/api/query"
 USER_AGENT = "arxiv-distill-research/1.0 (personal use)"
@@ -175,15 +180,34 @@ KW_APPLIED = ["experiment", "benchmark", "dataset", "evaluation", "we evaluate",
 KW_BIZ = ["business", "marketing", "customer", "commerce", "e-commerce", "sales",
           "advertising", "decision", "consumer", "enterprise", "revenue",
           "pricing", "recommendation", "personaliz", "workflow", "productivity"]
+# Từ khóa "làm được gì" — solopreneur đọc xong dùng ngay được. Trọng số cao vì
+# đây là điều kiện gần nhất với "ra tiền". Tách khỏi KW_APPLIED (học thuật).
+KW_ACTIONABLE = ["agent", "tool", "workflow", "automation", "pipeline", "assistant",
+                 "copilot", "chatbot", "content", "writing", "summariz", "search",
+                 "code generation", "prompt engineering", "fine-tuning", "deploy",
+                 "cost", "latency", "efficiency", "small model", "local", "open-source"]
 
 
 def heuristic_score(p):
-    text = (p["title"] + " " + p["abstract"]).lower()
+    """Xếp hạng thô theo keyword. Title nặng hơn abstract (title = chủ đề thật).
+
+    Mục đích: lấy TOP ứng viên cho LLM chấm, KHÔNG phải lọc cứng.
+    """
+    title = p["title"].lower()
+    abs_ = p["abstract"].lower()
+    text = title + " " + abs_
+
     core = sum(1 for k in KW_CORE if k in text)
     appl = sum(1 for k in KW_APPLIED if k in text)
     biz = sum(1 for k in KW_BIZ if k in text)
+    act = sum(1 for k in KW_ACTIONABLE if k in text)
+    core_t = sum(1 for k in KW_CORE if k in title)        # keyword trong title
     nums = len(re.findall(r"\d+\.?\d*\s?%", p["abstract"]))
-    return core * 4 + appl * 3 + biz * 4 + nums * 2, core, appl, biz, nums
+
+    # Title có keyword AI = gần như chắc chắn đúng chủ đề → thưởng nặng.
+    # Actionable = dùng được → thưởng. Business = hiếm nên thưởng rất cao.
+    score = (core * 3 + core_t * 6 + appl * 2 + biz * 5 + act * 3 + nums * 2)
+    return score, core, appl, biz, nums
 
 
 def _group_from_score(s):
@@ -321,9 +345,9 @@ def llm_score_batch(papers, key, max_llm, on_progress=None):
         batch = todo[bi:bi + BATCH_SIZE]
         n = _call_llm_batch(batch, key)
         print("  batch %d-%d: %d/%d ok" % (bi + 1, bi + len(batch), n, len(batch)))
-        # CHECKPOINT: ghi tiến độ mỗi 20 batch → chết giữa chừng vẫn giữ được.
+        # CHECKPOINT: gọi callback với các paper ĐÃ CHẤM OK → ghi file + seen ngay.
         if on_progress and (bi // BATCH_SIZE + 1) % CHECKPOINT_EVERY == 0:
-            done = [p["id"] for p in todo[:bi + len(batch)] if p.get("llm_score", -1) >= 0]
+            done = [p for p in todo[:bi + len(batch)] if p.get("llm_score", -1) >= 0]
             on_progress(done)
         time.sleep(4)
 
@@ -385,55 +409,74 @@ def main():
         kept.append(p)
     print("Sau lọc category: %d bài" % len(kept))
 
-    # 4) Heuristic lọc thô
-    passed = []
+    # 4) Heuristic XẾP HẠNG → lấy TOP ứng viên (không dùng ngưỡng cứng).
+    #    Heuristic chỉ đếm keyword → không phân biệt hay/dở. Dùng làm ranking,
+    #    LLM mới là bên quyết định giữ/bỏ.
+    scored = []
     for p in kept:
         hs, core, appl, biz, nums = heuristic_score(p)
         p["heuristic"] = hs
         if hs >= HEURISTIC_MIN:
-            passed.append(p)
-    passed.sort(key=lambda x: -x["heuristic"])
-    print("Sau heuristic (>=%d): %d bài" % (HEURISTIC_MIN, len(passed)))
+            scored.append(p)
+    scored.sort(key=lambda x: -x["heuristic"])
+    candidates = scored[:TOP_CANDIDATES]
+    print("Sau heuristic (>=%d): %d bài → lấy top %d ứng viên"
+          % (HEURISTIC_MIN, len(scored), len(candidates)))
 
-    # 5) LLM chấm điểm
+    # 5) Chuẩn bị ghi file — định nghĩa TRƯỚC khi chấm để checkpoint dùng được.
+    os.makedirs(SCANS_DIR, exist_ok=True)
+    today = dt.datetime.now().strftime("%Y-%m-%d")
+    outfile = os.path.join(SCANS_DIR, today + ".json")
+    _state = {"scored": len(scored)}      # số ứng viên, dùng trong file scan
+
+    def _write_scan(papers_list):
+        """Ghi file scan. Gọi NGAY sau mỗi batch → chết giữa chừng vẫn có kết quả."""
+        json.dump({
+            "date": today,
+            "watermark_from": wm,
+            "seen_before": len(seen),
+            "total_fetched": len(all_papers),
+            "after_seen": len(fresh),
+            "after_category": len(kept),
+            "after_heuristic": _state["scored"],
+            "papers": papers_list,
+        }, open(outfile, "w"), ensure_ascii=False, indent=2)
+
+    # 6) LLM chấm điểm
     if args.dry_run:
-        print("\n[DRY-RUN] Bỏ qua LLM. Top 10 theo heuristic:")
-        for p in passed[:10]:
+        print("\n[DRY-RUN] Bỏ qua LLM. Top 10 ứng viên theo heuristic:")
+        for p in candidates[:10]:
             print("  %3d  %s  %s" % (p["heuristic"], p["id"], p["title"][:60]))
-        result = passed
+        result = candidates
     else:
         print("\nChấm điểm LLM (tối đa %d bài)..." % args.max_llm)
         key = load_key()
-        # Checkpoint: ghi seen_ids dần trong lúc chấm. Job chết giữa chừng →
-        # lần sau chỉ chấm phần còn lại, KHÔNG mất bài đã chấm (bug 16/10:
-        # chạy 3h50 chưa ghi gì, chết là mất sạch 2287 bài).
+        # Checkpoint: LƯU FILE + seen_ids SAU MỖI BATCH (CHECKPOINT_EVERY=1).
+        # Job chết giữa chừng → (a) file scan có kết quả dần để xem,
+        # (b) lần sau chỉ chấm phần còn lại. Bug 16/10: chạy 3h50 chưa ghi gì,
+        # chết là mất sạch 2287 bài.
         base_seen = list(seen)
 
-        def _ckpt(done_ids):
+        def _ckpt(done_so_far):
+            # done_so_far = các paper ĐÃ CHẤM OK (list dict) → ghi file ngay
+            done_ids = [p["id"] for p in done_so_far]
             save_seen(base_seen + done_ids)
-            print("    [checkpoint] đã lưu %d ID vào seen_ids" % len(set(base_seen + done_ids)))
+            ranked = sorted(done_so_far, key=lambda x: -x.get("llm_score", 0))
+            _write_scan(ranked)
+            print("    [checkpoint] file scan + seen_ids đã ghi (%d bài chấm xong)" % len(ranked))
 
-        result = llm_score_batch(passed, key, args.max_llm, on_progress=_ckpt)
+        result = llm_score_batch(candidates, key, args.max_llm, on_progress=_ckpt)
         result.sort(key=lambda x: -x.get("llm_score", 0))
-        backlog = len(passed) - len(result)
+        # Giữ TARGET_KEEP bài điểm cao nhất → ~vài chục bài/ngày như user yêu cầu.
+        result = result[:TARGET_KEEP]
+        print("  Giữ top %d bài (điểm LLM cao nhất)." % len(result))
+        backlog = len(candidates) - len(result) if len(candidates) > TARGET_KEEP else 0
         if backlog > 0:
             print("  ⚠ Tồn đọng %d bài vượt trần --max-llm → sẽ chấm ở lần chạy sau "
                   "(KHÔNG mất, vì không nạp vào seen)." % backlog)
 
-    # 6) Lưu
-    os.makedirs(SCANS_DIR, exist_ok=True)
-    today = dt.datetime.now().strftime("%Y-%m-%d")
-    outfile = os.path.join(SCANS_DIR, today + ".json")
-    json.dump({
-        "date": today,
-        "watermark_from": wm,
-        "seen_before": len(seen),
-        "total_fetched": len(all_papers),
-        "after_seen": len(fresh),
-        "after_category": len(kept),
-        "after_heuristic": len(passed),
-        "papers": result,
-    }, open(outfile, "w"), ensure_ascii=False, indent=2)
+    # 7) Ghi lần cuối (bản đầy đủ, đã cắt TARGET_KEEP)
+    _write_scan(result)
     print("\nĐã lưu: %s" % outfile)
 
     # 7) Cập nhật state:
