@@ -1,0 +1,15 @@
+{
+  "name": "TRACER: Trajectory-Aware Tool Retrieval for LLM Agents",
+  "arxiv_id": "2610.21267v1",
+  "authors": ["Tanish Kher", "Sarvesh DK Abedelkadir Asi", "Sparsha Chennarayapatna Sundaresh Dezhi Hong"],
+  "institution": "UC Berkeley; Microsoft",
+  "year": 2026,
+  "published": "2026-10-15",
+  "categories": ["cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2610.21267",
+  "link_abs": "https://arxiv.org/abs/2610.21267",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "TRACER Trajectory-Aware Tool Retrieval"
+}

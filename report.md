@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 109 papers. 🎉
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 110 papers. 🎉
 
 ---
 
@@ -309,4 +309,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #108 — AutoTailor: Automatic, User-Aligned Capability Selection and Adaptation for Web Agents (2609.13548v1) [applied]
 ✓ Skill: autotailor-capability-inventory | Test: SKILL VALID
 ✓ Insight: Tool-set composition là first-class optimization: QF+ULF nén 1,283→87 APIs (−93%) gần như không mất direct coverage (60.4→59.9 without fallback); DR online adapt thành 33 APIs match runtime distribution → 90.6% correctness (+3.1pp over ReAct alone 87.5%), −57.8% total request-token cost, −29.4% latency, >24× reduction tooling tokens vs full set; bài học: aggressive static filtering một mình ĐÁNH ĐỔI (SULF total cost 1.42m→1.52m vì đẩy tasks sang fallback), ULF alone −9.7pp coverage (50.2%) — phải giữ best API mỗi semantic cluster + ReAct fallback.
+→ Tiếp tục: [YES]
+## Paper #109 — TRACER: Trajectory-Aware Tool Retrieval for LLM Agents (2610.21267v1) [applied]
+✓ Skill: tracer-trajectory-tool-trie | Test: SKILL VALID
+✓ Insight: Tool retrieval là sequential prediction, không phải independent search: execution trie (prefix→candidates) + edge memory (conversations transition được thực hiện) + learned per-state blend beats full-registry 21/24 model-environment pairs (avg +6–10 points) với k=5/128 tools và −80% tokens/step (2.8k vs 14.2k); free-running parity 58.3% vs 58.2% với 23% tools, −61% input tokens; specificity trap 36.4%→16.4%, procedural unlock-before-write enforced miễn phí; cold start là blocker chính (−38 points khi không có trajectory history).
 → Tiếp tục: [YES]
