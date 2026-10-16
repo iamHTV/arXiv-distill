@@ -1,0 +1,15 @@
+{
+  "name": "Can Large Language Models Identify Meaningful Touchpoints in Conversion Attribution?",
+  "arxiv_id": "2608.28649v1",
+  "authors": ["Jinqi Wu", "Sishuo Chen", "Zhangming Chan", "Yong Bai", "Chao Yi", "Han Zhu", "Shuodian Yu", "Lei Zhang", "Sheng Chen", "Chenghuan Hou", "Jian Xu", "Chaoyou Fu"],
+  "institution": "Taobao & Tmall Group, Alibaba; Nanjing University; Peking University",
+  "year": 2026,
+  "published": "2026-08-18",
+  "categories": ["cs.CL"],
+  "link_pdf": "https://arxiv.org/pdf/2608.28649",
+  "link_abs": "https://arxiv.org/abs/2608.28649",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "LOTUS Pairwise Touchpoint Selection"
+}

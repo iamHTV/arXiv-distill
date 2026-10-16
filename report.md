@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 111 papers. 🎉
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 112 papers. 🎉
 
 ---
 
@@ -317,4 +317,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #110 — On Evaluating and Improving Conversational Agents in Production (2609.32092v1) [applied]
 ✓ Skill: commissioned-agent-evaluation | Test: SKILL VALID
 ✓ Insight: Production agent improvement cần commissioned behavior-specific evaluation, không aggregate metrics: assertion profiles ở nhiều strictness levels (any/first/≥75%/all) chỉ ra failure nằm ở prominent carousel positions (first 0.833 vs all 0.640) → fix đúng chỗ (curation prompt strict rule, +0.060 first-product); paired per-scenario bootstrap (2,000 resamples) tách run-to-run variation khỏi scenario difficulty — h1 borderline (+0.067 [−0.022,+0.178]) bị reject, h2 signal+ (+0.267 [+0.067,+0.511]) được confirm sau 3 reproduce runs; audit judge như software phát hiện temperature=0 configured but not applied.
+→ Tiếp tục: [YES]
+## Paper #111 — Can LLMs Identify Meaningful Touchpoints in Conversion Attribution? (2608.28649v1) [applied]
+✓ Skill: lotus-pairwise-touchpoint-selection | Test: SKILL VALID
+✓ Insight: Implicit touchpoint = 14.91% hành trình conversion mà heuristic taxonomy/CF hoàn toàn blind (explicit 19.09%); LLM pairwise prompting phát hiện được chúng nhưng implicit F1 ceiling chỉ 0.5426 vs explicit 0.9095 — semantic gap vẫn lớn; pairwise beats listwise trên MỌI model (avg overall F1 0.6490→0.6954, gap 6–12pp ở small models); strong open-weight (GLM-5.1 0.7086, DeepSeek-V4-Pro 0.7056) gần proprietary (GPT-5.5 0.7197); LOTUS dùng LLM labels làm auxiliary positives cho CVR training → GAUC +0.35pp over in-shop baseline, +0.15pp over heuristic CABB (0.1pp GAUC ≈ material revenue growth).
 → Tiếp tục: [YES]
