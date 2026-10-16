@@ -1,0 +1,15 @@
+{
+  "name": "CEO Arena: Evaluating Long-Horizon Multi-Agent Decision-Making in Competitive Markets",
+  "arxiv_id": "2609.34821v1",
+  "authors": ["An Yan", "Yu Huo", "Zhiwei Shang", "Yiran Peng", "Chenglin Wu"],
+  "institution": ["DeepWisdom", "Fudan University", "The Chinese University of Hong Kong", "The Chinese University of Hong Kong, Shenzhen", "The Hong Kong University of Science and Technology (Guangzhou)"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.34821",
+  "link_abs": "https://arxiv.org/abs/2609.34821",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "ceo-arena-multi-agent-business-competition"
+}
