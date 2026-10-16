@@ -1,0 +1,15 @@
+{
+  "name": "STRATA: Self-Maintaining Structured Experience Graphs for Self-Evolving Language Agents",
+  "arxiv_id": "2610.19386v1",
+  "authors": ["Guanhua Zhu", "Hanwen Li", "Zhi Wei", "Mengnan Du", "Chenxi Yuan"],
+  "institution": ["New Jersey Institute of Technology", "The Chinese University of Hong Kong, Shenzhen"],
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2610.19386",
+  "link_abs": "https://arxiv.org/abs/2610.19386",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "strata-self-maintaining-experience-graphs"
+}
