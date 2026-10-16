@@ -1,0 +1,15 @@
+{
+  "name": "DataMagic: Authoring Data Videos through Declarative Multi-Agent Orchestration",
+  "arxiv_id": "2609.33403v1",
+  "authors": ["Yupeng Xie", "Zhenyang Wang", "Liangwei Wang", "Jiayi Zhu", "Zhouan Shen", "Yuyu Luo"],
+  "institution": null,
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.HC"],
+  "link_pdf": "https://arxiv.org/pdf/2609.33403",
+  "link_abs": "https://arxiv.org/abs/2609.33403",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "datamagic-declarative-multi-agent-data-videos"
+}

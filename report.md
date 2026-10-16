@@ -252,3 +252,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: adcoevo-co-evolving-multi-agent-advertising | Test: SKILL VALID
 ✓ Insight: AdCoEvo tăng ADV 14.02%, giảm CPA 7.07% (vs Rule); Inspector +4.95% ADV, -9.57% CPA; API cost CNY 0.235, 65.59% thấp hơn Gemini-3.1-Flash-Lite.
 → Tiếp tục: [YES]
+
+## Paper #95 — DataMagic: Authoring Data Videos through Declarative Multi-Agent Orchestration (2609.33403v1) [applied]
+✓ Skill: datamagic-declarative-multi-agent-data-videos | Test: SKILL VALID
+✓ Insight: DataMagic cải thiện chất lượng video dữ liệu từ 2.13/5 lên 3.89/5 (+83%), tỷ lệ thực thi 48.62%–86.24%→95%+, thời gian tạo từ 39.2→8.0 phút (-79.7%).
+→ Tiếp tục: [YES]
