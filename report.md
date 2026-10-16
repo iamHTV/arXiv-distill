@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 101 papers. 🎉 MILESTONE!
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 102 papers. 🎉 MILESTONE!
 
 ---
 
@@ -277,4 +277,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #100 — (When) Should a Software Factory be Lights-off? CRBugBench (2610.13668v1) [applied]
 ✓ Skill: crbugbench-review-agent-evaluation | Test: SKILL VALID
 ✓ Insight: Review agent catch 71.9% bugs top-5 (47.7%→71.9% trong 5 tháng model evolution), vẫn miss 20%+ → chưa lights-off; proprietary repo drop 25.5% (cần project context); exploration-nudging prompt +5.8% @1.10× cost hiệu quả hơn multi-agent +4.7% @5.55×.
+→ Tiếp tục: [YES]
+## Paper #101 — ReST: Scaling Sequence Transformers for Industrial Recommendation Ranking (2609.01240v1) [applied]
+✓ Skill: rest-rec-native-transformer-scaling | Test: SKILL VALID
+✓ Insight: LLM scaling recipe thất bại ở ranking vì sequence starvation (main loss shortcut qua DLRM branch) + computation asymmetry; rec-native design (DGA gates, RoPE+RoTE temporal, SRN) + asymmetric encoder/decoder + shared-prefix (5.8× train, 20× inference) → online AUC +1.31%, revenue +11.93% trong 50ms P99; MoE +500% params = 0 gain.
 → Tiếp tục: [YES]

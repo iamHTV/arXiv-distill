@@ -1,0 +1,15 @@
+{
+  "name": "From Language to Behavior: Scaling Sequence Transformers for Industrial Recommendation Ranking with Rec-Native Designs",
+  "arxiv_id": "2609.01240v1",
+  "authors": ["Jie Chen", "Xiangqian Yu", "Yanchao Lian", "Tan Lu", "Run Yang", "Zhengchun Shang", "Xing Wang", "Cheng Chen", "Ke Hu", "Qiang Li", "Tianjiu Yin", "Xiaobing Liu"],
+  "institution": ["ByteDance"],
+  "year": 2026,
+  "published": "2026-09-01",
+  "categories": ["cs.IR", "cs.AI", "cs.LG"],
+  "link_pdf": "https://arxiv.org/pdf/2609.01240",
+  "link_abs": "https://arxiv.org/abs/2609.01240",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "rest-rec-native-transformer-scaling"
+}
