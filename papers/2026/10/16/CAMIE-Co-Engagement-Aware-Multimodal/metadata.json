@@ -1,0 +1,15 @@
+{
+  "name": "CAMIE: Co-Engagement-Aware Multimodal Item Embeddings for Snap Dynamic Product Ads Retrieval",
+  "arxiv_id": "2608.30255v1",
+  "authors": ["Xiaodong Liu", "Xiao Bai", "Yunzhi Zhou", "Siman Wang", "Congfei Zhang", "Wen Zhang", "Yajun Wang", "Jingxiao Ma", "Jinchao Li", "Hsiang-wei Chao"],
+  "institution": "Snap Inc.",
+  "year": 2026,
+  "published": null,
+  "categories": ["cs.AI", "cs.IR"],
+  "link_pdf": "https://arxiv.org/pdf/2608.30255",
+  "link_abs": "https://arxiv.org/abs/2608.30255",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "co-engagement-multimodal-embedding-ads"
+}

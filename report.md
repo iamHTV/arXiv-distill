@@ -147,3 +147,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: self-evolving-multi-agent-translation | Test: SKILL VALID
 ✓ Insight: Dùng multi-agent + judge-refiner cập nhật prompt không retrain, tích luỹ memory cấp series → thắng 15/15 hướng Subtitle Arena, giảm penalty 6.9%.
 → Tiếp tục: [YES]
+
+## Paper #74 — CAMIE: Co-Engagement-Aware Multimodal Item Embeddings for Snap Dynamic Product Ads Retrieval (2608.30255v1) [applied]
+✓ Skill: co-engagement-multimodal-embedding-ads | Test: SKILL VALID
+✓ Insight: Fine-tune embedding trên cặp item cùng tương tác (co-engagement) thay vì nhãn tĩnh → production A/B: +18.958% CTR / +13.12% CVR over text control, đã deploy tại Snap.
+→ Tiếp tục: [YES]
