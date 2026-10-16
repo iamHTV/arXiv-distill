@@ -1,0 +1,15 @@
+{
+  "name": "LLM-based User-Product Relevance Evaluation for Dynamic Product Advertising",
+  "arxiv_id": "2610.14550v1",
+  "authors": ["Wen Zhang", "Xiao Bai", "Hsiang-wei Chao", "Mengfan Zhu", "Tong Zhao", "Mingxuan Ju", "Xiaodong Liu", "Congfei Zhang", "Yunzhi Zhou", "Yajun Wang", "Jinchao Li", "Yu Zhang"],
+  "institution": ["Snap Inc., Bellevue/Santa Monica/Palo Alto/Seattle, USA"],
+  "year": 2026,
+  "published": "2026-10-10",
+  "categories": ["cs.IR", "cs.AI", "cs.LG"],
+  "link_pdf": "https://arxiv.org/pdf/2610.14550",
+  "link_abs": "https://arxiv.org/abs/2610.14550",
+  "github": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "query-free-relevance-judge-pipeline"
+}

@@ -1,6 +1,6 @@
 # arXiv Distill — Report
 
-Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 98 papers. 🎉 MILESTONE!
+Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hiện tại: 99 papers. 🎉 MILESTONE!
 
 ---
 
@@ -265,4 +265,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #97 — AutoResearch at Production Scale: Failure Modes and a Multi-Agent Framework (2609.30541v1) [applied]
 ✓ Skill: autoresearch-production-scaffolding | Test: SKILL VALID
 ✓ Insight: 5 failure mode production scale (infrastructure fragility, memory decay, stagnation, cost asymmetry, metric fixation); scaffold prevent-persist-redirect thành 3 agent; Criticizer chỉ bắn khi plateau (8%/5 iteration) → directive lớn nhất +50bps; Code Fixer single-pass bắt 14 latent bugs.
+→ Tiếp tục: [YES]
+## Paper #98 — LLM-based User-Product Relevance Evaluation for Dynamic Product Advertising (2610.14550v1) [applied]
+✓ Skill: query-free-relevance-judge-pipeline | Test: SKILL VALID
+✓ Insight: Nén engagement history bằng SID-grouping + event-stratification → 0.99 Spearman fidelity ở 3.4% cost (giảm 30× LLM calls); guideline mang phần lớn lift (Pro không guideline thua student có guideline); fine-tune nén p95 theo bậc (8,807→1,117ms), prompt-only không nén được long-tail.
 → Tiếp tục: [YES]
