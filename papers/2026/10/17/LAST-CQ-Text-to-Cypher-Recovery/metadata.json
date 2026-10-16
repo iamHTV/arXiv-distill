@@ -1,0 +1,15 @@
+{
+  "name": "What Drives Recovery in Agentic Text-to-Cypher? LAST-CQ: An LLM Agent Self-Refinement Framework",
+  "arxiv_id": "2609.12746v1",
+  "authors": ["Ioannis Prokopiou", "Athanasios Aidinis", "Panagiotis-Christos Kyrmpatsos", "Pantelis Vikatos"],
+  "institution": "Athens University of Economics and Business; Orfium",
+  "year": 2026,
+  "published": "2026-09-11",
+  "categories": ["cs.AI"],
+  "link_pdf": "https://arxiv.org/pdf/2609.12746",
+  "link_abs": "https://arxiv.org/abs/2609.12746",
+  "github": "",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Execution-Grounded Query Refinement"
+}
