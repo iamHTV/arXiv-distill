@@ -525,3 +525,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: state-grounded-evaluation-cua | Test: SKILL VALID
 ✓ Insight: Đánh giá CUA trên trạng thái cơ sở dữ liệu không chỉ chụp màn hình — Claude 94%/100%/100% qua 3 tier, mô hình mở rơi 0–3% ở T2/T3, một số agent lưu 85% lần chạy nhưng chỉ ghi đúng 3%, harness có cổng phê duyệt con người cho hành động rủi ro.
 → Tiếp tục: [YES]
+
+## Paper #150 — Do Agents Need a New Kind of Paper? SPRA: Structured Paper Representation for Agents (2610.21424v1) [applied]
+✓ Skill: spra-structured-paper-representation | Test: SKILL VALID
+✓ Insight: Biểu diễn bài báo có cấu trúc (Vấn đề, Đóng góp, Thành phần, Thiết lập thí nghiệm, Đo lường, Kết quả) với quan hệ gō — 1 triệu bài báo, 19,95 triệu đơn vị, 24,07 triệu quan hệ — cải thiện QA khoa học 0,381/5, giảm token 28,5% so với passage retrieval và 95,3% so với Full Compact.
+→ Tiếp tục: [YES]
