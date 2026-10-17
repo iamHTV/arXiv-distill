@@ -425,3 +425,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: structural-retrieval-evaluation | Test: SKILL VALID
 ✓ Insight: Việc nhúng truy xuất neo chặt vào nội dung bề mặt chứ không phải cấu trúc — Toán học Hit@1 = 0.0% ở cấp disguise nặng; lexical reranker lật dấu (hại toán học, giúp quỹ đạo); LLM reranker phục hồi 5-63% (toán học) và 43-76% (quỹ đạo).
 → Tiếp tục: [YES]
+
+## Paper #131 — Trajectory-Aware Benchmark Subset Selection (2609.24928v2) [applied]
+✓ Skill: trajectory-aware-subset-selection | Test: SKILL VALID
+✓ Insight: Chọn sample gần trọng tâm (centroid) của mỗi nhóm kết quả (outcome group) trong không gian nhúng (embedding space) — subset 10% giữ median error dưới 5% cắt giảm chi phí token khoảng 90%.
+→ Tiếp tục: [YES]

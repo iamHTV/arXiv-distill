@@ -1,0 +1,16 @@
+{
+  "name": "Trajectory-Aware Benchmark Subset Selection for Cost-Efficient Software Engineering Agent Regression Testing",
+  "authors": ["Mahmoud Ayyad", "Zehao Wang", "Jiho Shin", "Ying Zou", "Bram Adams"],
+  "affiliation": "Queen's University, Concordia University",
+  "link": "https://arxiv.org/abs/2609.24928v2",
+  "pdf_link": "https://arxiv.org/pdf/2609.24928v2",
+  "arxiv_id": "2609.24928v2",
+  "year": 2026,
+  "category": "cs.SE",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-17",
+  "paper_number": 131
+}
