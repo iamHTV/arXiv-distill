@@ -486,6 +486,11 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Insight: Multi-task inverse reinforcement learning gộp dữ liệu từ nhiều agent trong cùng môi trường dưới giả định thấp-rank — mạnh mẽ với limited coverage, khôi phục phần thưởng trên/ngoài support, transfer đến môi trường đích với regret thấp hơn baseline, lợi thế tính toán mở rộng khi số tác vụ tăng.
 → Tiếp tục: [YES]
 
+## Paper #143 — CAMIE: Co-Engagement-Aware Multimodal Item Embeddings for Snap Dynamic Product Ads Retrieval (2608.30255v1) [applied]
+✓ Skill: camie-co-engagement-embedding | Test: SKILL VALID
+✓ Insight: Co-engagement tuning căn chỉnh embedding với chuyển đổi thực tế — offline vượt modèle thương mại mạnh nhất trên Recall@10; online +0,39% CTR / +10,8% CVR so multimodal control, +18,96% CTR / +13,1% CVR so text control, đã deploy production.
+→ Tiếp tục: [YES]
+
 ## Paper #140 — Grow the Harness, Not the Context: From Strategy-Free Scaffolds to Reusable Specialist Agents (2609.26760v2) [applied]
 ✓ Skill: grow-the-harness-reusable-specialist-agents | Test: SKILL VALID
 ✓ Insight: Thay vì để LLM tái thiết quyết định điều khiển mỗi tác vụ, hãy biến feedback thành code điều khiển tái sử dụng → giảm 76–92% LLM calls, 74–99% chi phí, thành công 44.7–45.3% ngay cả với model 4B.
