@@ -2,7 +2,7 @@
 
 **Single source of truth** — tổng hợp từ `PIPELINE-DESIGN.md`, `WORKFLOW-HANG-NGAY.md`, `paper-sourcing-strategies.md`, `quality-standards.md`, `bilingual-format-and-git-workflow.md`, `api-extraction-techniques.md`, `model-ling-behavior.md`, và `arxiv-distill-protocol`.
 
-Mục tiêu: ~300 papers, **chất lượng ưu tiên**, không rush.
+Mục tiêu: ~300 papers, **chất lượng ưu tiên**, không rush. **10 bài tốt nhất/ngày** (không phải 30).
 
 ---
 
@@ -223,6 +223,11 @@ Sau mỗi paper xong:
 - Dừng supervisor: `~/work/arXiv-distill/run-distill.sh --stop`
 - Kiểm tra: `git status`, `git log --oneline -10`
 - Đếm commit hôm nay: `git log --since="1 day ago" --oneline | wc -l`
+- **Sinh báo cáo tổng hợp ngày:** `python3 scripts/daily_summary.py`
+  - Tạo `scans/<ngày>/README.md` (VI) + `README_en.md` (EN) — báo cáo tổng hợp 10 bài distill hôm nay.
+  - Có section **"CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN"** — insights thực tế cho solopreneur VN, áp dụng ngay không cần reproduce paper.
+  - Tự động gửi qua Telegram (nếu đã setup TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID).
+- Xác nhận file báo cáo đã xuất hiện: `ls scans/<ngày>/README.md`
 
 ---
 

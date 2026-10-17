@@ -96,4 +96,10 @@ hermes --profile "$PROFILE" chat \
 RC=${PIPESTATUS[0]}
 
 log "Hermes distill thoát (mã $RC). Pipeline xong."
+
+# ── Bước 5: Sinh báo cáo tổng hợp ngày + gửi Telegram ─────────────────────
+log "[5/5] Sinh README tổng hợp ngày + gửi Telegram..."
+python3 scripts/daily_summary.py 2>&1 | tee -a "$LOG"
+log "Báo cáo tổng hợp đã ghi vào scans/$TODAY/README.md"
+
 log "=========================================="
