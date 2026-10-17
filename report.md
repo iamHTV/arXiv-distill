@@ -550,3 +550,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: factionalism-detection-agent-facing-anonymization | Test: SKILL VALID
 ✓ Insight: Chỉ cần agent thấy model-family identity của nhau là group phân phe (factionalism) theo đúng nhãn — kể cả nhãn giả shuffle hay màu trung tính (AMI 0.18–0.95), 0/12 unlabeled experiment phân phe; group có nhãn tốn 1.38–1.86× tokens, +30% rounds, success 96%→81%, tokens/successful-run tăng 1.5–2.2×; cơ chế qua adoption channel không phải style recognition; giải pháp: ẩn danh phía agent, orchestrator giữ map identity.
 → Tiếp tục: [YES]
+
+## Paper #155 — DSA: Evidence-Aware LLM-Agent Orchestration for Multi-Market Stock Research (2608.26990v1) [applied]
+✓ Skill: evidence-aware-agent-orchestration | Test: SKILL VALID
+✓ Insight: Evidence block phải gắn state (available/missing/fallback/stale/partial/fetch_failed) và project vào prompt — missing data KHÔNG được thành neutral evidence; 2 profile (default report rẻ vs agentic đắt) tái dụng chung evidence+routing substrate; Strategy Skill opinion qua signal-eligibility partition, invalid → diagnostics, disagreement summary làm explicit input cho decision agent; RiskGuard chỉ downgrade (buy→hold→sell) never upgrade; 1,457/1,457 frozen contract test pass (102.5s) nhưng paper honest: conformance ≠ report quality/forecast/returns.
+→ Tiếp tục: [YES]

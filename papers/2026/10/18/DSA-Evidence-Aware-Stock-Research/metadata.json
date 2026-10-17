@@ -1,0 +1,17 @@
+{
+  "name": "DSA: Evidence-Aware LLM-Agent Orchestration for Multi-Market Stock Research",
+  "authors": ["Linsen Zhu", "Yi Shi"],
+  "affiliation": null,
+  "link": "https://arxiv.org/abs/2608.26990v1",
+  "pdf_link": "https://arxiv.org/pdf/2608.26990v1",
+  "arxiv_id": "2608.26990v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 155,
+  "code": "https://github.com/ZhuLinsen/daily_stock_analysis"
+}
