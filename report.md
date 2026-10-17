@@ -535,3 +535,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: codebook-based-multi-agent-topology | Test: SKILL VALID
 ✓ Insight: Không gian thiết kế topology thực tế rất nhỏ (~6 đồ thị duy nhất sau lọc phần thưởng) — Codebook Agent dùng VQ autoencoder nén thành codebook 16 mục, MLP proxy xếp hạng lại trong một bước, đạt 84.6 (so với 83.0), phát ra topology 2.4ms, giảm token 21.9–33.2%.
 → Tiếp tục: [YES]
+
+## Paper #152 — Beyond Single-Model Injection: Prompt Injection in Multi-Agent Systems (2609.22949v1) [applied]
+✓ Skill: prompt-injection-defense-mas | Test: SKILL VALID
+✓ Insight: Mô hình đe dọa 14 vector trong 4 loại — 67% agent dễ bị tấn công dù có guardrails, chển tiếp gián tiếp qua công cụ 43%, 4 phòng thủ kiến trúc giảm tổng thể từ 31.2% xuống 4.2% (ký thông điệp -91%, làm sạch ranh giới -78%, quyền truy cập công cụ theo phạm vi, phát hiện bất thường 84%).
+→ Tiếp tục: [YES]
