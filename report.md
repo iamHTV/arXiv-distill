@@ -440,3 +440,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: synthetic-data-forgetting-mitigation | Test: SKILL VALID
 ✓ Insight: Fine-tune trên dữ liệu tổng hợp cải thiện in-distribution nhưng gây quên mất trên OOD — OOD recall giảm 0.850→0.650; các phương pháp giảm quên misses (LwF, EWC, L2-init) giữ OOD và cải thiện in-distribution 13.98%.
 → Tiếp tục: [YES]
+
+## Paper #134 — TAGR: Temporally Adaptive Generative Recommendation for Industrial Live-Streaming Advertising (2608.24034v1) [applied]
+✓ Skill: tagr-temporally-adaptive-recommendation | Test: SKILL VALID
+✓ Insight: Điều chỉnh theo thời gian ở ba cấp độ (live-ad tokenization, user intent modeling, preference alignment) cải thiện gợi ý quảng cáo livestream — live-room entry +8.5%, shopping-cart click +7.4%, revenue lift +16.1%.
+→ Tiếp tục: [YES]
