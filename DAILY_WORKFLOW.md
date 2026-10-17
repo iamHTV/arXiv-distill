@@ -229,6 +229,17 @@ Sau mỗi paper xong:
   - Tự động gửi qua Telegram (nếu đã setup TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID).
 - Xác nhận file báo cáo đã xuất hiện: `ls scans/<ngày>/README.md`
 
+---\n\n## WATCHDOG — CHẠY LẠI NẾU LỖI (MỚI)
+
+Cron job `watchdog-arxiv-daily-retry` chạy mỗi **30 phút** (`*/30 * * * *`):
+
+- Kiểm tra `scans/<hôm nay>/README.md` đã tồn tại chưa.
+- Nếu chưa → chạy lại `scripts/watchdog_daily.sh` → `run_pipeline.sh --no-tele` → `daily_summary.py`.
+- Giới hạn tối đa **4 lần chạy lại/ngày** (tránh loop vô íc).
+- Nếu pipeline đang chạy (hermes hoặc run_pipeline.sh) → bỏ qua lượt này.
+- Log ghi vào `logs/watchdog-retry.log`, đếm retry lưu trong `state/watchdog_retry_count.json`.
+
+
 ---
 
 ## PITFALLS (KHÔNG ĐƯỢC QUÊN)
