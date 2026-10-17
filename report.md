@@ -570,3 +570,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: Prompt Internalization — Fine-tune SLM thay thế Prompted Frontier Model | Test: SKILL VALID
 ✓ Insight: Fine-tuned Qwen3.5-0.8B + compact prompt 375 token (−90.2% vs 3,810 token teacher prompt) vượt prompted GPT-5.4 và GPT-5.6 Sol ở mọi matching level (Golden L3 recall 78.89 vs 62.87; Golden2 80.88 vs 76.04, p<0.0001) với cost ~16× (6.2% baseline); data quality pipeline (review+validation+synthetic rebalance) cho +36.9–40.7 pp strict recall vs raw supervision; A/B 35 ngày: engagement +15.8%, scheduled hours +2.1%, GMV new lessons +13.2%; uncalibrated LLM judge thiên vị teacher 99.06% vs 93.88%, human audit đưa về ≈95% hòa
 → Tiếp tục: [YES]
+
+## Paper #159 — Smart Alone, Blind Together: Why Accuracy Fails to Certify Theory of Mind in Multi-Agent Teams (2610.19051v1) [applied]
+✓ Skill: Blind-Spot Gate — Chứng nhận deployment ToM module (không deploy) | Test: SKILL VALID
+✓ Insight: Accuracy là certificate sai 2 hướng: Hanabi (damage compounds) accuracy approve 5 harmful deployments (clone teams −0.01 đến −0.26 vs independent errors), task assignment (costly errors rare) accuracy reject mọi classifier 0.42–0.53 dù acting on beliefs thắng do-nothing 33/35 cells (+0.76); redundancy 3 observers chỉ worth 1.11–1.64 independent (all-wrong 9–16% vs 0.15–3.4% predicted); Blind-Spot Gate (costs+interactions+dependence, λ=1) regret 0.021 với 0 significant false approvals/20 splits (accuracy: 0.056, 3.2 FA, 20/20 splits), out-of-sample: recover 7 classifiers accuracy reject (regret 0.004 vs 0.479) và catch Bayesian module accuracy approve (FA* 17/20 → 1/20); deferral trên unread teammates beneficial 30/30 cells (min +0.30)
+→ Tiếp tục: [YES]
