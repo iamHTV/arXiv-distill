@@ -565,3 +565,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: Pre-Action Verification Gate cho LLM Agent (shell + code edit) | Test: SKILL VALID
 ✓ Insight: Pre-action deterministic guard chuyển silent failure thành recoverable clean failure: shell verifier (bash -n + which + flag set) bắt 95.8% invalid @ 10.0% FPR, oracle-exact core 0% FP recall 0.500, cost 2.55 ms/command; edit location-anchored (line range) silent-corrupt 99.1% files khi lệch 1 dòng vs content-anchored (search/replace, diff) silent 0.000%; Robust-Apply (Kmin=2, τhi=0.90, δ=0.20) còn 1 silent/8,320 trials (0.01%), giữ 60% applies của fuzzy
 → Tiếp tục: [YES]
+
+## Paper #158 — Grammar Concept Annotation at Scale: Deployed Fine-Tuned SLMs Outperform Prompted Frontier Models (2610.10827v2) [applied]
+✓ Skill: Prompt Internalization — Fine-tune SLM thay thế Prompted Frontier Model | Test: SKILL VALID
+✓ Insight: Fine-tuned Qwen3.5-0.8B + compact prompt 375 token (−90.2% vs 3,810 token teacher prompt) vượt prompted GPT-5.4 và GPT-5.6 Sol ở mọi matching level (Golden L3 recall 78.89 vs 62.87; Golden2 80.88 vs 76.04, p<0.0001) với cost ~16× (6.2% baseline); data quality pipeline (review+validation+synthetic rebalance) cho +36.9–40.7 pp strict recall vs raw supervision; A/B 35 ngày: engagement +15.8%, scheduled hours +2.1%, GMV new lessons +13.2%; uncalibrated LLM judge thiên vị teacher 99.06% vs 93.88%, human audit đưa về ≈95% hòa
+→ Tiếp tục: [YES]
