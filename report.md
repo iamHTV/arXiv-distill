@@ -510,3 +510,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: agent-governance-layer | Test: SKILL VALID
 ✓ Insight: Lớp quản trị thời gian chạy giữa LLM và công cụ/backend với 5 yêu cầu (R1–R5) và 4 bất biến — tool selection 96.5%, task success 93.7%, invariants 100% trên 590 lượt chạy; xóa lớp quản trị → model thực thi tất cả 45 hành động cần phê duyệt mà không có phân quyền, chỉ 39.2% câu trả lời có con số từ backend.
 → Tiếp tục: [YES]
+
+## Paper #147 — Governing the Edge: Automating Commercial P&C Insurance Underwriting via Hybrid Local-Cloud Multi-Agent Framework (2609.37454v1) [applied]
+✓ Skill: multi-agent-compliance-first-workflow | Test: SKILL VALID
+✓ Insight: Tuân thủ được rãs vào cấu trúc đồ thị LangGraph (quy tắc làm điều kiện trên cạnh giữa agent), Gemma 2 cục bộ cho dữ liệu nhạy cảm + Claude Sonnet đám mây cho điểm số ẩn danh — compliance accuracy 70% trên 20 kịch bản, hard-stop 6/6, xử lý 40 phút thủ công trong vài phút.
+→ Tiếp tục: [YES]
