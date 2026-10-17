@@ -1,0 +1,16 @@
+{
+  "name": "ERPBench: A State-Grounded Evaluation Paradigm for Computer-Use Agents in Enterprise Software",
+  "authors": ["Kratika Bhagtani", "Kusha Sridhar", "Maziyar Baran Pouyan", "Yuying Zhao", "Eugene Siow"],
+  "affiliation": "Accenture Agentic AI Center of Excellence",
+  "link": "https://arxiv.org/abs/2609.17885v2",
+  "pdf_link": "https://arxiv.org/pdf/2609.17885v2",
+  "arxiv_id": "2609.17885v2",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 149
+}

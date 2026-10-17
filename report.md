@@ -520,3 +520,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: multi-step-embedding-retriever-visual-search | Test: SKILL VALID
 ✓ Insight: Offload multi-step navigation từ agent xuống công cụ retrieval — VHop-Router biến mô hình embedding thành retriever đa bước, tăng retrieval từ dưới 5% lên 76.3%, cải thiện task success 52.7%, giảm token 61% (1886→728), nâng cấp agent chỉ +3.7%.
 → Tiếp tục: [YES]
+
+## Paper #149 — ERPBench: A State-Grounded Evaluation Paradigm for Computer-Use Agents in Enterprise Software (2609.17885v2) [applied]
+✓ Skill: state-grounded-evaluation-cua | Test: SKILL VALID
+✓ Insight: Đánh giá CUA trên trạng thái cơ sở dữ liệu không chỉ chụp màn hình — Claude 94%/100%/100% qua 3 tier, mô hình mở rơi 0–3% ở T2/T3, một số agent lưu 85% lần chạy nhưng chỉ ghi đúng 3%, harness có cổng phê duyệt con người cho hành động rủi ro.
+→ Tiếp tục: [YES]
