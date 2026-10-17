@@ -380,3 +380,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: realms-schema-aware-nl2sql-audience-sizing | Test: SKILL VALID
 ✓ Insight: Kết hợp lấy thuộc tính có ý thức về scheme với NL2SQL để sinh truy vấn chính xác trên scheme lồng nhau — Recall@k 94%, Exact-match 93%, Execution match 90%, latency trung bình dưới 10 giây.
 → Tiếp tục: [YES]
+
+## Paper #122 — Evaluating Deep-Search Agents under Hierarchical Web Evidence Poisoning (2609.06027v2) [applied]
+✓ Skill: hae-geo-agent-robustness-evaluation | Test: SKILL VALID
+✓ Insight: Nhận thức bằng chứng suy giảm dưới bẫy chứng thực (L3); defense prompting tăng xác minh nhưng hiếm khi chuyển thành khôi phục — cần yêu cầu agent rút lui khi bằng chứng mâu thuẫn.
+→ Tiếp tục: [YES]

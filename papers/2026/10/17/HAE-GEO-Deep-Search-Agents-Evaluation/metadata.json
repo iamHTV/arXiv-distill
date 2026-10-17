@@ -1,0 +1,16 @@
+{
+  "name": "Evaluating Deep-Search Agents under Hierarchical Web Evidence Poisoning",
+  "authors": ["Zhongan Bi", "Qiwen Wang", "Jianrong Jiang", "Jigang Ding", "Wenwen Xiong", "Changhua Meng", "Xuanang Gao", "Kepeng Lin", "Changjiang Jiang", "Yi'ang Chen", "Huan Yao", "Wei Wang", "Zhenyu Ma", "Wenhui Dong"],
+  "affiliation": "Zhejiang University, Ant Group",
+  "link": "https://arxiv.org/abs/2609.06027v2",
+  "pdf_link": "https://arxiv.org/pdf/2609.06027v2",
+  "arxiv_id": "2609.06027v2",
+  "year": 2026,
+  "category": "cs.CR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-17",
+  "paper_number": 122
+}
