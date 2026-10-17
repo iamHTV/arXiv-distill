@@ -1,0 +1,16 @@
+{
+  "name": "Fabrication After Tool Failure: Tool-Augmented Agents Assert Values Their Tools Did Not Return",
+  "authors": ["Arham Sethi", "Arsen Kenzhebayev", "Saanvi Paturi", "Vatsal Raina", "Vyas Raina", "Ivaxi Sheth"],
+  "affiliation": "Spark AI Research",
+  "link": "https://arxiv.org/abs/2609.14758v1",
+  "pdf_link": "https://arxiv.org/pdf/2609.14758v1",
+  "arxiv_id": "2609.14758v1",
+  "year": 2026,
+  "category": "cs.SE",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-17",
+  "paper_number": 138
+}

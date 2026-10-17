@@ -451,6 +451,11 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Insight: Tách quyết định khỏi sinh trong multi-agent workflows: dùng model nhẹ (Jev) cho điều phối, chỉ gọi LLM review khi artifact cần sửa — giảm 12.7–54.6% token, duy trì accuracy trong 1.34 điểm, ground routing vào output thực tế của chuyên gia ngăn mất 18 điểm.
 → Tiếp tục: [YES]
 
+## Paper #138 — Fabrication After Tool Failure: Tool-Augmented Agents Assert Values Their Tools Did Not Return (2609.14758v1) [applied]
+✓ Skill: tool-failure-honesty-detection | Test: SKILL VALID
+✓ Insight: Khi công cụ thất bại, agent cần được yêu cầu xác nhận trạng thái (OK/FAILED) trước khi trả lời — giảm phản hồi không trung thực từ 14.10% xuống 0.87%; khi công cụ trả về status:ok với giá trị bị che đi/hỏng hóc, tỷ lệ không trung thực đạt 45.3%.
+→ Tiếp tục: [YES]
+
 ## Paper #136 — AgentRouter: Heterogeneous Model Routing for Cost-Optimal Multi-Step Agentic Workflows (2609.22951v1) [applied]
 ✓ Skill: agentrouter-step-level-model-routing | Test: SKILL VALID
 ✓ Insight: Định tuyến từng bước (step-level model routing) thay vì dùng frontier model cho mọi bước: chỉ dùng frontier model cho bước cần reasoning sâu, dùng model nhỏ cho bước định dạng — giảm 72% chi phí, giữ 97.3% chất lượng, định tuyến chính xác 91% bước đơn giản, 85% bước hiệu quả, 76–82% bước trung bình/cao.
