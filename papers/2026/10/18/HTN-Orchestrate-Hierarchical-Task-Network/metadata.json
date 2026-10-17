@@ -1,0 +1,17 @@
+{
+  "name": "HTN-Orchestrate: A Hierarchical Task Network Framework for Multi-Agent Orchestration",
+  "authors": ["Yanchen Deng", "Jianguo Huang", "Yao Long Teng", "Yixuan Li", "Handuo Zhang", "Ning Wang", "Liangcai Su", "Xinyu Wang", "Bo An"],
+  "affiliation": "Nanyang Technological University; Apodex",
+  "link": "https://arxiv.org/abs/2610.22195",
+  "pdf_link": "https://arxiv.org/pdf/2610.22195v1",
+  "arxiv_id": "2610.22195v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 161,
+  "code": "https://github.com/ycdeng-ntu/HTN-Orchestrate"
+}
