@@ -106,8 +106,8 @@ def build_report(date_str, papers):
     lines.append("")
 
     # Thống kê
-    n_applied = sum(1 for p in papers if p.get("classification") == "applied")
-    n_skill = sum(1 for p in papers if p.get("skill_status") == "created")
+    n_applied = sum(1 for p in papers if p["meta"].get("classification") == "applied")
+    n_skill = sum(1 for p in papers if p["meta"].get("skill_status") == "created")
     lines.append("## Tổng quan")
     lines.append("- Tổng bài distill: **%d**" % len(papers))
     lines.append("- Nhãn [applied]: **%d**" % n_applied)
@@ -184,8 +184,8 @@ def build_report_en(date_str, papers):
     lines.append("Each paper went through 6 distill steps, bilingual (VI/EN), skill test (if eligible), commit+push to GitHub.")
     lines.append("")
 
-    n_applied = sum(1 for p in papers if p.get("classification") == "applied")
-    n_skill = sum(1 for p in papers if p.get("skill_status") == "created")
+    n_applied = sum(1 for p in papers if p["meta"].get("classification") == "applied")
+    n_skill = sum(1 for p in papers if p["meta"].get("skill_status") == "created")
     lines.append("## Overview")
     lines.append("- Total papers distilled: **%d**" % len(papers))
     lines.append("- Label [applied]: **%d**" % n_applied)
@@ -306,8 +306,51 @@ def main():
     folders = list_today_papers(date_str)
     print("Tìm %d folder paper trong papers/%s/" % (len(folders), date_str.replace("-", "/")))
 
-    papers = []
+    # ── Lấy top 10 bài cao điểm nhất từ file scans/<ngày>.json (có llm_score) ──
+    scan_path = os.path.join(SCANS_DIR, date_str + ".json")
+    top10_ids = None
+    if os.path.exists(scan_path):
+        try:
+            scan_data = json.load(open(scan_path, encoding="utf-8"))
+            papers_scan = scan_data.get("papers", [])
+            papers_scan.sort(key=lambda p: -p.get("llm_score", 0))
+            top10_ids = [p["id"] for p in papers_scan[:10]]
+            print("Lấy top 10 từ scans/%s.json (điểm LLM): %s" % (date_str, top10_ids))
+        except Exception as e:
+            print("Không đọc được scans/%s.json: %s" % (date_str, e))
+
+    # Ánh xetch arxiv_id -> folder để match
+    folder_by_id = {}
     for folder in folders:
+        meta = read_meta(folder)
+        aid = meta.get("arxiv_id", "")
+        if aid:
+            folder_by_id[aid] = folder
+
+    # Chọn 10 folder: ưu tiên top10_ids, nếu thiếu thì bổ sung từ remaining
+    selected_folders = []
+    used_ids = set()
+    if top10_ids:
+        for aid in top10_ids:
+            if aid in folder_by_id and aid not in used_ids:
+                selected_folders.append(folder_by_id[aid])
+                used_ids.add(aid)
+        # Bổ sung nếu top10 không đủ 10 (vì một số bài chưa distill thành folder)
+        for folder in folders:
+            meta = read_meta(folder)
+            aid = meta.get("arxiv_id", "")
+            if aid and aid not in used_ids and len(selected_folders) < 10:
+                selected_folders.append(folder)
+                used_ids.add(aid)
+    else:
+        # Fallback: tất cả folder (sắp theo skill_status rồi tên)
+        selected_folders = folders
+
+    selected_folders = selected_folders[:10]
+    print("Đã chọn %d bài cho báo cáo" % len(selected_folders))
+
+    papers = []
+    for folder in selected_folders:
         meta = read_meta(folder)
         readme = read_readme(folder)
         arxiv_id = meta.get("arxiv_id", "")
@@ -346,7 +389,6 @@ def main():
     send_telegram(vi_text)
 
     print("=== XONG ===")
-
 
 if __name__ == "__main__":
     main()
