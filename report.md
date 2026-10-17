@@ -400,3 +400,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: insightchain-four-stage-visualization | Test: SKILL VALID
 ✓ Insight: ống dẫn bốn giai đoạn (Explore–Focus–Test–Present) vượt các bước tham chiếu đơn thành mẫu; IPM đạt Spearman ρ=0.88 với đánh giá con người; VG-COPRO nâng IPM +1.31 (Gemini) và +1.16 (GPT-4.1).
 → Tiếp tục: [YES]
+
+## Paper #126 — Question's Gambit: The First Move Matters in Agentic Deep Search (2609.14412v1) [applied]
+✓ Skill: questions-gambit-first-move-retrieval | Test: SKILL VALID
+✓ Insight: Bước truy xuất đầu tiên (first move) quyết định chất lượng ngữ cảnh mở — GPT-5.5 accuracy 83.1%→90.5% (+7.4 pp), calibration error 15.7→7.58, gold recall 56.1→75.9.
+→ Tiếp tục: [YES]
