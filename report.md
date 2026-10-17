@@ -375,3 +375,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: qcar-adaptive-top-k-retrieval | Test: SKILL VALID
 ✓ Insight: Ước tính độ khó truy vấn trước khi lấy để chọn top-k thích ứng thay vì số liệu cố định — đơn giản giảm 35,95% token, F1 +0,37; phức tạp F1 +0,37 với +85,95% token; A/B test F1 +36%, token −14% trên cụm đơn giản.
 → Tiếp tục: [YES]
+
+## Paper #121 — REALMS: Real-Time Exact Audience Sizing over High-Dimensional Nested Profiles (2609.30547v1) [applied]
+✓ Skill: realms-schema-aware-nl2sql-audience-sizing | Test: SKILL VALID
+✓ Insight: Kết hợp lấy thuộc tính có ý thức về scheme với NL2SQL để sinh truy vấn chính xác trên scheme lồng nhau — Recall@k 94%, Exact-match 93%, Execution match 90%, latency trung bình dưới 10 giây.
+→ Tiếp tục: [YES]
