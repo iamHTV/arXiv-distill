@@ -40,7 +40,7 @@ CATS_BLOCK = [
 # lấy top N, KHÔNG dùng ngưỡng cứng (ngưỡng cao sẽ lọc mất bài hay).
 HEURISTIC_MIN = 4           # sàn tối thiểu: loại bài hoàn toàn lạc đề
 TOP_CANDIDATES = 150        # số bài đưa sang LLM chấm (đã xếp hạng)
-TARGET_KEEP = 60            # số bài giữ lại cuối cùng (điểm LLM cao nhất)
+TARGET_KEEP = 10            # số bài giữ lại cuối cùng (điểm LLM cao nhất) — 10 bài tốt nhất/ngày theo yêu cầu user
 # Fallback chain model chấm điểm (đều giá $0).
 # 3.1 bị provider Novita rate-limit nặng → tự chuyển 3.0 khi 429.
 LLM_MODELS = ["inclusionai/ling-3.1-flash", "inclusionai/ling-3.0-flash"]

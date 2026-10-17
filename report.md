@@ -385,3 +385,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: hae-geo-agent-robustness-evaluation | Test: SKILL VALID
 ✓ Insight: Nhận thức bằng chứng suy giảm dưới bẫy chứng thực (L3); defense prompting tăng xác minh nhưng hiếm khi chuyển thành khôi phục — cần yêu cầu agent rút lui khi bằng chứng mâu thuẫn.
 → Tiếp tục: [YES]
+
+## Paper #123 — Where Do the Tokens Go? Understanding and Reducing Costs in LLM Agents for Vulnerability Discovery (2610.11602v1) [applied]
+✓ Skill: avri-vulnerability-reasoning-interface | Test: SKILL VALID
+✓ Insight: Bản địa hóa và hiểu mã nguồn + suy luận lỗ hổng chiếm 60.4% token, là bottleneck chính trong các lần chạy thất bại; AVRI giảm chi phí 18.0% (Codex) và 23.7% (OpenCode) bảo toàn thành công.
+→ Tiếp tục: [YES]

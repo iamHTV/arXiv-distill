@@ -1,0 +1,16 @@
+{
+  "name": "Where Do the Tokens Go? Understanding and Reducing Costs in LLM Agents for Vulnerability Discovery",
+  "authors": ["Li Lu", "Hongjie Chen", "Yanjie Zhao", "Haoyu Wang"],
+  "affiliation": "Huazhong University of Science and Technology",
+  "link": "https://arxiv.org/abs/2610.11602v1",
+  "pdf_link": "https://arxiv.org/pdf/2610.11602v1",
+  "arxiv_id": "2610.11602v1",
+  "year": 2026,
+  "category": "cs.CR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-17",
+  "paper_number": 123
+}
