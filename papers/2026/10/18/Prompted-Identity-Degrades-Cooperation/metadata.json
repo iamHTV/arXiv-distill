@@ -1,0 +1,16 @@
+{
+  "name": "Prompted Identity Degrades Cooperation in Multi-Agent LLM Systems",
+  "authors": ["Xavier Del Giudice", "Alessio Palma", "Matteo Migliarini", "Fabio Galasso", "Indro Spinelli"],
+  "affiliation": "Sapienza University of Rome",
+  "link": "https://arxiv.org/abs/2609.35928v1",
+  "pdf_link": "https://arxiv.org/pdf/2609.35928v1",
+  "arxiv_id": "2609.35928v1",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 154
+}

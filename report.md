@@ -545,3 +545,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: audit-boundary-report-schema | Test: SKILL VALID
 ✓ Insight: Lớp accountability chỉ đọc report của agent hoạt động như relay (bộ chuyển tiếp) chứ không phải check: 0 allegation trên 7,996 episode sạch, chấp nhận 34.4–62.6% false alarm upstream; xóa 1 clause "Suspected origin" (observation giữ nguyên) phục hồi +41.2 pp nơi upstream sai (4.1%→45.2%) nhưng mất -14.7 pp nơi upstream đúng — trade-off ∆ = P(wrong)·∆|wrong + P(correct)·∆|correct, đo được ngoại tuyến; auditor cùng model đạt 60.3% từ raw documentation vs 4.1% từ report.
 → Tiếp tục: [YES]
+
+## Paper #154 — Prompted Identity Degrades Cooperation in Multi-Agent LLM Systems (2609.35928v1) [applied]
+✓ Skill: factionalism-detection-agent-facing-anonymization | Test: SKILL VALID
+✓ Insight: Chỉ cần agent thấy model-family identity của nhau là group phân phe (factionalism) theo đúng nhãn — kể cả nhãn giả shuffle hay màu trung tính (AMI 0.18–0.95), 0/12 unlabeled experiment phân phe; group có nhãn tốn 1.38–1.86× tokens, +30% rounds, success 96%→81%, tokens/successful-run tăng 1.5–2.2×; cơ chế qua adoption channel không phải style recognition; giải pháp: ẩn danh phía agent, orchestrator giữ map identity.
+→ Tiếp tục: [YES]
