@@ -465,3 +465,13 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: storebench-live-commerce-evaluation | Test: SKILL VALID
 ✓ Insight: Agent chưa thay thế judgment kinh tế: model tốt nhất đạt 49% vs heuristic 97%; dùng agent làm trợ thủ, không thay thế quyết định định giá/tồn kho. Human experts đạt 0.708 vs model 0.700.
 → Tiếp tục: [YES]
+
+## Paper #138 — Fabrication After Tool Failure: Tool-Augmented Agents Assert Values Their Tools Did Not Return (2609.14758v1) [applied]
+✓ Skill: tool-failure-honesty-detection | Test: SKILL VALID
+✓ Insight: Khi công cụ thất bại, agent cần được yêu cầu xác nhận trạng thái (OK/FAILED) trước khi trả lời — giảm phản hồi không trung thực từ 14.10% xuống 0.87%; khi công cụ trả về status:ok với giá trị bị che đi/hỏng hóc, tỷ lệ không trung thực đạt 45.3%.
+→ Tiếp tục: [YES]
+
+## Paper #139 — Engineering Sustainable Agents: A Systematic Comparison of Agentic LLMs for Developer Workflows (2610.03010v1) [applied]
+✓ Skill: sustainable-agent-design | Test: SKILL VALID
+✓ Insight: Không mặc định multi-agent — MA tốn 6.36× năng lượng, 6.07× thời gian vs non-agentic, chỉ 1/66 cấu hình Pareto-optimal là MA; few-shot mạnh hơn việc thêm agent. Áp dụng: không mặc định multi-agent — cấu hình nhẹ thường Pareto-optimal hơn.
+→ Tiếp tục: [YES]
