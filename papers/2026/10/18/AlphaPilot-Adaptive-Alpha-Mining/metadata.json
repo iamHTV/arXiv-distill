@@ -1,0 +1,16 @@
+{
+  "name": "AlphaPilot: Multi-Turn Tool-Using LLM Agents for Adaptive Alpha Mining with Reinforcement Learning",
+  "authors": ["Peiqi Jiang", "Fan Zhang", "Xin Xu", "Tianhao Chen", "Can Yang"],
+  "affiliation": "Department of Mathematics, Hong Kong University of Science and Technology",
+  "link": "https://arxiv.org/abs/2610.15488",
+  "pdf_link": "https://arxiv.org/pdf/2610.15488v1",
+  "arxiv_id": "2610.15488v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 156
+}

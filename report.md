@@ -555,3 +555,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: evidence-aware-agent-orchestration | Test: SKILL VALID
 ✓ Insight: Evidence block phải gắn state (available/missing/fallback/stale/partial/fetch_failed) và project vào prompt — missing data KHÔNG được thành neutral evidence; 2 profile (default report rẻ vs agentic đắt) tái dụng chung evidence+routing substrate; Strategy Skill opinion qua signal-eligibility partition, invalid → diagnostics, disagreement summary làm explicit input cho decision agent; RiskGuard chỉ downgrade (buy→hold→sell) never upgrade; 1,457/1,457 frozen contract test pass (102.5s) nhưng paper honest: conformance ≠ report quality/forecast/returns.
 → Tiếp tục: [YES]
+
+## Paper #156 — AlphaPilot: Multi-Turn Tool-Using LLM Agents for Adaptive Alpha Mining with Reinforcement Learning (2610.15488v1) [applied]
+✓ Skill: Multi-Turn Tool-Using Agent với Evaluator Feedback Loop | Test: SKILL VALID
+✓ Insight: Multi-turn tool-using loop + compact tried-factor memory vượt GRPO single-turn cùng backbone +7.31pp return / +0.43 Sharpe / +6.98pp MaxDD (CSI300: 42.93% return, Sharpe 2.46, RankIC 0.0595); bỏ memory feedback → return giảm một nửa (48.64→26.40) và rollout dài gấp 3× (5.24→15.75 turns); Qwen3-4B+GRPO vượt Qwen3-235B (6.88%) và DeepSeek-R1 (22.79%); variant có RankIC cao nhất (0.0634) lại return yếu nhất (34.39%) — optimize pool-level utility, không phải IC đơn lẻ
+→ Tiếp tục: [YES]
