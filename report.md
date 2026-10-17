@@ -540,3 +540,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: prompt-injection-defense-mas | Test: SKILL VALID
 ✓ Insight: Mô hình đe dọa 14 vector trong 4 loại — 67% agent dễ bị tấn công dù có guardrails, chển tiếp gián tiếp qua công cụ 43%, 4 phòng thủ kiến trúc giảm tổng thể từ 31.2% xuống 4.2% (ký thông điệp -91%, làm sạch ranh giới -78%, quyền truy cập công cụ theo phạm vi, phát hiện bất thường 84%).
 → Tiếp tục: [YES]
+
+## Paper #153 — Audit Without Verification: When LLM Accountability Layers Relay Rather Than Check (2609.07680v1) [applied]
+✓ Skill: audit-boundary-report-schema | Test: SKILL VALID
+✓ Insight: Lớp accountability chỉ đọc report của agent hoạt động như relay (bộ chuyển tiếp) chứ không phải check: 0 allegation trên 7,996 episode sạch, chấp nhận 34.4–62.6% false alarm upstream; xóa 1 clause "Suspected origin" (observation giữ nguyên) phục hồi +41.2 pp nơi upstream sai (4.1%→45.2%) nhưng mất -14.7 pp nơi upstream đúng — trade-off ∆ = P(wrong)·∆|wrong + P(correct)·∆|correct, đo được ngoại tuyến; auditor cùng model đạt 60.3% từ raw documentation vs 4.1% từ report.
+→ Tiếp tục: [YES]
