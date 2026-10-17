@@ -505,3 +505,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: compute-allocation-multi-agent-coding-team | Test: SKILL VALID
 ✓ Insight: Phân bổ compute inference ưu tiên vào giai đoạn lập kế hoạch (ηP=3.8 vs ≤2.4 giai đoạn khác), dùng model mạnh cho lead + model rẻ cho planner, giới hạn implementer/verifier tối đa 4 workers — heterogeneous 17-agent team đạt trong 1.4 điểm reward của team 5-agent mạnh mẽ với chi phí thấp hơn 70%.
 → Tiếp tục: [YES]
+
+## Paper #146 — A Governance-Aware LLM Orchestrated Agentic Digital Twin for Transmission System Operator Control Room Decision Support (2609.22476v1) [applied]
+✓ Skill: agent-governance-layer | Test: SKILL VALID
+✓ Insight: Lớp quản trị thời gian chạy giữa LLM và công cụ/backend với 5 yêu cầu (R1–R5) và 4 bất biến — tool selection 96.5%, task success 93.7%, invariants 100% trên 590 lượt chạy; xóa lớp quản trị → model thực thi tất cả 45 hành động cần phê duyệt mà không có phân quyền, chỉ 39.2% câu trả lời có con số từ backend.
+→ Tiếp tục: [YES]
