@@ -560,3 +560,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: Multi-Turn Tool-Using Agent với Evaluator Feedback Loop | Test: SKILL VALID
 ✓ Insight: Multi-turn tool-using loop + compact tried-factor memory vượt GRPO single-turn cùng backbone +7.31pp return / +0.43 Sharpe / +6.98pp MaxDD (CSI300: 42.93% return, Sharpe 2.46, RankIC 0.0595); bỏ memory feedback → return giảm một nửa (48.64→26.40) và rollout dài gấp 3× (5.24→15.75 turns); Qwen3-4B+GRPO vượt Qwen3-235B (6.88%) và DeepSeek-R1 (22.79%); variant có RankIC cao nhất (0.0634) lại return yếu nhất (34.39%) — optimize pool-level utility, không phải IC đơn lẻ
 → Tiếp tục: [YES]
+
+## Paper #157 — Look Before You Leap: Pre-Action Verification for LLM Agents (2609.11957v1) [applied]
+✓ Skill: Pre-Action Verification Gate cho LLM Agent (shell + code edit) | Test: SKILL VALID
+✓ Insight: Pre-action deterministic guard chuyển silent failure thành recoverable clean failure: shell verifier (bash -n + which + flag set) bắt 95.8% invalid @ 10.0% FPR, oracle-exact core 0% FP recall 0.500, cost 2.55 ms/command; edit location-anchored (line range) silent-corrupt 99.1% files khi lệch 1 dòng vs content-anchored (search/replace, diff) silent 0.000%; Robust-Apply (Kmin=2, τhi=0.90, δ=0.20) còn 1 silent/8,320 trials (0.01%), giữ 60% applies của fuzzy
+→ Tiếp tục: [YES]
