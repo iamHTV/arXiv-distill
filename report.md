@@ -435,3 +435,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: functiongemma-on-device-extension | Test: SKILL VALID
 ✓ Insight: Fine-tune model nhỏ (270M) trên dataset tổng hợp về hành động thiết bị mở rộng cobertura — end-to-end accuracy 29.3%→76.5% trên MOBILEACTIONSEXTENDED, combined model giữ 76.5% và đạt 82.3% trên MOBILEACTIONSGOOGLE (giảm từ 90.3% của specialist), trade-off 8.0 điểm.
 → Tiếp tục: [YES]
+
+## Paper #133 — When Synthetic Data Hurts: On Catastrophic Forgetting in Skill Retrieval (2609.10750v1) [applied]
+✓ Skill: synthetic-data-forgetting-mitigation | Test: SKILL VALID
+✓ Insight: Fine-tune trên dữ liệu tổng hợp cải thiện in-distribution nhưng gây quên mất trên OOD — OOD recall giảm 0.850→0.650; các phương pháp giảm quên misses (LwF, EWC, L2-init) giữ OOD và cải thiện in-distribution 13.98%.
+→ Tiếp tục: [YES]
