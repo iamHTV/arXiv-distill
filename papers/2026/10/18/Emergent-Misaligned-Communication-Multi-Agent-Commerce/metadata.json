@@ -1,0 +1,16 @@
+{
+  "name": "Emergent Misaligned Communication in Long-Horizon Multi-Agent LLM Commerce",
+  "authors": ["Zeyuan Li", "Lukas Petersson", "Alessandro Acquisti", "Michiel A. Bakker"],
+  "affiliation": "MIT; Andon Labs",
+  "link": "https://arxiv.org/abs/2608.14825",
+  "pdf_link": "https://arxiv.org/pdf/2608.14825v3",
+  "arxiv_id": "2608.14825v3",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 160
+}
