@@ -410,3 +410,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: q2d-web-retriever-evaluation | Test: SKILL VALID
 ✓ Insight: Q2D-Web: 190M tài liệu, 70k truy vấn agentic, 10 ngôn ngữ; pplx-embed-v1-4b thắng Recall@1000 cả 3 tập phán xét; RRF lấy mẫu 1/3 corpus bảo toàn thứ hạng mô hình, Recall@1000 chỉ +4–7 điểm.
 → Tiếp tục: [YES]
+
+## Paper #128 — UNREAL: Unifying Retrieval and Long-Context with a Single Model (2610.08463v1) [applied]
+✓ Skill: unreal-internal-evidence-selection | Test: SKILL VALID
+✓ Insight: Chọn bằng chứng nội bộ (internal evidence selection) áp dụng đồng chiều cho truy xuất corpus và suy luận ngữ cảnh dài — HotpotQA recall 49.1%→73.2%, NoLiMa 1.0%→24.83% (128K token), ít hơn 500K tham số trainable.
+→ Tiếp tục: [YES]
