@@ -1,0 +1,17 @@
+{
+  "name": "Attention Tax, Handoff Tax: A Stylised Model of When Multi-Agent LLM Systems Help",
+  "authors": ["Akshit Anchan", "Nayonika Sen"],
+  "affiliation": "University of Amsterdam; Northeastern University",
+  "link": "https://arxiv.org/abs/2610.06069",
+  "pdf_link": "https://arxiv.org/pdf/2610.06069v1",
+  "arxiv_id": "2610.06069v1",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 163,
+  "code": "https://github.com/akshitanchan/attention-handoff-tax"
+}
