@@ -395,3 +395,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: intuitive-prompting-agent-simulation | Test: SKILL VALID
 ✓ Insight: Nội dung thái độ cải thiện dự đoán hơn mô tả nhân khẩu học (MCC 0.300→0.473); intuitive prompting (phản hồi ngay lập tức) đạt độ trung tín cao nhất và cắt nén khác biệt cá nhân từ 10.24× xuống 3.14×.
 → Tiếp tục: [YES]
+
+## Paper #125 — InsightChain: Optimized Chain-of-Insight Analytics for LLM-driven Data Visualization (2609.06438v1) [applied]
+✓ Skill: insightchain-four-stage-visualization | Test: SKILL VALID
+✓ Insight: ống dẫn bốn giai đoạn (Explore–Focus–Test–Present) vượt các bước tham chiếu đơn thành mẫu; IPM đạt Spearman ρ=0.88 với đánh giá con người; VG-COPRO nâng IPM +1.31 (Gemini) và +1.16 (GPT-4.1).
+→ Tiếp tục: [YES]
