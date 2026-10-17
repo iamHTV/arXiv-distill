@@ -430,3 +430,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: trajectory-aware-subset-selection | Test: SKILL VALID
 ✓ Insight: Chọn sample gần trọng tâm (centroid) của mỗi nhóm kết quả (outcome group) trong không gian nhúng (embedding space) — subset 10% giữ median error dưới 5% cắt giảm chi phí token khoảng 90%.
 → Tiếp tục: [YES]
+
+## Paper #132 — Extending FunctionGemma for Practical On-Device Mobile Function Calling (2609.25373v1) [applied]
+✓ Skill: functiongemma-on-device-extension | Test: SKILL VALID
+✓ Insight: Fine-tune model nhỏ (270M) trên dataset tổng hợp về hành động thiết bị mở rộng cobertura — end-to-end accuracy 29.3%→76.5% trên MOBILEACTIONSEXTENDED, combined model giữ 76.5% và đạt 82.3% trên MOBILEACTIONSGOOGLE (giảm từ 90.3% của specialist), trade-off 8.0 điểm.
+→ Tiếp tục: [YES]
