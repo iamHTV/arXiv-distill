@@ -1,0 +1,16 @@
+{
+  "name": "Continuous Process-Level Evaluation for Evolving Enterprise AI Agent Skills",
+  "authors": ["Ngoc Phuoc An Vo", "Aarya Doshi", "Vadim Sheinin"],
+  "affiliation": "IBM, Georgia Institute of Technology",
+  "link": "https://arxiv.org/abs/2610.01833v1",
+  "pdf_link": "https://arxiv.org/pdf/2610.01833v1",
+  "arxiv_id": "2610.01833v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-17",
+  "paper_number": 118
+}

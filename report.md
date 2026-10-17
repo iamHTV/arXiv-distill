@@ -360,3 +360,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: fire-runtime-policies-for-agent-reliability | Test: SKILL VALID
 ✓ Insight: Chính sách thời gian chạy (runtime policy) — hướng dẫn/từ chối do harness áp dụng tại trạng thái rủi ro — làm cho khả năng model đã có lặp lại được nhiều hơn, không cần thay đổi model. Sol pass∧2 64.4%→73.6% (+9.2), Terra với chính sách 71.4% vs Sol không hỗ trợ 64.3% trên 14 nhiệm vụ, một nửa chi phí.
 → Tiếp tục: [YES]
+
+## Paper #118 — Continuous Process-Level Evaluation for Evolving Enterprise AI Agent Skills (2610.01833v1) [applied]
+✓ Skill: continuous-process-level-evaluation | Test: SKILL VALID
+✓ Insight: Kết hợp kiểm tra kết quả và quy trình trong pipeline đánh giá phát hiện sai lệch hành vi dù kết quả cuối đúng — 175/240 vượt kiểm tra số liệu cuối nhưng 162/175 (92.6%) vẫn có sự lệch bổ sung; dependency attribution nén 6.34 kiểm tra thất bại xuống 2.65 gốc (−58%).
+→ Tiếp tục: [YES]
