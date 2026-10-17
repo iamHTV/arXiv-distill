@@ -530,3 +530,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: spra-structured-paper-representation | Test: SKILL VALID
 ✓ Insight: Biểu diễn bài báo có cấu trúc (Vấn đề, Đóng góp, Thành phần, Thiết lập thí nghiệm, Đo lường, Kết quả) với quan hệ gō — 1 triệu bài báo, 19,95 triệu đơn vị, 24,07 triệu quan hệ — cải thiện QA khoa học 0,381/5, giảm token 28,5% so với passage retrieval và 95,3% so với Full Compact.
 → Tiếp tục: [YES]
+
+## Paper #151 — Codebook Agent: Amortized Topology Design for LLM Multi-Agent Systems (2609.02264v1) [applied]
+✓ Skill: codebook-based-multi-agent-topology | Test: SKILL VALID
+✓ Insight: Không gian thiết kế topology thực tế rất nhỏ (~6 đồ thị duy nhất sau lọc phần thưởng) — Codebook Agent dùng VQ autoencoder nén thành codebook 16 mục, MLP proxy xếp hạng lại trong một bước, đạt 84.6 (so với 83.0), phát ra topology 2.4ms, giảm token 21.9–33.2%.
+→ Tiếp tục: [YES]
