@@ -390,3 +390,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: avri-vulnerability-reasoning-interface | Test: SKILL VALID
 ✓ Insight: Bản địa hóa và hiểu mã nguồn + suy luận lỗ hổng chiếm 60.4% token, là bottleneck chính trong các lần chạy thất bại; AVRI giảm chi phí 18.0% (Codex) và 23.7% (OpenCode) bảo toàn thành công.
 → Tiếp tục: [YES]
+
+## Paper #124 — Thinking Less to Simulate Better: Intuitive Prompting Improves LLM Agents Simulating Individual Social Media Reactions (2609.30563v1) [applied]
+✓ Skill: intuitive-prompting-agent-simulation | Test: SKILL VALID
+✓ Insight: Nội dung thái độ cải thiện dự đoán hơn mô tả nhân khẩu học (MCC 0.300→0.473); intuitive prompting (phản hồi ngay lập tức) đạt độ trung tín cao nhất và cắt nén khác biệt cá nhân từ 10.24× xuống 3.14×.
+→ Tiếp tục: [YES]
