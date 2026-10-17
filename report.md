@@ -415,3 +415,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: unreal-internal-evidence-selection | Test: SKILL VALID
 ✓ Insight: Chọn bằng chứng nội bộ (internal evidence selection) áp dụng đồng chiều cho truy xuất corpus và suy luận ngữ cảnh dài — HotpotQA recall 49.1%→73.2%, NoLiMa 1.0%→24.83% (128K token), ít hơn 500K tham số trainable.
 → Tiếp tục: [YES]
+
+## Paper #129 — CodeHealth Predicts the Token Cost of Agentic Code Review (2610.21914v1) [applied]
+✓ Skill: codehealth-token-cost-prediction | Test: SKILL VALID
+✓ Insight: Chất lượng code (CodeHealth) dự đoán chi phí token agent review và fix — mỗi điểm CodeHealth cao hơn giảm 3.5% đến 6.1% chi phí token, không do kích thước PR.
+→ Tiếp tục: [YES]
