@@ -441,9 +441,9 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Insight: Fine-tune trên dữ liệu tổng hợp cải thiện in-distribution nhưng gây quên mất trên OOD — OOD recall giảm 0.850→0.650; các phương pháp giảm quên misses (LwF, EWC, L2-init) giữ OOD và cải thiện in-distribution 13.98%.
 → Tiếp tục: [YES]
 
-## Paper #136 — AgentRouter: Heterogeneous Model Routing for Cost-Optimal Multi-Step Agentic Workflows (2609.22951v1) [applied]
-✓ Skill: agentrouter-step-level-model-routing | Test: SKILL VALID
-✓ Insight: Định tuyến từng bước (step-level model routing) thay vì dùng frontier model cho mọi bước: chỉ dùng frontier model cho bước cần reasoning sâu, dùng model nhỏ cho bước định dạng — giảm 72% chi phí, giữ 97.3% chất lượng, định tuyến chính xác 91% bước đơn giản, 85% bước hiệu quả, 76–82% bước trung bình/cao.
+## Paper #134 — TAGR: Temporally Adaptive Generative Recommendation for Industrial Live-Streaming Advertising (2608.24034v1) [applied]
+✓ Skill: tagr-temporally-adaptive-recommendation | Test: SKILL VALID
+✓ Insight: Điều chỉnh theo thời gian ở ba cấp độ (live-ad tokenization, user intent modeling, preference alignment) cải thiện gợi ý quảng cáo livestream — live-room entry +8.5%, shopping-cart click +7.4%, revenue lift +16.1%.
 → Tiếp tục: [YES]
 
 ## Paper #135 — Jev-LiteMAS: Separating Decisions from Generation in Multi-Agent Workflows (2610.21411v1) [applied]
@@ -451,7 +451,12 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Insight: Tách quyết định khỏi sinh trong multi-agent workflows: dùng model nhẹ (Jev) cho điều phối, chỉ gọi LLM review khi artifact cần sửa — giảm 12.7–54.6% token, duy trì accuracy trong 1.34 điểm, ground routing vào output thực tế của chuyên gia ngăn mất 18 điểm.
 → Tiếp tục: [YES]
 
-## Paper #134 — TAGR: Temporally Adaptive Generative Recommendation for Industrial Live-Streaming Advertising (2608.24034v1) [applied]
-✓ Skill: tagr-temporally-adaptive-recommendation | Test: SKILL VALID
-✓ Insight: Điều chỉnh theo thời gian ở ba cấp độ (live-ad tokenization, user intent modeling, preference alignment) cải thiện gợi ý quảng cáo livestream — live-room entry +8.5%, shopping-cart click +7.4%, revenue lift +16.1%.
+## Paper #136 — AgentRouter: Heterogeneous Model Routing for Cost-Optimal Multi-Step Agentic Workflows (2609.22951v1) [applied]
+✓ Skill: agentrouter-step-level-model-routing | Test: SKILL VALID
+✓ Insight: Định tuyến từng bước (step-level model routing) thay vì dùng frontier model cho mọi bước: chỉ dùng frontier model cho bước cần reasoning sâu, dùng model nhỏ cho bước định dạng — giảm 72% chi phí, giữ 97.3% chất lượng, định tuyến chính xác 91% bước đơn giản, 85% bước hiệu quả, 76–82% bước trung bình/cao.
+→ Tiếp tục: [YES]
+
+## Paper #137 — StoreBench: A Live-Commerce Environment for Evaluating and Training Autonomous Operator Agents (2610.10942v1) [applied]
+✓ Skill: storebench-live-commerce-evaluation | Test: SKILL VALID
+✓ Insight: Agent chưa thay thế judgment kinh tế: model tốt nhất đạt 49% vs heuristic 97%; dùng agent làm trợ thủ, không thay thế quyết định định giá/tồn kho. Human experts đạt 0.708 vs model 0.700.
 → Tiếp tục: [YES]
