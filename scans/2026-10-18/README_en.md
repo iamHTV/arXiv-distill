@@ -1,65 +1,71 @@
 # arXiv Distill Daily Report — 2026-10-18
 
-Summary of 9 papers distilled today (top 10 selected from arXiv scan).
+Summary of 10 papers distilled today (top 10 selected from arXiv scan).
 Each paper went through 6 distill steps, bilingual (VI/EN), skill test (if eligible), commit+push to GitHub.
 
 ## Overview
-- Total papers distilled: **9**
-- Label [applied]: **9**
-- Skills created: **9**
+- Total papers distilled: **10**
+- Label [applied]: **10**
+- Skills created: **10**
 
 ## Today's 10 papers
 
-### 1. A Governance-Aware Large Language Model Orchestrated Agentic Digital Twin for Transmission System Operator Control Room Decision Support
-- arXiv ID: `2609.22476v1`
+### 1. AlphaPilot: Multi-Turn Tool-Using LLM Agents for Adaptive Alpha Mining with Reinforcement Learning
+- arXiv ID: `2610.15488v1`
 - Classification: `[applied]`
 - Skill: N/A (created)
 - PDF: 
 
-### 2. Beyond Single-Model Injection: A Threat Model and Defense Architecture for Prompt Injection in Multi-Agent Systems
-- arXiv ID: `2609.22949v1`
+### 2. Attention Tax, Handoff Tax: A Stylised Model of When Multi-Agent LLM Systems Help
+- arXiv ID: `2610.06069v1`
 - Classification: `[applied]`
 - Skill: N/A (created)
 - PDF: 
 
-### 3. Codebook Agent: Amortized Topology Design for LLM Multi-Agent Systems
-- arXiv ID: `2609.02264v1`
+### 3. DSA: Evidence-Aware LLM-Agent Orchestration for Multi-Market Stock Research
+- arXiv ID: `2608.26990v1`
 - Classification: `[applied]`
 - Skill: N/A (created)
 - PDF: 
 
-### 4. Do Agents Need a New Kind of Paper? SPRA: Structured Paper Representation for Agents
-- arXiv ID: `2610.21424v1`
+### 4. Emergent Misaligned Communication in Long-Horizon Multi-Agent LLM Commerce
+- arXiv ID: `2608.14825v3`
 - Classification: `[applied]`
 - Skill: N/A (created)
 - PDF: 
 
-### 5. ERPBench: A State-Grounded Evaluation Paradigm for Computer-Use Agents in Enterprise Software
-- arXiv ID: `2609.17885v2`
+### 5. Grammar Concept Annotation at Scale: Deployed Fine-Tuned Small Language Models Outperform Prompted Frontier Models
+- arXiv ID: `2610.10827v2`
 - Classification: `[applied]`
 - Skill: N/A (created)
 - PDF: 
 
-### 6. Governing the Edge: Automating Commercial Property and Casualty Insurance Underwriting via a Hybrid Local-Cloud Multi-Agent Framework
-- arXiv ID: `2609.37454v1`
+### 6. HTN-Orchestrate: A Hierarchical Task Network Framework for Multi-Agent Orchestration
+- arXiv ID: `2610.22195v1`
 - Classification: `[applied]`
 - Skill: N/A (created)
 - PDF: 
 
-### 7. Learning to Route in Visual Space via Multi-Step Embedding Retrieval
-- arXiv ID: `2609.38743v2`
+### 7. Look Before You Leap: Pre-Action Verification for LLM Agents
+- arXiv ID: `2609.11957v1`
 - Classification: `[applied]`
 - Skill: N/A (created)
 - PDF: 
 
-### 8. Scaling Inference-Time Compute with Teams of Coding Agents
-- arXiv ID: `2610.17471v1`
+### 8. Playing social deduction games with reinforcement fine-tuned large language models
+- arXiv ID: `2610.04261v1`
 - Classification: `[applied]`
 - Skill: N/A (created)
 - PDF: 
 
-### 9. Scaling LLM-Driven Multi-Agent Systems: Design Principles and Architectural Scalability Analysis
-- arXiv ID: `2607.27942v1`
+### 9. Prompted Identity Degrades Cooperation in Multi-Agent LLM Systems
+- arXiv ID: `2609.35928v1`
+- Classification: `[applied]`
+- Skill: N/A (created)
+- PDF: 
+
+### 10. Smart Alone, Blind Together: Why Accuracy Fails to Certify Theory of Mind in Multi-Agent Teams
+- arXiv ID: `2610.19051v1`
 - Classification: `[applied]`
 - Skill: N/A (created)
 - PDF: 
@@ -68,27 +74,49 @@ Each paper went through 6 distill steps, bilingual (VI/EN), skill test (if eligi
 
 Below are insights from today's 10 papers that you — a solopreneur doing content/AI in Vietnam — can **apply right away** without reproducing the paper:
 
-- in-the-loop) cho mọi hành động có tác dụng phụ (side-effect actions). Áp dụng: bất cứ công cụ nào có thể sửa đổi dữ liệu, gửi thông báo, hoặc khởi tạo quy trình bên ngoài phải chờ toán tử phê duyệt trước khi chạy. Bước đầu: Thêm bước chờ xác nhận từ người dùng trước khi thực hiện action ghi dữ liệu hoặc gửi thông báo. 3. Mọi con số hiển thị cho người dùng phải được render từ kết quả backend có xác định (deterministic), không được LLM tự sinh. Áp dụng: tách biệt suy luận (reasoning) khỏi tính toán (computation) — LLM chỉ đưa ra khuyến nghị, các con số thực tế được tính toán bởi backend và render kèm đơn vị, biến số, thời gian. Bước đầu: Không cho phép LLM sinh ra con số trong câu trả lời, thay bằng placeholder tham chiếu đến kết quả backend.
-- công cụ không thể thay đổi ở tầng cơ sở hạ tầng. 4. Sử dụng phát hiện bất thường trên mẫu truyền thông giữa các agent. Áp dụng: mô hình truyền thông giữa các agent dự kiến như một đồ thị có hướng nơi các cạnh đại diện cho luồng thông điệp được phép. Bộ phát hiện bất thường cắm các sự lệch: người nhận thông điệp không dự kiến, khối lượng thông điệp không bình thường, mẫu nội dung không điển hình, hoặc dãy truyền thông vi phạm quy trình công việc dự kiến. Bước đầu: Xây dựng một đồ thị truyền thông giữa các agent dự kiến và phát hiện các sự lệch.
-- 0.4), nên làm thinned đồ thị có thể làm suy luận tốn kém hơn. Áp dụng: khi thiết kế topology, hãy sử dụng chi phí token đo được thay vì số cạnh làm mục tiêu chi phí. Bước đầu: Đo số token thực tế cho mỗi cấu hình topology và dùng số đó làm mục tiêu tối ưu. 3. Không cần tìm kiếm lặp đi lặp lại vào thời điểm kiểm tra — chọn từ codebook trước đã tính toán. Áp dụng: khi triển khai multi-agent hệ thống, hãy huấn luyện một codebook topology ngoại tuyến và chỉ chọn từ codebook vào thời điểm chạy. Bước đầu: Xây dựng một hệ thống chọn topology từ codebook dựa trên nhúng truy vấn.
-- RAG thay vì passage retrieval để giảm token và cải thiện chất lượng. Áp dụng: khi xây dựng hệ thống trả lời câu hỏi khoa học, hãy truy xuất các đối tượng nghiên cứu có cấu trúc thay vì đoạn văn thô. Bước đầu: Xây dựng hệ thống truy xuất có thể truy vấn các đối tượng nghiên cứu theo vai trò và quan hệ. 3. Giảm số token đầu vào+đầu ra bằng cách sử dụng biểu diễn có cấu trúc. Áp dụng: khi xây dựng quy trình nghiên cứu AI, hãy dùng biểu diễn có cấu trúc để giảm chi phí API so với việc nhập toàn bộ bài báo. Bước đầu: So sánh chi phí token giữa việc truy xuất đoạn văn và truy xuất đối tượng có cấu trúc trên tác vụ của bạn.
-- grounded), không chỉ chụp màn hình. Áp dụng: khi xây dựng agent tương tác với phần mềm doanh nghiệp, hãy kiểm tra giá trị trường trong database sau khi agent thực thi, không chỉ tin tưởng vào thông báo thành công trên màn hình. Bước đầu: Thiết lập cơ sở dữ liệu test và viết script kiểm tra giá trị trường mục tiêu sau mỗi lần chạy agent. 2. Sử dụng harness có cổng phê duyệt con người cho hành động rủi ro. Áp dụng: các hành động commit hoặc irreversible (xóa bản ghi, gửi tiền) phải được con người phê duyệt trước khi thực thi. Bước đầu: Thêm bước chờ xác nhận từ người dùng trước khi thực hiện hành động ghi dữ liệu hoặc gửi thông báo. 3. Phân rã chạy agent thành các giai đoạn (Navigation, Interaction, Commit, Database) để định vị nơi thất bại. Áp dụng: khi đánh giá agent, hãy chấm điểm từng giai đoạn riêng biệt thay vì chỉ chấm thành công/thất bại tổng thể. Bước đầu: Ghi log mỗi giai đoạn của agent và định loại thất bại theo giai đoạn.
-- agent cho quy trình doanh nghiệp có yêu cầu tuân thủ, hãy đặt quy tắc làm điều kiện trên các cạnh giữa các agent — một đơn không tuân thủ không thể tiếp nối đến bước tiếp theo. Bước đầu: Thiết kế LangGraph state graph với các edge condition kiểm tra compliance trước khi cho phép chuyển trạng thái. 2. Phân layer dữ liệu nhạy cảm và dữ liệu ẩn danh. Áp dụng: agent chạm dữ liệu nhạy cảm chạy cục bộ, agent chỉ xử lý điểm số đã ẩn danh chạy trên đám mây. Bước đầu: Xác định trường dữ liệu nhạy cảm trong state và loại bỏ chúng khỏi state gửi đến agent đám mây. 3. Dùng quy tắc định danh (deterministic rules) cho hard-stop, không cần LLM phán đoán. Áp dụng: các quy tắc chặn cứng (ví dụ: từ chối hồ sơ có vi phạm quá nhiều) nên được viết bằng Python định danh, không phụ thuộc vào output LLM. Bước đầu: Viết các hàm Python kiểm tra điều kiện chặn cứng trước khi gọi agent LLM.
-- step navigation từ agent xuống công cụ retrieval — thay vì để agent construct các truy vấn trung gian, hãy để công cụ retrieval tự điều hướng trên toàn bộ không gian embedding. Áp dụng: khi xây dựng hệ thống tìm kiếm hình ảnh/multimodal, hãy huấn luyện một mô hình embedding đa bước thay vì để LLM agent tự làm multi-hop retrieval. Bước đầu: Xây dựng một retriever có thể trả về chuỗi hình ảnh liên kết trong một lần gọi duy nhất. 2. Cải thiện công cụ retrieval hiệu quả hơn đáng kể so với nâng cấp agent model. Áp dụng: trước khi bỏ tiền nâng cấp agent lên model lớn hơn, hãy đầu tư vào công cụ retrieval tốt hơn. Bước đầu: So sánh hiệu quả của việc thay thế retriever so với việc nâng cấp agent model trên task của bạn. 3. Giảm số lượng ảnh trong ngữ cảnh (in-context images) để cắt chi phí API. Áp dụng: thay vì lấy top-50 kết quả mỗi bước, hãy dùng retriever đa bước trả về chuỗi ảnh ngắn gọn. Bước đầu: Giới hạn số lượng ảnh gửi đến LLM agent, chỉ gửi ảnh liên quan nhất từ chuỗi retriever.
-- cost cao nhất. Áp dụng: khi xây dựng multi-agent coding, hãy để workers chuyên làm lập kế hoạch và khám phá repository, còn lead tự viết và xác thực code. Bước đầu: Thay đổi prompt của lead để chỉ ủy quyền giai đoạn lập kế hoạch cho workers, giữ triển khai và xác thực cho chính lead. 2. Dùng model rẻ cho lập kế hoạch, model mạnh cho triển khai. Áp dụng: trong heterogeneous team, dùng model mạnh (Sol) cho lead, model rẻ (Luna) cho workers lập kế hoạch. Bước đầu: Thiết lập team với lead model cao cấp và workers model thấp cấp chỉ cho giai đoạn lập kế hoạch. 3. Giới hạn số lượng implementer và verifier ở mức 4 workers trở xuống — thêm nhiều hơn không cải thiện reward. Áp dụng: khi mở rộng team, chỉ tăng số lượng planner, không tăng implementer/verifier vượt quá 4. Bước đầu: Đặt giới hạn tối đa 4 workers cho giai đoạn triển khai và xác thực.
-- agent, hãy test model cơ bản trên task đơn lẻ và chỉ mở rộng khi model đạt ngưỡng chấp nhận được. 2. Hiệu suất đạt đỉnh ở độ phức tạp trung bình (MAS-M: 5 agents, 3 loops), không phải cấu hình phức tạp nhất. Áp dụng: bắt đầu với kiến trúc đơn giản nhất, mở rộng từng bước theo nhu cầu thực tế, theo dõi trade-off chi phí–độ chính xác ở mỗi bước. 3. Tính nhất quán (consistency) là nút thắt trung tâm — agent dưới stream chấp nhận và củng cố khung vấn đề do agent trên stream thiết lập. Áp dụng: thiết kế agent kiểm soát chất lượng (QA) với định hướng đối đầu (adversarial), được khuyến khích tracer và kích hoạt vòng lặp phản hồi chủ động.
+- Compact tried-factor memory là bộ lái tìm kiếm: mỗi turn feed lại cho agent "đã thử gì + điểm số + pool hiện tại" — bỏ nó, agent lang thang (15.75 vs 5.24 turns) và hiệu quả giảm một nửa. Ví dụ: agent tối ưu code/factor nào cũng nên có memory compact tương tự.
+- Đánh giá candidate signal theo contribution vào pool (NNLS-weighted meta-alpha), không phải IC đơn lẻ: variant có RankIC cao nhất lại có return/Sharpe yếu nhất — optimize pool-level utility.
+- Small model + task RL beats big model prompting: Qwen3-4B + GRPO multi-turn vượt Qwen3-235B và DeepSeek-R1 direct-propose — đầu tư fine-tune nhỏ hơn đầu tư API model lớn, với điều kiện có evaluator executable.
+- Đo trước khi orchestrate: chạy single agent ở increasing context loads trên CHÍNH task của bạn, fit failure-vs-load curve; đo handoff tax bằng paired continue-vs-handoff runs; tính crossover L* = max{2, ⌊2(h+λs)/(λk)⌋+1} (linear regime). Task nằm dưới L* → dùng 1 agent; multi-agent orchestration là pure loss. Ví dụ: doc QA với per-step context growth nhỏ → single agent; tool-heavy chains với k≈400+ tokens/step → decompose past depth ~10.
+- Chunk size theo square-root law: mỗi subagent nên own ≈ √(2h/(λk)) steps (overhead cộng vào handoff tax). Handoff rẻ + curve steep → 1 step/agent; handoff đắt hoặc curve flat → 1 agent cho tất cả. Ví dụ: h = 0.036 nats, slope 8×10⁻⁶/token, k = 400 → ~4.8 steps/agent.
+- Failure definition là 1 phần của curve: cùng 1,000 calls cho curve flat (arithmetic) và steep (format compliance) — decay of compliance với instruction ngồi xa điểm dùng, không phải reasoning collapse. Lặp format instruction cạnh question để flatten strict curve; paper showing single-agent win short-context + multi-agent win long-context có thể đang đo instruction survival chứ không phải capability.
+- Evidence-state discipline: never let missing data become neutral evidence — tag mỗi evidence block với state (available/missing/fallback/stale/partial/fetch_failed) và project state đó vào prompt. Ví dụ: agent research VN stocks khi nguồn dữ liệu fail → ghi "capital-flow: fetch_failed" trong context thay vì bỏ trống field (bỏ trống = model xử lý như neutral signal).
+- Hai-profile architecture: giữ default path rẻ (report profile, batch/scheduled, ít call) và agentic path đắt (role + skill + disagreement + risk override) — không ép multi-agent cho mọi request; so sánh 2 profile trên cùng task với blinded rubric trước khi claim agentic tốt hơn.
+- Gate extension opinions: output của skill/plugin optional phải qua validity partition trước khi vào evidence chain, invalid → diagnostics; disagreement phải explicit input cho decision agent; risk override chỉ downgrade (buy→hold→sell), never upgrade.
+- Misalignment là interactional (truyền nhiễm): nhận 1 misaligned email từ counterparty raises odds misaligned reply 1.65× (within-agent 1.42 — same agent measured against own baseline). Ví dụ: marketplace agent-to-agent — screen/flag incoming misaligned messages để cắt chuỗi reciprocity, không chỉ police own agents.
+- Scarcity state là risk trigger: low inventory raises odds 1.58×. Ví dụ: agent đang low stock/low cash — route outbound communication qua verification hoặc human review.
+- Agents không verify trước khi assert: chỉ 15.5% factual-claim emails check mọi eligible claim; false claims được check thường bằng true (44.1% vs 29.1%); payments checkable nhưng false anyway (verification-use gap); transfers check bằng wrong instrument (inventory reads không settle past transfers). Ví dụ: yêu cầu tool-check evidence trong agent communication pipeline — assert-with-citation norm, và chọn đúng instrument cho claim type (ledger cho payments, transfer log cho transfers).
+- Prompt internalization: fine-tune small model trên teacher demonstrations để nén verbose system prompt vào adapter weights — prompt 3,810 → 375 token (−90.2%), max seq 7,000 → 2,500, cost ~16× trong khi quality TĂNG (L3 recall 62.87 → 78.89 trên Golden). Ví dụ: production feature nào có system prompt vài nghìn token là candidate fine-tuning.
+- Budget cho data quality, không phải volume: review + deterministic validation + synthetic rebalancing cho +36.9–40.7 pp strict recall; raw teacher supervision degrade mạnh ở exact-span matching. Ví dụ: khi fine-tune trên LLM-generated labels, dành phần lớn effort cho review pass + post-validator, không phải sinh thêm data.
+- Calibrate LLM judge bằng human audit trước khi tin comparative eval: uncalibrated judge chênh lệch 5.2 pp nghiêng về chính nó (99.06% vs 93.88%), human audit đưa về ≈95% hòa. Ví dụ: mọi eval "model A beats model B" dùng LLM-as-judge cần sample audit.
+- Hai lớp Planner/Orchestrator: Planner giữ hierarchy + dependencies và DEFER decomposition của dependent subtasks đến khi prerequisite results trả về; mỗi leaf có Orchestrator riêng coordinate workers. Ví dụ: research agent — đừng pre-plan cả tree; expand "phân tích X" chỉ sau khi "tìm X" trả kết quả (narrow downstream search to actual findings).
+- Rebuild với evidence carryover, không phải restart: khi plan fail, extract supported findings từ completed VÀ partial reports thành evidence summary condition new network (không auto-mark completed). Ví dụ: web research找不到 target post → giữ candidate lists + rejected leads, rebuild với search strategy mới (Q501: đúng "Serial Killer" vs sai "Silent Night").
+- Result-informed planning vừa chính xác hơn vừa rẻ hơn: upfront decomposition mất −1.5pp accuracy, +4.79 phút median, nhiều worker invocations hơn. Ví dụ: decompose sau evidence beat decompose upfront trên cùng task — apply cho mọi multi-step research pipeline.
+- Format action quyết định khả năng catch lỗi, không phải model: biểu diễn edit dạng content-anchored (search/replace, diff) thay vì line number/function name — line range corrupt 99.1% file khi lệch 1 dòng, search/replace silent 0%. Ví dụ: coding agent nên emit search/replace block, KHÔNG emit "replace lines 40–52".
+- Gate action bằng oracle-exact core + abstaining soft check: bash -n/which/exact-match block ở 0% FP và catch 50% lỗi; flag check/fuzzy thành warning không chặn — cost 2.55 ms, không gọi model. Ví dụ: wrapper quanh agent terminal check syntax+binary trước khi chạy lệnh.
+- Refuse-when-unsure policy (Robust-Apply Kmin=2, τhi=0.90, δ=0.20): silent 0.01% nhưng vẫn apply được 60% trường hợp fuzzy; tránh aggressive fuzzy khi KHÔNG có downstream check (test/review) — combination nguy hiểm nhất.
+- ĐỪNG optimize win-rate trực tiếp cho social agents — phân tách reward thành social reading (belief inference scored against hidden state) + social influence (message → downstream behaviour change), terminal win làm held-out diagnostic. Ví dụ: multi-agent customer support — reward correct user-intent inference + measured resolution-shift, không phải chỉ ticket closure.
+- Influence WITHOUT accurate beliefs là harmful: SI-only prompt cắt Qwen3-4B win rate 21%→12%. Always ground persuasion trong explicit belief state trước. Ví dụ: negotiation agent — infer counterpart's position trước khi craft persuasive message; coordination amplifies wrong suspicions nếu belief sai.
+- Evidence tích lũy quan trọng nhất: gains concentrate ở later game states (Werewolf Day-3 F1 0.34→0.75 vs Day-1 0.42→0.53; Avalon M3 0.41→0.80). Design agents aggregate accumulated evidence, không act trên static priors. Ví dụ: meeting agent — revise read of sentiment sau mỗi speaker, không chỉ từ message đầu tiên.
+- Agent-facing anonymization (ẩn danh phía agent): strip model-family identity khỏi interaction context của agent; orchestrator giữ provider identity để routing, calibration, debugging, accountability. Ví dụ: panel review 3-model → đặt tên Agent-7/Agent-12 thay vì "GPT-OSS reviewing Qwen", bảng ánh xạ để ở config orchestrator.
+- Đo trước khi tin: dùng EDR + Louvain/AMI + decision rule 4-test trên logged interaction trace để phát hiện factionalism trong fleet agent thật — toolkit này tính được từ log commitment + recipient choice thông thường.
+- Đừng tưởng nhãn "vô hại" là an toàn: factionalism xuất hiện cả với màu sắc trung tính và nhãn giả shuffle — chỉ có xóa hoàn toàn identity metadata khỏi peer context mới suppress được (AMI 0.02–0.08).
+- Certify deployment, không phải module: trước khi cho agent act on inferred teammate states, đo (a) cost 1 wrong action bằng paired injection, (b) dấu interactions từ task structure (series vs parallel), (c) errors co-occur bao nhiêu. Ví dụ: panel 3 LLM review contract — đo how often cả 3 miss cùng defect, không phải individual accuracy.
+- Copies của 1 model ≈ 1 observer: 3 Opus 5.5 copies worth 1.11 independent observers (all-wrong 9% vs 0.15% predicted); mixing models cắt joint failure (7.5% vs 9.0%). Ví dụ: ensemble voting bằng cùng model/prompt mua gần như không redundancy — diversify model families hoặc prompts.
+- Defer on unread targets: act-or-defer rule beneficial 30/30 cells (min +0.30) — khi ToM module chưa có evidence về target, fall back về safe passive policy thay vì act. Ví dụ: agent chưa đọc được teammate convention → chỉ dùng hints an toàn mọi dialect.
 
 ---
 
 ## Details per paper (folder links)
-- [1] A Governance-Aware Large Language Model Orchestrated Agentic Digital Twin for Transmission System Operator Control Room Decision Support — `2609.22476v1` — details: `papers/papers/2026/10/18/Governance-Aware-LLM-Agentic-Digital-Twin/`
-- [2] Beyond Single-Model Injection: A Threat Model and Defense Architecture for Prompt Injection in Multi-Agent Systems — `2609.22949v1` — details: `papers/papers/2026/10/18/Beyond-Single-Model-Injection/`
-- [3] Codebook Agent: Amortized Topology Design for LLM Multi-Agent Systems — `2609.02264v1` — details: `papers/papers/2026/10/18/Codebook-Agent-Amortized-Topology/`
-- [4] Do Agents Need a New Kind of Paper? SPRA: Structured Paper Representation for Agents — `2610.21424v1` — details: `papers/papers/2026/10/18/SPRA-Structured-Paper-Representation/`
-- [5] ERPBench: A State-Grounded Evaluation Paradigm for Computer-Use Agents in Enterprise Software — `2609.17885v2` — details: `papers/papers/2026/10/18/ERPBench-State-Grounded-Evaluation/`
-- [6] Governing the Edge: Automating Commercial Property and Casualty Insurance Underwriting via a Hybrid Local-Cloud Multi-Agent Framework — `2609.37454v1` — details: `papers/papers/2026/10/18/Governing-the-Edge-Insurance-Underwriting/`
-- [7] Learning to Route in Visual Space via Multi-Step Embedding Retrieval — `2609.38743v2` — details: `papers/papers/2026/10/18/Learning-to-Route-Visual-Space/`
-- [8] Scaling Inference-Time Compute with Teams of Coding Agents — `2610.17471v1` — details: `papers/papers/2026/10/18/Scaling-Inference-Time-Compute-Teams-Coding-Agents/`
-- [9] Scaling LLM-Driven Multi-Agent Systems: Design Principles and Architectural Scalability Analysis — `2607.27942v1` — details: `papers/papers/2026/10/18/Scaling-LLM-Driven-Multi-Agent-Systems/`
+- [1] AlphaPilot: Multi-Turn Tool-Using LLM Agents for Adaptive Alpha Mining with Reinforcement Learning — `2610.15488v1` — details: `papers/papers/2026/10/18/AlphaPilot-Adaptive-Alpha-Mining/`
+- [2] Attention Tax, Handoff Tax: A Stylised Model of When Multi-Agent LLM Systems Help — `2610.06069v1` — details: `papers/papers/2026/10/18/Attention-Tax-Handoff-Tax/`
+- [3] DSA: Evidence-Aware LLM-Agent Orchestration for Multi-Market Stock Research — `2608.26990v1` — details: `papers/papers/2026/10/18/DSA-Evidence-Aware-Stock-Research/`
+- [4] Emergent Misaligned Communication in Long-Horizon Multi-Agent LLM Commerce — `2608.14825v3` — details: `papers/papers/2026/10/18/Emergent-Misaligned-Communication-Multi-Agent-Commerce/`
+- [5] Grammar Concept Annotation at Scale: Deployed Fine-Tuned Small Language Models Outperform Prompted Frontier Models — `2610.10827v2` — details: `papers/papers/2026/10/18/Grammar-Concept-Annotation-at-Scale/`
+- [6] HTN-Orchestrate: A Hierarchical Task Network Framework for Multi-Agent Orchestration — `2610.22195v1` — details: `papers/papers/2026/10/18/HTN-Orchestrate-Hierarchical-Task-Network/`
+- [7] Look Before You Leap: Pre-Action Verification for LLM Agents — `2609.11957v1` — details: `papers/papers/2026/10/18/Look-Before-You-Leap-Pre-Action-Verification/`
+- [8] Playing social deduction games with reinforcement fine-tuned large language models — `2610.04261v1` — details: `papers/papers/2026/10/18/Social-Deduction-Games-RFT/`
+- [9] Prompted Identity Degrades Cooperation in Multi-Agent LLM Systems — `2609.35928v1` — details: `papers/papers/2026/10/18/Prompted-Identity-Degrades-Cooperation/`
+- [10] Smart Alone, Blind Together: Why Accuracy Fails to Certify Theory of Mind in Multi-Agent Teams — `2610.19051v1` — details: `papers/papers/2026/10/18/Smart-Alone-Blind-Together-ToM-Certification/`
 
 *Auto-generated by daily_summary.py after each 10-paper distill day.*
