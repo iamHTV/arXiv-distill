@@ -500,3 +500,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: scaling-llm-driven-multi-agent-systems | Test: SKILL VALID
 ✓ Insight: Kiến trúc phức tạp hơn không phải luôn tốt — khi LLM cơ bản không đủ năng lực, thêm agent chỉ tốn token và gây lỗi lan truyền; hiệu suất đạt đỉnh ở độ phức tạp trung bình (MAS-M: 5 agents, 3 loops), consistency dưới 50% ở mọi cấp độ.
 → Tiếp tục: [YES]
+
+## Paper #145 — Scaling Inference-Time Compute with Teams of Coding Agents (2610.17471v1) [applied]
+✓ Skill: compute-allocation-multi-agent-coding-team | Test: SKILL VALID
+✓ Insight: Phân bổ compute inference ưu tiên vào giai đoạn lập kế hoạch (ηP=3.8 vs ≤2.4 giai đoạn khác), dùng model mạnh cho lead + model rẻ cho planner, giới hạn implementer/verifier tối đa 4 workers — heterogeneous 17-agent team đạt trong 1.4 điểm reward của team 5-agent mạnh mẽ với chi phí thấp hơn 70%.
+→ Tiếp tục: [YES]

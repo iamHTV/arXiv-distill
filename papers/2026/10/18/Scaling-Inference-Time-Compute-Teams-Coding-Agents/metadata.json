@@ -1,0 +1,16 @@
+{
+  "name": "Scaling Inference-Time Compute with Teams of Coding Agents",
+  "authors": ["Keenan Samway", "Marzieh Fadaee", "Daniel D'souza", "Tan Yi-Chern", "Omar Darwiche Domingues", "Nouha Dziri"],
+  "affiliation": "Cohere Labs",
+  "link": "https://arxiv.org/abs/2610.17471v1",
+  "pdf_link": "https://arxiv.org/pdf/2610.17471v1",
+  "arxiv_id": "2610.17471v1",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 145
+}
