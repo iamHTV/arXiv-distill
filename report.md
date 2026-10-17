@@ -420,3 +420,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: codehealth-token-cost-prediction | Test: SKILL VALID
 ✓ Insight: Chất lượng code (CodeHealth) dự đoán chi phí token agent review và fix — mỗi điểm CodeHealth cao hơn giảm 3.5% đến 6.1% chi phí token, không do kích thước PR.
 → Tiếp tục: [YES]
+
+## Paper #130 — Retrieved but not ranked: surface-form bias in structural retrieval (2609.01556v1) [applied]
+✓ Skill: structural-retrieval-evaluation | Test: SKILL VALID
+✓ Insight: Việc nhúng truy xuất neo chặt vào nội dung bề mặt chứ không phải cấu trúc — Toán học Hit@1 = 0.0% ở cấp disguise nặng; lexical reranker lật dấu (hại toán học, giúp quỹ đạo); LLM reranker phục hồi 5-63% (toán học) và 43-76% (quỹ đạo).
+→ Tiếp tục: [YES]
