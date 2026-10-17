@@ -481,6 +481,11 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Insight: Hệ thống đa agent tự phát triển (self-evolving multi-agent) để dịch phụ đề dài — SMART đạt MQM cao nhất trong 15 hướng của Subtitle Arena, giảm penalty 6.9% so với hệ thống agent mạnh nhất; MuSC đạt kết quả tốt nhất trên 4 cặp ngôn ngữ; human rating 4.50/5.
 → Tiếp tục: [YES]
 
+## Paper #142 — Scalable Multi-Task Inverse Reinforcement Learning (2610.00758v1) [applied]
+✓ Skill: scalable-multi-task-irl | Test: SKILL VALID
+✓ Insight: Multi-task inverse reinforcement learning gộp dữ liệu từ nhiều agent trong cùng môi trường dưới giả định thấp-rank — mạnh mẽ với limited coverage, khôi phục phần thưởng trên/ngoài support, transfer đến môi trường đích với regret thấp hơn baseline, lợi thế tính toán mở rộng khi số tác vụ tăng.
+→ Tiếp tục: [YES]
+
 ## Paper #140 — Grow the Harness, Not the Context: From Strategy-Free Scaffolds to Reusable Specialist Agents (2609.26760v2) [applied]
 ✓ Skill: grow-the-harness-reusable-specialist-agents | Test: SKILL VALID
 ✓ Insight: Thay vì để LLM tái thiết quyết định điều khiển mỗi tác vụ, hãy biến feedback thành code điều khiển tái sử dụng → giảm 76–92% LLM calls, 74–99% chi phí, thành công 44.7–45.3% ngay cả với model 4B.
