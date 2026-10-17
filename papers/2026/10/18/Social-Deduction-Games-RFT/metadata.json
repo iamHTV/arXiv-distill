@@ -1,0 +1,16 @@
+{
+  "name": "Playing social deduction games with reinforcement fine-tuned large language models",
+  "authors": ["Lingzhe Zhang", "Yunpeng Zhai", "Tong Jia", "Kening Zheng", "Chiming Duan", "Minghua He", "Zhaoyang Liu", "Bolin Ding", "Philip S. Yu", "Ying Li"],
+  "affiliation": "Peking University; Alibaba Group; University of Illinois Chicago",
+  "link": "https://arxiv.org/abs/2610.04261",
+  "pdf_link": "https://arxiv.org/pdf/2610.04261v1",
+  "arxiv_id": "2610.04261v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 162
+}
