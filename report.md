@@ -370,3 +370,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: energy-efficient-llm-code-prompting | Test: SKILL VALID
 ✓ Insight: Chiến lược nhắc nhở ảnh hưởng đáng kể đến năng lượng thực thi code do LLM tạo ra — giảm tới 25% Python và 17% C++; hiệu quả thay đổi theo mô hình và ngôn ngữ, không áp dụng một prompt duy nhất cho mọi trường hợp.
 → Tiếp tục: [YES]
+
+## Paper #120 — Pre-retrieval Query Clustering for Adaptive Top-k Document Retrieval in RAG Systems (2609.13489v2) [applied]
+✓ Skill: qcar-adaptive-top-k-retrieval | Test: SKILL VALID
+✓ Insight: Ước tính độ khó truy vấn trước khi lấy để chọn top-k thích ứng thay vì số liệu cố định — đơn giản giảm 35,95% token, F1 +0,37; phức tạp F1 +0,37 với +85,95% token; A/B test F1 +36%, token −14% trên cụm đơn giản.
+→ Tiếp tục: [YES]
