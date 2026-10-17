@@ -65,7 +65,7 @@ d[today] = count
 json.dump(d, open(state_file, "w"), indent=2)
 PY
 
-bash run_pipeline.sh --no-tele 2>&1 | tee -a "$WATCH_LOG"
+bash scripts/run_pipeline.sh --no-tele 2>&1 | tee -a "$WATCH_LOG"
 RC=${PIPESTATUS[0]}
 
 if [[ $RC -eq 0 ]]; then

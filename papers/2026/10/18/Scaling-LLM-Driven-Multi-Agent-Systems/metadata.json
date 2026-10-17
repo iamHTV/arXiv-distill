@@ -1,0 +1,16 @@
+{
+  "name": "Scaling LLM-Driven Multi-Agent Systems: Design Principles and Architectural Scalability Analysis",
+  "authors": ["Linus Sander", "Fengjunjie Pan", "Vahid Zolfaghari", "Andre Schamschurko", "Nenad Petrovic", "Alois Knoll"],
+  "affiliation": "Technical University of Munich",
+  "link": "https://arxiv.org/abs/2607.27942v1",
+  "pdf_link": "https://arxiv.org/pdf/2607.27942v1",
+  "arxiv_id": "2607.27942v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 144
+}

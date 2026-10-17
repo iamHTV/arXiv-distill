@@ -495,3 +495,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: grow-the-harness-reusable-specialist-agents | Test: SKILL VALID
 ✓ Insight: Thay vì để LLM tái thiết quyết định điều khiển mỗi tác vụ, hãy biến feedback thành code điều khiển tái sử dụng → giảm 76–92% LLM calls, 74–99% chi phí, thành công 44.7–45.3% ngay cả với model 4B.
 → Tiếp tục: [YES]
+
+## Paper #144 — Scaling LLM-Driven Multi-Agent Systems: Design Principles and Architectural Scalability Analysis (2607.27942v1) [applied]
+✓ Skill: scaling-llm-driven-multi-agent-systems | Test: SKILL VALID
+✓ Insight: Kiến trúc phức tạp hơn không phải luôn tốt — khi LLM cơ bản không đủ năng lực, thêm agent chỉ tốn token và gây lỗi lan truyền; hiệu suất đạt đỉnh ở độ phức tạp trung bình (MAS-M: 5 agents, 3 loops), consistency dưới 50% ở mọi cấp độ.
+→ Tiếp tục: [YES]
