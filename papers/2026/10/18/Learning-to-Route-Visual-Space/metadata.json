@@ -1,0 +1,16 @@
+{
+  "name": "Learning to Route in Visual Space via Multi-Step Embedding Retrieval",
+  "authors": ["Tianyu Chen", "Mingyuan Zhou", "Jiaxing Wu"],
+  "affiliation": "The University of Texas at Austin; Google DeepMind",
+  "link": "https://arxiv.org/abs/2609.38743v2",
+  "pdf_link": "https://arxiv.org/pdf/2609.38743v2",
+  "arxiv_id": "2609.38743v2",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-18",
+  "paper_number": 148
+}

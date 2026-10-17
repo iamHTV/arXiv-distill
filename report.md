@@ -515,3 +515,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: multi-agent-compliance-first-workflow | Test: SKILL VALID
 ✓ Insight: Tuân thủ được rãs vào cấu trúc đồ thị LangGraph (quy tắc làm điều kiện trên cạnh giữa agent), Gemma 2 cục bộ cho dữ liệu nhạy cảm + Claude Sonnet đám mây cho điểm số ẩn danh — compliance accuracy 70% trên 20 kịch bản, hard-stop 6/6, xử lý 40 phút thủ công trong vài phút.
 → Tiếp tục: [YES]
+
+## Paper #148 — Learning to Route in Visual Space via Multi-Step Embedding Retrieval (2609.38743v2) [applied]
+✓ Skill: multi-step-embedding-retriever-visual-search | Test: SKILL VALID
+✓ Insight: Offload multi-step navigation từ agent xuống công cụ retrieval — VHop-Router biến mô hình embedding thành retriever đa bước, tăng retrieval từ dưới 5% lên 76.3%, cải thiện task success 52.7%, giảm token 61% (1886→728), nâng cấp agent chỉ +3.7%.
+→ Tiếp tục: [YES]
