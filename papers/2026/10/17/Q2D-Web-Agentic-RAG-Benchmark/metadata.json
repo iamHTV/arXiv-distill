@@ -1,0 +1,16 @@
+{
+  "name": "Q2D-Web: A Large-Scale Benchmark for Retrieval in Agentic RAG Systems",
+  "authors": ["Maximilian Schall", "Sedigheh Eslami", "Markus Krimmel", "Antoine Chaffin", "Louis Milliken", "Bo Wang", "Denis Bykov"],
+  "affiliation": "Perplexity AI",
+  "link": "https://arxiv.org/abs/2609.08887v2",
+  "pdf_link": "https://arxiv.org/pdf/2609.08887v2",
+  "arxiv_id": "2609.08887v2",
+  "year": 2026,
+  "category": "cs.IR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-17",
+  "paper_number": 127
+}

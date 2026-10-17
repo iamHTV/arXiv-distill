@@ -405,3 +405,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: questions-gambit-first-move-retrieval | Test: SKILL VALID
 ✓ Insight: Bước truy xuất đầu tiên (first move) quyết định chất lượng ngữ cảnh mở — GPT-5.5 accuracy 83.1%→90.5% (+7.4 pp), calibration error 15.7→7.58, gold recall 56.1→75.9.
 → Tiếp tục: [YES]
+
+## Paper #127 — Q2D-Web: A Large-Scale Benchmark for Retrieval in Agentic RAG Systems (2609.08887v2) [applied]
+✓ Skill: q2d-web-retriever-evaluation | Test: SKILL VALID
+✓ Insight: Q2D-Web: 190M tài liệu, 70k truy vấn agentic, 10 ngôn ngữ; pplx-embed-v1-4b thắng Recall@1000 cả 3 tập phán xét; RRF lấy mẫu 1/3 corpus bảo toàn thứ hạng mô hình, Recall@1000 chỉ +4–7 điểm.
+→ Tiếp tục: [YES]
