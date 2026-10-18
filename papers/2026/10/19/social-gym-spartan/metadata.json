@@ -1,0 +1,17 @@
+{
+  "name": "Social Gym and SPARTAN: Benchmarking and Improving LLM Social Reasoning via Multi-Agent Game Tournaments",
+  "authors": ["Keyu He", "Xuhui Zhou", "Maarten Sap"],
+  "affiliation": "Carnegie Mellon University",
+  "link": "https://arxiv.org/abs/2608.09128v1",
+  "pdf_link": "https://arxiv.org/pdf/2608.09128v1",
+  "arxiv_id": "2608.09128v1",
+  "year": 2026,
+  "category": "cs.CL; cs.AI; cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "SPARTAN Playbook Loop (Self-Play and Reflect-Transfer)",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 166
+}
