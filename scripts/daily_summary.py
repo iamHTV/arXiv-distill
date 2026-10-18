@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """
-daily_summary.py — Báo cáo hàng ngày DỄ HIỂU cho solopreneur Việt Nam.
+daily_summary.py — Báo cáo hàng ngày DỄ HIỂU, CÓ CHIẾU SÂU cho solopreneur Việt Nam.
 
-Gọi LLM (OpenRouter) 1 lượt để viết lại 10 paper thành tiếng Việt đơn giản.
-Mỗi paper: Làm gì / Học được gì / Áp dụng cho bạn (CỤ THỂ cho paper đó).
+Gọi LLM (OpenRouter) theo từng paper (10 lượt ngắn) để viết lại 10 paper.
+Mỗi paper:
+  - Làm gì: 1-2 câu tiếng Việt đơn giản
+  - Học được gì: 1-2 câu, nêu kết quả CỤ THỂ của paper (con số, tỷ lệ, so sánh)
+  - Áp dụng cho bạn: CÓ CHIẾU SÂU — giải thích THEO KIẾN THỨC paper + ví dụ thực tế,
+    KHÔNG chung chung
 Cuối: section "CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN" (3-5 insight hàng đầu).
 """
 
@@ -13,6 +17,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -121,7 +126,7 @@ def extract_actionable_insights(readme_text):
     return out
 
 
-def call_openrouter(prompt, key, max_tokens=6000):
+def call_openrouter(prompt, key, max_tokens=1500):
     body = json.dumps({
         "model": "inclusionai/ling-3.1-flash",
         "messages": [{"role": "user", "content": prompt}],
@@ -137,59 +142,108 @@ def call_openrouter(prompt, key, max_tokens=6000):
         },
     )
     try:
-        with urllib.request.urlopen(req, timeout=120) as r:
+        with urllib.request.urlopen(req, timeout=90) as r:
             d = json.load(r)
-        return d["choices"][0]["message"].get("content", "") or ""
+        msg = d["choices"][0]["message"]
+        content = msg.get("content", "") or ""
+        reasoning = msg.get("reasoning", "") or ""
+        # Ghép reasoning + content để lấy toàn bộ nội dung
+        parts = []
+        if reasoning.strip():
+            parts.append(reasoning.strip())
+        if content.strip() and content.strip() not in reasoning:
+            parts.append(content.strip())
+        return "\n".join(parts)
     except Exception as ex:
         print("  Lỗi gọi LLM: %s" % ex)
         return ""
 
 
 def fallback_block(i, name, arxiv_id, problem, insight):
-    """Tạo block đơn giản nếu LLM lỗi."""
     return (
-        "### [%d] %s (%s)\n"
+        "### [%d] %s (arXiv %s)\n"
         "- Làm gì: %s\n"
         "- Học được gì: %s\n"
-        "- Áp dụng cho bạn: %s\n"
+        "- Áp dụng cho bạn: Áp dụng kết quả paper vào workflow nội dung/bán hàng của bạn — bắt đầu từ nhỏ, đo kết quả, rồi mở rộng.\n"
     ) % (
         i,
         clean_text(name),
         arxiv_id,
         problem or "Không có thông tin.",
         insight or "Không có thông tin.",
-        "Ví dụ: Áp dụng vào nội dung/bán hàng của bạn — bắt đầu từ nhỏ, đo kết quả, rồi mới mở rộng.",
     )
 
 
-def rewrite_all_papers(papers_data, key):
-    """Gọi LLM 1 lần viết lại 10 paper, mỗi paper có Áp dụng cho bạn CỤ THỂ."""
-    items = []
-    for i, p in enumerate(papers_data, 1):
-        items.append(
-            "%d. Tên: %s (arXiv %s)\n"
-            "   Làm gì (tóm tắt): %s\n"
-            "   Học được gì (tóm tắt): %s\n"
-            % (i, p["name"], p["arxiv_id"], p["problem"], p["insight"])
-        )
+def rewrite_one_paper(name, arxiv_id, problem, insight, key):
+    """Gọi LLM viết lại 1 paper, có phần Áp dụng cho bạn CÓ CHIẾU SÂU."""
+    prompt_lines = [
+        "Bạn giải thích paper AI cho solopreneur Việt Nam (làm content, bán hàng online, chăm sóc khách hàng).",
+        "KHÔNG dùng thuật ngữ tiếng Anh thuần mà không giải thích.",
+        "",
+        "Tên paper: %s (arXiv %s)" % (name, arxiv_id),
+        "Làm gì: %s" % problem,
+        "Học được gì: %s" % insight,
+        "",
+        "Viết lại bằng tiếng Việt đơn giản, theo format BẮT BUỘC sau, KHÔNG viết thêm lời giải thích hay mở đầu:",
+        "### [N] %s (arXiv %s)" % (name, arxiv_id),
+        "- Làm gì: (1-2 câu tiếng Việt đơn giản)",
+        "- Học được gì: (1-2 câu, nêu kết quả CỤ THỂ của paper: con số, tỷ lệ, so sánh)",
+        "- Áp dụng cho bạn: (CÓ CHIẾU SÂU — giải thích THEO KIẾN THỨC của paper này, rồi ví dụ CỤ THỂ làm được ngay hôm nay cho solopreneur VN. KHÔNG được viết chung chung.)",
+        "Ví dụ tốt: 'Paper khẳng định việc gắn nhãn trạng thái dữ liệu (có/thiếu/cũ) giúp báo cáo đúng. Áp dụng: Khi nhờ AI so sánh giá Shopee, bắt nó ghi \"có/thiếu/cũ\" cạnh mỗi giá, không để AI đoán.'",
+    ]
+    prompt = "\n".join(prompt_lines)
 
-    prompt = (
-        "Bạn giải thích paper AI cho solopreneur Việt Nam (làm content, bán hàng online, "
-        "chăm sóc khách hàng, quản lý thời gian). KHÔNG dùng thuật ngữ tiếng Anh thuần mà không giải thích.\n\n"
-        "Viết lại MỖI paper thành tiếng Việt đơn giản, gần gũi, theo format BẮT BUỘC:\n"
-        "### [N] Tên paper (arXiv ID)\n"
-        "- Làm gì: (1-2 câu tiếng Việt đơn giản)\n"
-        "- Học được gì: (1-2 câu tiếng Việt đơn giản)\n"
-        "- Áp dụng cho bạn: (1 ví dụ CỤ THỂ, liên quan trực tiếp đến nội dung paper này, làm được ngay hôm nay cho solopreneur VN)\n\n"
-        "Lưu ý: Mỗi paper phải có phần 'Áp dụng cho bạn' KHÁC NHAU, không được viết ví dụ chung chung.\n"
-        "Ví dụ paper về tiền recount: 'Áp dụng cho bạn: Khi chạy quảng cáo Facebook, lưu bảng \"đã chạy chủ đề nào — lượt tương tác bao nhiêu\", để không quảng cáo lại chủ đề cũ đã fail.'\n\n"
-        "Cuối báo cáo, thêm section:\n"
-        "## CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN\n"
-        "3-5 insight hàng đầu từ 10 bài, mỗi insight 1 câu ngắn + 1 ví dụ áp dụng cụ thể cho solopreneur VN.\n\n"
-        "Dữ liệu 10 paper:\n\n" + "\n".join(items)
-    )
+    return call_openrouter(prompt, key, max_tokens=1500)
 
-    return call_openrouter(prompt, key, max_tokens=6000)
+
+def parse_llm_output(raw_text, i, name, arxiv_id, problem, insight):
+    """Làm sạch output từ LLM: bỏ meta-commentary, giữ nội dung có ý nghĩa."""
+    if not raw_text or not raw_text.strip():
+        return fallback_block(i, name, arxiv_id, problem, insight)
+
+    lines = raw_text.split("\n")
+    clean_lines = []
+
+    for line in lines:
+        stripped = line.strip()
+        # Bỏ qua dòng meta-commentary rõ ràng
+        if any(stripped.startswith(prefix) for prefix in [
+            "The user wants", "The user ", "Key content:", "Important constraints:",
+            "The paper:", "Note: ", "Avoid unexplained", "Format:", "N number",
+            "Length:", "Also:", "Also mention:", "Also caveat:", "Actually, let",
+            "So the paper's", "Now format:", "The [N] presumably",
+            "Numbers:", "Apply:", "For a solopreneur:", "Concrete example:",
+            "Also the", "I need to", "Let me ", "Key points from",
+            "Key concepts:", "The format:", "I should", "Drafting",
+            "Literature on", "Learned:", "Key info given:", "Key content:",
+            "I need", "Key content", "Avoid", "Format :",
+        ]):
+            continue
+        # Bỏ qua dòng trống liên tiếp
+        if stripped == "":
+            if clean_lines and clean_lines[-1] == "":
+                continue
+            clean_lines.append("")
+            continue
+        clean_lines.append(stripped)
+
+    # Loại bỏ dòng trống đầu và cuối
+    while clean_lines and clean_lines[0] == "":
+        clean_lines.pop(0)
+    while clean_lines and clean_lines[-1] == "":
+        clean_lines.pop()
+
+    result = "\n".join(clean_lines)
+
+    # Nếu quá ngắn, dùng fallback
+    if len(result) < 150:
+        return fallback_block(i, name, arxiv_id, problem, insight)
+
+    # Thay [N] hoặc [1-9] bằng số thật
+    import re as _re
+    result = _re.sub(r"### \[[0-9N]\]", "### [%d]" % i, result)
+
+    return result + "\n"
 
 
 def build_application_section(papers_data):
@@ -210,13 +264,13 @@ def build_application_section(papers_data):
         if not short or key_ in seen:
             continue
         seen.add(key_)
-        lines.append("- **%s** %s" % (short, "Ví dụ: Áp dụng vào nội dung/bán hàng của bạn — bắt đầu từ nhỏ, đo kết quả, rồi mới mở rộng."))
+        lines.append("- **%s** %s\n\n" % (short, "Áp dụng theo kết quả paper vào workflow nội dung/bán hàng của bạn."))
         count += 1
         if count >= 5:
             break
 
     if count == 0:
-        lines.append("- (Không trích xuất được insight hành động từ README hôm nay.)")
+        lines.append("- (Không trích xuất được insight hành động từ README hôm nay.)\n")
 
     return lines
 
@@ -272,7 +326,34 @@ def main():
         print("  LỖI: Không tìm thấy OPENROUTER_API_KEY trong %s" % ENV_FILE)
         sys.exit(1)
 
-    # Thu thập dữ liệu thô
+    # Viết lại từng paper bằng LLM
+    paper_blocks = []
+    for i, folder in enumerate(selected_folders, 1):
+        meta = read_meta(folder)
+        readme = read_readme(folder)
+        arxiv_id = meta.get("arxiv_id", "")
+        insight = extract_insight_from_report(date_str, arxiv_id) if arxiv_id else ""
+        problem = extract_problem_simple(readme)
+
+        print("  Đang viết lại paper %d/10: %s..." % (i, arxiv_id))
+        raw = rewrite_one_paper(
+            clean_text(meta.get("name", "(không có tên)")),
+            arxiv_id,
+            problem,
+            insight,
+            key,
+        )
+        block = parse_llm_output(raw, i, meta.get("name", "(không có tên)"), arxiv_id, problem, insight)
+        if block and block.strip():
+            paper_blocks.append(block)
+        else:
+            paper_blocks.append(fallback_block(i, meta.get("name", "(không có tên)"), arxiv_id, problem, insight))
+
+        # Nghỉ giữa các lần gọi LLM để tránh rate limit
+        if i < len(selected_folders):
+            time.sleep(2)
+
+    # Section áp dụng
     papers_data = []
     for folder in selected_folders:
         meta = read_meta(folder)
@@ -281,28 +362,15 @@ def main():
         insight = extract_insight_from_report(date_str, arxiv_id) if arxiv_id else ""
         problem = extract_problem_simple(readme)
         papers_data.append({
-            "name": clean_text(meta.get("name", "(không có tên)")),
+            "name": clean_text(meta.get("name", "")),
             "arxiv_id": arxiv_id,
             "problem": problem,
             "insight": insight,
         })
 
-    # Gọi LLM 1 lần viết lại tất cả
-    print("  Đang gọi LLM viết lại báo cáo (1 lượt, tất cả 10 paper)...")
-    vn_report = rewrite_all_papers(papers_data, key)
+    app_lines = build_application_section(papers_data)
 
-    if not vn_report or not vn_report.strip():
-        print("  LLM trả về rỗng, dùng fallback cho từng paper.")
-        blocks = []
-        for i, p in enumerate(papers_data, 1):
-            blocks.append(fallback_block(i, p["name"], p["arxiv_id"], p["problem"], p["insight"]))
-        vn_report = "\n".join(blocks)
-
-    # Nếu LLM không có section "CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN", thêm section mặc định
-    if "CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN" not in vn_report:
-        vn_report += "\n" + "\n".join(build_application_section(papers_data))
-
-    # Ghép header + body + footer
+    # Ghép toàn bộ báo cáo
     header = (
         "# Báo cáo distill arXiv — ngày %s\n\n"
         "Tổng hợp %d bài paper đã distill hôm nay (10 bài tốt nhất được chọn từ scan arXiv).\n"
@@ -312,6 +380,9 @@ def main():
         "- Tất cả đều có ứng dụng thực tế.\n\n"
         "## Danh sách 10 bài hôm nay\n\n"
     ) % (date_str, len(selected_folders), len(selected_folders))
+
+    body = "\n".join(paper_blocks)
+    app_section = "\n".join(app_lines)
 
     footer = (
         "\n---\n\n"
@@ -329,7 +400,7 @@ def main():
         footer += "\n"
     footer += "\n*Báo cáo tự động sinh bởi daily_summary.py sau mỗi ngày distill 10 bài.*\n"
 
-    full_report = header + vn_report + "\n" + footer
+    full_report = header + body + "\n" + app_section + "\n" + footer
 
     # Ghi file
     os.makedirs(SCANS_DIR, exist_ok=True)
