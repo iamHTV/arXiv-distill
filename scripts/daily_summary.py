@@ -6,19 +6,19 @@ Chạy:  python3 scripts/daily_summary.py [YYYY-MM-DD]
 
 Input:
   - papers/YYYY/MM/DD/*/metadata.json   (đã commit bởi hermes sau mỗi paper)
-  - papers/YYYY/MM/DD/*/README.md       (để trích xuất Actionable Insights)
+  - papers/YYYY/MM/DD/*/README.md       (để trích xuất 'làm gì' / Actionable Insights)
+  - report.md                           (để trích xuất 'học được gì' — ✓ Insight)
 
 Output:
   - scans/YYYY-MM-DD/README.md          (báo cáo tổng hợp ngày, tiếng Việt)
   - scans/YYYY-MM-DD/README_en.md       (bản tiếng Anh)
 
-Nội dung báo cáo:
-  - Tổng quan ngày: số bài distill, số skill tạo được
-  - Danh sách 10 bài: id, tên, classification, skill, insight ngắn
-  - Section "CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN" — insights thực tế cho solopreneur VN
-  - Danh sách link chi tiết từng bài
+Mỗi paper hiển thị:
+  ### [N] Tên paper (arXiv ID)
+  **Làm gì:** <tóm tắt paper giải quyết vấn đề gì, từ section Problem/Method>
+  **Học được gì:** <✓ Insight từ report.md>
 
-Gửi file này qua Telegram (tái dùng send_telegram.py).
+Section cuối: 'CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN' — insights thực tế cho solopreneur VN.
 """
 
 import datetime as dt
@@ -60,32 +60,28 @@ def read_readme(folder):
     return ""
 
 
-def extract_actionable_insights(readme_text):
-    """Trích xuất section ## Actionable Insights từ README.md (tối đa 3 bullet)."""
+def extract_problem_summary(readme_text):
+    """Lấy 1-2 câu đầu từ section ## Problem để tóm tắt paper làm gì."""
     if not readme_text:
-        return []
-    m = re.search(r"## Actionable Insights\n(.*?)(?=\n## |\Z)", readme_text, re.S)
+        return ""
+    m = re.search(r"## Problem\n(.*?)(?=\n## |\Z)", readme_text, re.S)
     if not m:
-        return []
-    block = m.group(1)
-    bullets = re.findall(r"-\s*(.+?)(?=\n-|\n\Z)", block, re.S)
-    # Làm sạch: gộp thành 1 dòng mỗi bullet
-    out = []
-    for b in bullets[:3]:
-        b = " ".join(b.split())
-        if b:
-            out.append(b)
-    return out
+        return ""
+    block = " ".join(m.group(1).split())
+    # Lấy 2 câu đầu (tách theo dấu chấm + khoảng trắng)
+    sentences = re.split(r"(?<=[.!?])\s+", block)
+    return " ".join(sentences[:2]).strip()
 
 
 def extract_insight_from_report(date_str, arxiv_id):
-    """Fallback: lấy insight từ report.md nếu không đọc được README."""
-    if not os.path.exists(REPORT_FILE):
+    """Lấy '✓ Insight: ...' từ report.md cho arxiv_id."""
+    if not arxiv_id or not os.path.exists(REPORT_FILE):
         return ""
     text = open(REPORT_FILE, encoding="utf-8").read()
-    # Tìm entry chứa arxiv_id
+    # Tìm entry chứa arxiv_id (format: ## Paper #N — Tên (arxiv-id) [label])
     pattern = re.compile(
-        r"## Paper #\d+ — .*?\(%s\)\n(.*?)(?=\n## Paper #\d+|\Z)" % re.escape(arxiv_id),
+        r"## Paper #\d+ — .*?\(%s\)[^\n]*\n(.*?)(?=\n## Paper #\d+|\Z)"
+        % re.escape(arxiv_id),
         re.S,
     )
     m = pattern.search(text)
@@ -93,7 +89,57 @@ def extract_insight_from_report(date_str, arxiv_id):
         return ""
     block = m.group(1)
     im = re.search(r"✓ Insight:\s*(.+)", block)
-    return im.group(1).strip() if im else ""
+    if im:
+        return im.group(1).strip()
+    return ""
+
+
+def build_paper_block_vn(i, meta, readme_text, insight):
+    """Xây dựng block 1 paper tiếng Việt."""
+    name = meta.get("name", "(không có tên)")
+    arxiv_id = meta.get("arxiv_id", "")
+    classification = meta.get("classification", "?")
+    skill_name = meta.get("skill_name", "N/A")
+    skill_status = meta.get("skill_status", "N/A")
+    summary = extract_problem_summary(readme_text)
+
+    lines = []
+    lines.append("### [%d] %s (%s)" % (i, name, arxiv_id))
+    lines.append("- Phân loại: `[%s]`" % classification)
+    lines.append("- Skill: %s (%s)" % (skill_name, skill_status))
+    if summary:
+        lines.append("- **Làm gì:** %s" % summary)
+    if insight:
+        lines.append("- **Học được gì:** %s" % insight)
+    pdf = meta.get("link_pdf", "")
+    if pdf:
+        lines.append("- PDF: %s" % pdf)
+    lines.append("")
+    return lines
+
+
+def build_paper_block_en(i, meta, readme_text, insight):
+    """Xây dựng block 1 paper tiếng Anh."""
+    name = meta.get("name", "(no title)")
+    arxiv_id = meta.get("arxiv_id", "")
+    classification = meta.get("classification", "?")
+    skill_name = meta.get("skill_name", "N/A")
+    skill_status = meta.get("skill_status", "N/A")
+    summary = extract_problem_summary(readme_text)
+
+    lines = []
+    lines.append("### [%d] %s (%s)" % (i, name, arxiv_id))
+    lines.append("- Classification: `[%s]`" % classification)
+    lines.append("- Skill: %s (%s)" % (skill_name, skill_status))
+    if summary:
+        lines.append("- **What it does:** %s" % summary)
+    if insight:
+        lines.append("- **Key insight:** %s" % insight)
+    pdf = meta.get("link_pdf", "")
+    if pdf:
+        lines.append("- PDF: %s" % pdf)
+    lines.append("")
+    return lines
 
 
 def build_report(date_str, papers):
@@ -114,25 +160,15 @@ def build_report(date_str, papers):
     lines.append("- Skill tạo được: **%d**" % n_skill)
     lines.append("")
 
-    # Danh sách bài
+    # Danh sách bài: mỗi bài có làm gì + học được gì
     lines.append("## Danh sách 10 bài hôm nay")
     lines.append("")
     for i, p in enumerate(papers, 1):
         meta = p["meta"]
-        name = meta.get("name", "(không có tên)")
+        readme = read_readme(p["folder"])
         arxiv_id = meta.get("arxiv_id", "")
-        classification = meta.get("classification", "?")
-        skill_name = meta.get("skill_name", "N/A")
-        skill_status = meta.get("skill_status", "N/A")
-        insight = p.get("insight") or ""
-        lines.append("### %d. %s" % (i, name))
-        lines.append("- arXiv ID: `%s`" % arxiv_id)
-        lines.append("- Phân loại: `[%s]`" % classification)
-        lines.append("- Skill: %s (%s)" % (skill_name, skill_status))
-        if insight:
-            lines.append("- Insight nổi bật: %s" % insight)
-        lines.append("- Link PDF: %s" % meta.get("link_pdf", ""))
-        lines.append("")
+        insight = extract_insight_from_report(date_str, arxiv_id)
+        lines.extend(build_paper_block_vn(i, meta, readme, insight))
 
     # Section áp dụng
     lines.append("## CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN")
@@ -146,7 +182,6 @@ def build_report(date_str, papers):
             all_insights.append(ins)
 
     if all_insights:
-        # Gộp lại, tránh trùng lặp đơn giản
         seen = set()
         for ins in all_insights:
             key = ins.lower()
@@ -165,7 +200,6 @@ def build_report(date_str, papers):
         meta = p["meta"]
         arxiv_id = meta.get("arxiv_id", "")
         name = meta.get("name", "")
-        # Tìm thư mục chứa metadata.json
         folder = p["folder"]
         rel = os.path.relpath(folder, REPO)
         lines.append("- [%d] %s — `%s` — xem chi tiết: `papers/%s/`" % (i, name, arxiv_id, rel))
@@ -196,20 +230,10 @@ def build_report_en(date_str, papers):
     lines.append("")
     for i, p in enumerate(papers, 1):
         meta = p["meta"]
-        name = meta.get("name", "(no title)")
+        readme = read_readme(p["folder"])
         arxiv_id = meta.get("arxiv_id", "")
-        classification = meta.get("classification", "?")
-        skill_name = meta.get("skill_name", "N/A")
-        skill_status = meta.get("skill_status", "N/A")
-        insight = p.get("insight") or ""
-        lines.append("### %d. %s" % (i, name))
-        lines.append("- arXiv ID: `%s`" % arxiv_id)
-        lines.append("- Classification: `[%s]`" % classification)
-        lines.append("- Skill: %s (%s)" % (skill_name, skill_status))
-        if insight:
-            lines.append("- Key insight: %s" % insight)
-        lines.append("- PDF: %s" % meta.get("link_pdf", ""))
-        lines.append("")
+        insight = extract_insight_from_report(date_str, arxiv_id)
+        lines.extend(build_paper_block_en(i, meta, readme, insight))
 
     lines.append("## WHAT YOU CAN APPLY")
     lines.append("")
@@ -249,8 +273,25 @@ def build_report_en(date_str, papers):
     return "\n".join(lines)
 
 
+def extract_actionable_insights(readme_text):
+    """Trích xuất section ## Actionable Insights từ README.md (tối đa 3 bullet)."""
+    if not readme_text:
+        return []
+    m = re.search(r"## Actionable Insights\n(.*?)(?=\n## |\Z)", readme_text, re.S)
+    if not m:
+        return []
+    block = m.group(1)
+    bullets = re.findall(r"-\s*(.+?)(?=\n-|\n\Z)", block, re.S)
+    out = []
+    for b in bullets[:3]:
+        b = " ".join(b.split())
+        if b:
+            out.append(b)
+    return out
+
+
 def send_telegram(text):
-    """Gửi text qua Telegram nếu có env. Tái dùng logic đơn giản (không phụ thuộc send_telegram.py để tránh import side-effect)."""
+    """Gửi text qua Telegram nếu có env."""
     env_file = "/home/iamhtv/.hermes/profiles/research-arxiv/.env"
     env = {}
     if os.path.exists(env_file):
@@ -270,7 +311,6 @@ def send_telegram(text):
     import urllib.request
 
     url = "https://api.telegram.org/bot%s/sendMessage" % token
-    # Telegram giới hạn ~4096 ký tự → tách đoạn
     chunks, cur = [], ""
     for line in text.split("\n"):
         if len(cur) + len(line) + 1 > 3500:
@@ -389,6 +429,7 @@ def main():
     send_telegram(vi_text)
 
     print("=== XONG ===")
+
 
 if __name__ == "__main__":
     main()
