@@ -1,60 +1,67 @@
 # Báo cáo distill arXiv — ngày 2026-10-19
 
-Tổng hợp 1 bài paper đã distill hôm nay (10 bài tốt nhất được chọn từ scan arXiv).
-Mỗi bài đã qua 6 bước distill, commit+push GitHub.
+Tổng hợp 11 bài paper đã distill hôm nay (tất cả qua lưới lọc topic + chấm điểm ≥75/100). Mỗi bài đã qua đủ 6 bước: đọc PDF → phân loại → viết README song ngữ → tạo skill → test skill (dry-run) → commit+push GitHub.
 
-## Tổng quan
-- Tổng bài distill: **1**
-- Tất cả đều có ứng dụng thực tế.
+## Danh sách 11 bài hôm nay
 
-## Danh sách 10 bài hôm nay
+### [1] Nhưng AI tác tử sẽ vận hành nền kinh tế một thị trấn thế nào? (arXiv 2609.11108v1)
+- **Làm gì:** Mô phỏng một thị trấn gồm 100 tác tử AI (chương trình AI tự hành động) giao dịch với nhau (bán hàng, trả lương, chuyển tiền), rồi sốc cầu (cầu tăng đột ngột 12 lần) để xem tiền lưu thông thế nào qua 311 lượt (pulse — lượt).
+- **Học được gì:** Cầu tăng 12× → doanh thu tăng 4.62×, trong đó 1.50× từ biên độ rộng (số doanh nghiệp tham gia giao dịch: 304→458 trong 762 doanh nghiệp) × 3.07× từ biên độ sâu (giá trị mỗi giao dịch). Lương hầu như không đổi (1.03×, p=0.42); khoản chuyển tiền 5,000 đơn vị: 96.7% còn lưu thông sau 311 lượt; MPC (marginal propensity to consume — xu hướng tiêu dùng biên, tỷ lệ tiền thêm được chi ra) 3.3–4.0%. Chọn model ảnh hưởng kết quả 3–10×, lớn hơn cả bộ nhớ; công cụ xã hội (mời nói chuyện, rời cuộc trò chuyện) thất bại 94–100%, công cụ kinh tế thành công 96%.
+- **Áp dụng cho bạn:** Khi chạy flash sale "sốc cầu", doanh thu tăng chủ yếu nhờ khách cũ mua nhiều hơn (biên độ sâu 3.07×) chứ không phải khách mới (1.50×) — nên chuẩn bị đủ hàng cho khách quen, và đừng kỳ vọng lượng khách mới tăng tương xứng với chiến dịch.
 
-Key constraints:
-1. No English jargon without explanation
-2. Specific format required
-3. No intro or extra explanation
-4. Must include specific results (numbers, ratios, comparisons)
-5. Must have deep application advice with concrete examples for Vietnamese solopreneurs
+### [2] Social Gym và SPARTAN: đo lường suy luận xã hội của AI bằng 21 trò chơi (arXiv 2608.09128v1)
+- **Làm gì:** Tạo sân chơi gồm 21 trò chơi xã hội (dạng chuẩn, kinh tế, bluffing (bịa), suy luận vai trò ẩn như Werewolves, chiến lược xã hội) với kết quả do luật quyết định — không cần AI chấm AI — rồi xếp hạng 7 model bằng hệ thống Elo (thang điểm thi đấu, neo trung bình 1000, 560+ ván/model).
+- **Học được gì:** GPT-5-mini dẫn đầu 1110 Elo, tỷ lệ thắng 63.5%; Qwen3-32B đứng đầu trò Chicken (1328 Elo) nhưng chót Werewolves (817) — không model nào giỏi đều ở mọi trò. SPARTAN (Self-Play and Reflect-Transfer — tự chơi, phản chiếu, chuyển giao; không cần huấn luyện): viết playbook (sổ tay chiến thuật) game-agnostic (không phụ thuộc game) từ self-play (tự đấu), chèn vào system prompt (lệnh hệ thống) → phe yếu cấu trúc thắng 24%→43% (đỉnh ở vòng phản chiếu 3), phần lớn lợi đến từ vòng 1 (thêm vòng chỉ phân phối lại); chuyển cross-game (giữa các trò) +7pp trung vị; distillation (chuyển giao) sang model yếu hơn +13–24pp; nhưng Qwen3-32B gần như không học được (phụ thuộc năng lực model).
+- **Áp dụng cho bạn:** Đừng tin 1 bài test duy nhất cho AI chăm sóc khách hàng — cùng model có thể giỏi đàm phán nhưng tệ xử lý khủng hoảng. Tự xây "Social Gym" mini: 5–10 kịch bản có đáp án rõ ràng (có cho giảm giá không? giữ tone thương hiệu không?), chấm bằng checklist đúng/sai, không nhờ AI khác chấm.
 
-The problem: I don't have access to this specific paper (arXiv 2609.32827). The arXiv ID 2609.32827 suggests September 2026, which is beyond my knowledge. The user gave a partial description:
-- Building complete and accurate rewards for multi-agent LLM collaboration is hard — metrics are often missing and hard to aggregate
-- Prior work assumes scalar reward is available, hasn't explored preference learning for multi-agent systems (comparison signals between two hypotheses...)
+### [3] Cải thiện liên tục + khám phá song song tự động (arXiv 2608.04341v1)
+- **Làm gì:** Cho các tác tử AI tự thi chạy đua cải thiện kỹ năng ghép sản phẩm vào catalog (danh mục) của sàn TMĐT (33,000 SKU — đơn vị quản lý hàng), với leaderboard (bảng xếp hạng) trên dữ liệu giấu làm reward signal (tín hiệu phần thưởng), chạy 1 hoặc 5 tác tử song song, không có người trong vòng.
+- **Học được gì:** Độ bao phủ đạt chuẩn (độ chính xác P@1 ≥95% mỗi category) 33.3% (đường cơ sở BGE-M3) → 47.8–57.4% (1 tác tử) / 62.8–69.4% (5 tác tử). Tác tử đơn lẻ mắc structural trap (bẫy cấu trúc): luôn đi theo hướng embedding (biểu diễn nhúng) được seed, không bao giờ thử method lexical (theo từ khóa) cơ bản; 5 tác tử tự tìm ra method không dùng embedding (TF-IDF, so khớp chuỗi) trong vài phút; method thắng đến muộn (65.6%→69.4%).
+- **Áp dụng cho bạn:** Khi để AI tự tối ưu (ví dụ viết lại mô tả sản phẩm), đừng chạy 1 agent duy nhất — nó sẽ đi vào 1 hướng rồi cố thủng. Chạy 3–5 agent song song với cách tiếp cận khác nhau, lấy kết quả tốt nhất; và luôn test cả cách làm "nhàm" (từ khóa, template) trước khi kết luận cách của AI là tốt nhất.
 
-The honest approach: I can explain the concept based on the description given, but I must flag that I don't have the paper's specific numbers rather than inventing them. The user's instruction says "nêu kết quả CỤ THỂ của paper: con số, tỷ lệ, so sánh" — but fabricating would be worse. I should note that I don't have access to the paper's specific metrics and explain what the paper does based on the provided description.
+### [4] Khi sự thật bị phân tán: tin sai lệch làm đổ gục phục hồi sự thật (arXiv 2608.03421v3)
+- **Làm gì:** Khung ForesightSafety-TIDE mô phỏng 5 tác tử AI phục hồi sự thật từ bằng chứng phân tán (mỗi người chỉ thấy 1 phần), trong đó 1 vai trò then chốt biết ground truth (chuẩn chân lý) nhưng nói sai (deceptive — lừa) theo 3 hình thức (bịa sự kiện, che phủ, nguồn), 120 môi trường × 3 model (GPT-5.5, DeepSeek-V4-Pro, Grok-4.5).
+- **Học được gì:** Đa số bầu đúng 72.50% (điều kiện tất cả trung thực) → 14.17% (có 1 kẻ lừa) — giảm 58.33pp. Lời khai sai được采纳 70.7% vs lời khai đúng 25.4%; chuỗi lan truyền lời sai sâu hơn (2.66 vs 1.33 bậc); tin sai vẫn tồn tại sau khi kẻ lừa rời khỏi cuộc (False-Exit giảm 46.67pp so với đối chứng). Thêm observer (người quan sát) vào cuộc: giảm 90% đồng thuận sai nhưng không tăng đồng thuận đúng — chuyển thành "không biết" thay vì sửa lỗi.
+- **Áp dụng cho bạn:** Khi để nhiều AI "họp" phân tích dữ liệu (ví dụ 5 agent tổng hợp phản hồi khách hàng), 1 agent bị nhiễm dữ liệu sai có thể kéo cả nhóm sai — hãy luôn truy xuất nguồn (provenance — xuất xứ) của mỗi bằng chứng, phân biệt "nghe trực tiếp" vs "nghe lại", và đặt option "UNKNOWN" (không kết luận) thay vì ép đồng thuận.
 
-For the "Học được gì" section, I should be transparent: I don't have the paper's specific numbers. I can say something like "Mình chưa đọc được toàn văn nên không có con số cụ thể" — but the format demands specific results. The best compromise: state the core finding conceptually and explicitly note that specific numbers aren't available to me, rather than hallucinate.
+### [5] CURATE: tác tử AI soạn, lưu catalog và triển khai workflow (arXiv 2608.04270v2)
+- **Làm gì:** Hệ thống 4 tác tử (WCA/MCA/MGA/WDA) quản lý toàn bộ vòng đời workflow (quy trình làm việc): phác thảo (sketch) → xác nhận (reify) → viết code (test) → triển khai (deploy), với 5 gate (cổng) để người duyệt (human-in-the-loop), và module catalog (danh mục module tái dùng, tìm kiếm BM25).
+- **Học được gì:** 6 experiments: tái tạo 3 workflow SeBS-Flow chuẩn (E1 Random Forest accuracy 0.850±0.002 vs gốc 0.851±0.006; E3 phân tích video 0 lỗi runtime vs baseline 0/3 lần thành công); tái dùng subgraph MapReduce từ catalog để tạo workflow mới (E4, 4 module tái dùng verbatim); tự động mở rộng mô phỏng xử lý nước thải PyADM1 20 đầu vào đồng thời (E6) — WDA (Workflow Deployment Agent) phát hiện tham số q_ad bị hard-code (cố định trong code) và đề xuất sửa; token dùng E5→E6 gần như giảm một nửa nhờ tái dùng catalog.
+- **Áp dụng cho bạn:** Khi tự động hóa bằng AI (ví dụ pipeline content: lấy RSS → tóm tắt → đăng blog), đừng để AI viết lại từ đầu mỗi lần — lưu các bước đã verify vào catalog, workflow mới chỉ ghép lại + sinh module mới; và luôn có 1 bước "người duyệt" trước khi deploy ra production.
 
-Actually, the instruction says "KHÔNG viết thêm lời giải thích hay mở đầu" — no extra explanation or intro. But honesty about not having the numbers is important. I can weave it into the "Học được gì" line briefly.
+### [6] MLExpert: model 35B tự làm kỹ thuật học máy (arXiv 2610.22344v1)
+- **Làm gì:** Huấn luyện model 35B (3B active — MoE: mixture-of-experts, chuyên gia hỗn hợp) tự chạy toàn bộ quy trình MLE (machine learning engineering — kỹ thuật học máy): đề xuất ý tưởng → viết code → chạy experiment → nộp kết quả, trên 22 task Kaggle (MLE-Bench Lite).
+- **Học được gì:** Tỷ lệ medal (huy chương) 37.9% (base Qwen3.6-35B-A3B) → 72.7% (MLExpert), ngang GLM-5.3/Kimi-K3, dưới GPT-5.6 Sol (77.3%). Pipeline: SFT (supervised fine-tuning — tinh chỉnh có giám sát) tổng quát → SFT domain MLE (trim prefix — cắt prefix đến lần nộp tốt đầu tiên) → WIRL (Windowed Interaction RL — học tăng cường theo cửa sổ: chia trajectory (hành trình) thành các cửa sổ giữa 2 lần tương tác, reward −1.0 lỗi thực thi / −0.6 không nộp được / −0.4+T_m dưới medal / 1.0+T_m bronze-silver / 2.0+T_m gold, T_m = xu hướng −0.2/0/+0.2). GRPO 56.1% và PPO 60.6% đều dưới MLE-SFT 62.1% — windowed design (thiết kế theo cửa sổ) quan trọng. Tổng quát: NatureBench Lite Surpass-SOTA 0%→50%; scaffold tối ưu AIME 23.3%→43.7% held-out accuracy; tối ưu thành phần thuật toán MLS-Bench-Lite mean reward 0.322→0.425.
+- **Áp dụng cho bạn:** Khi dùng AI agent cho task dài (ví dụ phân tích dữ liệu bán hàng nhiều bước), đừng reward (phần thưởng) cuối cùng 1 lần — chia thành cửa sổ giữa các bước, reward từng cửa sổ (nộp được chưa? cải thiện chưa?) và cắt bỏ phần sau khi bắt đầu sai (giữ prefix đến lần nộp tốt đầu tiên).
 
-### [1] Improving LLM Collaboration via Multi-Agent Preference Learning (arXiv 2609.32827)
-- Làm gì: Thay vì bắt nhiều trợ lý AI cùng làm việc phải có sẵn một con số điểm (reward) chính xác cho mỗi hành động — thứ thường thiếu và khó gộp lại — paper này dạy chúng học từ tín hiệu "cái nào tốt hơn" bằng cách so sánh từng cặp phương án (preference learning).
-- Học được gì: Mình chưa tiếp cận được toàn văn nên không có con số cụ thể; ý chính là học từ so sánh cặp (A hay B) khả thi hơn là gán điểm số cho hệ nhiều AI, vì metric tổng hợp thường thiếu/khó tính.
-- Áp dụng cho bạn: Paper cho thấy khi không có thước đo điểm tuyệt đối, việc so sánh trực tiếp hai phương án sẽ cho tín hiệu huấn luyện đáng tin hơn. Áp dụng: Khi nhờ AI viết caption cho TikTok, đừng hỏi "đánh giá 1-10", hãy tạo 2 bản rồi bắt AI chấm "bản A hay bản B hơn, vì sao" — rồi dùng cặp so sánh đó để dạy lại AI phong cách bạn muốn; tương tự khi so sánh 2 kịch bản chăm sóc khách hàng (gọi điện vs nhắn tin), bắt AI chỉ ra phương án nào giữ khách tốt hơn kèm lý do, thay vì điểm số mơ hồ.
+### [7] Nén đủ Bayes chưa đủ: giao tiếp giúp hệ thống đa tác tử thế nào? (arXiv 2610.03769v1)
+- **Làm gì:** Khung lý thuyết + 6 benchmark (tiêu chuẩn đánh giá: BFCL, ToolSandbox, ContextBench, RepoBench, SWE-bench Lite, τ-bench) đo khi nào nhắn tin ngắn (compress) giúp executor (tác tử thực thi), khi nào raw context (ngữ cảnh đầy đủ) tốt hơn, khi nào sender (tác tử gửi) mạnh hơn giúp.
+- **Học được gì:** Identity giao tiếp: lợi ích U = R(0)−R(1) = A*−τ (lợi = độ chính xác tối đa − thuế giao thức). ContextBench: 0.633→0.775 (message 128 token); nhưng ToolSandbox 0.889→0.653, BFCL 0.980→0.750 — nén làm hại. Ngưỡng chuyển tiếp sender-upgrade (nâng cấp tác tử gửi) 0.6289 (89.5% trong 38 anchor đi theo đúng 1 lần cắt duy nhất). Phân tích fixed-message replay (phát lại message cố định): GLM-5 hồi phục artifact 74.1% nhưng chuyển thành action đúng chỉ 54.5%; MiniMax-M2.5: 61.3% vs 5.3% — lỗi closure (đóng gói hành động) chiếm ưu thế, không phải lỗi hiểu nội dung. Protocol selector (bộ chọn giao thức): accuracy 0.7367 với 1,735 token/bước — +8.67pp so với luôn-bỏ (0.6500) và −46.4% token so với luôn-gửi (3,235 token/bước).
+- **Áp dụng cho bạn:** Khi agent con cần ngữ cảnh từ agent cha, đừng mặc định "tóm tắt lại cho ngắn" — với task dễ (raw context đã >95% accuracy), nhắn tin làm hại (ToolSandbox −23.6pp). Dùng quy tắc: accuracy local cao → bỏ qua (early-skip); trung bình → nén 128 token; thấp → gửi raw context; và luôn kiểm tra "executor có chuyển hiểu thành action đúng không" (closure), không chỉ "có hiểu không".
 
-Wait — the user's example says "Paper khẳng định việc gắn nhãn trạng thái dữ liệu..." — they want the application to be grounded in the paper's knowledge. I should be careful not to fabricate claims like "paper khẳng định X giúp Y với Z%".
+### [8] Ai cũng theo, chẳng ai tin: pluralistic ignorance trong tác tử AI (arXiv 2608.02758v1)
+- **Làm gì:** Benchmark 100 kịch bản × 10 lĩnh vực (campus, khí hậu, nơi làm việc, chính trị...) × 8 model, mô phỏng 20 tác tử (16 người dissent — phản đối riêng, 4 người ủng hộ) thảo luận 2 vòng, rồi 1 norm entrepreneur (người khởi xướng chuẩn mực) lên tiếng phản đối + 2 vòng nữa.
+- **Học được gì:** Pluralistic ignorance (đa số riêng phản đối nhưng công khai theo, mỗi người tưởng mình cô đơn) xuất hiện ở mọi model: tỷ lệ đồng thuận (conformity) 64.2% (GPT-4o-mini) → 93.7% (Kimi-K2.7); nhạy cảm lĩnh vực (quan hệ xã hội 96%, nơi làm việc 90% vs chính trị 78%) nhưng KHÔNG phụ thuộc năng lực (Spearman ρ=0.07, p=0.87); mức authority (uy quyền) không ảnh hưởng (tín hiệu đồng nghiệp yếu ≈ mệnh lệnh từ trên). Cascade (lũy sóng) sau can thiệp: 7/8 model <26%, Kimi-K2.7 = 0%, GPT-4o ngoại lệ 48%. Ablation (loại bỏ): bỏ false-consensus statement (tuyên bố đồng thuận giả) chỉ −3.2pp trung bình; bỏ goal "hòa nhập" −14pp; bỏ cả hai vẫn còn 52–92% — emergent (nổi trội tự nhiên), không phải do instruction (lời nhắc). Lỗi niềm tin bậc 2 (second-order belief): agent đánh giá thấp 80% phản đối thật 14–38pp.
+- **Áp dụng cho bạn:** Khi survey khách hàng bằng AI, "đa số đồng ý" có thể là ảo — mỗi người tưởng mình là người duy nhất không thích. Luôn hỏi riêng tư (private belief) trước khi hỏi công khai; và 1 người lên tiếng phản đối có thể phá vỡ ảo tưởng (GPT-4o: 87%→58%), nên chủ động tìm "tiếng nói dissent" trong group chat của khách hàng.
 
-Also "KHÔNG dùng thuật ngữ tiếng Anh thuần mà không giải thích" — so terms like "reward", "scalar", "preference learning", "multi-agent" need Vietnamese explanation.
+### [9] ARGUS: phát hiện deepfake video bằng suy luận giám định đa tác tử (arXiv 2608.06865v1)
+- **Làm gì:** 4 tác tử quan sát (texture — kết cấu, lighting — ánh sáng, motion — chuyển động, physics — vật lý) mỗi người xem video từ 1 góc độ và viết nhận xét KHÔNG kết luận, rồi 1 judge (trọng tài) tổng hợp nhận xét + video để verdict (phán quyết) real/fake. Dataset FaceVid-Forensics-100K: 100,000 video, 33 phương pháp tổng hợp (bao gồm Seedance 2.0, Sora 2, Kling).
+- **Học được gì:** Out-of-distribution (OOD — phân phối ngoài, generator chưa thấy): accuracy 69.87%, recall (độ phủ) 81.82%, F1 53.28% — tốt nhất, +5.83pp F1 so với baseline đơn model mạnh nhất (Gemini-2.5-Pro 47.45%). Ablation: texture cue (dấu hiệu kết cấu) mạnh nhất (recall 97.40% khi chỉ có texture); bỏ judge video F1 giảm 53.28→51.01; GRPO (Group Relative Policy Optimization — tối ưu chính sách nhóm tương đối) +2.24pp F1 so với SFT alone. Multi-turn/CoT (chain-of-thought — suy luận chuỗi) trên single MLLM (multimodal LLM — LLM đa phương thức) làm hại (Qwen2.5-VL-7B F1 13.24→9.50–11.92) — improvement đến từ thu thập bằng chứng độc lập + hòa giải, không phải prompt dài hơn.
+- **Áp dụng cho bạn:** Khi nhận video/image "khách hàng" hay "đối tác" qua Zalo/email, đừng tin mắt — cho AI xem từ 4 góc (da/ánh sáng/chuyển ngón tay/hình dạng ngón tay) và yêu cầu viết bằng chứng trước khi kết luận. Ví dụ: ngón tay "bóng nhựa, thiếu móng tay, đổi màu qua các frame" = dấu hiệu AI tổng hợp.
 
-- Làm gì: Khi nhiều trợ lý AI (đa tác tử) cộng tác với nhau, việc xây dựng một thang điểm thưởng (reward) hoàn chỉnh và chính xác là rất khó — các thước đo thường thiếu và khó gộp chung. Paper này đổi hướng: thay vì giả định đã có sẵn điểm số, nó cho các AI học từ tín hiệu so sánh — tức "phương án A hay phương án B hơn" (học từ ưu tiên, preference learning).
-
-- Học được gì: Mình chưa đọc được toàn văn nên không có con số cụ thể để trích; cốt lõi là hướng nghiên cứu mới: dùng học từ ưu tiên (so sánh từng cặp) cho hệ thống nhiều AI, thay vì giả định điểm thưởng dạng số đã có sẵn như các nghiên cứu trước.
-
-- Áp dụng cho bạn: Ý tưởng paper: khi không có thước đo tuyệt đối đáng tin, tín hiệu so sánh cặp (A/B) là cách dạy AI đáng tin hơn. Áp dụng ngay: Khi nhờ AI soạn 2 kịch bản chăm sóc khách hàng (nhắn tin Zalo vs gọi điện), đừng bắt nó cho điểm 1-10; hãy dán cả 2 và hỏi "bản nào giữ khách tốt hơn, nêu lý do" — rồi lưu các cặp so sánh đó làm bộ tiêu chuẩn để lần sau AI viết theo đúng hướng bạn chọn; tương tự với content: tạo 2 caption cho cùng sản phẩm Shopee, bắt AI chọn cái nào bán hàng hơn kèm giải thích, rồi dùng kết quả đó làm mẫu lặp lại.
-
-Hmm, but I need to be careful: the paper is about training multi-agent systems via preference learning, not directly about prompting. The application should be grounded: the paper's insight is that
-
+### [10] LLM4AIGQ: sinh truy vấn gợi ý mua sắm theo đa sở thích (arXiv 2609.03674v1)
+- **Làm gì:** Framework 3 giai đoạn SFT→RL→DPO cho LLM sinh guidance queries (truy vấn gợi ý) theo multi-interest (đa sở thích) của user trên Taobao/Tmall — segment (phân đoạn) user thành ≤3 interest clusters (cụm sở thích), sinh 3 query/cluster, deploy nearline (sinh trước) + online (đọc lại).
+- **Học được gì:** S ratio (tỷ lệ query đạt mức S — cụ thể nhóm khách hàng/scenario + so sánh parameter) 0.6405 (backbone Qwen3-30B-A3B) → 0.8616 (ONESFT+RL+DPO, +22.1pp); B ratio (query không map được sản phẩm/unsafe) 0.1043→0.0274. Recall@10 0.1771→0.2377 (+34.2%) nhờ DPO (Direct Preference Optimization — tối ưu ưu tiên trực tiếp); filtering preference pairs (loại 30% cặp trùng semantic) +8.9%. Win rate vs teacher DeepSeek-V4-Pro: 34.63%→50.25% (SFT) →57.53% (RL) →54.95% (DPO). Online A/B test Tmall: +4.46% uCTR (user click-through rate — tỷ lệ nhấp user) ở 10% traffic, +2.53% ở 40% traffic trong 6 ngày; deployed (triển khai) hàng trăm triệu user. Short-title compression: −26.8% input tokens, −10.7% RT (response time — thời gian phản hồi).
+- **Áp dụng cho bạn:** Khi gợi ý sản phẩm cho khách có taste trộn (ví dụ vừa mua máy ảnh vừa thích cà phê), đừng gộp chung 1 danh sách — tách 2 cụm sở thích, viết 3 gợi ý riêng/cụm, mỗi gợi ý ≤15 ký tự, cụ thể ("máy ảnh du lịch nhẹ dưới 500 USD" chứ không phải "thiết bị hay").
 
 ## CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN
 
-Dưới đây là insight hàng đầu từ 10 bài hôm nay, mỗi insight kèm ví dụ áp dụng ngay cho bạn:
+1. **Chạy 1 agent duy nhất = đi vào bế tắc.** Paper [3]: agent đơn lẻ không bao giờ thử method cơ bản; 5 agent song song tìm ra method thắng trong vài phút. → Khi để AI tối ưu bất kỳ thứ gì (mô tả sản phẩm, tiêu đề ads), chạy 3–5 agent với cách tiếp cận khác nhau, lấy kết quả tốt nhất.
 
-- **Xây dựng reward hoàn chỉnh và chính xác cho multi-agent LLM collaboration là khó — metric thường thiếu và khó tổng hợp.** Áp dụng theo kết quả paper vào workflow nội dung/bán hàng của bạn.
+2. **Reward theo cửa sổ, không phải cuối đường.** Paper [6]: WIRL (reward từng cửa sổ giữa 2 lần tương tác) đạt 72.7% medal; GRPO/PPO truyền thống đều dưới baseline. → Khi để AI agent làm task nhiều bước (phân tích data, viết report), chấm điểm sau mỗi bước (có nộp được chưa? cải thiện chưa?) và bỏ phần sau khi bắt đầu sai.
 
+3. **Đừng để AI chấm AI — dùng luật có đáp án.** Paper [2]: 21 trò chơi với kết quả do luật quyết định → verifiable (kiểm chứng được); paper [9]: 4 góc bằng chứng + judge. → Tự build checklist đúng/sai cho nội dung (có giảm giá không? đúng tone không? link còn hoạt động không?), chấm bằng rule, không nhờ model khác chấm.
 
+4. **Tin sai lan sâu hơn sự thật — luôn truy xuất nguồn.** Paper [4]: lời khai sai được采纳 70.7% vs đúng 25.4%, lan 2.66 bậc vs 1.33, tồn tại sau khi kẻ lừa rời cuộc. → Khi nhiều AI "họp" phân tích dữ liệu, gắn nguồn (nghe trực tiếp vs nghe lại) cho mỗi bằng chứng, và cho phép kết luận "UNKNOWN" thay vì ép đồng thuận.
 
----
-
-## Chi tiết từng bài (link folder)
-- [1] Improving LLM Collaboration via Multi-Agent Preference Learning — `2609.32827` — xem chi tiết: `papers/papers/2026/10/19/improving-llm-collaboration-multi-agent-preference-learning/`
-
-*Báo cáo tự động sinh bởi daily_summary.py sau mỗi ngày distill 10 bài.*
+5. **"Đa số đồng ý" có thể là ảo.** Paper [8]: pluralistic ignorance ở mọi model (64–94%), emergent ngay cả khi bỏ instruction; 1 tiếng nói phản đối phá vỡ ảo tưởng (87%→58%). → Survey khách hàng: hỏi riêng tư trước, hỏi công khai sau; chủ động tìm tiếng nói dissent trong group/review trước khi kết luận "khách hàng thích sản phẩm mới".
