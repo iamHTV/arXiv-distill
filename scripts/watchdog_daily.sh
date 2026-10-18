@@ -1,78 +1,81 @@
-#!/usr/bin/env bash
-# ============================================================================
-# watchdog_daily.sh — Kiểm tra báo cáo tổng hợp ngày, chạy lại nếu thiếu.
+#!/bin/bash
+# watchdog_daily.sh — Kiểm tra báo cáo tổng hợp hôm nay đã sinh chưa.
+# Nếu chưa → chạy lại pipeline (giới hạn 4 lần/ngày).
+# Log: logs/watchdog-retry.log
+# Count: state/watchdog_retry_count.json
 #
-# Chạy bởi cronjob mỗi 30 phút trong khung giờ làm việc.
-# Nếu scans/<hôm nay>/README.md chưa tồn tại → chạy lại run_pipeline.sh.
-# Giới hạn tối đa 4 lần chạy lại/ngày để tránh loop vô ích.
-# ============================================================================
+# Được gọi bởi cron job watchdog-arxiv-daily-retry (*/30 * * * *).
+
 set -uo pipefail
 
-REPO="/home/iamhtv/work/arXiv-distill"
-LOGDIR="$REPO/logs"
-WATCH_LOG="$LOGDIR/watchdog-retry.log"
-STATE_FILE="$REPO/state/watchdog_retry_count.json"
+REPO_DIR="/home/iamhtv/work/arXiv-distill"
+cd "$REPO_DIR" || { echo "[watchdog] KHÔNG vào được $REPO_DIR"; exit 1; }
+
+TODAY=$(date +%Y-%m-%d)
+REPORT="scans/$TODAY/README.md"
+LOG_FILE="logs/watchdog-retry.log"
+COUNT_FILE="state/watchdog_retry_count.json"
 MAX_RETRY=4
 
-mkdir -p "$LOGDIR" "$REPO/state"
-
-TODAY="$(date +%F)"
-SUMMARY="$REPO/scans/$TODAY/README.md"
+mkdir -p logs state
 
 log() {
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$WATCH_LOG"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
 }
 
-# ── Kiểm tra xem báo cáo hôm nay đã có chưa ─────────────────────────────────
-if [[ -f "$SUMMARY" ]]; then
-    log "Báo cáo hôm nay ($TODAY) đã tồn tại. Không cần chạy lại."
+# 1. Nếu báo cáo hôm nay đã tồn tại → thoát im lẽ (không có gì mới)
+if [ -f "$REPORT" ]; then
+    log "Báo cáo hôm nay ($REPORT) đã tồn tại. Không làm gì."
     exit 0
 fi
 
-# ── Kiểm tra pipeline có đang chạy không (tránh trùng instance) ─────────────
-if pgrep -f "run_pipeline.sh" >/dev/null 2>&1 || pgrep -f "hermes.*chat" >/dev/null 2>&1; then
+# 2. Kiểm tra pipeline đang chạy không (hermes hoặc run_pipeline.sh)
+if pgrep -f "hermes.*chat" > /dev/null 2>&1 || pgrep -f "run_pipeline.sh" > /dev/null 2>&1; then
     log "Pipeline đang chạy (hermes hoặc run_pipeline.sh). Bỏ qua lượt này."
     exit 0
 fi
 
-# ── Đọc số lần retry hôm nay ───────────────────────────────────────────────
-retry_count=0
-if [[ -f "$STATE_FILE" ]]; then
-    retry_count=$(python3 -c "import json; d=json.load(open('$STATE_FILE')); print(d.get('$TODAY', 0))" 2>/dev/null || echo 0)
+# 3. Đọc số lần retry hôm nay
+if [ -f "$COUNT_FILE" ]; then
+    RETRY_COUNT=$(python3 -c "import json; d=json.load(open('$COUNT_FILE')); print(d.get('$TODAY', 0))" 2>/dev/null || echo 0)
+else
+    RETRY_COUNT=0
 fi
 
-if [[ $retry_count -ge $MAX_RETRY ]]; then
-    log "Đã retry $MAX_RETRY lần hôm nay. Dừng để tránh loop."
+if [ "$RETRY_COUNT" -ge "$MAX_RETRY" ]; then
+    log "Đã đạt giới hạn retry ($MAX_RETRY) hôm nay. Bỏ qua."
     exit 0
 fi
 
-# ── Chạy lại pipeline ──────────────────────────────────────────────────────
-retry_count=$((retry_count + 1))
-log "Báo cáo hôm nay chưa có. Chạy lại pipeline (lần retry #$retry_count)..."
+# 4. Chạy lại pipeline
+log "Báo cáo hôm nay chưa tồn tại. Chạy lại pipeline (lần retry $((RETRY_COUNT + 1))/$MAX_RETRY)."
 
-cd "$REPO" || { log "FATAL: không vào được $REPO"; exit 1; }
+# Tăng count
+NEW_COUNT=$((RETRY_COUNT + 1))
+python3 -c "
+import json, os
+path='$COUNT_FILE'
+d={}
+if os.path.exists(path):
+    d=json.load(open(path))
+d['$TODAY']=$NEW_COUNT
+os.makedirs(os.path.dirname(path), exist_ok=True)
+with open(path,'w') as f:
+    json.dump(d, f, indent=2)
+"
 
-# Ghi lại số retry trước khi chạy (để đánh dấu đã bắt đầu)
-python3 - "$STATE_FILE" "$TODAY" "$retry_count" <<'PY'
-import json, sys
-state_file, today, count = sys.argv[1], sys.argv[2], int(sys.argv[3])
-d = {}
-try:
-    d = json.load(open(state_file))
-except Exception:
-    pass
-d[today] = count
-json.dump(d, open(state_file, "w"), indent=2)
-PY
-
-bash scripts/run_pipeline.sh --no-tele 2>&1 | tee -a "$WATCH_LOG"
-RC=${PIPESTATUS[0]}
-
-if [[ $RC -eq 0 ]]; then
-    log "Pipeline chạy lại thành công (mã 0). Chạy daily_summary để sinh báo cáo..."
-    python3 scripts/daily_summary.py 2>&1 | tee -a "$WATCH_LOG"
+# Chạy pipeline --no-tele
+if [ -x "scripts/run_pipeline.sh" ]; then
+    scripts/run_pipeline.sh --no-tele
 else
-    log "Pipeline chạy lại thất bại (mã $RC). Sẽ thử lại ở lượt tiếp theo."
+    log "LỖI: scripts/run_pipeline.sh không tồn tại. Không thể chạy pipeline."
 fi
 
-exit $RC
+# Chạy daily_summary.py
+if [ -x "scripts/daily_summary.py" ]; then
+    python3 scripts/daily_summary.py
+else
+    log "LỖI: scripts/daily_summary.py không tồn tại. Không thể sinh báo cáo tổng hợp."
+fi
+
+log "Hoàn thành lượt watchdog hôm nay ($TODAY)."
