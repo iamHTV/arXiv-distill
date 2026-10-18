@@ -1,0 +1,17 @@
+{
+  "name": "MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering",
+  "authors": ["Shangheng Du", "Jinxin Shi", "Shuaiyu Zhang", "Yiming Wu", "Junpeng Zhao", "Shiyang Feng", "Xin Li", "Liang He", "Xiangchao Yan", "Bo Zhang"],
+  "affiliation": "East China Normal University; Shanghai Artificial Intelligence Laboratory",
+  "link": "https://arxiv.org/abs/2610.22344v1",
+  "pdf_link": "https://arxiv.org/pdf/2610.22344v1",
+  "arxiv_id": "2610.22344v1",
+  "year": 2026,
+  "category": "cs.AI; cs.CL; cs.LG",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Windowed Interaction RL (WIRL) for Long-Horizon Agentic Tasks",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 170
+}
