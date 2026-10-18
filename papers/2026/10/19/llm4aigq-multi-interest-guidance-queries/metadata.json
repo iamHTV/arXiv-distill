@@ -1,0 +1,17 @@
+{
+  "name": "LLM4AIGQ: LLM-based AI Guidance Query Generation Framework for Multi Interest Mining",
+  "authors": ["Xiangchen Pan", "Jiayi Xu", "Jing Wang", "Xing Fang", "Lingyun Zhu"],
+  "affiliation": "Huazhong University of Science and Technology; Nankai University; Alibaba Group",
+  "link": "https://arxiv.org/abs/2609.03674v1",
+  "pdf_link": "https://arxiv.org/pdf/2609.03674v1",
+  "arxiv_id": "2609.03674v1",
+  "year": 2026,
+  "category": "cs.IR",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Multi-Interest Guidance Query Generation (SFT-RL-DPO)",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 174
+}
