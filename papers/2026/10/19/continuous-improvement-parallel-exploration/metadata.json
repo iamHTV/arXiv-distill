@@ -1,0 +1,17 @@
+{
+  "name": "Continuous Improvement and Parallel Autonomous Exploration: An LLM-Agent Framework for Searching Large Solution Spaces",
+  "authors": ["Dulmini Hettiarachchi", "Julio Christian Young", "Andre Rusli", "Sho Akiyama"],
+  "affiliation": "Mercari, Inc., Japan",
+  "link": "https://arxiv.org/abs/2608.04341v1",
+  "pdf_link": "https://arxiv.org/pdf/2608.04341v1",
+  "arxiv_id": "2608.04341v1",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Withheld-Leaderboard Reward Loop (WLRL)",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 167
+}
