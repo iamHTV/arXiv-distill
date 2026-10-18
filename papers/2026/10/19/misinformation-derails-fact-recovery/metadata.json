@@ -1,0 +1,17 @@
+{
+  "name": "When Truth Is Distributed: Misinformation Derails Collective Fact Recovery in LLM-Based Multi-Agent Systems",
+  "authors": ["Chenfei Yan", "Zeyang Yue", "Feifei Zhao", "Erliang Lin", "Lu Jia", "Haibo Tong", "Mingyang Lyu", "Chengyi Sun", "Yi Zeng"],
+  "affiliation": "Institute of Automation, Chinese Academy of Sciences; Beijing Key Laboratory of Safe AI and Superalignment; Beijing Institute of AI Safety and Governance; Gaoling School of AI, Renmin University of China; UCAS; Beihang University",
+  "link": "https://arxiv.org/abs/2608.03421v3",
+  "pdf_link": "https://arxiv.org/pdf/2608.03421v3",
+  "arxiv_id": "2608.03421v3",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "TIDE Paired-Deception Robustness Audit",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 168
+}
