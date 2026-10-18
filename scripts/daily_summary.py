@@ -2,8 +2,8 @@
 """
 daily_summary.py — Báo cáo hàng ngày DỄ HIỂU cho solopreneur Việt Nam.
 
-Gọi LLM (OpenRouter) 1 lần để viết lại 10 paper thành tiếng Việt đơn giản.
-Mỗi paper: làm gì + học được gì + áp dụng cho bạn (ví dụ cụ thể).
+Gọi LLM (OpenRouter) 1 lượt để viết lại 10 paper thành tiếng Việt đơn giản.
+Mỗi paper: Làm gì / Học được gì / Áp dụng cho bạn (CỤ THỂ cho paper đó).
 Cuối: section "CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN" (3-5 insight hàng đầu).
 """
 
@@ -145,52 +145,6 @@ def call_openrouter(prompt, key, max_tokens=6000):
         return ""
 
 
-def build_application_example(source_text):
-    """Tạo ví dụ áp dụng đơn giản."""
-    text = (source_text or "").lower()
-    if "memory" in text or "bộ nhớ" in text or "đã thử" in text:
-        return "Ví dụ: Agent viết bài content. Mỗi xong 1 bài, ghi vào file nhỏ: 'đã viết chủ đề nào + lượt tương tác bao nhiêu'. Lần sau agent đọc file này trước khi viết để không lặp chủ đề cũ."
-    if "1 agent" in text or "một agent" in text or "single agent" in text:
-        return "Ví dụ: Trước khi thuê nhiều agent làm phân tán, hãy chạy 1 agent đơn lẻ trên task của bạn (ví dụ: viết 10 caption Facebook). Nếu 1 agent đã đủ, đừng thêm agent thứ hai — chỉ tốn tiền thêm."
-    if "prompt" in text and ("375" in text or "nén" in text):
-        return "Ví dụ: Bạn có system prompt dài vài nghìn token để agent viết bài bán hàng. Hãy lấy 100 ví dụ bài viết tốt nhất, fine-tune model nhỏ (Qwen 0.8B) để nén prompt thành vài trăm token — chi phí giảm khoảng 16 lần, chất lượng vẫn cao."
-    if "kiểm tra" in text or "verify" in text:
-        return "Ví dụ: Agent của bạn viết mã hoặc xuất bản nội dung. Trước khi xuất bản, hãy thêm 1 bước kiểm tra đơn giản (ví dụ: kiểm tra link có bật không, số giá có khớp không) thay vì tin tưởng agent nói đúng 100%."
-    if "fine-tun" in text or "tinh chỉnh" in text:
-        return "Ví dụ: Thay vì trả tiền hàng tháng cho model lớn viết mô tả sản phẩm, hãy fine-tune model nhỏ trên 500 mô tả sản phẩm bán chạy nhất của bạn. Chi phí giảm rất nhiều, chất lượng tương đương."
-    if "đánh giá" in text or "eval" in text:
-        return "Ví dụ: Bạn dùng AI để đánh giá nội dung của đối thủ. Đừng tin 100% vào kết quả AI đánh giá — hãy tự đọc lại 10-20 mẫu để xem AI có đánh giá chuẩn không."
-    return "Ví dụ: Áp dụng vào workflow nội dung/bán hàng của bạn — bắt đầu từ nhỏ, đo kết quả, rồi mới mở rộng. Đừng áp dụng toàn bộ cùng lúc."
-
-
-def rewrite_all_papers(papers_data, key):
-    """Gọi LLM 1 lần viết lại 10 paper."""
-    items = []
-    for i, p in enumerate(papers_data, 1):
-        items.append(
-            "%d. Tên: %s (arXiv %s)\n"
-            "   Làm gì: %s\n"
-            "   Học được gì: %s\n"
-            % (i, p["name"], p["arxiv_id"], p["problem"], p["insight"])
-        )
-
-    prompt = (
-        "Bạn giải thích paper AI cho solopreneur Việt Nam (làm content, bán hàng online, "
-        "chăm sóc khách hàng, quản lý thời gian). KHÔNG dùng thuật ngữ tiếng Anh thuần mà không giải thích.\n\n"
-        "Viết lại MỖI paper thành tiếng Việt đơn giản, gần gũi, theo format BẮT BUỘC:\n"
-        "### [N] Tên paper (arXiv ID)\n"
-        "- Làm gì: (1-2 câu tiếng Việt đơn giản)\n"
-        "- Học được gì: (1-2 câu tiếng Việt đơn giản)\n"
-        "- Áp dụng cho bạn: (1 ví dụ cụ thể, làm được ngay hôm nay)\n\n"
-        "Cuối báo cáo, thêm section:\n"
-        "## CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN\n"
-        "3-5 insight hàng đầu, mỗi insight 1 câu ngắn + 1 ví dụ áp dụng cụ thể cho solopreneur VN.\n\n"
-        "Dữ liệu 10 paper:\n\n" + "\n".join(items)
-    )
-
-    return call_openrouter(prompt, key, max_tokens=6000)
-
-
 def fallback_block(i, name, arxiv_id, problem, insight):
     """Tạo block đơn giản nếu LLM lỗi."""
     return (
@@ -204,8 +158,67 @@ def fallback_block(i, name, arxiv_id, problem, insight):
         arxiv_id,
         problem or "Không có thông tin.",
         insight or "Không có thông tin.",
-        build_application_example(problem or insight or ""),
+        "Ví dụ: Áp dụng vào nội dung/bán hàng của bạn — bắt đầu từ nhỏ, đo kết quả, rồi mới mở rộng.",
     )
+
+
+def rewrite_all_papers(papers_data, key):
+    """Gọi LLM 1 lần viết lại 10 paper, mỗi paper có Áp dụng cho bạn CỤ THỂ."""
+    items = []
+    for i, p in enumerate(papers_data, 1):
+        items.append(
+            "%d. Tên: %s (arXiv %s)\n"
+            "   Làm gì (tóm tắt): %s\n"
+            "   Học được gì (tóm tắt): %s\n"
+            % (i, p["name"], p["arxiv_id"], p["problem"], p["insight"])
+        )
+
+    prompt = (
+        "Bạn giải thích paper AI cho solopreneur Việt Nam (làm content, bán hàng online, "
+        "chăm sóc khách hàng, quản lý thời gian). KHÔNG dùng thuật ngữ tiếng Anh thuần mà không giải thích.\n\n"
+        "Viết lại MỖI paper thành tiếng Việt đơn giản, gần gũi, theo format BẮT BUỘC:\n"
+        "### [N] Tên paper (arXiv ID)\n"
+        "- Làm gì: (1-2 câu tiếng Việt đơn giản)\n"
+        "- Học được gì: (1-2 câu tiếng Việt đơn giản)\n"
+        "- Áp dụng cho bạn: (1 ví dụ CỤ THỂ, liên quan trực tiếp đến nội dung paper này, làm được ngay hôm nay cho solopreneur VN)\n\n"
+        "Lưu ý: Mỗi paper phải có phần 'Áp dụng cho bạn' KHÁC NHAU, không được viết ví dụ chung chung.\n"
+        "Ví dụ paper về tiền recount: 'Áp dụng cho bạn: Khi chạy quảng cáo Facebook, lưu bảng \"đã chạy chủ đề nào — lượt tương tác bao nhiêu\", để không quảng cáo lại chủ đề cũ đã fail.'\n\n"
+        "Cuối báo cáo, thêm section:\n"
+        "## CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN\n"
+        "3-5 insight hàng đầu từ 10 bài, mỗi insight 1 câu ngắn + 1 ví dụ áp dụng cụ thể cho solopreneur VN.\n\n"
+        "Dữ liệu 10 paper:\n\n" + "\n".join(items)
+    )
+
+    return call_openrouter(prompt, key, max_tokens=6000)
+
+
+def build_application_section(papers_data):
+    """Section 'CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN' lấy 3-5 insight từ papers_data."""
+    lines = []
+    lines.append("")
+    lines.append("## CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN")
+    lines.append("")
+    lines.append("Dưới đây là insight hàng đầu từ 10 bài hôm nay, mỗi insight kèm ví dụ áp dụng ngay cho bạn:")
+    lines.append("")
+
+    count = 0
+    seen = set()
+    for p in papers_data:
+        source = p.get("insight", "") or p.get("problem", "")
+        short = first_sentences(source, 1)
+        key_ = short.lower()
+        if not short or key_ in seen:
+            continue
+        seen.add(key_)
+        lines.append("- **%s** %s" % (short, "Ví dụ: Áp dụng vào nội dung/bán hàng của bạn — bắt đầu từ nhỏ, đo kết quả, rồi mới mở rộng."))
+        count += 1
+        if count >= 5:
+            break
+
+    if count == 0:
+        lines.append("- (Không trích xuất được insight hành động từ README hôm nay.)")
+
+    return lines
 
 
 def main():
@@ -287,28 +300,7 @@ def main():
 
     # Nếu LLM không có section "CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN", thêm section mặc định
     if "CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN" not in vn_report:
-        app_lines = []
-        app_lines.append("")
-        app_lines.append("## CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN")
-        app_lines.append("")
-        app_lines.append("Dưới đây là insight hàng đầu từ 10 bài hôm nay, mỗi insight kèm ví dụ áp dụng ngay cho bạn:")
-        app_lines.append("")
-        count = 0
-        seen = set()
-        for p in papers_data:
-            source = p.get("insight", "") or p.get("problem", "")
-            short = first_sentences(source, 1)
-            key_ = short.lower()
-            if not short or key_ in seen:
-                continue
-            seen.add(key_)
-            app_lines.append("- **%s** %s" % (short, build_application_example(source)))
-            count += 1
-            if count >= 5:
-                break
-        if count == 0:
-            app_lines.append("- (Không trích xuất được insight hành động từ README hôm nay.)")
-        vn_report += "\n" + "\n".join(app_lines)
+        vn_report += "\n" + "\n".join(build_application_section(papers_data))
 
     # Ghép header + body + footer
     header = (
