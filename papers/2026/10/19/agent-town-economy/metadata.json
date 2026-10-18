@@ -1,0 +1,17 @@
+{
+  "name": "But How Would AI Agents Run a Town's Economy?",
+  "authors": ["Sajal Regmi", "Siddhartha Pudasaini", "Chetan Phakami Pun"],
+  "affiliation": "Karela Technologies Inc.",
+  "link": "https://arxiv.org/abs/2609.11108",
+  "pdf_link": "https://arxiv.org/pdf/2609.11108v1",
+  "arxiv_id": "2609.11108v1",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "validated-agent-economy-simulation",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 165
+}
