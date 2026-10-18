@@ -1,0 +1,17 @@
+{
+  "name": "Everyone Conforms, No One Believes: Pluralistic Ignorance in LLM Agent Populations",
+  "authors": ["Yashwanth YS"],
+  "affiliation": "Language Technologies Institute, Carnegie Mellon University",
+  "link": "https://arxiv.org/abs/2608.02758v1",
+  "pdf_link": "https://arxiv.org/pdf/2608.02758v1",
+  "arxiv_id": "2608.02758v1",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Pluralistic Ignorance Simulation Protocol (PI-Sim)",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 172
+}
