@@ -1,0 +1,17 @@
+{
+  "name": "Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection (ARGUS)",
+  "authors": ["Xuechao Zou", "Shun Zhang", "Kai Li", "Yi Zhou", "Xinyu Sun", "Yuhui Chen", "Zhe Wu", "Congyan Lang", "Junliang Xing"],
+  "affiliation": "Beijing Jiaotong University; Tsinghua University; Ant Group",
+  "link": "https://arxiv.org/abs/2608.06865v1",
+  "pdf_link": "https://arxiv.org/pdf/2608.06865v1",
+  "arxiv_id": "2608.06865v1",
+  "year": 2026,
+  "category": "cs.CV; cs.AI; cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "ARGUS Four-Perspective Forensic Audit",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 173
+}
