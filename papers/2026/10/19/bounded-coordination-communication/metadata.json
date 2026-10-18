@@ -1,0 +1,17 @@
+{
+  "name": "Bayes-Sufficient Compression Is Not Enough: How Does Communication Help Multi-Agent Systems?",
+  "authors": ["Yi Xie", "Zhanke Zhou", "Yi Fan", "Yong Ge", "Bo Han", "Bo Liu"],
+  "affiliation": "University of Arizona; Hong Kong Baptist University; Amazon Web Services",
+  "link": "https://arxiv.org/abs/2610.03769v1",
+  "pdf_link": "https://arxiv.org/pdf/2610.03769v1",
+  "arxiv_id": "2610.03769v1",
+  "year": 2026,
+  "category": "cs.LG; cs.IT; cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "Receiver-Relative Protocol Selector (Gain − Tax Communication Control)",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 171
+}
