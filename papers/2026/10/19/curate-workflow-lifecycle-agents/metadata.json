@@ -1,0 +1,17 @@
+{
+  "name": "CURATE: Leveraging LLM Agents to Compose, Catalog, and Deploy Reproducible Workflows",
+  "authors": ["Nolan Cutler", "Chia-Chen Kuo", "Nanda Velugoti", "Kathryn Newhart", "Renato Figueiredo"],
+  "affiliation": "Oregon State University",
+  "link": "https://arxiv.org/abs/2608.04270v2",
+  "pdf_link": "https://arxiv.org/pdf/2608.04270v2",
+  "arxiv_id": "2608.04270v2",
+  "year": 2026,
+  "category": "cs.SE; cs.MA",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "CURATE Lifecycle Loop (Sketch–Reify–Test–Deploy with Module Catalog)",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 169
+}
