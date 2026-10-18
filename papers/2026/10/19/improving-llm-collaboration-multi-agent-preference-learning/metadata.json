@@ -1,0 +1,16 @@
+{
+  "name": "Improving LLM Collaboration via Multi-Agent Preference Learning",
+  "authors": ["Shuo Liu", "Xinzichen Li", "Tianle Chen", "Christopher Amato"],
+  "link": "https://arxiv.org/abs/2609.32827",
+  "pdf_link": "https://arxiv.org/pdf/2609.32827v1",
+  "arxiv_id": "2609.32827v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": "not found",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "mapl-multi-agent-preference-learning",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-19",
+  "paper_number": 164
+}
