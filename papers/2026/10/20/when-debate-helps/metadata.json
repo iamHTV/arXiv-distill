@@ -1,0 +1,16 @@
+{
+  "name": "When Debate Helps: Proposal Supply and Verification-Aware Readout in Multi-Agent Reasoning",
+  "authors": ["Zihao Zhao", "Tunyu Zhang", "Haizhou Shi", "Yusong Zhao", "Xinxi Zhang", "Hao Wang"],
+  "link": "https://arxiv.org/pdf/2610.04686v1",
+  "arxiv_id": "2610.04686v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "when-debate-helps",
+  "skill_test": "SKILL VALID",
+  "venue": "arXiv preprint",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/when-debate-helps"
+}
