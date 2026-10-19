@@ -687,3 +687,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: tracer-trace-regularized-training | Test: SKILL VALID
 ✓ Insight: Cùng payload giữa injection thành công 53% ở retrieved context vs 18% ở follow-up (authority gradient); TRACER giảm RAG-framed ASR từ 65.5% xuống 6.1% giữ clean accuracy 78-82% qua phần thưởng gated bằng chứng + ATRC trace alignment; đào tạo đa kênh (RAG+tool) đạt average ASR 13.9% tốt nhất tại 3B.
 → Tiếp tục: [YES]
+
+## Paper #178 — Be Careful Who You Trust: Coordination Dynamics under Corrupted Communication in LLM Multi-Agent Games (2609.31704v1) [applied]
+✓ Skill: be-careful-who-you-trust | Test: SKILL VALID
+✓ Insight: Sự sụp đổ phối hợp công khai dưới corruption chủ yếu là cơ học (hành động bị đảo ngược thay đổi transcript và thực thi), không phải hành vi agent; phải tách lựa chọn gốc / hành động công khai / kết quả thực thi khi đánh giá độ mạnh đa agent.
+→ Tiếp tục: [YES]
