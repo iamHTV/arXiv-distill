@@ -1,0 +1,16 @@
+{
+  "name": "Candidate supply and answer selection shape the value of LLM judging in multi-agent systems",
+  "authors": ["Jia-Hao Ji", "Sijie Li", "Jiabei Cheng", "Zixi She", "Jin-Tai Yu", "Zhiyuan Yuan"],
+  "link": "https://arxiv.org/pdf/2608.25937v2",
+  "arxiv_id": "2608.25937v2",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "candidate-supply-answer-selection",
+  "skill_test": "SKILL VALID",
+  "venue": "arXiv preprint",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/candidate-supply-answer-selection"
+}
