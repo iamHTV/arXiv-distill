@@ -702,3 +702,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: believed-but-not-said | Test: SKILL VALID
 ✓ Insight: Một agent đối đầu gây FPI 44.8% (ba agent 60.5%); nhiễm ẩn (51.6% tư liệu riêng vs 19.7% tán thành công khai) lớn gấp 2.6 lần những gì transcript lộ; kiến thức không dự đoán độ mạnh (85% kiến thức nhưng từ bỏ 25% vs 80%); nhiễm ổn định vào vòng 4, can thiệp phải sớm.
 → Tiếp tục: [YES]
+
+## Paper #181 — When Debate Helps: Proposal Supply and Verification-Aware Readout in Multi-Agent Reasoning (2610.04686v1) [applied]
+✓ Skill: when-debate-helps | Test: SKILL VALID
+✓ Insight: Đắn giúp khi cung đề xuất bề mặt câu đúng (headroom có thể phục hồi) VÀ đọc nhận diện câu đúng khi bình chọn bỏ lỡ (LVD bằng chứng xác thực); một trong hai không đủ; hội đồng được chọn qua coverage (AC-Greedy/SC-Greedy) tạo nhiều đề xuất đúng bổ sung hơn top-score.
+→ Tiếp tục: [YES]
