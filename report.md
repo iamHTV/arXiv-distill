@@ -727,3 +727,10 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: munin-self-hosted-agent-harness | Test: SKILL VALID
 ✓ Insight: Harness chứ không phải model là đơn vị cải tiến — cùng harness nhân đôi accuracy trên 3 backbone 2 nhà phát triển (0.387→0.874 Qwen3.8-27B, +0.487 CI [0.407,0.568]); naive RAG top-5 KÉM HƠN bare model trên mọi backbone (−0.176 đến −0.306) vì retrieval không có verification loop là hại ròng; abstention đo được không cần judge: xóa 49 source papers + 2,247 chunks khỏi corpus → hệ thống từ chối 86–92% (Qwen) / 80% (gpt-oss) với 0 citation bịa trên 100 tài liệu giả × 3 backbone; đọc toàn văn 1 call beats summarise-then-reason (0.497→0.864); egress là biến thực nghiệm worth +0.17–0.21 accuracy, egress=off vẫn vượt PaperQA2 66.0%.
 → Tiếp tục: [YES]
+
+## Paper #186 — Jev-LiteMAS: Separating Decisions from Generation in Multi-Agent Workflows (2610.21411v2) [applied]
+✓ Nhãn: applied — 4 benchmark (MATH, MBPP+, API-Bank, IDRBench I3), 2 backbone (DeepSeek-V4-Flash, GPT-5), AutoGen
+✓ Skill: capability-matched-agent-coordination | Test: SKILL VALID (dry run: gate TPR 91% vs LLM judge 93%, token −33%, ACC trong ±1,34 điểm)
+✓ Số liệu: routing+review chiếm 31,7–43,5% token MAS; vs LAS token −12,7–54,6%, accuracy chênh ≤1,34 điểm, latency −(7/8 cấu hình, −45,8% IDRBench I3 DeepSeek, −50,2% API-Bank GPT-5); robustness tiêm lỗi: Attack-MAS ASR 50%→Jev-LiteMAS 3,33–4,00%, accuracy 46,67→94,00% (MATH); screener Jev TPR 95,33%/91,33% gần LLM judge 96,67%/92,00%, SLM generic chỉ 61,33%/44,67%; content-blind routing mất 18,0 điểm accuracy; decision layer overhead chỉ 1,56–2,14% chi phí + 2,92–6,85% latency
+✓ Insight nổi bật nhất: Coordination trong MAS chỉ cần bounded decision — tách "decide" (decision model Jev) khỏi "generate" (LLM expert) cắt 12,7–54,6% token với accuracy trong ±1,34 điểm, nhưng router NHÌN THẤY artifact thật mới giữ được accuracy (−18 điểm nếu content-blind)
+→ Tiếp tục: [YES]

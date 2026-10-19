@@ -1,0 +1,17 @@
+{
+  "name": "Jev-LiteMAS: Separating Decisions from Generation in Multi-Agent Workflows",
+  "authors": ["Kaixiang Wang", "Jiong Lou", "Zhaojiacheng Zhou", "Jie Li"],
+  "link": "https://arxiv.org/pdf/2610.21411v2",
+  "arxiv_id": "2610.21411v2",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "capability-matched-agent-coordination",
+  "skill_test": "SKILL VALID",
+  "venue": "arXiv preprint",
+  "license": "CC BY 4.0",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/jev-litemas-decision-generation-separation"
+}
