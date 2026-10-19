@@ -1,0 +1,16 @@
+{
+  "name": "RIT-RAG: Navigating Document Corpora with Retrieval-Induced Trees",
+  "authors": ["Meghanadh Pulivarthi", "Swaraj Kumar Biswal", "Kushagra Bhushan", "Yatin Nandwani", "Sachindra Joshi", "Dinesh Raghu"],
+  "link": "https://arxiv.org/pdf/2610.11370v2",
+  "arxiv_id": "2610.11370v2",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "rit-rag",
+  "skill_test": "SKILL VALID",
+  "venue": "arXiv preprint",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/rit-rag"
+}
