@@ -1,0 +1,16 @@
+{
+  "name": "MuninAI: A Self-Hosted Agentic Framework for Independent Research Groups",
+  "authors": ["Markus Fischer", "Jens Meiler", "Matthias Elgeti"],
+  "link": "https://arxiv.org/pdf/2610.23480v1",
+  "arxiv_id": "2610.23480v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "munin-self-hosted-agent-harness",
+  "skill_test": "SKILL VALID",
+  "venue": "arXiv preprint",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/munin-self-hosted-agentic-research-framework"
+}
