@@ -717,3 +717,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: rit-rag | Test: SKILL VALID
 ✓ Insight: Phân cách khám phá bằng chứng khỏi đọc nội dung — truy xuất đảm bảo độ thu hồi, cấu trúc truy xuất đảm bảo độ chính xác; không cam kết vào tài liệu duy nhất trước khi thấy nội dung; RIT-RAG cao nhất trên WixQA, QASPER, FinanceBench, EntQABench (2,84M trang), +6.6–11.4 điểm so với cơ sở tốt nhất.
 → Tiếp tục: [YES]
+
+## Paper #184 — Embedding Surgery: Localized Updates for Adaptive Ranking Correction in Dense Retrieval (2609.05110v1) [applied]
+✓ Skill: embedding-surgery | Test: SKILL VALID
+✓ Insight: Nhúng embedding cố định sau khi huấn luyện gây cứng nhắc; phẫu thuật embedding áp dụng cập nhật cục bộ, tối thiểu vào embedding tài liệu tại thời điểm truy vấn qua bài toán tối ưu hóa凸 (bài toán tối ưu hàm bậc hai), ép buộc ràng buộc xếp hạng, tối thiểu hoá sự thay đổi biểu diễn; đối xứng hiệu quả nhất, lên đến +60.64% tương đối nDCG@10 trên DL-Hard, mạnh mẽ trước phản hồi nhôound, lan truyền đến truy vấn ngữ nghĩa liên quan, bổ sung CoRocchio.
+→ Tiếp tục: [YES]
