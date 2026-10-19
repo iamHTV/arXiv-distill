@@ -1,0 +1,185 @@
+{
+  "date": "2026-10-20",
+  "watermark_from": "2026-10-15T17:59:59Z",
+  "seen_before": 180,
+  "total_fetched": 4852,
+  "after_seen": 4690,
+  "after_category": 4228,
+  "after_heuristic": 4042,
+  "papers": [
+    {
+      "id": "2610.14576v1",
+      "title": "Iterate on an LLM, Serve on an SLM",
+      "abstract": "As frontier LLMs gain more capabilities, the cost to run them also goes up. At the same time, small language models (SLMs) also gain more capabilities but have largely been able to keep their cost stable, offering 5-40 times cheaper inference for the narrow, repetitive subtasks that agents decompose work into. However, the standing limiting factor is getting the correct behavior out of a small model in a fast, efficient, and economical way. Unfortunately, in most cases, zero-shot small models fail narrow production tasks. Furthermore, retraining one every time the behavior changes is too slow to iterate on. We propose doing both in sequence. First, develop the desired behavior in prompt space, on a frontier model, with immediate feedback from live traffic. Then, once the behavior converges, distill the recorded production behavior (not synthetic imitations of it) into an SLM through supervised fine-tuning (SFT). We show a proper use case of this method through a scheduling agent for home-care agencies that fans out a single yes/no safety decision per caregiver-shift pair on GPT-5.4-nano. A LoRA-tuned Qwen3-8B trained on 11.6k recorded production decisions reaches 0.913 agreement, while the teacher (GPT-5.4-nano), re-run on its own recorded prompts, agrees with itself only 72.7% of the time, pointing to the fact that the SLM may also be more consistent. Furthermore, when the two disagreed, a blinded professional scheduler sided with the student 48-29. Finally, we find that the SLM has approximately 2.5 times lower median latency and is a fraction of the cost. We believe this lifecycle of quick building, live feedback, and cheap inference is a blueprint for others building similar systems.",
+      "published": "2026-10-10T04:51:24Z",
+      "updated": "2026-10-10T04:51:24Z",
+      "cats": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.14576v1",
+      "heuristic": 46,
+      "llm_score": 93,
+      "llm_summary": "Đề xuất quy trình: phát triển behavior trên LLM lớn với feedback traffic thật, rồi distill hành vi sản xuất đã ghi nhận vào SLM (LoRA Qwen3-8B) cho các subtask lặp lại.",
+      "llm_reason": "Playbook giảm cost 5–40x rất phù hợp solopreneur, case home-care thực với số liệu cụ thể (0.913 agreement), đọc xong làm được ngay: iterate prompt → record → SFT.",
+      "group": "high"
+    },
+    {
+      "id": "2610.23707v1",
+      "title": "Tool Recommendation for Multi-Step Agents: Finding Every Tool a Task Needs",
+      "abstract": "A multi-step agent task fails when a single tool it needs is missing, yet the tools an agent may need are too many to list: the roughly 8,200 tools on the platform we study have definitions that together exceed the context window of any model we evaluate. We present Tool Recommendation, a deployed system that gives an agent all of them, hundreds of times more than a typical MCP server exposes, through a fixed interface of three tools. It runs at the gateway between agent and tools, executing every call under the end user's own credentials and checking it against the user's consent for each service and the tools the agent may use. We evaluate it on both a public retrieval benchmark and billed end-to-end session cost. On ToolRet, Tool Recommendation places every tool a query needs in the top ten 57% more often than BM25, a lexical ranking that commercial tool search offers, and compares favorably with published systems up to nine times its size. In paired multi-step workflows, its first recommendation covered every required tool in 93% of Codex sessions, and against a fixed list of 100 tools it cut input tokens by 17% with Codex and 40% with Claude Code and the total bill in all 14 runs, by up to 40%, with no change in task completion.",
+      "published": "2026-10-16T16:30:38Z",
+      "updated": "2026-10-16T16:30:38Z",
+      "cats": [
+        "cs.LG",
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2610.23707v1",
+      "heuristic": 54,
+      "llm_score": 91,
+      "llm_summary": "Tool Recommendation là hệ thống deployed đặt gateway giữa agent và ~8.200 tools, qua 3 tool cố định, cắt input token 17-40% và giảm bill tới 40% mà không mất completion.",
+      "llm_reason": "Tool-use cho multi-step agent đúng trọng tâm (33/35) + benchmark ToolRet và billed cost thật, deployed (24/25), cực kỳ relevant cho solopreneur build agent/MCP (17/20), insight cắt cost, consent, gateway architecture áp dụng ngay (17/20).",
+      "group": "high"
+    },
+    {
+      "id": "2610.19133v1",
+      "title": "TRACER: Trace-Regularized Training Against Indirect Prompt Injection",
+      "abstract": "Indirect prompt injection uses untrusted retrieved content, tool outputs, or agent messages to override an LLM's intended behavior. We show that defense robustness is channel-conditioned: the same attack succeeds 18% of the time as a follow-up message but 53% when placed in retrieved context. We propose TRACER (Trace-Regularized Adversarial Channel Exposure with Reward-shaping), a channel-aware adversarial training method that samples presentation wrappers and combines an answer-anchored, evidence-gated reward with ATRC, which aligns attacked reasoning with clean evidence when an injection is invalid. On GSM8K with Qwen2.5-3B-Instruct, TRACER reduces RAG-framed ASR from 65.5% to 6.1% while preserving 78-82% clean accuracy. Joint RAG+tool training achieves 13.9% average ASR across framings at 3B scale, while a single epoch at 7B reaches 9.4%. These results demonstrate that robust defenses must explicitly train and evaluate across deployment channels.",
+      "published": "2026-10-13T20:03:37Z",
+      "updated": "2026-10-13T20:03:37Z",
+      "cats": [
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2610.19133v1",
+      "heuristic": 49,
+      "llm_score": 88,
+      "llm_summary": "TRACER: huấn luyện đối kháng nhận biết kênh (channel-aware) chống indirect prompt injection trong RAG/tool agent, giảm ASR RAG-framed 65.5%→6.1% ở 3B và giữ 78-82% clean accuracy.",
+      "llm_reason": "Bảo mật agent RAG/tool là bắt buộc khi triển khai AI product, số liệu ASR theo kênh rõ ràng (18% vs 53%), insight 'phải huấn luyện/đánh giá跨 deployment channels' actionable ngay cho business và content an toàn AI.",
+      "group": "high"
+    },
+    {
+      "id": "2609.31704v1",
+      "title": "Be Careful Who You Trust: Coordination Dynamics under Corrupted Communication in LLM Multi-Agent Games",
+      "abstract": "Large language models are increasingly used as interacting agents, but it remains unclear how robust their coordination is when public communication is unreliable. We study this question in iterated $N$-player Stag Hunt games played by homogeneous LLM groups under controlled programmatic action inversion, which changes both the public transcript and the actions used for execution. Across an experimental grid spanning group sizes, coordination thresholds, corruption levels, and seven LLMs, we observe three main patterns. First, honest agents' pre-flip Stag choices decline as corruption increases, but the sharp fall in public success is primarily mechanical. In the focal $N=5,M=3$ setting, pre-flip success remains 78% at 80% corruption, while public success falls to 12%. Second, honest choices are associated with the public history available at decision time, particularly under high corruption. Third, three threshold-style public-report benchmarks yield similar action-match rates to the LLM agents, showing substantial descriptive agreement between LLM decisions and these benchmarks. Overall, our results show that original choices, public actions, and executed outcomes must be separated when evaluating multi-agent robustness, as corrupted communication can severely and predictably degrade mutually beneficial cooperation.",
+      "published": "2026-09-19T20:15:14Z",
+      "updated": "2026-09-19T20:15:14Z",
+      "cats": [
+        "cs.MA",
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2609.31704v1",
+      "heuristic": 50,
+      "llm_score": 86,
+      "llm_summary": "Đo độ bền phối hợp của nhóm LLM trong trò chơi Stag Hunt khi giao tiếp công khai bị lỗi, qua lưới experiment với 7 LLM, tách biệt lựa chọn thật - hành động công khai - kết quả thực thi.",
+      "llm_reason": "LLM multi-agent thật với benchmark rõ ràng, insight 'phải tách original choice/public action/executed outcome khi đánh giá agent' rất actionable cho nội dung về độ tin cậy agent và ra quyết định.",
+      "group": "high"
+    },
+    {
+      "id": "2609.14896v1",
+      "title": "Forty Shades of Blue: Quality-Diversity Alignment via Mode-Conditioned Reinforcement Learning",
+      "abstract": "A notable byproduct of LLM alignment training is mode collapse: the progressive loss of output diversity that narrows a model's expressivity at inference time. This degradation is especially limiting for applications requiring open-ended exploration and pluralistic perspectives, such as scientific ideation and creative writing. We present MoDA (Mode-conditioned Diversity Alignment), an online post-training RL algorithm that jointly optimizes generation quality and diversity, inspired by the coordination perspective in multi-agent reinforcement learning (MARL). MoDA trains a single shared LLM policy conditioned on abstract numbered roles, where each role acts as an agent competing to produce outputs distinct from the others. This formulation encourages mode-conditioned agents to explore complementary regions of the high-quality output space without requiring hand-crafted personas or architectural modifications. MoDA employs a prompt-adaptive quality gating mechanism that calibrates a reference quality threshold and grants diversity rewards only to responses that meet the threshold, preventing reward-hacking behaviors that compromise response quality. To study quality-diversity tradeoffs, we evaluate MoDA on a comprehensive suite of benchmarks spanning seven general capability tasks and four domain-specific diversity tasks in scientific ideation and creative writing. MoDA improves SBERT diversity by 265% on the Infinite-Chat held-out prompts, while increasing average general capability pass@1 by 10.3% over the Qwen3-8B baseline. Compared with the strongest DivPO baseline, MoDA improves SBERT diversity from 0.274 to 0.482 (+75.9%) and E-Vendi from 2.86 to 4.4 (+53.8%), while improving average general capability pass@1 by 7.0%. Overall, MoDA provides a drop-in alternative to standard post-training methods that preserves and expands the model's expressive output space while improving quality.",
+      "published": "2026-09-14T01:30:23Z",
+      "updated": "2026-09-14T01:30:23Z",
+      "cats": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2609.14896v1",
+      "heuristic": 49,
+      "llm_score": 85,
+      "llm_summary": "MoDA: RL post-training đồng tối ưu quality và diversity cho LLM bằng policy conditioned vai trò số hóa (MARL-inspired) với prompt-adaptive quality gating chống reward hacking, benchmark 7 capability + 4 diversity tasks gồm ideation/creative writing.",
+      "llm_reason": "Quality-diversity alignment trực tiếp phục vụ content creator (creative writing, khoa học ideation, tránh mode collapse), có benchmark thật và cơ chế quality gating chống reward-hacking actionable cho quy trình tạo nội dung AI.",
+      "group": "high"
+    },
+    {
+      "id": "2610.22138v1",
+      "title": "Believed but Not Said: Measuring Hidden Belief Collapse in Multi-Agent LLM Discussions",
+      "abstract": "LLM systems increasingly rely on groups of agents that discuss, critique, and check one another, assuming that peers will catch individual errors. We test this assumption against a minimal adversary. In a ten-agent factual discussion, one or three adversarial agents repeatedly assert a plausible false answer. After each round we probe each benign agent's private answer through a separate call whose response is hidden from its peers, and we separately label its public stance toward the claim. Across six models and three factual-QA datasets, groups remain stable without an attacker: only 0.6% of benign agents finish with the false answer. A single adversarial agent increases this rate to 44.8% and three to 60.5%. Studies of conformity typically report public agreement without private change; we find the reverse. With three adversarial agents present, benign agents hold the false answer in 51.6% of exposed turns but publicly endorse it in only 19.7%. Much of the influence therefore remains invisible in the discussion, and the false answers persist when agents are asked for their own views. Agents that retain the true answer often fail to defend it; once adopted, the false answer spreads among benign agents, and baseline knowledge does not predict robustness.",
+      "published": "2026-10-15T16:12:07Z",
+      "updated": "2026-10-15T16:12:07Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.22138v1",
+      "heuristic": 46,
+      "llm_score": 85,
+      "llm_summary": "Chỉ ra rằng trong thảo luận multi-agent, 1–3 agent đối nghịch có thể thầm thay đổi niềm tin riêng của agent tốt (lên 44.8–60.5%) trong khi đồng thuận công khai thấp hơn nhiều.",
+      "llm_reason": "Cảnh báo cực kỳ thực dụng cho ai dùng nhóm agent: đừng tin consensus bề mặt, cần probe riêng tư; thí nghiệm 6 model, 3 dataset, insight hành động rõ.",
+      "group": "high"
+    },
+    {
+      "id": "2610.04686v1",
+      "title": "When Debate Helps: Proposal Supply and Verification-Aware Readout in Multi-Agent Reasoning",
+      "abstract": "Multi-agent debate can improve reasoning, yet often fails to beat simple majority voting. We argue that successful debate requires two distinct mechanisms: proposal supply must surface a correct answer, and readout must identify that answer when voting misses it. We formalize the first requirement through recoverable headroom, which measures cases where a correct proposal is available but the majority answer is wrong. For the second, we develop Latent Verification Debate (LVD), an accounting model in which candidate proposals receive answer-specific verification evidence before final generation. Controlled fixed-proposal interventions estimate this latent effect in equivalent peer-support units and show that correct evidence changes answer probabilities and generated decisions while proposal supply remains fixed. To improve proposal supply, we construct societies from neural-thicket agents using labeled and label-free coverage objectives. Across two backbones and matched-budget reasoning benchmarks, coverage-selected societies increase complementary proposal supply and improve aggregate accuracy in repeated stochastic evaluations. Round-level controls further show that interaction provides gains beyond applying the same finalizer directly to the initial proposals. These results identify proposal coverage and truth-sensitive evidence use as complementary conditions for debate to outperform voting. Code is available at https://github.com/Wang-ML-Lab/when-debate-helps.",
+      "published": "2026-10-03T17:59:46Z",
+      "updated": "2026-10-03T17:59:46Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG",
+        "cs.MA",
+        "cs.SI"
+      ],
+      "link": "http://arxiv.org/abs/2610.04686v1",
+      "heuristic": 49,
+      "llm_score": 84,
+      "llm_summary": "Phân tích khi nào multi-agent debate thật sự thắng majority voting: cần proposal supply (coverage) cộng verification-aware readout, đề xuất LVD và neural-thicket societies, kiểm định trên hai backbone matched-budget.",
+      "llm_reason": "Core multi-agent reasoning với metric recoverable headroom và controlled experiments thật, insight 'debate chỉ giúp khi có đúng proposal + evidence xác minh' dùng được cho nội dung decision-making.",
+      "group": "high"
+    },
+    {
+      "id": "2608.25937v2",
+      "title": "Candidate supply and answer selection shape the value of LLM judging in multi-agent systems",
+      "abstract": "Multi-agent systems (MAS) sometimes already have the potential to answer correctly, but still report a wrong answer. Explaining this outcome is difficult because generation, communication and final answer-selection rules usually change simultaneously. We conceptualize multi-agent reasoning as an evolutionary pipeline of candidate generation, peer communication and terminal selection, wherein consensus without quality control can exhibit patterns of memetic drift. We study two questions: (1) when an LLM judge provides effective selection pressure by supplying a signal of answer correctness for candidates generated in a multi-agent system, and (2) when using that signal improves the reported answer. To map judge reliability, we analysed 15,336 questions from MMLU-Pro, GPQA, MedXpertQA and MuSR, with Humanity's Last Exam analysed separately. To test these rules, we replayed 81,390 fixed candidate pools drawn from 16,278 questions across five benchmarks. We report three findings. (1) A correct answer is often already present among the generated candidates, but the system can still converge on and report a wrong answer. (2) Judge reliability is not a fixed trait of the model, but varies with the task, the generator and how rare the correct answer is. (3) Combining answer frequency with the judge's evaluation changed only the final answer-selection rule and raised accuracy from 63.82% to 70.82-70.95%, primarily by rescuing correct answers that were outnumbered by popular errors. In the systems studied here, the value of generating more candidates depends on whether those extra samples make correct answers present, frequent or recognisable. By isolating generation, recognition and selection, these findings establish a diagnostic basis for designing multi-agent architectures that protect generated correct answers from being lost.",
+      "published": "2026-08-26T15:52:20Z",
+      "updated": "2026-08-30T17:09:24Z",
+      "cats": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2608.25937v2",
+      "heuristic": 46,
+      "llm_score": 84,
+      "llm_summary": "Phân tích LLM judge trong MAS: đáp án đúng thường đã có trong candidate nhưng hệ vẫn chọn sai; độ tin judge thay đổi theo task/generator/độ hiếm; kết hợp tần suất+judge nâng accuracy.",
+      "llm_reason": "Quy mô lớn (15.336 câu hỏi, 81.390 pool), actionable cho ai dùng LLM-as-judge: đừng chỉ tin judge, hãy kết hợp frequency và kiểm tra candidate.",
+      "group": "high"
+    },
+    {
+      "id": "2610.11370v2",
+      "title": "RIT-RAG: Navigating Document Corpora with Retrieval-Induced Trees",
+      "abstract": "Retrieval-augmented generation (RAG) grounds language models in external corpora. Agentic RAG enables iterative search, yet exposes the model to isolated chunks without document structure, making it difficult to distinguish relevant evidence from chunks that merely resemble the query. Structure-aware methods such as PageIndex navigate using the structure but cannot scale to structures of large corpora that cannot fit in the LLM context. Hence, they first commit to a single document using a document retriever and cannot recover from a wrong choice. We propose RIT-RAG (Retrieval-Induced Tree RAG), which combines content retrieval with structural navigation. Offline, RIT-RAG builds a tree for each document from its table of contents or sitemap. At query time, it retrieves a broad set of chunks and uses their positions to induce manageable sub-trees, potentially across multiple documents. An LLM agent navigate these sub-trees, selectively reads promising nodes, and reformulates queries when needed. Thus, retrieval proposes where to look, while the agent decides what to read. Across financial, scientific, and customer-support benchmarks, RIT-RAG achieves the highest answer accuracy among vanilla, graph-based, and agentic baselines. On EntQABench, our new benchmark of 2.84 million technical-documentation webpages, it improves accuracy by 6.6--11.4 points over the strongest baseline across three LLMs.",
+      "published": "2026-10-08T07:03:17Z",
+      "updated": "2026-10-16T08:20:46Z",
+      "cats": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2610.11370v2",
+      "heuristic": 47,
+      "llm_score": 83,
+      "llm_summary": "RIT-RAG kết hợp retrieval nội dung với điều hướng cây cấu trúc tài liệu để agent RAG đọc đúng chỗ trong kho tài liệu lớn.",
+      "llm_reason": "RAG+agent cốt lõi, benchmark thật (tài chính, khoa học, support, EntQABench 2.84M trang), insight 'retrieval đề xuất, agent quyết định' áp dụng ngay cho content hệ thống nhiều kênh.",
+      "group": "high"
+    },
+    {
+      "id": "2609.05110v1",
+      "title": "Embedding Surgery: Localized Updates for Adaptive Ranking Correction in Dense Retrieval",
+      "abstract": "Dense retrieval systems are core components of modern search engines, recommendation platforms, and retrieval-augmented generation pipelines. They encode documents and queries into dense embeddings, enabling efficient semantic search via vector similarity. However, because document embeddings are computed offline and stored in static indexes, these systems struggle to adapt to user feedback or evolving search intent. To address this limitation, we introduce \\emph{embedding surgery}, a lightweight approach for adaptive ranking correction in dense retrieval. The method applies localized, minimal updates to selected document embeddings at query time, guided by editorial feedback, user interactions, or pseudo-labels from large language models. We formulate embedding surgery as a convex optimization problem that enforces ranking constraints while minimizing modifications to the affected document representations. We integrate embedding surgery into standard dense retrieval pipelines and evaluate it on TREC Deep Learning, TREC Robust, TREC CAsT, and MS MARCO benchmarks. Results show consistent improvements (e.g., up to +60.64\\% relative improvement in nDCG@10 on DL-Hard under editorial feedback), even under noisy or shifting feedback, with low computational cost and without disrupting the global structure of the embedding space. Extensive experiments show that ranking corrections propagate to semantically related queries and that embedding updates can be applied safely and efficiently to scalable Approximate Nearest Neighbor indexes via simple in-place overwriting, without requiring costly index reconstruction. Finally, embedding surgery complements query adaptation methods such as CoRocchio, yielding additional gains while being more robust to noisy feedback.",
+      "published": "2026-09-04T13:06:26Z",
+      "updated": "2026-09-04T13:06:26Z",
+      "cats": [
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2609.05110v1",
+      "heuristic": 50,
+      "llm_score": 82,
+      "llm_summary": "Embedding Surgery: cập nhật cục bộ tối thiểu lên document embedding tại query time theo editorial/user/LLM feedback (tối ưu lồi) để sửa xếp hạng retrieval, cải thiện đến +60.64% nDCG@10 trên TREC/MS MARCO.",
+      "llm_reason": "Benchmark TREC/MS MARCO thật, improvement lớn, chi phí thấp, cực kỳ actionable cho search/recommendation/RAG pipeline và content platform cá nhân hóa theo phản hồi.",
+      "group": "high"
+    }
+  ]
+}

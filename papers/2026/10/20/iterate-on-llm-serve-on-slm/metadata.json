@@ -1,0 +1,16 @@
+{
+  "name": "Iterate on an LLM, Serve on an SLM",
+  "authors": ["Keegan Wang"],
+  "link": "https://arxiv.org/pdf/2610.14576v1",
+  "arxiv_id": "2610.14576v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "iterate-on-llm-serve-on-slm",
+  "skill_test": "SKILL VALID",
+  "venue": "NeurIPS 2026 2nd Workshop on Agentic AI Benchmarks and Applications for Enterprise Tasks (AABA4ET)",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/iterate-on-llm-serve-on-slm"
+}
