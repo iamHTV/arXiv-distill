@@ -692,3 +692,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: be-careful-who-you-trust | Test: SKILL VALID
 ✓ Insight: Sự sụp đổ phối hợp công khai dưới corruption chủ yếu là cơ học (hành động bị đảo ngược thay đổi transcript và thực thi), không phải hành vi agent; phải tách lựa chọn gốc / hành động công khai / kết quả thực thi khi đánh giá độ mạnh đa agent.
 → Tiếp tục: [YES]
+
+## Paper #179 — Forty Shades of Blue: Quality-Diversity Alignment via Mode-Conditioned Reinforcement Learning (2609.14896v1) [applied]
+✓ Skill: forty-shades-of-blue-moda | Test: SKILL VALID
+✓ Insight: Mode collapse là sản phẩm phụ của alignment; MODA dùng role conditioning trong policy chia sẻ (mỗi mode = agent MARL cạnh tranh) + cổng chất lượng tùy prompt để tăng SBERT diversity +265% (Infinite-Chat) và +75.9% so với DivPO, đồng thời giữ/tăng năng lực chung +10.3%.
+→ Tiếp tục: [YES]
