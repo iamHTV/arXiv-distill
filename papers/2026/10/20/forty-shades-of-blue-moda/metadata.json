@@ -1,0 +1,16 @@
+{
+  "name": "Forty Shades of Blue: Quality-Diversity Alignment via Mode-Conditioned Reinforcement Learning",
+  "authors": ["Jiayi Yuan", "Hangoo Kang", "James Jihao Liu", "Yejin Choi", "Vikram Iyer", "Liwei Jiang", "Natasha Jaques"],
+  "link": "https://arxiv.org/pdf/2609.14896v1",
+  "arxiv_id": "2609.14896v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "forty-shades-of-blue-moda",
+  "skill_test": "SKILL VALID",
+  "venue": "arXiv preprint",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/forty-shades-of-blue-moda"
+}
