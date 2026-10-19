@@ -1,0 +1,16 @@
+{
+  "name": "TRACER: Trace-Regularized Training Against Indirect Prompt Injection",
+  "authors": ["Kshitij Mishra", "Salem Lahlou", "Nils Lukas"],
+  "link": "https://arxiv.org/pdf/2610.19133v1",
+  "arxiv_id": "2610.19133v1",
+  "year": 2026,
+  "category": "cs.LG",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "tracer-trace-regularized-training",
+  "skill_test": "SKILL VALID",
+  "venue": "arXiv preprint",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/tracer-trace-regularized-training"
+}
