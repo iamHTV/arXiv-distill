@@ -1,0 +1,16 @@
+{
+  "name": "Embedding Surgery: Localized Updates for Adaptive Ranking Correction in Dense Retrieval",
+  "authors": ["Maddalena Amendola", "Antonio Mallia", "Raffaele Perego"],
+  "link": "https://arxiv.org/pdf/2609.05110v1",
+  "arxiv_id": "2609.05110v1",
+  "year": 2026,
+  "category": "cs.IR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "embedding-surgery",
+  "skill_test": "SKILL VALID",
+  "venue": "ACM CIKM 2026",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/embedding-surgery"
+}
