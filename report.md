@@ -712,3 +712,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: candidate-supply-answer-selection | Test: SKILL VALID
 ✓ Insight: Đáp án đúng thường đã có trong ứng viên nhưng hệ thống vẫn báo cáo sai (khoảng cách tạo–giữ 13–14 pp); độ tin cậy judge không cố định, rank ASEAN half-rise midpoint pgen = 14.7%; kết hợp tần suất bình chọn + xếp hạng judge nâng 63.82% lên 70.82–70.95%, cứu đáp án đúng bị quá số bởi lỗi phổ biến.
 → Tiếp tục: [YES]
+
+## Paper #183 — RIT-RAG: Navigating Document Corpora with Retrieval-Induced Trees (2610.11370v2) [applied]
+✓ Skill: rit-rag | Test: SKILL VALID
+✓ Insight: Phân cách khám phá bằng chứng khỏi đọc nội dung — truy xuất đảm bảo độ thu hồi, cấu trúc truy xuất đảm bảo độ chính xác; không cam kết vào tài liệu duy nhất trước khi thấy nội dung; RIT-RAG cao nhất trên WixQA, QASPER, FinanceBench, EntQABench (2,84M trang), +6.6–11.4 điểm so với cơ sở tốt nhất.
+→ Tiếp tục: [YES]
