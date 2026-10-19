@@ -697,3 +697,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: forty-shades-of-blue-moda | Test: SKILL VALID
 ✓ Insight: Mode collapse là sản phẩm phụ của alignment; MODA dùng role conditioning trong policy chia sẻ (mỗi mode = agent MARL cạnh tranh) + cổng chất lượng tùy prompt để tăng SBERT diversity +265% (Infinite-Chat) và +75.9% so với DivPO, đồng thời giữ/tăng năng lực chung +10.3%.
 → Tiếp tục: [YES]
+
+## Paper #180 — Believed but Not Said: Measuring Hidden Belief Collapse in Multi-Agent LLM Discussions (2610.22138v1) [applied]
+✓ Skill: believed-but-not-said | Test: SKILL VALID
+✓ Insight: Một agent đối đầu gây FPI 44.8% (ba agent 60.5%); nhiễm ẩn (51.6% tư liệu riêng vs 19.7% tán thành công khai) lớn gấp 2.6 lần những gì transcript lộ; kiến thức không dự đoán độ mạnh (85% kiến thức nhưng từ bỏ 25% vs 80%); nhiễm ổn định vào vòng 4, can thiệp phải sớm.
+→ Tiếp tục: [YES]
