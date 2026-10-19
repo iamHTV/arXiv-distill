@@ -672,3 +672,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 - **Skill tạo được:** Multi-Interest Guidance Query Generation (SFT-RL-DPO) — framework/workflow
 - **Skill test:** [SKILL VALID] — dry-run "Shopee seller, customer history trộn máy ảnh + cà phê": compress 50 behaviors → teacher segment 2 clusters → RL sinh 3 queries/cluster + confidence → DPO non-thinking JSON → nearline update → online retrieve; output 2 labels × 3 queries, S ratio ~0.86, uCTR +2.5–4.5%
 - **Insight nổi bật nhất:** Multi-interest segmentation trước khi sinh query (S ratio 0.8616 vs 0.6405 backbone, +22.1pp top-rated queries) + DPO distill think→non-think giữ 96% gain (win rate 57.53%→54.95%) + online A/B test Tmall +4.46% uCTR (10% traffic) / +2.53% (40% traffic, 6 ngày) — deployed hundreds of millions users.
+
+## Paper #175 — Iterate on an LLM, Serve on an SLM (2610.14576v1) [applied]
+✓ Skill: iterate-on-llm-serve-on-slm | Test: SKILL VALID
+✓ Insight: SLM có thể ổn định hơn chính teacher đã định nghĩa nó, vì teacher không deterministic (chỉ đồng ý với bản thân 72.7% thời gian) nên đóng vai trò noisy annotator chứ không phải ground truth; phát triển hành vi trong prompt space trên frontier model rồi distill vào SLM qua dữ liệu production thực.
+→ Tiếp tục: [YES]
