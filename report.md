@@ -677,3 +677,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: iterate-on-llm-serve-on-slm | Test: SKILL VALID
 ✓ Insight: SLM có thể ổn định hơn chính teacher đã định nghĩa nó, vì teacher không deterministic (chỉ đồng ý với bản thân 72.7% thời gian) nên đóng vai trò noisy annotator chứ không phải ground truth; phát triển hành vi trong prompt space trên frontier model rồi distill vào SLM qua dữ liệu production thực.
 → Tiếp tục: [YES]
+
+## Paper #176 — Tool Recommendation for Multi-Step Agents: Finding Every Tool a Task Needs (2610.23707v1) [applied]
+✓ Skill: tool-recommendation-multi-step-agents | Test: SKILL VALID
+✓ Insight: Completeness@10 quan trọng hơn Recall@10 vì thiếu một công cụ trong chuỗi nhiều bước khiến tác vụ thất bại; mỗi lần tìm kiếm thêm một lượt gửi lại toàn bộ cuộc trò chuyện nên tần suất tìm kiếm quyết định xem recommendation có rẻ hơn danh sách tĩnh hay không (ngưỡng ~0.63 tìm kiếm/lệnh gọi công cụ).
+→ Tiếp tục: [YES]
