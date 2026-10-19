@@ -1,0 +1,16 @@
+{
+  "name": "Believed but Not Said: Measuring Hidden Belief Collapse in Multi-Agent LLM Discussions",
+  "authors": ["Liangjie Huang", "Henry Peng Zou", "Wei-Chieh Huang", "Wooseong Yang", "Yuwei Han", "Philip S. Yu"],
+  "link": "https://arxiv.org/pdf/2610.22138v1",
+  "arxiv_id": "2610.22138v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "believed-but-not-said",
+  "skill_test": "SKILL VALID",
+  "venue": "arXiv preprint",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/believed-but-not-said"
+}
