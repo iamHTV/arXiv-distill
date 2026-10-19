@@ -682,3 +682,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: tool-recommendation-multi-step-agents | Test: SKILL VALID
 ✓ Insight: Completeness@10 quan trọng hơn Recall@10 vì thiếu một công cụ trong chuỗi nhiều bước khiến tác vụ thất bại; mỗi lần tìm kiếm thêm một lượt gửi lại toàn bộ cuộc trò chuyện nên tần suất tìm kiếm quyết định xem recommendation có rẻ hơn danh sách tĩnh hay không (ngưỡng ~0.63 tìm kiếm/lệnh gọi công cụ).
 → Tiếp tục: [YES]
+
+## Paper #177 — TRACER: Trace-Regularized Training Against Indirect Prompt Injection (2610.19133v1) [applied]
+✓ Skill: tracer-trace-regularized-training | Test: SKILL VALID
+✓ Insight: Cùng payload giữa injection thành công 53% ở retrieved context vs 18% ở follow-up (authority gradient); TRACER giảm RAG-framed ASR từ 65.5% xuống 6.1% giữ clean accuracy 78-82% qua phần thưởng gated bằng chứng + ATRC trace alignment; đào tạo đa kênh (RAG+tool) đạt average ASR 13.9% tốt nhất tại 3B.
+→ Tiếp tục: [YES]
