@@ -1,0 +1,16 @@
+{
+  "name": "Be Careful Who You Trust: Coordination Dynamics under Corrupted Communication in LLM Multi-Agent Games",
+  "authors": ["Xuanyi Liu", "Niall Dalton", "Hairi Amin", "Xiyuan Yin", "Lydia Lim"],
+  "link": "https://arxiv.org/pdf/2609.31704v1",
+  "arxiv_id": "2609.31704v1",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "be-careful-who-you-trust",
+  "skill_test": "SKILL VALID",
+  "venue": "arXiv preprint",
+  "date_distilled": "2026-10-20",
+  "paper_dir": "papers/2026/10/20/be-careful-who-you-trust"
+}
