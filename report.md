@@ -707,3 +707,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: when-debate-helps | Test: SKILL VALID
 ✓ Insight: Đắn giúp khi cung đề xuất bề mặt câu đúng (headroom có thể phục hồi) VÀ đọc nhận diện câu đúng khi bình chọn bỏ lỡ (LVD bằng chứng xác thực); một trong hai không đủ; hội đồng được chọn qua coverage (AC-Greedy/SC-Greedy) tạo nhiều đề xuất đúng bổ sung hơn top-score.
 → Tiếp tục: [YES]
+
+## Paper #182 — Candidate supply and answer selection shape the value of LLM judging in multi-agent systems (2608.25937v2) [applied]
+✓ Skill: candidate-supply-answer-selection | Test: SKILL VALID
+✓ Insight: Đáp án đúng thường đã có trong ứng viên nhưng hệ thống vẫn báo cáo sai (khoảng cách tạo–giữ 13–14 pp); độ tin cậy judge không cố định, rank ASEAN half-rise midpoint pgen = 14.7%; kết hợp tần suất bình chọn + xếp hạng judge nâng 63.82% lên 70.82–70.95%, cứu đáp án đúng bị quá số bởi lỗi phổ biến.
+→ Tiếp tục: [YES]
