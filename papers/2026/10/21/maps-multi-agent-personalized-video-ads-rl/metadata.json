@@ -1,0 +1,17 @@
+{
+  "name": "MAPS: A Multi-Agent Personalized Script-Driven Video Advertising System Enhanced by Reinforcement Learning",
+  "authors": ["Zhongyu Wang", "Chen Zuo", "Qingxuan Sun", "Jiayang Qiao", "Qiuhao Qian", "Songyan Cui", "Guocheng Chen"],
+  "affiliation": "Beihang University, Kuaishou Technology",
+  "link": "https://arxiv.org/abs/2610.25748",
+  "pdf_link": "https://arxiv.org/pdf/2610.25748",
+  "arxiv_id": "2610.25748v1",
+  "year": 2026,
+  "category": "cs.IR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "maps-multi-agent-video-ad-pipeline",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 197
+}

@@ -785,3 +785,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: nlp-style-behavior-control-dpo | Test: SKILL VALID
 ✓ Insight: DPO cải thiện style adherence (queens traded early 53%→67%, queenside castling 97.3%→99.7%) mà không làm suy yếu sức mạnh không prompt (1792 vs 1797 Elo), dùng cặp cùng output dưới mô tả khác nhau không cần reward model.
 → Tiếp tục: [YES]
+
+## Paper #197 — MAPS: A Multi-Agent Personalized Script-Driven Video Advertising System Enhanced by Reinforcement Learning (2610.25748v1) [applied]
+✓ Skill: maps-multi-agent-video-ad-pipeline | Test: SKILL VALID
+✓ Insight: 4-agent hệ thống (Profile, Scripter, Director, Reflector) tạo quảng cáo video cá nhân hóa theo yêu cầu, CTR +2.87%, CVR +2.74%, ARPU +9.85% trong A/B test thực tế tại Kuaishou.
+→ Tiếp tục: [YES]
