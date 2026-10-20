@@ -790,3 +790,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: maps-multi-agent-video-ad-pipeline | Test: SKILL VALID
 ✓ Insight: 4-agent hệ thống (Profile, Scripter, Director, Reflector) tạo quảng cáo video cá nhân hóa theo yêu cầu, CTR +2.87%, CVR +2.74%, ARPU +9.85% trong A/B test thực tế tại Kuaishou.
 → Tiếp tục: [YES]
+
+## Paper #198 — Fake News, Real Crashes: Information Injection Attacks on LLM Financial Trading Agents (2610.26438v1) [applied]
+✓ Skill: info-injection-defense-star-pipeline | Test: SKILL VALID
+✓ Insight: Thông tin injection đạt ASR 62% (gấp 4.5× prompt injection 14%), hai mẫu 30 từ 100% trên 15 mã cổ phiếu, chỉ star pipeline phân cấp giảm ASR xuống 9–10%.
+→ Tiếp tục: [YES]

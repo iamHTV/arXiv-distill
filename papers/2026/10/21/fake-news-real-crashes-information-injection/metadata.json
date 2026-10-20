@@ -1,0 +1,17 @@
+{
+  "name": "Fake News, Real Crashes: Information Injection Attacks on LLM Financial Trading Agents",
+  "authors": ["Mengxiao Wang", "Nitesh Saxena"],
+  "affiliation": "Texas A&M University",
+  "link": "https://arxiv.org/abs/2610.26438",
+  "pdf_link": "https://arxiv.org/pdf/2610.26438",
+  "arxiv_id": "2610.26438v1",
+  "year": 2026,
+  "category": "cs.CR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "info-injection-defense-star-pipeline",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 198
+}
