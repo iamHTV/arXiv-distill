@@ -1,0 +1,17 @@
+{
+  "name": "AGR: Agentic Generative Retrieval with Tool-Augmented Search",
+  "authors": ["Ming Yang", "Yaqi Yin", "Zhibo Wang", "Xiaoze Jiang", "Jingwei Zhuo", "Chao Zhang", "Quanzhi Zhu", "Weiguo Zheng", "Liang Zeng", "Yunfeng Zhao", "Jiaqiang Liu", "Kefeng Wang", "Yupeng Huang", "Kaiqiao Zhan", "Xuanping Li"],
+  "affiliation": "Fudan University, Kuaishou Technology",
+  "link": "https://arxiv.org/abs/2610.26831",
+  "pdf_link": "https://arxiv.org/pdf/2610.26831",
+  "arxiv_id": "2610.26831v1",
+  "year": 2026,
+  "category": "cs.IR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "tool-augmented-generative-retrieval",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 207
+}

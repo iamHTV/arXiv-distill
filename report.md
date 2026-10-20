@@ -835,3 +835,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: llm-call-site-contract-audit | Test: SKILL VALID
 ✓ Insight: 496 call site / 40 hệ thống agentic: 82% có check trước+sau call nhưng chỉ 5.3% thỏa mãn toàn contract; 63% expected constraints unmet (post-condition gap 72%); 10 pattern giải thích 99% gaps, fail-open handling = 44% conflicting verdicts, 38 mechanism trigger thực tế và 1 code fix nhỏ dừng cả 38.
 → Tiếp tục: [YES]
+
+## Paper #207 — AGR: Agentic Generative Retrieval with Tool-Augmented Search (2610.26831v1) [applied]
+✓ Skill: tool-augmented-generative-retrieval | Test: SKILL VALID
+✓ Insight: Thay vì nhồi 400 feature tokens vào input, agent fetch feature on-demand trong lúc sinh SID: Recall@50 ngang (0.3237 vs 0.3241), training time −81.8%, serving −42.9% (4.76 vs 8.33 GPUs/1K req); A/B test thực tế Kuaishou: relevance +0.205%, query reformulation −0.690%, search penetration +0.060% (latency 35ms).
+→ Tiếp tục: [YES]
