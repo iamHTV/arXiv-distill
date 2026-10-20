@@ -1,0 +1,17 @@
+{
+  "name": "When Code Becomes an LLM Call: An Empirical Study of Call-Site Contracts in Agentic Systems",
+  "authors": ["Shihao Weng", "Longtian Wang", "Yang Feng", "Mingfei Cheng", "Jia Liu", "Chao Shen", "He Ye", "Federica Sarro", "Xiaofei Xie"],
+  "affiliation": "Nanjing University, Xi'an Jiaotong University, Singapore Management University, University College London",
+  "link": "https://arxiv.org/abs/2610.24545",
+  "pdf_link": "https://arxiv.org/pdf/2610.24545",
+  "arxiv_id": "2610.24545v1",
+  "year": 2026,
+  "category": "cs.SE",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "llm-call-site-contract-audit",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 206
+}

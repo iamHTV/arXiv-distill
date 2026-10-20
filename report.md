@@ -830,3 +830,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: daq-deployment-adjusted-quality-eval | Test: SKILL VALID
 ✓ Insight: Trên 31 bài toán OR thực tế (hợp đồng $3.68M), mọi model vượt chuẩn chuyên gia về conditional quality nhưng đều thua về DAQ — Grok 4.6 cao nhất 86.55%, ~86% khoảng cách đến từ deliverable không khả thi (feasibility 45.16–88.39%), không phải toán kém.
 → Tiếp tục: [YES]
+
+## Paper #206 — When Code Becomes an LLM Call: An Empirical Study of Call-Site Contracts in Agentic Systems (2610.24545v1) [applied]
+✓ Skill: llm-call-site-contract-audit | Test: SKILL VALID
+✓ Insight: 496 call site / 40 hệ thống agentic: 82% có check trước+sau call nhưng chỉ 5.3% thỏa mãn toàn contract; 63% expected constraints unmet (post-condition gap 72%); 10 pattern giải thích 99% gaps, fail-open handling = 44% conflicting verdicts, 38 mechanism trigger thực tế và 1 code fix nhỏ dừng cả 38.
+→ Tiếp tục: [YES]
