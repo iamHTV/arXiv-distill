@@ -734,3 +734,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Số liệu: routing+review chiếm 31,7–43,5% token MAS; vs LAS token −12,7–54,6%, accuracy chênh ≤1,34 điểm, latency −(7/8 cấu hình, −45,8% IDRBench I3 DeepSeek, −50,2% API-Bank GPT-5); robustness tiêm lỗi: Attack-MAS ASR 50%→Jev-LiteMAS 3,33–4,00%, accuracy 46,67→94,00% (MATH); screener Jev TPR 95,33%/91,33% gần LLM judge 96,67%/92,00%, SLM generic chỉ 61,33%/44,67%; content-blind routing mất 18,0 điểm accuracy; decision layer overhead chỉ 1,56–2,14% chi phí + 2,92–6,85% latency
 ✓ Insight nổi bật nhất: Coordination trong MAS chỉ cần bounded decision — tách "decide" (decision model Jev) khỏi "generate" (LLM expert) cắt 12,7–54,6% token với accuracy trong ±1,34 điểm, nhưng router NHÌN THẤY artifact thật mới giữ được accuracy (−18 điểm nếu content-blind)
 → Tiếp tục: [YES]
+
+## Paper #187 — How language model agents reshape price competition (2610.21711v1) [applied]
+✓ Skill: llm-pricing-deployment-audit (framework/evaluation-method) | Test: SKILL VALID (dry run: X self-play ∆ 0.88 consumer 15% vs Y 0.05 consumer 95% → regime map + launch Y block X)
+✓ Insight: Cùng foundation model chọn regime đối lập (0.88 vs 0.05 elevation) chỉ bằng thay deployment interface — information interface (hide rival + summary history) chứ không phải output type quyết định; D-S-25 lấy 71–72% industry profit qua undercut nhanh, P-R-1 qua anchor-and-harvest; consumer share 15% vs 95%.
+→ Tiếp tục: [YES]

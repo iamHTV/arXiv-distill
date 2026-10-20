@@ -1,0 +1,13 @@
+{
+  "name": "How language model agents reshape price competition",
+  "authors": ["Martin Bichler", "Philip Hierhager", "Kassian Köck", "Fabian Pieroth"],
+  "link": "https://arxiv.org/pdf/2610.21711v1",
+  "id": "2610.21711v1",
+  "year": 2026,
+  "category": "cs.GT (also cs.LG, cs.MA, econ.GN)",
+  "classification": "applied",
+  "skill_name": "llm-pricing-deployment-audit",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-20",
+  "paper_number": 187
+}
