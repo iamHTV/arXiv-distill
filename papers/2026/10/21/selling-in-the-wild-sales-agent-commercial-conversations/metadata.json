@@ -1,0 +1,17 @@
+{
+  "name": "Selling in the Wild: Benchmark and Randomized Field Evidence for a Sales Agent Trained on Commercial Conversations",
+  "authors": ["Benjamin Tannenbaum"],
+  "affiliation": "Javo, AISO Boost Ltd., Israel",
+  "link": "https://arxiv.org/abs/2610.25461",
+  "pdf_link": "https://arxiv.org/pdf/2610.25461",
+  "arxiv_id": "2610.25461v1",
+  "year": 2026,
+  "category": "cs.IR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "conversation-trained-sales-agent",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 195
+}
