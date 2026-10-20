@@ -749,3 +749,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: local-contract-privacy-enforcement (framework/workflow) | Test: SKILL VALID (dry run: baseline 11.4%/28.2% leak, CostAmp 1.32× → wrapper 4.0%/18.8%, CostAmp 1.02×, usable 92.6%, remote −36.6% attack)
 ✓ Insight: local contract-conditioned rewriting (Gemma 4B local + information-release contract 4 fields) trước checker: leakage 11.41→4.03% normal / 28.19→18.79% attack, remote tokens −17.6%/−36.6%, checker-call amplification 1.69×→1.02×, utility TĂNG (85.2→92.6%) — contract beats generic privacy prompt 36.3–54.1% relative.
 → Tiếp tục: [YES]
+
+## Paper #190 — SAG2: Embedding-Free Multi-Hop Retrieval with BM25 and JEV (2610.22588v1) [applied]
+✓ Skill: sag2-sqlite-bm25-jev-retrieval (framework/workflow) | Test: SKILL VALID (dry run: help-center 500 docs → index 1.2s/11MiB, R@10 85%, 331 judgments/question, $0.87/20 queries; no-context variant 65% validates context role)
+✓ Insight: multi-hop RAG không cần vector DB/embedding service — 1 SQLite FTS5 + BM25 + JEV decision model (hosted): R@10 86.62%/97.43%/99.00% (MuSiQue/2Wiki/HotpotQA), beat mọi 7B embedding model + SAG +3.25–3.86pp; index 11,656 passages 2.36s/25.87MiB/$0 offline; $4.33/1,000 queries; expansion 2 rounds beat one-shot pool matched judgment +16.80pp; shared context đóng góp −10.37pp khi bỏ; EnterpriseRAG 511,962 docs doc-recall 81.10% vs BM25 68.4/Vector 46.0.
+→ Tiếp tục: [YES]

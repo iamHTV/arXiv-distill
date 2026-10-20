@@ -1,0 +1,36 @@
+# [2610.22588v1] SAG2: Embedding-Free Multi-Hop Retrieval with BM25 and JEV
+
+## Problem
+- Multi-hop retrieval (a question needs facts from several passages: passage A names a birthplace, passage B only becomes useful once the birthplace is known) demands expensive infrastructure: dense retrieval needs precomputed corpus embeddings + a vector database; structure-augmented methods (the predecessor SAG) need LLM event-entity extraction + MySQL + Elasticsearch + embeddings. Prior work had not shown strong multi-hop accuracy with minimal infrastructure.
+
+## Contribution
+- SAG2: an embedding-free multi-hop retrieval architecture = one SQLite database + BM25 + contextual evidence decisions from JEV (a specialized decision model via its Noul interface: takes natural-language context, returns a yes-probability per decision, generates no intermediate reasoning text).
+- Replaces SAG's event-entity records + dense indexes with a lexical index over original passages; associations formed online via passage-to-term-to-passage expansion (selected passages supply terms for further retrieval); semantic evidence selection moved to query time, eliminating offline embedding computation, LLM event-entity extraction, and dedicated database servers.
+
+## Method (core)
+- Indexing (offline, 0 model calls): normalize + tokenize (Jieba for CJK + Latin-token handling), remove stopwords, group paragraphs up to 2,200 chars, SQLite FTS5 (title/heading/body fields, BM25 weights 2/2/1) + original text + body-level document frequencies.
+- Retrieval (online): C0 = BM25 top B=100 (OR of up to 80 query tokens); contextual scoring s_r(d) = J(q,d;E_r) in [0,1] — the JEV prompt asks whether the candidate supplies a NECESSARY fact in a fully supported answer chain (including an intermediate identification fact); topical association is insufficient; no outside-knowledge inference; E0=empty, E1 = seeds + first 10 new, final round reconsiders the previous top-10 with their tentative prior scores.
+- Expansion: seeds S_r = top s=10 unexpanded; term priority a_r(t) = max over seeds [(1+log tf)·I(t)·(1+g_q(t,d))·w_r(d)], I(t)=log(1+(N−df+0.5)/(df+0.5)), w_r in [0.5,1] (downweights low-score seeds); top L=20 terms; per-term unseen BM25 lists interleaved by priority order, deduplicated to <=100 new candidates (must match an expansion term; original-query term NOT required — bridge terms possible); H=2 expansions (at most 3 scoring rounds), at most 340 passage judgments per question; local DPP diversity reorder of the TOP-10 only (sparse TF-IDF overlap, preserves #1 and the set, no model call).
+
+## Key Findings
+- Highest Recall@10 on all three benchmarks (1,000-question subsets): MuSiQue 86.62%, 2WikiMultiHopQA 97.43%, HotpotQA 99.00% — beats SAG by +3.25/+3.86/+1.30pp and BM25 by +32.21/+25.93/+12.10pp. MuSiQue complete-evidence coverage (AllEvidence@10): 17.40% (BM25) -> 69.50%.
+- MuSiQue R@10 baselines: BM25 54.41, Contriever 53.58, BGE-Large 64.08, GTE-Qwen2-7B 70.80, GritLM-7B 75.19, NV-Embed-v2 77.27, HippoRAG2 73.76, SAG 83.37 -> SAG2 86.62 (beats every 7B embedding model and the structure-augmented system). SAG retains the R@1/R@2 lead on MuSiQue (advantage stronger when the reader has several passages available).
+- EnterpriseRAG-Bench (511,962 documents, ~1,000-char chunks): document Recall@10 SAG2 81.10% overall vs BM25 68.4 / Vector 46.0 / Bash Agent 55.8; project-related 83.58%, completeness 76.24%, intra-document 100.00%, constrained 96.67%, conflicting 92.50%, basic 86.86%, semantic 58.40% (hardest).
+- Ablations (MuSiQue, paired 95% percentile bootstrap, 2,000 resamples): 1st expansion lifts R@10 67.93 -> 83.36 (+15.43 [14.09,16.81]), 2nd reaches 86.62 (+3.26 [2.52,4.02]); one expansion uses 36.29% fewer judgments (a lower-cost operating point); expansion recovers supporting passages absent from the initial top-100 on 389/1,000 questions.
+- Judgment budget control: one-shot BM25+JEV with matched judgments (329,194 vs 331,325; 0.64% shortfall) reaches only R@10 69.82 / AE@10 39.60 vs SAG2 86.62/69.50 (+16.80 [15.28,18.33]) — a bigger one-shot pool does NOT substitute for contextual expansion.
+- Context ablation: removing shared scoring context -> R@10 76.25 (-10.37 [9.11,11.64]), AE@10 52.20 — retrieved context drives evidence selection and the expansion that follows.
+- Cost: indexes 11,656 passages in 2.36 seconds, 25.87 MiB SQLite, 0 offline model calls / $0; JEV charges $0.433769 per 100 queries, $4.326379 per 1,000 queries (excludes machine rental and answer generation); model typesafe/jev-1.13-20260917 via OpenRouter; question + HTTP concurrency capped at 20.
+- MuSiQue subset: 518 two-hop, 316 three-hop, 166 four-hop questions.
+
+## Actionable Insights
+- Build knowledge-base retrieval with one SQLite FTS5 + a hosted decision model — no vector DB, embedding service, or MySQL/Elasticsearch stack: index thousands of passages in seconds, deploy on one file. E.g. a solopreneur with 500 help-center articles gets a SQLite FTS5 index in ~1s and multi-hop answers via a BM25+JEV pipeline at ~$4.3 per 1,000 queries (JEV charges).
+- Don't solve multi-hop by enlarging the one-shot candidate pool: a matched 329K-judgment budget in one shot yields only 69.82% R@10 vs 86.62% with contextual expansion — spend the budget on 2 expansion rounds, not on B=100->200. E.g. enterprise RAG: expand depth, not breadth.
+- Combine local BM25 with a separate contextual decision model (JEV-class) instead of an embed-model monoculture: lexical misses paraphrases but bridge-term expansion rescued 389/1,000 questions, and the decision model judges evidence IN CONTEXT rather than standalone similarity. E.g. use a Noul-style yes-probability scorer for evidence selection in your pipeline.
+
+## Assumptions & Limitations
+- Conditions: access to the hosted JEV decision service (via OpenRouter); corpus passages with lexical term connections (bridge terms); question distribution similar to multi-hop QA benchmarks.
+- Authors admit: JEV architecture/parameters/weights are NOT public — the system cannot be fully on-prem with public artifacts; it depends on provider availability/throughput and questions+candidate text must be sent to the service — unusable where external processing is prohibited; term-weight factors are not isolated and JEV superiority over other decision models is not proven; fixed dev subsets with MuSiQue used during development (overfit risk); EnterpriseRAG-Bench is synthetic; lexical access misses paraphrases, aliases, and evidence without a useful term connection; four-hop complete-evidence coverage remains low; cost study covers one corpus — scaling and incremental updates unmeasured; online latency not reported.
+- Not stated: retrieval-only metrics — answer generation is NOT evaluated (high recall != answer quality); JEV's $4.33/1,000 queries is not compared fairly with self-hosted embedding-model cost; JEV service outage kills the system (single point of failure); concurrency cap 20 limits throughput; the local DPP diversity heuristic is not separately ablated; the B=100 candidate cap may miss rare passages in very large corpora.
+
+## Metadata
+- Year: 2026 | Author: Yuchao Wu (Zleap AI) | Category: cs.CL | PDF: https://arxiv.org/pdf/2610.22588v1 | Citations: [NO DATA — published 15 Oct 2026] | Code: https://github.com/Zleap-AI/SAG-Benchmark
