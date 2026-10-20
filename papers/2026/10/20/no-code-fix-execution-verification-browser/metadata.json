@@ -1,0 +1,14 @@
+{
+  "name": "Can LLMs Fix It Without Code? Toward Automated Verification of No-Code Bug Fixes",
+  "authors": ["Utku Boran Torun", "Veli Karakaya", "Eray Tüzün"],
+  "link": "https://arxiv.org/pdf/2610.11963v1",
+  "id": "2610.11963v1",
+  "year": 2026,
+  "category": "cs.SE",
+  "classification": "applied",
+  "skill_name": "no-code-fix-execution-verification",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-20",
+  "paper_number": 194,
+  "affiliations": "Bilkent University (equal contribution Torun/Karakaya)"
+}
