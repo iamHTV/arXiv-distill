@@ -1,0 +1,14 @@
+{
+  "name": "Designing for Imperfect Prompts: A Simulation-Based Evaluation of an LLM-Based Enterprise Data Assistant Using Knowledge Graphs",
+  "authors": ["Niklas Wagner", "Alexander Mädche"],
+  "link": "https://arxiv.org/pdf/2610.23304v1",
+  "id": "2610.23304v1",
+  "year": 2026,
+  "category": "cs.HC (also cs.AI, cs.DB)",
+  "classification": "applied",
+  "skill_name": "kg-semantic-mediation-layer",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-20",
+  "paper_number": 191,
+  "venue": "ECIS 2026 (Milan)"
+}
