@@ -1,0 +1,17 @@
+{
+  "name": "Ask Less, Ask Better: Allocating User Attention in Proactive LLM Agents with Interruption Budgets",
+  "authors": ["Xuanming Zhang", "Amir H. Rezaeian", "Miguel Ballesteros", "Weiyi Sun", "Werner Geyer", "Lydia B. Chilton", "Zhou Yu", "Yassine Benajiba", "Dan Roth"],
+  "affiliation": "Columbia University, Oracle AI",
+  "link": "https://arxiv.org/abs/2610.24411",
+  "pdf_link": "https://arxiv.org/pdf/2610.24411",
+  "arxiv_id": "2610.24411v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "interruption-budget-user-attention-cost",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 203
+}

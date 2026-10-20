@@ -815,3 +815,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: scalemas-substrate-coordination | Test: SKILL VALID
 ✓ Insight: ScaleMAS dùng kho dữ liệu tin nhắn liên kết chung + trích dẫn từ đồng nghiệp để xếp hạng, đạt 65.3% BrowseComp-Plus với 16 agent (từ 38.1% với 1), scale đến 128 agent và chịu được agent lỗi.
 → Tiếp tục: [YES]
+
+## Paper #203 — Ask Less, Ask Better: Allocating User Attention in Proactive LLM Agents with Interruption Budgets (2610.24411v1) [applied]
+✓ Skill: interruption-budget-user-attention-cost | Test: SKILL VALID
+✓ Insight: Ngân sách 1–3 câu hỏi cắt chi phí chú ý người dùng 36–73% giữ 86–94% phần thưởng tác vụ; memory-guided review cắt thêm 13% chi phí với mất phần thưởng tối thiểu.
+→ Tiếp tục: [YES]
