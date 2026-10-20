@@ -840,3 +840,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: tool-augmented-generative-retrieval | Test: SKILL VALID
 ✓ Insight: Thay vì nhồi 400 feature tokens vào input, agent fetch feature on-demand trong lúc sinh SID: Recall@50 ngang (0.3237 vs 0.3241), training time −81.8%, serving −42.9% (4.76 vs 8.33 GPUs/1K req); A/B test thực tế Kuaishou: relevance +0.205%, query reformulation −0.690%, search penetration +0.060% (latency 35ms).
 → Tiếp tục: [YES]
+
+## Paper #208 — IF-MAP: Influence-Function-Inspired Agent Prioritization in Multi-Agent Systems (2610.24383v1) [applied]
+✓ Skill: ifmap-agent-prioritization-probing | Test: SKILL VALID
+✓ Insight: Đo "potential to improve" bằng prompt perturbation probing (black-box, không cần gradient): prompt optimization +3.81 pp vs +1.85 uniform; model upgrade +7.62–16.42 pp vs +3.81–8.62 uniform, tiết kiệm 63.6–74.2% tokens — chọn đúng 1 agent nâng cấp hiệu quả gấp ~2 lần chọn ngẫu nhiên.
+→ Tiếp tục: [YES]

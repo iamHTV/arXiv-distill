@@ -1,0 +1,17 @@
+{
+  "name": "IF-MAP: Influence-Function-Inspired Agent Prioritization in Multi-Agent Systems",
+  "authors": ["Jie Mao", "Pingchen Lu", "Zikun Qu", "Jiahang Sun", "Xiangyi Wang", "Zhiwei Shang", "Zhiyong Wang", "Guojun Xiong", "Zhongxiang Dai"],
+  "affiliation": "The Chinese University of Hong Kong Shenzhen, Harbin Institute of Technology, Harvard University",
+  "link": "https://arxiv.org/abs/2610.24383",
+  "pdf_link": "https://arxiv.org/pdf/2610.24383",
+  "arxiv_id": "2610.24383v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "ifmap-agent-prioritization-probing",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 208
+}
