@@ -1,183 +1,179 @@
 {
   "date": "2026-10-21",
-  "watermark_from": "2026-10-16T17:59:30Z",
-  "seen_before": 200,
+  "watermark_from": "2026-10-19T17:59:59Z",
+  "seen_before": 210,
   "total_fetched": 6076,
-  "after_seen": 5896,
-  "after_category": 5394,
-  "after_heuristic": 5184,
+  "after_seen": 5886,
+  "after_category": 5384,
+  "after_heuristic": 5174,
   "papers": [
     {
-      "id": "2610.25461v1",
-      "title": "Selling in the Wild: Benchmark and Randomized Field Evidence for a Sales Agent Trained on Commercial Conversations",
-      "abstract": "We test whether Javo, a sales agent fine-tuned on 4.6 million consented, de-identified commercial conversations, sells better than a frontier general-purpose model and better than human sales associates. The evaluation has four parts. Study 1 scores the agent on two public sales benchmarks, SalesLLM and SmartSalesBench, against 10 frontier and open-weight models. Study 2 is a randomized controlled trial on 100 live websites in 14 industries (e-commerce, travel and hospitality, and high-consideration services), run from 1 May to 30 September 2026, in which 14.8 million visitors were randomized to no agent, Javo, or a frontier-model agent with an identical interface, catalog tools and guardrails. Study 3 isolates the effect of the model by comparing those two agent arms. Study 4 compares Javo with each site's own human associates on 20 sites with staffed live chat. Relative to no agent, Javo changed revenue per visitor by +10.0% (95% CI +5.1 to +14.9). Among engaged visitors, it changed conversion by +21.6% relative to the frontier-model agent (95% CI +16.9 to +26.3). Against human associates, its engaged conversion was 11.26% versus 11.20% (non-inferior, margin -7%, one-sided p = 0.004; no significant superiority), at 1.8% of the cost per conversation. Return rates, unsupported product claims and complaint rates met the prespecified safety guardrails.",
-      "published": "2026-10-18T18:45:04Z",
-      "updated": "2026-10-18T18:45:04Z",
+      "id": "2610.24087v1",
+      "title": "OR-License: Evaluating LLM Agents as Real-World Operations Research Practitioners",
+      "abstract": "Can large language model (LLM) agents deliver expert-level operations research (OR) solutions directly from original client materials, without prior expert reformulation? Existing OR benchmarks typically begin with self-contained descriptions or predefined optimization tasks, underrepresenting the translation of original business materials into professionally validated solutions. We introduce OR-License, an end-to-end benchmark of 31 instances across 10 industrial scenarios from paid OR engagements totaling USD 3.68 million. It preserves original requirements, input data, deliverable formats, and information boundaries after de-identification. To study information acquisition, we introduce ORSim, a controlled client simulator that discloses business facts without supplying OR expertise. Hidden evaluation checks feasibility and compares objective quality against original expert solutions accepted by clients before benchmark construction. Deployment-Adjusted Quality (DAQ) averages expert-relative quality across instances, assigning zero to infeasible deliveries. Across 11 frontier LLMs using coding-agent harnesses, several exceed the expert reference in conditional objective quality, but none matches its DAQ; the strongest primary Claude Code configuration achieves 88.39% strict feasibility and a DAQ of 0.87 against the expert reference of 1. Client information acquisition extends beyond clarification into solution development and validation, with some later stages showing higher confirmed issue-resolution proportions. Trajectory analysis identifies formulation and implementation failures, while task-equalized research-chain completion rates range from 24% to 45% across models on evaluable tasks. These findings motivate sustained information-gap resolution, faithful problem formulation, and evidence-linked self-improvement for reliable long-horizon agents.",
+      "published": "2026-10-16T18:13:25Z",
+      "updated": "2026-10-16T18:13:25Z",
       "cats": [
-        "cs.IR",
-        "cs.CY"
-      ],
-      "link": "http://arxiv.org/abs/2610.25461v1",
-      "heuristic": 66,
-      "llm_score": 94,
-      "llm_summary": "Javo sales agent fine-tune trên 4.6M cuộc hội thoại thương mại, RCT 14.8M visitor trên 100 site thật cho +10% revenue/visitor, +21.6% conversion engaged vs frontier model, ngang bằng nhân viên sale ở 1.8% chi phí.",
-      "llm_reason": "Đỉnh cho solopreneur: evidence thương mại thật (RCT, 95% CI, guardrail an toàn) trả lời thẳng câu 'AI agent có bán hàng được, lời bao nhiêu, tốn bao nhiêu' — content gold và quyết định đầu tư luôn.",
-      "group": "high"
-    },
-    {
-      "id": "2610.25356v1",
-      "title": "CHSM8: A Chess Transformer that Follows Natural-Language Style Prompts",
-      "abstract": "We present CHSM8, a 210M-parameter chess transformer that plays moves conditioned on a free-text description of a playing style, e.g. \"go for the Sicilian Defense\", \"solid, safe, risk-free chess\" or \"You are Magnus Carlsen in his prime\". The model is pretrained without search on 1.07B filtered Lichess games, using a factorized move representation and legal-move masking. It reaches 1837 Elo against a strength-limited Stockfish and, in 1,000-game matches, beat every other public model we tested that was likewise trained without preference tuning, rewards or search, including one with 13 times as many parameters. We then fine-tune it to follow text on a synthetic dataset: Gemma-4-31B describes the playing style of 3M game sides, a 1B Gemma-3 model distilled from the 2.4M of those descriptions that contradict nothing on the board labels the rest, and every one of 30M selected game sides gets five descriptions. Supervised fine-tuning attaches a frozen text encoder through gated cross-attention, and direct preference optimization (DPO) uses the same moves under a mismatched description as the rejected sample. After DPO, style adherence rises on every prompt we test (for example, queens traded early 53% -&gt; 67%, pawn moves 29% -&gt; 32% of all moves, queenside castling 97.3% -&gt; 99.7%), and strength without a prompt stays within noise of SFT (1792 vs. 1797 Elo). Design choices at every stage were made by fixed-budget automated search loops on top of standard architectures and training recipes. We document the full pipeline and the decisions behind it, report the ablations that failed, and evaluate the models across many style prompts and kinds of games, with 1,000 games per setting. The work is fully open source and reproducible: weights, datasets with all training labels, prompts, configurations, inference code and playable demos are public and free to build on.",
-      "published": "2026-10-18T15:57:03Z",
-      "updated": "2026-10-18T15:57:03Z",
-      "cats": [
-        "cs.LG",
-        "cs.AI",
-        "cs.CL"
-      ],
-      "link": "http://arxiv.org/abs/2610.25356v1",
-      "heuristic": 57,
-      "llm_score": 92,
-      "llm_summary": "CHSM8 là chess transformer 210M chơi cờ theo prompt phong cách ngôn ngữ tự nhiên, dùng DPO để tăng adherence mà vẫn giữ lực 1837 Elo.",
-      "llm_reason": "Cực kỳ sát mảng cờ tướng + AI, experiment thật quy mô lớn (1.07B ván, 1000-game match), và cho sẵn góc content 'AI chơi theo phong cách' để làm nhiều kênh.",
-      "group": "high"
-    },
-    {
-      "id": "2610.25748v1",
-      "title": "MAPS: A Multi-Agent Personalized Script-Driven Video Advertising System Enhanced by Reinforcement Learning",
-      "abstract": "With the rapid growth of online video consumption, video advertising has become a dominant component of digital advertising. Most personalized video advertising systems follow a retrieval-based paradigm, which matches ad content with user preferences in a feature space and recommends the most similar candidates. However, since the candidate creatives are pre-produced, this paradigm limits the granularity of personalization and leads to performance disparities across diverse user groups. To address this limitation, we propose a multi-agent personalized script-driven video advertising system (MAPS). We design four collaborative agents that form a closed-loop pipeline of user profile modeling, script generation, video synthesis, and feedback-driven iterative refinement. To train the Scripter Agent, we develop a reinforcement learning framework equipped with a multi-dimensional reward function, which steers the agent toward producing scripts that simultaneously align with user content preferences and target product information. Extensive offline experiments on representative datasets demonstrate that our approach achieves encouraging performance in generating and integrating personalized creatives. Online A/B experiments in a specific scenario in the Kuaishou advertising system show that MAPS improves CTR by 2.87%, CVR by 2.74%, and ARPU by 9.85% over the generative baseline.",
-      "published": "2026-10-19T04:00:27Z",
-      "updated": "2026-10-19T04:00:27Z",
-      "cats": [
-        "cs.IR",
-        "cs.CV",
-        "cs.MA"
-      ],
-      "link": "http://arxiv.org/abs/2610.25748v1",
-      "heuristic": 64,
-      "llm_score": 90,
-      "llm_summary": "MAPS dùng 4 agent (profile→script→video→feedback) + RL multi-reward tạo quảng cáo video cá nhân hóa, A/B thật trên Kuaishou: CTR +2.87%, CVR +2.74%, ARPU +9.85%.",
-      "llm_reason": "Trực tiếp phục vụ content/video + marketing với kết quả kinh doanh thật (CTR/CVR/ARPU), cho solopreneur làm video content nhiều kênh một recipe script-driven ads actionable rõ ràng.",
-      "group": "high"
-    },
-    {
-      "id": "2610.26438v1",
-      "title": "Fake News, Real Crashes: Information Injection Attacks on LLM Financial Trading Agents",
-      "abstract": "Large language model (LLM) agents now trade real capital using news as evidence, yet they cannot reliably tell fabricated headlines from real news. Because they read the same feeds under near-identical policies, a single fabricated post can push them into the same trade at the same moment. We present a systematic attack benchmark for information injection against LLM trading agents. Unlike prompt injection, which targets the model's instructions, information injection targets the evidence the agent trusts. The benchmark spans five injection vectors and seven event categories, evaluated over ~10,000 decisions on 15 U.S. stocks. Five findings emerge. (i) Prompt injection achieves 14% attack success rate (ASR), but fabricated news reaches 62% and two 30-word templates reach 100% on all 15 stocks, inverting the usual LLM-security intuition. (ii) For fact-poisoning templates, surface form matters more than content, since removing credibility cues such as a named source or a \"BREAKING\" tag drops ASR from 100% to 0% while the fake claim remains identical. (iii) Success depends on the agent's state, with a fake indicator panel scoring 91% against an agent about to hold but 12% against one about to buy. (iv) Attacks generalize across model vendors and remain effective when blended, unlabeled, into real news feeds. (v) Most attacks evade standard defenses, since model scaling stops shallow vectors but not fact poisoning, peer debate fails, and only hierarchical aggregation reduces ASR.",
-      "published": "2026-10-19T13:58:50Z",
-      "updated": "2026-10-19T13:58:50Z",
-      "cats": [
-        "cs.CR",
+        "cs.CL",
         "cs.AI"
       ],
-      "link": "http://arxiv.org/abs/2610.26438v1",
-      "heuristic": 51,
-      "llm_score": 89,
-      "llm_summary": "Benchmark tấn công information injection vào LLM trading agent, cho thấy fake news 30 chữ đạt 100% success trên 15 cổ phiếu và phần lớn phòng thủ thất bại.",
-      "llm_reason": "Rất sát business/decision, experiment 10k decisions thật, insight về thao túng AI agent cực dễ biến thành content viral nên điểm cao nhất.",
+      "link": "http://arxiv.org/abs/2610.24087v1",
+      "heuristic": 48,
+      "llm_score": 88,
+      "llm_summary": "OR-License benchmark 31 bài toán operations research từ hợp đồng thật 3,68M USD, đánh giá LLM agent chuyển vật liệu khách hàng thành lời giải chuyên nghiệp.",
+      "llm_reason": "Cực kỳ sát business/decision (client materials, deliverables, feasibility, DAQ), experiment thật và cho insight chọn agent/harness cho công việc tối ưu hóa.",
       "group": "high"
     },
     {
-      "id": "2610.25985v1",
-      "title": "NIOCIS: Typed-Decision Next-Hop Routing with Node-Conditioned Option Spaces for Tool-Use Agents",
-      "abstract": "Tool-use agents pay per decision: at each hop a language model re-reads the state and thinks for seconds, though its actions are finite and decisions recur. We present NIOCIS, a routing layer that folds execution logs into a loop-collapsed action graph (forward transitions plus recovery back-edges) answering one typed question: which declared option at a state, plus stop, does the fleet take next? A small model reads a calibrated distribution over them in one pass, emitting no text. On 1,615 production security-operations episodes we measure what the layer replaces, returns and is bounded by. Replaces: the typed encoder matches the logged next hop on 32.2% of the 3,875 held-out decisions (34.9% within the declared options) in 10 ms of encoder time (19.5 ms for the typed-choice form), against 2.2 s per LLM hop; two feature readouts reach 32.8% and 32.3%, an ordering the paired test does not resolve, so the typed layer is chosen for cost, not a separated lead. Tuning: jpt-4b reaches 9.9% zero-shot and 31.9% fine-tuned, a gap an exact paired test does not resolve (p=0.68), at 244 ms. Returns little: the realised hop falls outside the declared options for 7.9% of decisions and outside the model's top twenty for 9.3%; the most confident 15% holds 91.9% accuracy. Bounded: a cross-trace leave-one-out test puts the released state's ceiling at 25.6--44.9% as the state key grows more specific, i.e. repeated states disagree more often than they agree; the option-space ablation attributes the gain to per-node candidate restriction (+3.5 points over a flat catalog) rather than graph traversal (zero within its interval); a gated self-evolution loop lifts every arm above its anchor yet ends below full supervision; a confidence-gated cascade loses agreement when the escalation arm is the zero-shot stand-in; and agreement past a third of the fleet needs a state carrying the plan and the observation.",
-      "published": "2026-10-19T08:10:26Z",
-      "updated": "2026-10-19T08:10:26Z",
+      "id": "2610.24545v1",
+      "title": "When Code Becomes an LLM Call: An Empirical Study of Call-Site Contracts in Agentic Systems",
+      "abstract": "Software quality has long rested on specifications that state what code must do, and on testing and verification that check that the code does it. Agentic systems change this foundation: they replace parts of their logic, such as choosing the next tool, judging whether an action is allowed, or writing code to run, with calls to a large language model (LLM). The program still relies on what this logic must guarantee, but the model's behavior is not fixed by code, varies across runs, and can be steered by its input. The guarantee must therefore come from the program around each LLM call site, as a contract of pre-conditions, prompt constraints, and post-conditions. We present an empirical study of these contracts in 496 LLM call sites of 40 popular open-source agentic systems (13.4 MLOC, four languages). Using a multi-agent pipeline validated by 17,428 human judgments, we trace where every model output flows, derive an expected contract for each call site without access to its code, and compare it with the contract that the code implements. We find that 48% of LLM outputs reach control flow or execution, and 73% of these never reach a person. Programs enforce 78% of their constraints in code, but in the prompt, 67% of the constraints are only requested from the model. Although 82% of call sites are checked before and after the call, 63% of the expected constraints are unmet and only 5.3% of call sites satisfy their whole contract; ten recurring patterns explain 99% of the gaps. 38 mechanisms behind these gaps trigger at runtime, and a small code fix that enforces the expected constraint stops all 38. Our results show that the presence of checks says little about their adequacy, and we derive implications for agent developers, framework maintainers, and researchers.",
+      "published": "2026-10-17T08:14:37Z",
+      "updated": "2026-10-17T08:14:37Z",
       "cats": [
-        "cs.CR",
+        "cs.SE",
         "cs.AI",
-        "cs.LG"
+        "cs.CR"
       ],
-      "link": "http://arxiv.org/abs/2610.25985v1",
-      "heuristic": 59,
-      "llm_score": 87,
-      "llm_summary": "NIOCIS thay các hop LLM đắt đỏ trong tool-use agent bằng layer routing nhỏ đọc đồ thị hành động từ log, quyết định trong 10ms thay vì 2.2s.",
-      "llm_reason": "Cực kỳ actionable: giảm cost/latency cho agent lặp lại quyết định, đo trên 1,615 episode production — đúng bài toán kinh tế của solopreneur chạy nhiều kênh.",
+      "link": "http://arxiv.org/abs/2610.24545v1",
+      "heuristic": 63,
+      "llm_score": 86,
+      "llm_summary": "Nghiên cứu thực nghiệm 496 LLM call site trong 40 hệ thống agentic (13.4M LOC): 48% output ảnh hưởng control flow, 63% constraint không được enforce.",
+      "llm_reason": "Rực rỡ cho người build agent: chỉ ra gap giữa prompt request vs code enforcement, cho pattern pre/post-condition actionable ngay để tăng độ tin cậy.",
       "group": "high"
     },
     {
-      "id": "2610.24873v1",
-      "title": "The One-Pixel of Reasoning: One Truthful Relation Is Enough to Mislead LLM Agents",
-      "abstract": "Can one sentence manipulate an agent's belief by targeting a single implicit warrant linking evidence to a conclusion? In this paper, we introduce the one-relation attack (ORA), a novel cognitive attack on this inferential relation. ORA localizes a critical implicit warrant and performs a one-relation intervention using a single source-grounded sentence that qualifies this warrant and steers the agent toward an incorrect belief. Across eighteen models on biomedical inference and vulnerability detection, best-of-$10 attacks overturn initially correct answers at mean rates of 54.9% for proprietary and 80.0% for open-weight models. Attacks also transfer without victim feedback, and paired controls support the roles of targeting and qualification. Moreover, successful sentences can pass source-support checks and evade identification, and multi-agent debate raises team error from 50.0% to 59.5% in our balanced stress test. These findings establish implicit warrants as a cognitive attack surface for manipulating agents' beliefs.",
-      "published": "2026-10-17T21:21:36Z",
-      "updated": "2026-10-17T21:21:36Z",
+      "id": "2610.26831v1",
+      "title": "AGR: Agentic Generative Retrieval with Tool-Augmented Search",
+      "abstract": "Large-scale search and recommendation systems derive much of their retrieval quality from rich, heterogeneous features, yet existing generative retrieval (GR) methods struggle to exploit such feature ecosystems efficiently. Static feature injection either encodes all available signals or places them according to predetermined schemes, increasing serving cost and introducing irrelevant or conflicting evidence. More fundamentally, existing methods cannot adaptively determine when a feature is needed, which feature to select, or where it should influence hierarchical Semantic ID (SID) generation. We propose Agentic Generative Retrieval (AGR), a tool-augmented paradigm that interleaves SID generation with on-demand feature acquisition. Conditioned on the request and decoded SID prefix, AGR decides whether to invoke a tool, which feature to acquire, and where its observation should influence subsequent decoding, thereby steering generation toward feature-consistent SID branches. To supervise this behavior, we construct tool-augmented trajectories based on feature applicability and information gain along the SID hierarchy, and train the model through SID pretraining followed by tool-augmented fine-tuning. Experiments on an industrial dataset and three public benchmarks, together with an online A/B test, consistently demonstrate the effectiveness of AGR.",
+      "published": "2026-10-19T17:56:04Z",
+      "updated": "2026-10-19T17:56:04Z",
       "cats": [
-        "cs.AI",
-        "cs.CL",
-        "cs.CR",
-        "cs.MA"
+        "cs.IR"
       ],
-      "link": "http://arxiv.org/abs/2610.24873v1",
+      "link": "http://arxiv.org/abs/2610.26831v1",
       "heuristic": 47,
-      "llm_score": 85,
-      "llm_summary": "Chứng minh một câu grounded duy nhất nhắm vào implicit warrant có thể lật đáp án đúng của agent (54.9% proprietary, 80% open-weight) và multi-agent debate còn làm tăng lỗi team.",
-      "llm_reason": "Rất content-heavy: phát hiện tấn công nhận thức agent có experiment 18 model, story cực mạnh cho kênh AI/30+, lại cảnh báo dùng AI ra quyết định business.",
+      "llm_score": 86,
+      "llm_summary": "AGR biến retrieval sinh thành dạng agentic: model tự quyết khi nào gọi tool, lấy feature nào và chèn vào đâu trong quá trình sinh Semantic ID, có A/B test online thật.",
+      "llm_reason": "Đúng trọng tâm tool-use/agentic, experiment công nghiệp + A/B test rất thuyết phục, insight 'kích hoạt tool theo nhu cầu' áp dụng trực tiếp cho content về search/recommendation và xây dựng sản phẩm AI.",
       "group": "high"
     },
     {
-      "id": "2610.25954v1",
-      "title": "CXBench: A Benchmark for Process-Compliant LLM Agents in Regulated Customer-Experience Workflows",
-      "abstract": "Tool-using language agents increasingly perform regulated customer-service workflows, where a correct final state is insufficient: agents must also provide disclosures, obtain consent, and follow required procedures. Existing tool-agent benchmarks largely score final business states, accepting trajectories that reach correct outcomes through non-compliant processes. We introduce cxbench, a benchmark that evaluates outcome and process compliance separately across six regulated domains. Each task combines a customer request, a tool-based environment, and explicit process requirements. Rule cards link cited regulatory obligations to observable trace evidence. A hybrid grader combines deterministic checks for ordering and authority with an LLM judge for semantic requirements. We define a false-pass as an outcome-pass run that fails process checks. Across seven models and 120 tasks, 55.5% of the 840 retained executions are false-passes, representing 80.1% of outcome-passing runs; only 13.8% pass both checks. Process-inclusive evaluation changes the observed model ordering and exposes differences hidden by outcome-only scoring. cxbench makes these failures inspectable through trace-linked criteria.",
-      "published": "2026-10-19T07:46:04Z",
-      "updated": "2026-10-19T07:46:04Z",
-      "cats": [
-        "cs.AI"
-      ],
-      "link": "http://arxiv.org/abs/2610.25954v1",
-      "heuristic": 52,
-      "llm_score": 84,
-      "llm_summary": "CXBench đánh giá agent tool-use trong workflow CX có quy định, tách điểm outcome khỏi process compliance và phát hiện 55.5% run là 'false-pass' trên 7 model/120 task.",
-      "llm_reason": "Cho 30/35 vì đúng agent + tool-use + benchmark, 23/25 vì 840 executions với rule cards và hybrid grader, 16/20 business (customer experience, compliance rất sát làm dịch vụ) và 15/20 hành động (khái niệm false-pass, kiểm tra quy trình khi build agent).",
-      "group": "high"
-    },
-    {
-      "id": "2610.16120v1",
-      "title": "Scaling Multi-Agent Intelligence with Substrate-Centric Coordination",
-      "abstract": "Existing large language model (LLM) based multi-agent systems have been shown to scale poorly, and we identify three problems: reading burden that grows with the group, useful information diluted by shared work of unknown quality, and fragility to failed agents. We argue that the problems are largely due to agent-centric designs: the coordination structure is wired into fixed workflows, central coordinators, or peer-to-peer messaging, and recent blackboard-style methods that move the coordination into a shared medium relieve only the last problem. To close the gaps, we build ScaleMAS, where asynchronous agents interact with a shared datastore of linked messages via three operations: publishing messages with optional references to earlier ones that they build on, searching for messages by content, and visiting messages by address. Search returns at most $k$ messages, so an agent's read stays bounded at any group size; results are ranked by relevance and by how often they are cited, which we find to be an effective proxy for quality; and messages persist after their producers leave, so the group carries on when individual agents fail. Across four agentic tasks, ScaleMAS outperforms agent-centric and blackboard-style baselines at lower inference compute, continues to scale up to 128 agents, and tolerates losing agents midway.",
-      "published": "2026-10-12T03:37:39Z",
-      "updated": "2026-10-12T03:37:39Z",
-      "cats": [
-        "cs.CL",
-        "cs.MA"
-      ],
-      "link": "http://arxiv.org/abs/2610.16120v1",
-      "heuristic": 51,
-      "llm_score": 84,
-      "llm_summary": "Thiết kế multi-agent substrate-centric với shared datastore, search giới hạn k message để scale tới 128 agent, chịu lỗi và giảm inference compute.",
-      "llm_reason": "Multi-agent scaling + lower inference cost rất đúng chủ đề agent, insight kiến trúc hành động được cao, khá hữu ích cho content về hệ thống agent.",
-      "group": "high"
-    },
-    {
-      "id": "2610.24411v1",
-      "title": "Ask Less, Ask Better: Allocating User Attention in Proactive LLM Agents with Interruption Budgets",
-      "abstract": "LLM agents can ask clarifying questions to complete tasks, but answering each question demands users' time and effort. Existing evaluations typically measure this burden by counting questions, treating necessary and avoidable questions equally. We propose an evaluation protocol that distinguishes how often agents ask from how well they ask. An interruption budget limits the number of questions, while a user-attention cost charges extra for questions that are hard to read or not worth asking, as rated by a human-validated LLM judge. Beyond question counts, this cost captures perceived effort: on conversation pairs with the same number of questions, human annotators agreed with the cost on which conversation required more effort 75% of the time. Across eight LLMs and four customer-service domains, limiting agents to one to three questions reduces user-attention cost by 36-73% while keeping 86-94% of the task reward they earn with unlimited questions. At the same budget, reviewing each question against the memory of users' earlier answers cuts attention cost by another 13% with little reward loss and yields more valuable questions. Models also differ sharply in how well they ask: at the same user-attention cost, the most efficient models gain more than twice as much reward from their questions as the others. These results show that asking less and asking better are distinct goals, and that evaluations of proactive agents should measure both.",
-      "published": "2026-10-17T03:23:49Z",
-      "updated": "2026-10-17T03:23:49Z",
-      "cats": [
-        "cs.CL"
-      ],
-      "link": "http://arxiv.org/abs/2610.24411v1",
-      "heuristic": 50,
-      "llm_score": 84,
-      "llm_summary": "Nghiên cứu cách phân bổ 'attention budget' cho agent chủ động hỏi làm rõ — giới hạn số câu hỏi và tối ưu chất lượng câu hỏi qua user-attention cost.",
-      "llm_reason": "Experiment mạnh (8 LLM, 4 domain, số liệu cụ thể), cực kỳ relevant cho UX chatbot/customer-service và content interaction, insight actionable rõ ràng (hỏi ít hơn, hỏi tốt hơn).",
-      "group": "high"
-    },
-    {
-      "id": "2610.25111v1",
-      "title": "Explore or Confirm? LLM Agents Misallocate Measurements Under Noise",
-      "abstract": "As model reasoning gets cheaper, the physical experiment becomes the slow and costly step in discovery. Each experiment returns a noisy reading: a high value can mean a good candidate or a lucky draw. With a fixed budget, an AI agent must keep choosing between exploring a new candidate and confirming a promising one by re-testing it. We measure that choice in Wellocate, a simulated assay campaign with known true values. It is built on a generated landscape and on two real protein datasets, GB1 and PhoQ, scrambled so no model can answer from memory. We test five language models as minimal agents, with no tools and no memory beyond the history in each prompt. They misallocate in both directions. Three over-confirm, spending most of the budget re-testing. On the generated landscape one under-confirms, trusting single readings, and there every model ends with a worse final pick than a basic scripted strategy. Each failure has its own cause. The over-confirmers run short of new candidates worth trying: a list of untried candidates cuts their re-testing and, on real protein data, makes two of them pick much better. A running summary of their readings or a description of the landscape changes it by at most five percentage points. For the under-confirmer, re-testing its top candidates in a final round, replayed on its own campaigns, recovers only about a quarter of what it loses by picking the wrong candidate. This suggests confirmation has to run through the whole campaign. We release Wellocate as a benchmark and reinforcement-learning environment with frozen splits and scripted baselines. With it, anyone can measure how an agent splits its budget before trusting it with real experiments, and train agents to split it better. Code, data and the environment are available at https://github.com/Xstendyl/wellocate.",
-      "published": "2026-10-18T08:44:06Z",
-      "updated": "2026-10-18T08:44:06Z",
+      "id": "2610.24383v1",
+      "title": "IF-MAP: Influence-Function-Inspired Agent Prioritization in Multi-Agent Systems",
+      "abstract": "Improving every agent in an LLM-based multi-agent system can be prohibitively costly, making it important to identify which agent should be prioritized to achieve the greatest system-level gain with limited resources. Failure attribution can inform this decision, but an agent's responsibility for failures does not directly reveal the system-level gains achievable by improving it. We therefore introduce IF-MAP, an influence-function-inspired method for identifying agents with high potential for system-level improvement. For each agent, IF-MAP measures end-to-end loss changes under controlled semantic prompt perturbations, fits a regularized local response model in a low-dimensional prompt-embedding subspace, and uses the estimated response norm as a priority score. This black-box procedure requires no access to model parameters or gradients and produces agent priorities that can guide subsequent improvement effort. We evaluate IF-MAP across six multi-agent workflows spanning code generation, question answering, and mathematical reasoning, using the same priorities for prompt optimization and model upgrades. Optimizing the selected agents' prompts achieves a macro-average gain of 3.81 percentage points, compared with 1.85 for uniform agent selection. Across five target models, upgrading the selected agents yields macro-average gains of 7.62-16.42 percentage points, compared with 3.81-8.62 for uniform agent selection. Despite its probing overhead, IF-MAP reduces Qwen3-8B and DeepSeek-V3.2 token use by 74.2% and 35.2%, respectively, relative to optimizing every agent, and reduces target-model tokens by 63.6-64.9% relative to upgrading every agent. These results support the use of IF-MAP to identify promising agents and direct improvement effort toward greater end-to-end performance gains.",
+      "published": "2026-10-17T02:36:35Z",
+      "updated": "2026-10-17T02:36:35Z",
       "cats": [
         "cs.AI",
         "cs.MA"
       ],
-      "link": "http://arxiv.org/abs/2610.25111v1",
-      "heuristic": 49,
+      "link": "http://arxiv.org/abs/2610.24383v1",
+      "heuristic": 66,
       "llm_score": 84,
-      "llm_summary": "Nghiên cứu chỉ ra LLM agents thường xuyên misallocate giữa explore vs confirm khi data nhiễu, và có các fix đơn giản cực hiệu quả.",
-      "llm_reason": "Trực tiếp dạy cách ra quyết định dưới uncertainty (over-confirming, under-confirming) với fix cụ thể như list untried candidates — siêu phù hợp content/business AI.",
+      "llm_summary": "IF-MAP dùng influence function để xếp độ ưu tiên cải tiến từng agent trong multi-agent system, không cần gradient, chỉ cần perturb prompt.",
+      "llm_reason": "Rất phù hợp người làm multi-agent: cho benchmark thật (6 workflows, +3.81pp prompt, +7.62-16.42pp upgrade) và insight hành động rõ là nên tối ưu agent nào trước để tiết kiệm resource.",
+      "group": "high"
+    },
+    {
+      "id": "2610.17953v1",
+      "title": "Agent-Reflex: Teaching Language Agents to Act Reflectively",
+      "abstract": "Large language models have evolved from single-turn chatbots into interactive agents capable of long-horizon reasoning. In real deployments, MCP tool services can return noisy feedback and users may intervene to correct the agent, but existing methods provide limited supervision for reflection learning and failure recovery. To bridge this gap, we propose Agent-Reflex, a general training framework for incentivizing proactive reflection in agents. Specifically, Agent-Reflex comprises three stages. First, Environment Reflection Skill Discovery (RSD) injects grounded tool-feedback perturbations into environment scaling, samples a capability-diverse LLM pool, mines matched success-failure pairs, and summarizes reusable reflection meta-skills. Building on this skill library, we then apply Reflective Supervised Fine-Tuning (ReSFT) that converts each skill into supervision for self-reflection, skill recovery, and user-centric correction, strengthening complementary reflective behaviors. Finally, we propose On-Policy Reflective Policy Optimization (ORPO) to combine agentic reinforcement learning under noisy interactions with reflection-guided on-policy distillation to further elicit proactive reflection. Built on Qwen3-8B, Agent-Reflex reaches 58.6 overall on five long-horizon tool-use benchmarks and 29.1 on AgentNoiseBench, surpassing strong environment-scaling and reflection baselines. Experiments on six challenging agent benchmark suites demonstrate the effectiveness of Agent-Reflex. Further analyses show that Agent-Reflex improves agents' robustness to noise while maintaining stable training dynamics, supporting scalable agent training. Our code is available at https://github.com/RUC-NLPIR/Agent-Reflex.",
+      "published": "2026-10-13T08:36:20Z",
+      "updated": "2026-10-13T08:36:20Z",
+      "cats": [
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.17953v1",
+      "heuristic": 48,
+      "llm_score": 83,
+      "llm_summary": "Đề xuất Agent-Reflex dạy agent phản xạ chủ động qua khám phá reflection skill, reflective SFT và on-policy RL, đạt 58.6 trên 5 benchmark tool-use dài và 29.1 trên AgentNoiseBench trên Qwen3-8B.",
+      "llm_reason": "Rất sát agent/tool-use thực tiễn với benchmark vững, cho pattern xây dựng agent chịu nhiễu tốt cho content và sản phẩm.",
+      "group": "high"
+    },
+    {
+      "id": "2610.22124v1",
+      "title": "PROBE: Learning to Audit Policy Compliance in Tool-Using LLM Agents",
+      "abstract": "Modern agentic systems extend language models with external tools, enabling them to complete complex tasks through multi-turn interactions. As these agents are deployed in consequential settings, they are often constrained by policies governing pricing, privacy, confirmation, safety, and other requirements. However, existing evaluation methods leave a critical gap: capability benchmarks measure what agents can accomplish, while content-safety red-teaming measures harmful generations, but neither tests whether agents comply with predefined policies during otherwise valid tool use. Such policy violations are difficult to audit because their effects may emerge only after several turns, span multiple tool calls, or surface in downstream systems. We propose PROBE (Policy Rule Observation via Behavioral Exploration), an algorithm for training LLM-based auditors that interact with deployed agents as realistic users and probe them for policy violations through multi-turn, tool-mediated dialogue. We formalize agent auditing as a two-player Markov game and propose a composite reward that balances violation discovery, behavioral plausibility, conversation progress, and policy diversity. To study training objectives and reward design, we compare GRPO, DPO, and GFlowNet-based optimization in a controlled setting. Across extensive experiments, auditors trained with PROBE uncover substantially broader and higher-yield policy violations than same-architecture zero-shot adversaries, even when the auditor is significantly smaller than the target agent. Our results show that multi-turn behavioral auditing is a distinct and necessary axis of agent evaluation, complementing capability and safety benchmarks. PROBE offers a scalable path toward automated policy auditing for real-world agentic systems and suggests a co-evolutionary loop in which auditors expose failures and agents improve from auditor feedback.",
+      "published": "2026-10-15T16:01:38Z",
+      "updated": "2026-10-15T16:01:38Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.22124v1",
+      "heuristic": 49,
+      "llm_score": 82,
+      "llm_summary": "PROBE huấn luyện LLM auditor probes agent tool-using đa lượt để phát hiện vi phạm policy, so sánh GRPO/DPO/GFlowNet trong Markov game 2 người chơi.",
+      "llm_reason": "Tool-use agent + audit/RL rất cốt lõi (32) + experiment phong phú (22); trực tiếp hữu ích để kiểm soát agent content/pricing/safety và có framework áp dụng được (28).",
+      "group": "high"
+    },
+    {
+      "id": "2608.12626v1",
+      "title": "LLMs Are Not Good Strategists, Yet Memory-Enhanced Agency Boosts Reasoning",
+      "abstract": "Strategic reasoning in Large Language Models (LLMs) within long-horizon environments is often limited by inconsistent subgoals. In these settings, finite attention resources prevent the model from maintaining strategic coherence over thousands of steps. This limitation leads to strategic drift, where localized decisions fail to sustain a coherent trajectory across reasoning. To address this, we introduce EpicStar, a framework that enables agents to learn memory as policy to tackle long-horizon reasoning. Specifically, the agent maintains a bank of successful past episodes as a heuristic alongside a working memory to track short-term environmental changes. During inference, a dynamic gating mechanism determines whether to execute a retrieved action directly or to perform new reasoning through a contextual fusion of the retrieved episodes and current working memory. Utilizing StarCraft II as the testbed, we evaluated EpicStar against diverse opponent styles. It significantly outperforms baseline methods, achieving higher win rates while consuming an order of magnitude fewer tokens, and it maintains this advantage consistently across difficulty levels and opponent strategies. Our findings provide compelling evidence that structured cross-episode memory is essential for enabling LLM agents to perform robust, long-term strategic execution in dynamic, autonomous settings.",
+      "published": "2026-08-12T22:17:24Z",
+      "updated": "2026-08-12T22:17:24Z",
+      "cats": [
+        "cs.CL",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2608.12626v1",
+      "heuristic": 47,
+      "llm_score": 82,
+      "llm_summary": "EpicStar cho thấy LLM yếu về chiến lược dài hạn, nhưng khi dùng ngân hàng episod thành công làm policy memory kết hợp working memory và gating, hiệu suất StarCraft II tăng mạnh với ít token hơn 1 bậc.",
+      "llm_reason": "Core LLM-agent/strategic reasoning cao, experiment thật (win rate, token cost), insight 'memory như policy' + tiêu đề provocation 'LLM không giỏi chiến lược' cực dễ viral cho content AI/chess, ứng dụng business vừa.",
+      "group": "high"
+    },
+    {
+      "id": "2610.24048v1",
+      "title": "The Window Is in the Reasoning: When LLM Agents Decide to Follow Prompt Injections",
+      "abstract": "LLM agents that read untrusted content can be hijacked by prompt injections. Runtime monitors that try to catch a hijack before the agent acts, and benchmarks that score each task with a single run, share an assumption: whether an agent follows an injection is settled when the injection is read. We test this assumption with branching rollouts that replay an episode exactly up to the step at which the agent reads an injection and then resample the rest of the episode many times, splitting the outcome variance into a part fixed at read time and a part decided afterwards. Across four AgentDojo suites, a Qwen3 agent without thinking is largely decided at read time (0.91 of the outcome variance lies between states); with thinking on, this share drops to 0.62 (95% CI of the drop [-0.38, -0.22]), in the same direction for three attack templates and two success labels. How much is fixed at read time is a property of the model that the same measurement reveals, and thinking lowers the attack success rate of Qwen3 but raises it for two other models. Resampling from reasoning prefixes shows that the decision forms gradually as the agent reasons. Zero-shot chain-of-thought monitors built on cheaper models miss much of what is already decided, whereas stronger monitors, and a lookahead monitor that judges simulated next actions, come close to what the prefix determines. Finally, single-run labels of thinking agents disagree with a rerun up to 35% of the time, so benchmarks need repeated runs per task.",
+      "published": "2026-10-16T16:10:56Z",
+      "updated": "2026-10-16T16:10:56Z",
+      "cats": [
+        "cs.CL",
+        "cs.AI",
+        "cs.CR"
+      ],
+      "link": "http://arxiv.org/abs/2610.24048v1",
+      "heuristic": 55,
+      "llm_score": 81,
+      "llm_summary": "Nghiên cứu khi nào LLM agent quyết định làm theo prompt injection, dùng branching rollouts để tách variance cố định tại thời điểm đọc vs quyết định sau đó trên AgentDojo.",
+      "llm_reason": "Rất liên quan cốt lõi AI agent/prompt injection (32), experiment chuẩn với CI rõ ràng (22), insight về thinking mode và monitor design khá hành động được (15), nhưng ứng dụng business trực tiếp hạn chế (12).",
+      "group": "high"
+    },
+    {
+      "id": "2610.22195v2",
+      "title": "HTN-Orchestrate: A Hierarchical Task Network Framework for Multi-Agent Orchestration",
+      "abstract": "Orchestrating multiple agents on a complex task requires reconciling local subtask execution with global task planning. Dynamic dispatch approaches provide execution flexibility but do not explicitly model subtask hierarchies or dependencies, while predefined workflows impose this structure but fix the decomposition before execution begins. Therefore, we introduce HTN-Orchestrate, a two-layer framework that separates these responsibilities through a hierarchical task network (HTN). The Planner maintains subtask hierarchies and dependencies, deferring decomposition until prerequisite results become available, while local Orchestrators schedule workers to execute each leaf subtask. Results propagate upward under \\textbf{AND} semantics, and accumulated findings inform a rebuilt task network when the current decomposition cannot resolve the task. On five benchmarks spanning web research, scientific reasoning, and research workflows, HTN-Orchestrate outperforms ReAct, Agent Team, and DeepSeek Harness using the same base model, achieving 89.73% accuracy on BrowseComp and 73.44% on SUPERChem, exceeding Agent Team by 2.45 and 4.69 percentage points, respectively.",
+      "published": "2026-10-15T16:45:59Z",
+      "updated": "2026-10-18T05:22:05Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.22195v2",
+      "heuristic": 48,
+      "llm_score": 81,
+      "llm_summary": "HTN-Orchestrate tách planning phân cấp và execution cục bộ cho multi-agent, đạt 89,73% BrowseComp và 73,44% SUPERChem.",
+      "llm_reason": "Multi-agent orchestration đúng core, benchmark thật, và pattern phân cấp trì hoãn decomposition rất dùng được cho workflow research/content nhiều bước.",
+      "group": "high"
+    },
+    {
+      "id": "2610.22671v1",
+      "title": "ProPerAgent: Toward Memory-Driven Proactive Assistance",
+      "abstract": "As assistants move from reactive answering toward proactive intervention, memory changes role: it no longer only supplies the answer to a query, it determines whether and when to speak at all. Prior work in this setting hands the system the relevant fact in context; we study the regime that makes the problem hard, where the evidence justifying an intervention must be mined from a long-horizon personal memory. We introduce ProPerMem, a benchmark for memory-driven proactive assistance (MPA), pairing egocentric video with year-long, distractor-rich user memories (~618K tokens on average), human-verified trigger windows, and a protocol that scores content and timing jointly. Every baseline we evaluate performs poorly (at most 15%), including frontier models given summarized or retrieval-augmented memory. A controlled study explains why: with oracle evidence delivered inside the trigger window GPT-5.3-Chat reaches 96%; letting it choose the timing drops it to 38%, and replacing oracle evidence with retrieval drops it to 15%. Content and timing are separately necessary, and missing either is catastrophic. Guided by this, we build ProPerAgent (Proactive Personalized Agent) with a plug-and-play harness that surfaces memory from a graph-organized store and gates it down to what is worth interrupting for, plus a lightweight RL stage that curbs early and repeated firing. Without any training, ProPerAgent lifts strict accuracy from below 10% to 37.5% on Qwen3.8-27B and 38% on GPT-5.3-Chat; RL post-training reaches 42.4%.",
+      "published": "2026-10-15T21:40:17Z",
+      "updated": "2026-10-15T21:40:17Z",
+      "cats": [
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.22671v1",
+      "heuristic": 62,
+      "llm_score": 80,
+      "llm_summary": "ProPerAgent tách bài toán proactive assistance thành content + timing, benchmark ProPerMem với memory 618K tokens, chỉ ra cả hai đều cần thiết.",
+      "llm_reason": "Insight hành động mạnh (content vs timing độc lập, oracle content = 96% nhưng tự timing = 38%) phù hợp người làm assistant/agent cá nhân hóa.",
       "group": "high"
     }
   ]
