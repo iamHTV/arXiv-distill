@@ -1,0 +1,17 @@
+{
+  "name": "The One-Pixel of Reasoning: One Truthful Relation Is Enough to Mislead LLM Agents",
+  "authors": ["Jinwei Hu", "Youcheng Sun", "Yi Dong", "Xiaowei Huang"],
+  "affiliation": "University of Liverpool, MBZUAI",
+  "link": "https://arxiv.org/abs/2610.24873",
+  "pdf_link": "https://arxiv.org/pdf/2610.24873",
+  "arxiv_id": "2610.24873v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "one-relation-attack-ora-defense",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 200
+}

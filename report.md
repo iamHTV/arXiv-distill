@@ -800,3 +800,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: niocis-typed-decision-routing-layer | Test: SKILL VALID
 ✓ Insight: Lớp định tuyến typed-decision thay thế suy luận LLM mỗi hop, đạt 32.8% khớp đội agentes trong 10 ms so với 2.2 s/LLM hop, không gian tùy chọn được điều chế bởi nút勝 lợi hơn danh mục phẳng 3.5 điểm.
 → Tiếp tục: [YES]
+
+## Paper #200 — The One-Pixel of Reasoning: One Truthful Relation Is Enough to Mislead LLM Agents (2610.24873v1) [applied]
+✓ Skill: one-relation-attack-ora-defense | Test: SKILL VALID
+✓ Insight: Một câu đích đến liên kết ngầm lật ngược niềm tin agent: ORA đạt ASR 54.9% (proprietary) và 80.0% (open-weight) trên 18 mô hình, tranh luận đa agent làm tăng lỗi nhóm từ 50.0% lên 59.5%.
+→ Tiếp tục: [YES]
