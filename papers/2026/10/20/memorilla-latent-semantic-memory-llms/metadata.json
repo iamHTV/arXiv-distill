@@ -1,0 +1,14 @@
+{
+  "name": "MEMORILLA: Latent Semantic Memory for LLMs",
+  "authors": ["Adibvafa Fallahpour", "Parsa Idehpour", "Vignesh Kothapalli", "Nikita Mounier", "Shirley Wu", "Shayan Pardis", "Jure Leskovec"],
+  "link": "https://arxiv.org/pdf/2610.21375v1",
+  "id": "2610.21375v1",
+  "year": 2026,
+  "category": "cs.CL / cs.LG",
+  "classification": "applied",
+  "skill_name": "latent-semantic-memory-compression",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-20",
+  "paper_number": 193,
+  "affiliations": "Stanford, MIT, Vector Institute, University of Toronto, Arc Institute"
+}
