@@ -1,0 +1,17 @@
+{
+  "name": "CHSM8: A Chess Transformer that Follows Natural-Language Style Prompts",
+  "authors": ["Ilia Badanin"],
+  "affiliation": "Independent",
+  "link": "https://arxiv.org/abs/2610.25356",
+  "pdf_link": "https://arxiv.org/pdf/2610.25356",
+  "arxiv_id": "2610.25356v1",
+  "year": 2026,
+  "category": "cs.LG",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "nlp-style-behavior-control-dpo",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 196
+}

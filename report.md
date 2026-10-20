@@ -780,3 +780,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: conversation-trained-sales-agent | Test: SKILL VALID
 ✓ Insight: Đào tạo trên 4,6 triệu cuộc hội thoại thương mại thật tăng revenue per visitor +10.0% so với không agent và engaged conversion +21.6% so với frontier cùng scaffolding, tại chi phí chỉ 1.8% so với nhân viên bán hàng.
 → Tiếp tục: [YES]
+
+## Paper #196 — CHSM8: A Chess Transformer that Follows Natural-Language Style Prompts (2610.25356v1) [applied]
+✓ Skill: nlp-style-behavior-control-dpo | Test: SKILL VALID
+✓ Insight: DPO cải thiện style adherence (queens traded early 53%→67%, queenside castling 97.3%→99.7%) mà không làm suy yếu sức mạnh không prompt (1792 vs 1797 Elo), dùng cặp cùng output dưới mô tả khác nhau không cần reward model.
+→ Tiếp tục: [YES]
