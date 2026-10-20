@@ -820,3 +820,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: interruption-budget-user-attention-cost | Test: SKILL VALID
 ✓ Insight: Ngân sách 1–3 câu hỏi cắt chi phí chú ý người dùng 36–73% giữ 86–94% phần thưởng tác vụ; memory-guided review cắt thêm 13% chi phí với mất phần thưởng tối thiểu.
 → Tiếp tục: [YES]
+
+## Paper #204 — Explore or Confirm? LLM Agents Misallocate Measurements Under Noise (2610.25111v1) [applied]
+✓ Skill: explore-or-confirm-wellocate | Test: SKILL VALID
+✓ Insight: 5 models misallocate noisy budget in both directions — 3 over-confirm (75–94% re-testing), 1 under-confirms (14%), every model picks worse final candidate than simplest scripted rule.
+→ HẾT QUEUE — 10/10 bài đã distill xong

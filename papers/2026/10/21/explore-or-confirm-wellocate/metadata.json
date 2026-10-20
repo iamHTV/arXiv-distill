@@ -1,0 +1,17 @@
+{
+  "name": "Explore or Confirm? LLM Agents Misallocate Measurements Under Noise",
+  "authors": ["Abdul Karim", "Matt Keon"],
+  "affiliation": "Xstendyl",
+  "link": "https://arxiv.org/abs/2610.25111",
+  "pdf_link": "https://arxiv.org/pdf/2610.25111",
+  "arxiv_id": "2610.25111v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "explore-or-confirm-wellocate",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 204
+}
