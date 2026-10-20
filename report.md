@@ -744,3 +744,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: enterprisesynth-bootstrap (workflow/framework) | Test: SKILL VALID (dry run: CRM 10 endpoints → 38 params sau 2 fix, verifier 93%→100% sau adversarial fix, held-out TSA 66.2±18.0 vs base 12.5, arg-level end-to-end ~21%)
 ✓ Insight: 45 verified trajectories từ spec thân zero-execution lift 0.5B model 12.5→87.5% trên held-out API; verifier phải adversarial-test (initial 57–80% → 98%); endpoint accuracy 48.9% nhưng end-to-end (arg+values) chỉ 21.3% — cold-start genuine grounding evidenced by private specs 40.0% ≈ public 39.6%.
 → Tiếp tục: [YES]
+
+## Paper #189 — Cost-Efficient Privacy Enforcement for Email-Generating LLM Agents (2610.18007v1) [applied]
+✓ Skill: local-contract-privacy-enforcement (framework/workflow) | Test: SKILL VALID (dry run: baseline 11.4%/28.2% leak, CostAmp 1.32× → wrapper 4.0%/18.8%, CostAmp 1.02×, usable 92.6%, remote −36.6% attack)
+✓ Insight: local contract-conditioned rewriting (Gemma 4B local + information-release contract 4 fields) trước checker: leakage 11.41→4.03% normal / 28.19→18.79% attack, remote tokens −17.6%/−36.6%, checker-call amplification 1.69×→1.02×, utility TĂNG (85.2→92.6%) — contract beats generic privacy prompt 36.3–54.1% relative.
+→ Tiếp tục: [YES]

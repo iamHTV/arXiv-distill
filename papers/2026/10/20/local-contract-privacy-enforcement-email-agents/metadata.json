@@ -1,0 +1,13 @@
+{
+  "name": "Cost-Efficient Privacy Enforcement for Email-Generating LLM Agents under Strategic Information Requests",
+  "authors": ["Qikun Cai", "Tao Huang", "Chen Hou"],
+  "link": "https://arxiv.org/pdf/2610.18007v1",
+  "id": "2610.18007v1",
+  "year": 2026,
+  "category": "cs.CR (also cs.AI)",
+  "classification": "applied",
+  "skill_name": "local-contract-privacy-enforcement",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-20",
+  "paper_number": 189
+}

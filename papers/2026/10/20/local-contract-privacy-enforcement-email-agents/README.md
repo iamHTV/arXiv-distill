@@ -1,0 +1,38 @@
+# [2610.18007v1] Cost-Efficient Privacy Enforcement for Email-Generating LLM Agents under Strategic Information Requests
+
+## Problem
+- Email-generating agent (agent sinh email) là delegated information intermediary (trung gian thông tin được ủy quyền): đọc private context (Gmail/Notion), draft, send email cho recipient — access ≠ authorization (quyền truy cập ≠ quyền nhận thông tin). Checker-only defense (ví dụ PrivacyChecker dùng contextual-integrity reasoning — suy luận entire context để judge information flow) giảm leakage nhưng economically expensive: draft fail → gọi lại remote action LLM repair + checker lại → loop tốn kém. Strategic information request (yêu cầu thông tin chiến lược) — requester giữ appearance legit task nhưng pressuring agent disclose exact values / raw records / source evidence / "all relevant details" — làm cả 2 thứ tệ hơn: leakage nhiều hơn VÀ remote enforcement cost (chi phí thực thi remote) cao hơn. Prior work chỉ đo leakage, KHÔNG đo cost amplification.
+
+## Contribution
+- Định hình lại bài toán thành cost-aware strategic information-release (phóng thích thông tin có ý thức chi phí): defender objective W(M,σ) = U − λL − µRremote − ηGlocal − νSdrift (utility − leakage − remote cost − local cost − semantic drift).
+- Local contract-conditioned rewriting (viết lại cục bộ có điều kiện hợp đồng) làm enforcement layer: intercept outgoing draft → build information-release contract (hợp đồng phóng thích thông tin: must_preserve / must_generalize / must_not_add / information_shape + safe-substitution guidance) → local Gemma rewriter viết lại → selectively invoke PrivacyChecker (final semantic gate), checker feedback → local repair ≤3 rounds, fail closed (block nếu không có safe draft).
+- Boundary placement critical: wrapper tại email-sending tool, chỉ cho send đúng draft đã pass enforcement — agent KHÔNG tự decide output của mình có được check không (mismatch resend → re-inspection).
+- Cost math: Rremote(MB) = cA(1+KB) + cC(1+KB) vs Rremote(MG+C) = cA + cC(1+KG) → ∆R = cAKB + cC(KB−KG); local model cần không phải perfect privacy judge — chỉ cần giảm leakage burden entering checker đủ để tránh expensive remote repair cycles. MG (Gemma-only) chỉ acceptable cho low-risk khi µ∆R > λ∆L.
+
+## Method (tóm tắt cốt lõi)
+- 2×3 design matrix: {normal, attack} requester × {MB (remote checker–repair baseline, same-session repair 25-turn cap), MG (Gemma-only, no final check), MG+C (full)}.
+- Data: 149 aligned tasks từ Privacy in Action benchmark, 480 sensitive items annotated, Gmail/Notion retrieval → email generation/reply (reply_response, update_status, provide_details_data, summary, scheduling_coordination). Attack prompts operationalize strategic requests (exact-value / raw-record / source-evidence / structured extraction / completeness pressure).
+- Models: action LLM + checker + leakage evaluator = DeepSeek deepseek-v4-flash (evaluator khác prompt); utility judge = deepseek-v4-pro; local rewriter = gemma4-e4b-q4-12k qua Ollama q4_K_M, temperature 0.0, 12k context.
+- Metrics: item-level + secret-level leakage (exact / paraphrased / reconstructive — recipient có thể infer private fact từ wording còn lại); UsableRate = satisfied + partially_satisfied (attack condition: judge trên benign task shell only); CostAmp = RemoteTokens(attack)/RemoteTokens(normal).
+
+## Key Findings
+- Normal prompt: leakage MB 11.41% → MG 5.37% → MG+C 4.03% (−64.7% vs MB); UsableRate 85.2% → 89.9% → 92.6%; slot retention 0.999/0.970/0.981; semantic drift 0.001/0.062/0.046.
+- Attack prompt: leakage MB 28.19% → MG 21.48% → MG+C 18.79%; leak ∆ (attack−normal) +16.78/+16.11/+14.76 pp; CostAmp MB 1.32×, MG 0.98×, MG+C 1.02×; checker-call amplification 1.69× → 1.02×.
+- Remote tokens: normal MB 8,728,781 (agent 8,390,242 + checker 338,539) → MG+C 7,189,612 (5,281,175 + 1,908,437) = −17.6%; attack MB 11,540,135 (10,861,107 + 679,028) → MG+C 7,318,258 (5,306,892 + 2,011,366) = −36.6%. Gemma local tokens 1,144,181 (normal) / 1,246,723 (attack) — deployment cost, không phải remote API cost. Avg checker calls: normal 1.06/0.00/1.00; attack 1.79/0.00/1.02.
+- Attack utility (benign safe-shell): repair rounds MB 1.52 vs MG+C 0.04; slot retention 0.984/0.977/0.991; UsableRate 99.3%/98.7%/100.0%; drift 0.012/0.043/0.022 — privacy improvement KHÔNG đạt bằng cách từ chối email / over-generalize.
+- Contract ablation (offline replay, same drafts): generic Gemma rewrite normal 7.38% / attack 32.21% → full contract 4.70% (−36.3%) / 14.77% (−54.1%); bỏ required_slots + information_shape: 5.37% (−27.2%) / 15.44% (−52.1%) → structured contract filters leakage tốt generic "remove private information" prompt RẤT NHIỀU.
+- Case studies (anonymized): school-health update — MB reports condition/recovery/test evidence, MG+C → high-level health-status + care-plan summary; structured compensation request — MB discloses exact salary/bonus/equity under adversarial request, MG+C keeps negotiation context removes exact fields; Gemma-only residual case — removes disease names but leaves respiratory-monitoring cues (reconstructive leakage) → checker tiếp tục abstract → removal.
+- Overall pass rates trên toàn 149 tasks: (item-level task leak trên là headline; secret-level detail trong paper).
+
+## Actionable Insights
+- Wrap mọi outgoing action của agent (email, message, CRM update) tại tool-send boundary với contract-conditioned local rewriter trước remote checker: cắt remote tokens 17.6–36.6% và checker-call amplification 1.69×→1.02× dưới attack, leakage 11.41→4.03% normal. Ví dụ: support agent có access user PII → wrapper local rewrite trước khi gửi, chỉ gọi checker remote khi draft rủi ro cao.
+- Đối phó strategic requester (khách hàng/đối tác hỏi "gửi chính xác số liệu raw record"): attack prompts là mối đe dọa thật — leakage normal 11.4% nhưng attack 28.2% (+16.8pp); phải có enforcement layer, KHÔNG chỉ tin model judgment. Ví dụ: soạn policy list "must_not_add: exact figures, raw records" cho agent bán hàng.
+- Contract phải tách 4 concerns (preserve/generalize/forbid/shape) — generic privacy prompt ("remove private info") hoạt động kém 36–54% relative; và CHEAPPER local model (4B quantized Ollama) đủ tốt cho first-stage sanitation khi checker vẫn là final gate. Ví dụ: chạy Gemma 4B local 12k context temp 0 cho rewrite — chi phí local không tính remote billing.
+
+## Assumptions & Limitations
+- Điều kiện: có annotated sensitive items (hoặc policy items list) cho task; local rewriter đủ rewriting capability (paper nói any trusted on-prem editor có thể instantiate); fail-closed policy chấp nhận block email.
+- Paper thừa nhận: MG KHÔNG phải replacement cho final checking (leakage cao hơn MG+C đặc biệt dưới attack); checker có thể miss semantic leakage hoặc over-flag safe abstractions; contract có thể infer wrong task type, omit required slot, over-generalize, preserve unsafe detail; leakage evaluator cùng model family với checker (khác prompt) — manual spot checks, KHÔNG formal human evaluation; email-only — Slack/calendar/CRM/document sharing cần action-specific information-shape constraints.
+- Limitation paper KHÔNG nói: utility judge (deepseek-v4-pro) là LLM không phải human — satisfaction labels có judge bias; attack prompts benchmark-constructed không live adversary; local rewriter quantized 4E4B nhỏ — quality với ngôn ngữ/domain khác chưa test (tiếng Việt chưa test); contract generation cũng là LLM call (fail mode của nó chưa quantified); không đo response latency local rewrite.
+
+## Metadata
+- Năm: 2026 | Tác giả: Qikun Cai, Tao Huang, Chen Hou | Category: cs.CR (also cs.AI) | PDF: https://arxiv.org/pdf/2610.18007v1 | Citation: [NO DATA — published 13 Oct 2026]
