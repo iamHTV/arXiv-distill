@@ -739,3 +739,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: llm-pricing-deployment-audit (framework/evaluation-method) | Test: SKILL VALID (dry run: X self-play ∆ 0.88 consumer 15% vs Y 0.05 consumer 95% → regime map + launch Y block X)
 ✓ Insight: Cùng foundation model chọn regime đối lập (0.88 vs 0.05 elevation) chỉ bằng thay deployment interface — information interface (hide rival + summary history) chứ không phải output type quyết định; D-S-25 lấy 71–72% industry profit qua undercut nhanh, P-R-1 qua anchor-and-harvest; consumer share 15% vs 95%.
 → Tiếp tục: [YES]
+
+## Paper #188 — EnterpriseSynth: Zero-Execution SFT and Evaluation Data from OpenAPI Specs (2610.22412v1) [applied]
+✓ Skill: enterprisesynth-bootstrap (workflow/framework) | Test: SKILL VALID (dry run: CRM 10 endpoints → 38 params sau 2 fix, verifier 93%→100% sau adversarial fix, held-out TSA 66.2±18.0 vs base 12.5, arg-level end-to-end ~21%)
+✓ Insight: 45 verified trajectories từ spec thân zero-execution lift 0.5B model 12.5→87.5% trên held-out API; verifier phải adversarial-test (initial 57–80% → 98%); endpoint accuracy 48.9% nhưng end-to-end (arg+values) chỉ 21.3% — cold-start genuine grounding evidenced by private specs 40.0% ≈ public 39.6%.
+→ Tiếp tục: [YES]

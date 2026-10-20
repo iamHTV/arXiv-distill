@@ -1,0 +1,13 @@
+{
+  "name": "EnterpriseSynth: Zero-Execution SFT and Evaluation Data from OpenAPI Specs",
+  "authors": ["Rashmi Thimmaraju", "Natan Vidra", "Spurthi Setty"],
+  "link": "https://arxiv.org/pdf/2610.22412v1",
+  "id": "2610.22412v1",
+  "year": 2026,
+  "category": "cs.SE",
+  "classification": "applied",
+  "skill_name": "enterprisesynth-bootstrap",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-20",
+  "paper_number": 188
+}
