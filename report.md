@@ -805,3 +805,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: one-relation-attack-ora-defense | Test: SKILL VALID
 ✓ Insight: Một câu đích đến liên kết ngầm lật ngược niềm tin agent: ORA đạt ASR 54.9% (proprietary) và 80.0% (open-weight) trên 18 mô hình, tranh luận đa agent làm tăng lỗi nhóm từ 50.0% lên 59.5%.
 → Tiếp tục: [YES]
+
+## Paper #201 — CXBENCH: A Benchmark for Process-Compliant LLM Agents in Regulated Customer-Experience Workflows (2610.25954v1) [applied]
+✓ Skill: cxbench-process-compliance-evaluation | Test: SKILL VALID
+✓ Insight: 69.29% executions đạt outcome nhưng chỉ 13.81% đạt cả outcome và process; 55.48% là false-pass (outcome đúng nhưng vi phạm quy trình), sadece 13.8% pass cả hai.
+→ Tiếp tục: [YES]

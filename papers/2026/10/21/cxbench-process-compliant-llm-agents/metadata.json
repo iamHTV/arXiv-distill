@@ -1,0 +1,17 @@
+{
+  "name": "CXBENCH: A Benchmark for Process-Compliant LLM Agents in Regulated Customer-Experience Workflows",
+  "authors": ["Boxi Yu", "Yuzhong Zhang", "Zhenfeng Su", "Linfu Xi", "Yinghan Yao", "Shitao Chen", "Yang Cao", "Liting Lin", "Lionel Briand", "Emir Muñoz"],
+  "affiliation": "Lero/University of Limerick, CUHK-Shenzhen, Peking, Xi'an Jiaotong, South China Univ of Technology, Genesys Cloud",
+  "link": "https://arxiv.org/abs/2610.25954",
+  "pdf_link": "https://arxiv.org/pdf/2610.25954",
+  "arxiv_id": "2610.25954v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "cxbench-process-compliance-evaluation",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 201
+}
