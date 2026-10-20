@@ -1,0 +1,17 @@
+{
+  "name": "OR-License: Evaluating LLM Agents as Real-World Operations Research Practitioners",
+  "authors": ["Peisong Wang", "Feixue Liu", "Yize Meng", "Bowen Liu", "Ruoyu Chen", "Gaoyang Dai", "Xing He", "Aiqian Li", "Fengchi Yuan", "Aochuan Chen", "Chenyi Zi", "Yuhan Li", "Hongchuan Zeng", "Yimo Yan", "Nuo Chen", "Jie Fu", "Zuo-Jun Max Shen", "Yong-Hong Kuo", "Jia Li"],
+  "affiliation": "HKUST-GZ, HKU, Qingzhi Optimization, Tencent Hunyuan, XM Capital, Tianjin Meta & Infinite Technology, CZBANK, American University of Sharjah",
+  "link": "https://arxiv.org/abs/2610.24087",
+  "pdf_link": "https://arxiv.org/pdf/2610.24087",
+  "arxiv_id": "2610.24087v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "daq-deployment-adjusted-quality-eval",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 205
+}

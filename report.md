@@ -825,3 +825,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: explore-or-confirm-wellocate | Test: SKILL VALID
 ✓ Insight: 5 models misallocate noisy budget in both directions — 3 over-confirm (75–94% re-testing), 1 under-confirms (14%), every model picks worse final candidate than simplest scripted rule.
 → HẾT QUEUE — 10/10 bài đã distill xong
+
+## Paper #205 — OR-License: Evaluating LLM Agents as Real-World Operations Research Practitioners (2610.24087v1) [applied]
+✓ Skill: daq-deployment-adjusted-quality-eval | Test: SKILL VALID
+✓ Insight: Trên 31 bài toán OR thực tế (hợp đồng $3.68M), mọi model vượt chuẩn chuyên gia về conditional quality nhưng đều thua về DAQ — Grok 4.6 cao nhất 86.55%, ~86% khoảng cách đến từ deliverable không khả thi (feasibility 45.16–88.39%), không phải toán kém.
+→ Tiếp tục: [YES]
