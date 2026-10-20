@@ -1,0 +1,17 @@
+{
+  "name": "NIOCIS: Typed-Decision Next-Hop Routing with Node-Conditioned Option Spaces for Tool-Use Agents",
+  "authors": ["Jin Han", "Mingfeng Xin", "Feng Liang", "Jingtao Yu"],
+  "affiliation": "Independent Researcher",
+  "link": "https://arxiv.org/abs/2610.25985",
+  "pdf_link": "https://arxiv.org/pdf/2610.25985",
+  "arxiv_id": "2610.25985v1",
+  "year": 2026,
+  "category": "cs.CR",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "niocis-typed-decision-routing-layer",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 199
+}

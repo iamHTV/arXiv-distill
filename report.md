@@ -795,3 +795,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: info-injection-defense-star-pipeline | Test: SKILL VALID
 ✓ Insight: Thông tin injection đạt ASR 62% (gấp 4.5× prompt injection 14%), hai mẫu 30 từ 100% trên 15 mã cổ phiếu, chỉ star pipeline phân cấp giảm ASR xuống 9–10%.
 → Tiếp tục: [YES]
+
+## Paper #199 — NIOCIS: Typed-Decision Next-Hop Routing with Node-Conditioned Option Spaces for Tool-Use Agents (2610.25985v1) [applied]
+✓ Skill: niocis-typed-decision-routing-layer | Test: SKILL VALID
+✓ Insight: Lớp định tuyến typed-decision thay thế suy luận LLM mỗi hop, đạt 32.8% khớp đội agentes trong 10 ms so với 2.2 s/LLM hop, không gian tùy chọn được điều chế bởi nút勝 lợi hơn danh mục phẳng 3.5 điểm.
+→ Tiếp tục: [YES]
