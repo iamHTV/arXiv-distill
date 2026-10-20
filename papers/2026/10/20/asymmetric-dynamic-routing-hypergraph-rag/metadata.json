@@ -1,0 +1,14 @@
+{
+  "name": "Asymmetric Dynamic Routing: Balancing Reasoning Depth and Computational Efficiency in Hypergraph RAG",
+  "authors": ["Qi Sun", "Yijia Zhang", "Caibo Li", "Qiang Li", "Yu Guo"],
+  "link": "https://arxiv.org/pdf/2609.29282v2",
+  "id": "2609.29282v2",
+  "year": 2026,
+  "category": "cs.IR (also cs.AI, cs.CL)",
+  "classification": "applied",
+  "skill_name": "asymmetric-dynamic-routing-rag",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-20",
+  "paper_number": 192,
+  "affiliations": "Xi'an Jiaotong University + China Southern Power Grid"
+}
