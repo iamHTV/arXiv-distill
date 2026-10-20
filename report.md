@@ -810,3 +810,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: cxbench-process-compliance-evaluation | Test: SKILL VALID
 ✓ Insight: 69.29% executions đạt outcome nhưng chỉ 13.81% đạt cả outcome và process; 55.48% là false-pass (outcome đúng nhưng vi phạm quy trình), sadece 13.8% pass cả hai.
 → Tiếp tục: [YES]
+
+## Paper #202 — Scaling Multi-Agent Intelligence with Substrate-Centric Coordination (2610.16120v1) [applied]
+✓ Skill: scalemas-substrate-coordination | Test: SKILL VALID
+✓ Insight: ScaleMAS dùng kho dữ liệu tin nhắn liên kết chung + trích dẫn từ đồng nghiệp để xếp hạng, đạt 65.3% BrowseComp-Plus với 16 agent (từ 38.1% với 1), scale đến 128 agent và chịu được agent lỗi.
+→ Tiếp tục: [YES]

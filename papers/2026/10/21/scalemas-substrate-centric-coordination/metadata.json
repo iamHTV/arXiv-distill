@@ -1,0 +1,17 @@
+{
+  "name": "Scaling Multi-Agent Intelligence with Substrate-Centric Coordination",
+  "authors": ["Zhenting Qi", "Zhuokai Zhao", "Rulin Shao", "Kerem Oktar", "Zhiyuan Yao", "Himabindu Lakkaraju", "Wen-tau Yih", "Ansong Ni", "Bhargavi Paranjape", "Yilun Du"],
+  "affiliation": "FAIR at Meta, Meta AI, Harvard, Kempner Institute",
+  "link": "https://arxiv.org/abs/2610.16120",
+  "pdf_link": "https://arxiv.org/pdf/2610.16120",
+  "arxiv_id": "2610.16120v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "scalemas-substrate-coordination",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 202
+}
