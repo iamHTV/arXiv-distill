@@ -1,0 +1,17 @@
+{
+  "name": "Agent-Reflex: Teaching Language Agents to Act Reflectively",
+  "authors": ["Guanting Dong", "Xinyu Yang", "Jiajie Jin", "Yuyang Hu", "Xiaoshuai Song", "Yifei Chen", "Xiaoxi Li", "Jiejun Tan", "Yutao Zhu", "Tat-Seng Chua", "Ji-Rong Wen", "Zhicheng Dou"],
+  "affiliation": "Gaoling School of Artificial Intelligence, Renmin University of China; National University of Singapore",
+  "link": "https://arxiv.org/abs/2610.17953",
+  "pdf_link": "https://arxiv.org/pdf/2610.17953",
+  "arxiv_id": "2610.17953v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "agent-reflex-reflective-training",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-21",
+  "paper_number": 209
+}

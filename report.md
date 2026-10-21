@@ -845,3 +845,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: ifmap-agent-prioritization-probing | Test: SKILL VALID
 ✓ Insight: Đo "potential to improve" bằng prompt perturbation probing (black-box, không cần gradient): prompt optimization +3.81 pp vs +1.85 uniform; model upgrade +7.62–16.42 pp vs +3.81–8.62 uniform, tiết kiệm 63.6–74.2% tokens — chọn đúng 1 agent nâng cấp hiệu quả gấp ~2 lần chọn ngẫu nhiên.
 → Tiếp tục: [YES]
+
+## Paper #209 — Agent-Reflex: Teaching Language Agents to Act Reflectively (2610.17953v1) [applied]
+✓ Skill: agent-reflex-reflective-training | Test: SKILL VALID
+✓ Insight: Huấn luyện agent phản xạ chủ động (proactive reflection) và khôi phục kỹ năng (skill recovery) khi công cụ (tool) bị ồn ào (noisy interaction) — tinh chỉnh (fine-tuning) trên cặp thành công–thất bại thật thay vì chỉ nhắc qua lệnh nhắc (prompt) → agent tự sửa lỗi, không cần văn bản phê bình (critique text); VitaBench 17.5% vs Reflexion-8B 6.8%, ACEBench 78.0% vs NoisyAgent-8B 52.0%, τ²-Bench 62.1% vs EnvScaler-8B 54.6%.
+→ Tiếp tục: [YES]
