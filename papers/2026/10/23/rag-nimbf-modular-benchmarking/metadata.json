@@ -1,0 +1,17 @@
+{
+  "name": "RAG-NIMBF: A Non-Invasive, Modular Benchmarking Framework for Automated RAG Configuration Analysis",
+  "authors": ["Niclas Hart", "Nicolas Weeger"],
+  "affiliation": "Ansbach University of Applied Sciences",
+  "link": "https://arxiv.org/abs/2610.27816",
+  "pdf_link": "https://arxiv.org/pdf/2610.27816v1",
+  "arxiv_id": "2610.27816v1",
+  "year": 2026,
+  "category": "cs.SE",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "rag-nimbf-configuration-analysis",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-23",
+  "paper_number": 215
+}

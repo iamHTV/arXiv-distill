@@ -875,3 +875,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: methane-tool-grounded-multi-agent | Test: SKILL VALID
 ✓ Insight: LLM nên điều phối quy trình chứ không thay thế tính toán định lượng xác định — giữ kết quả có thể truy xuất và dựa trên vật lý; xử lý cục bộ giảm lộ dữ liệu nhạy cảm; đạt 92.0% điều phối quy trình, 85.0% ước lực phát thải/cột feather, 95.0% báo cáo, thời gian từ giờ xuống phút.
 → Tiếp tục: [YES]
+
+## Paper #215 — RAG-NIMBF: A Non-Invasive, Modular Benchmarking Framework for Automated RAG Configuration Analysis (2610.27816v1) [applied]
+✓ Skill: rag-nimbf-configuration-analysis | Test: SKILL VALID
+✓ Insight: Không có chỉ số đơn lẻ nào đủ cho RAG — faithfulness, nDCG@5, và thời gian chạy di chuyển theo hướng khác nhau; MMR tăng nDCG@5 +4 đến +11 điểm, nhắc chi tiết tăng faithfulness +10 đến +13 điểm trên mô hình giỏi/suy lý, Qwen3.6-27B cục bộ khớp GPT-4o-mini ở 0.89 faithfulness.
+→ Tiếp tục: [YES]
