@@ -880,3 +880,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: rag-nimbf-configuration-analysis | Test: SKILL VALID
 ✓ Insight: Không có chỉ số đơn lẻ nào đủ cho RAG — faithfulness, nDCG@5, và thời gian chạy di chuyển theo hướng khác nhau; MMR tăng nDCG@5 +4 đến +11 điểm, nhắc chi tiết tăng faithfulness +10 đến +13 điểm trên mô hình giỏi/suy lý, Qwen3.6-27B cục bộ khớp GPT-4o-mini ở 0.89 faithfulness.
 → Tiếp tục: [YES]
+
+## Paper #216 — A Cross-Domain Evaluation of Prompting Techniques for Large Language Models (2610.24913v1) [applied]
+✓ Skill: cross-domain-prompt-selection | Test: SKILL VALID
+✓ Insight: Không có kỹ thuật nhắc nào vượt trội trên tất cả domain; không có sai số statiscally significant giữa cấu hình cao nhất và thứ hai (tất cả adjusted p-value = 1.000). RAG trung bình cao nhất 78.33% (300 ví dụ), Few-Shot 77.83% (200 ví dụ), Zero-Shot thắng BoolQ 90.0%, PE2 ổn định không vượt trội. Tăng ví dụ không nhất quán cải thiện hiệu suất → chọn kỹ thuật nhắc theo đặc điểm nhiệm vụ.
+→ Tiếp tục: [YES]

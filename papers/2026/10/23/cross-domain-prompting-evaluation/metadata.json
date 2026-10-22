@@ -1,0 +1,17 @@
+{
+  "name": "A Cross-Domain Evaluation of Prompting Techniques for Large Language Models",
+  "authors": ["Kevin Krazius", "Tim Schlippe", "Paul Libbrecht"],
+  "affiliation": "IU International University of Applied Sciences, Germany",
+  "link": "https://arxiv.org/abs/2610.24913",
+  "pdf_link": "https://arxiv.org/pdf/2610.24913v1",
+  "arxiv_id": "2610.24913v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "cross-domain-prompt-selection",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-23",
+  "paper_number": 216
+}
