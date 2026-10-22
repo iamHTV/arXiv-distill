@@ -855,3 +855,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: diffresearch-diffusion-backbone-deep-research | Test: SKILL VALID
 ✓ Insight: Thay backbone AR bằng diffusion language model làm giảm độ trễ end-to-end khoảng 6× (71,45s → 11,89s) mà không làm giảm chất lượng RACE, vì diffusion cập nhật toàn bộ dãy văn bản song song thay vì sinh tuần tự một token một thời điểm.
 → Tiếp tục: [YES]
+
+## Paper #211 — MemoProAgent: Toward Memory-Driven Proactive Assistance (2610.22671v2) [applied]
+✓ Skill: memoproagent-gated-memory-harness | Test: SKILL VALID
+✓ Insight: Trong trợ giúp chủ động, bộ nhớ quyết định cả nội dung lẫn thời điểm; thiếu một trong hai là thảm họa (oracle+timing given đạt 96%, nhưng chỉ timing do model chọn sụt 38%, retrieved+timing given sụt 15.3%), nên giải pháp phải lọc bằng chứng qua cổng lọc chứ không chỉ cung cấp thêm bộ nhớ.
+→ Tiếp tục: [YES]

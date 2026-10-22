@@ -1,0 +1,17 @@
+{
+  "name": "MemoProAgent: Toward Memory-Driven Proactive Assistance",
+  "authors": ["Shenglai Zeng", "Xiao Yang", "Tiffany Ma", "Xinyuan Zhang", "Nanshu Wang", "Deren Lei", "Kai Sun", "Xilun Chen", "Tammy Stark", "Xianhui Zhu", "Yuetai Li", "Rulin Shao", "Tianxin Wei", "Rakesh Wanga", "Anuj Kumar", "Jiliang Tang", "Wen-tau Yih", "Xin Luna Dong"],
+  "affiliation": "Michigan State University; Meta Reality Labs; Meta Superintelligence Labs; Meta; University of Washington; UIUC",
+  "link": "https://arxiv.org/abs/2610.22671",
+  "pdf_link": "https://arxiv.org/pdf/2610.22671v2",
+  "arxiv_id": "2610.22671v2",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "memoproagent-gated-memory-harness",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-23",
+  "paper_number": 211
+}
