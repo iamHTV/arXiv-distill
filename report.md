@@ -865,3 +865,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: self-evolving-agent-harness-isolation | Test: SKILL VALID
 ✓ Insight: Agent tự tiến hóa trải qua trade-off plasticity–stability: GEPA linh hoạt cao nhất (+6.2 pp) nhưng kém ổn định nhất (−4.3 pp), ReasoningBank ổn định nhất (−1.9 pp) nhưng chỉ nửa linh hoạt (+3.3 pp); tự sửa đổi prompt dùng chung gây can thiệp chéo và ghi đè, truy xuất tương đồng không ngăn va chạm khi các tác vụ khác nhau dùng cùng embedding space.
 → Tiếp tục: [YES]
+
+## Paper #213 — TaQFormer: A Treatment-as-Query Transformer with Data-Fusion for Multidimensional Treatment Modeling in Coupon Allocation (2610.26199v1) [applied]
+✓ Skill: taqformer-treatment-query-uplift | Test: SKILL VALID
+✓ Insight: Mỗi chiều giảm giá là một truy vấn token dùng cross-attention để ước lượng phản hồi vectơ điều trị toàn phần; cổng hợp nhất theo từng instance trộn nhánh OBS đóng băng và RCT đã điều chỉnh — Qini 0,1612→0,2697, AUC 0,6776→0,7393, A/B 14 ngày +1,26% giá trị khách hàng, tỷ lệ phụ giá thu không đổi (~20,4%).
+→ Tiếp tục: [YES]

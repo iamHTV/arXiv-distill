@@ -1,0 +1,17 @@
+{
+  "name": "TaQFormer: A Treatment-as-Query Transformer with Data-Fusion for Multidimensional Treatment Modeling in Coupon Allocation",
+  "authors": ["Jiahong Li", "Zhifan Jiang", "Jixing Xu", "Zeqin Yang", "Jingqi Ma", "Jun Wu", "Yu Xiang", "Enzheng Hua", "Fei Wang", "Enyun Yu", "Jiecheng Guo"],
+  "affiliation": "Didi Chuxing, Beijing, China",
+  "link": "https://arxiv.org/abs/2610.26199",
+  "pdf_link": "https://arxiv.org/pdf/2610.26199v1",
+  "arxiv_id": "2610.26199v1",
+  "year": 2026,
+  "category": "cs.LG",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "taqformer-treatment-query-uplift",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-23",
+  "paper_number": 213
+}
