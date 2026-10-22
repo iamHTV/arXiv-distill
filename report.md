@@ -885,3 +885,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: cross-domain-prompt-selection | Test: SKILL VALID
 ✓ Insight: Không có kỹ thuật nhắc nào vượt trội trên tất cả domain; không có sai số statiscally significant giữa cấu hình cao nhất và thứ hai (tất cả adjusted p-value = 1.000). RAG trung bình cao nhất 78.33% (300 ví dụ), Few-Shot 77.83% (200 ví dụ), Zero-Shot thắng BoolQ 90.0%, PE2 ổn định không vượt trội. Tăng ví dụ không nhất quán cải thiện hiệu suất → chọn kỹ thuật nhắc theo đặc điểm nhiệm vụ.
 → Tiếp tục: [YES]
+
+## Paper #217 — Evaluating Open-Weight LLMs for Turkish Domain Documents Under Retrieval and Hardware Constraints (2609.28007v1) [applied]
+✓ Skill: turkish-llm-evidence-annotated-eval | Test: SKILL VALID
+✓ Insight: Sự điều chỉnh ngôn ngữ đơn lẻ không đảm bảo hiệu năng tài liệu-grounded (Qwen2.5 đa ngôn ngữ vượt qua các mô hình điều chỉnh Turkce); truy xuất có thể là ràng buộc buộc đối với một số tài liệu (57% nhớ lại báo cáo chính) nhưng không phải tất cả (91% báo cáo thứ cấp); chọn mô hình dựa trên kết quả thực nghiệm chứ không chỉ nhãn ngôn ngữ (Trendyol 75% chính xác nhưng chậm 14 lần Qwen2.5).
+→ Tiếp tục: [YES]

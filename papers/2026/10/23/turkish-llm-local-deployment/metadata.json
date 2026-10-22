@@ -1,0 +1,17 @@
+{
+  "name": "Evaluating Open-Weight LLMs for Turkish Domain Documents Under Retrieval and Hardware Constraints",
+  "authors": ["Imtiaz Ul Hassan", "Öykü Akbulut", "Onur Kaya", "Ardhendu Behera", "Swagat Kumar", "Peter Matthew", "Yonghuai Liu"],
+  "affiliation": "Edge Hill University, UK; Ermetal Otomotiv ve Eşya San. Tic. A.Ş., Turkey",
+  "link": "https://arxiv.org/abs/2609.28007",
+  "pdf_link": "https://arxiv.org/pdf/2609.28007v1",
+  "arxiv_id": "2609.28007v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "turkish-llm-evidence-annotated-eval",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-23",
+  "paper_number": 217
+}
