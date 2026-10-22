@@ -870,3 +870,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: taqformer-treatment-query-uplift | Test: SKILL VALID
 ✓ Insight: Mỗi chiều giảm giá là một truy vấn token dùng cross-attention để ước lượng phản hồi vectơ điều trị toàn phần; cổng hợp nhất theo từng instance trộn nhánh OBS đóng băng và RCT đã điều chỉnh — Qini 0,1612→0,2697, AUC 0,6776→0,7393, A/B 14 ngày +1,26% giá trị khách hàng, tỷ lệ phụ giá thu không đổi (~20,4%).
 → Tiếp tục: [YES]
+
+## Paper #214 — A Locally Deployable Tool-Grounded LLM Multi-agent Framework for Automating Methane Emission Analysis and Reporting (2608.18473v1) [applied]
+✓ Skill: methane-tool-grounded-multi-agent | Test: SKILL VALID
+✓ Insight: LLM nên điều phối quy trình chứ không thay thế tính toán định lượng xác định — giữ kết quả có thể truy xuất và dựa trên vật lý; xử lý cục bộ giảm lộ dữ liệu nhạy cảm; đạt 92.0% điều phối quy trình, 85.0% ước lực phát thải/cột feather, 95.0% báo cáo, thời gian từ giờ xuống phút.
+→ Tiếp tục: [YES]

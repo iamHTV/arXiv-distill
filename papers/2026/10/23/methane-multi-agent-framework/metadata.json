@@ -1,0 +1,17 @@
+{
+  "name": "A Locally Deployable Tool-Grounded LLM Multi-agent Framework for Automating Methane Emission Analysis and Reporting",
+  "authors": ["Yang Yan", "Zifan Zhou", "Xuan Wang", "Erum Hassan", "Bilguunzaya Mijiddorj", "Jie Cao", "Bin Li", "Binbin Weng"],
+  "affiliation": "University of Oklahoma; Pennsylvania State University",
+  "link": "https://arxiv.org/abs/2608.18473",
+  "pdf_link": "https://arxiv.org/pdf/2608.18473v1",
+  "arxiv_id": "2608.18473v1",
+  "year": 2026,
+  "category": "cs.MA",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "methane-tool-grounded-multi-agent",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-23",
+  "paper_number": 214
+}
