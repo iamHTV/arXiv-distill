@@ -850,3 +850,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: agent-reflex-reflective-training | Test: SKILL VALID
 ✓ Insight: Huấn luyện agent phản xạ chủ động (proactive reflection) và khôi phục kỹ năng (skill recovery) khi công cụ (tool) bị ồn ào (noisy interaction) — tinh chỉnh (fine-tuning) trên cặp thành công–thất bại thật thay vì chỉ nhắc qua lệnh nhắc (prompt) → agent tự sửa lỗi, không cần văn bản phê bình (critique text); VitaBench 17.5% vs Reflexion-8B 6.8%, ACEBench 78.0% vs NoisyAgent-8B 52.0%, τ²-Bench 62.1% vs EnvScaler-8B 54.6%.
 → Tiếp tục: [YES]
+
+## Paper #210 — DiffResearch: Accelerating Deep Research with Diffusion Language Models (2610.28909v1) [applied]
+✓ Skill: diffresearch-diffusion-backbone-deep-research | Test: SKILL VALID
+✓ Insight: Thay backbone AR bằng diffusion language model làm giảm độ trễ end-to-end khoảng 6× (71,45s → 11,89s) mà không làm giảm chất lượng RACE, vì diffusion cập nhật toàn bộ dãy văn bản song song thay vì sinh tuần tự một token một thời điểm.
+→ Tiếp tục: [YES]
