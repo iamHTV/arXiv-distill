@@ -1,0 +1,17 @@
+{
+  "name": "Are Self-Evolving Agents Continual Learners?",
+  "authors": ["Xiaoyin Chen", "Yizheng Huang", "Yinglun Xu", "Ziyun Zhao", "Emmett McQuinn", "Julie Liu", "Hope Yao"],
+  "affiliation": "Mila – Quebec AI Institute; Université de Montréal; Google DeepMind",
+  "link": "https://arxiv.org/abs/2610.25858",
+  "pdf_link": "https://arxiv.org/pdf/2610.25858v1",
+  "arxiv_id": "2610.25858v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "self-evolving-agent-harness-isolation",
+  "skill_test": "SKILL VALID",
+  "distilled_date": "2026-10-23",
+  "paper_number": 212
+}

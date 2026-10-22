@@ -860,3 +860,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: memoproagent-gated-memory-harness | Test: SKILL VALID
 ✓ Insight: Trong trợ giúp chủ động, bộ nhớ quyết định cả nội dung lẫn thời điểm; thiếu một trong hai là thảm họa (oracle+timing given đạt 96%, nhưng chỉ timing do model chọn sụt 38%, retrieved+timing given sụt 15.3%), nên giải pháp phải lọc bằng chứng qua cổng lọc chứ không chỉ cung cấp thêm bộ nhớ.
 → Tiếp tục: [YES]
+
+## Paper #212 — Are Self-Evolving Agents Continual Learners? (2610.25858v1) [applied]
+✓ Skill: self-evolving-agent-harness-isolation | Test: SKILL VALID
+✓ Insight: Agent tự tiến hóa trải qua trade-off plasticity–stability: GEPA linh hoạt cao nhất (+6.2 pp) nhưng kém ổn định nhất (−4.3 pp), ReasoningBank ổn định nhất (−1.9 pp) nhưng chỉ nửa linh hoạt (+3.3 pp); tự sửa đổi prompt dùng chung gây can thiệp chéo và ghi đè, truy xuất tương đồng không ngăn va chạm khi các tác vụ khác nhau dùng cùng embedding space.
+→ Tiếp tục: [YES]
