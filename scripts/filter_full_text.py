@@ -18,6 +18,7 @@ import glob
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 import urllib.error
@@ -89,31 +90,33 @@ def extract_pdf_text(pdf_url):
     # scan json lưu link = abs page (/abs/<id>) → chuyển thành PDF URL (/pdf/<id>)
     if "/abs/" in pdf_url:
         pdf_url = pdf_url.replace("/abs/", "/pdf/")
-    try:
-        req = urllib.request.Request(
-            pdf_url,
-            headers={"User-Agent": "arxiv-distill-research/1.0"},
-        )
-        with urllib.request.urlopen(req, timeout=PDF_TIMEOUT) as r:
-            pdf_bytes = r.read()
-    except Exception as ex:
-        print("    (tải PDF lỗi: %s)" % ex)
-        return ""
-
-    if not pdf_bytes or pdf_bytes[:4] != b"%PDF":
-        print("    (không phải PDF hợp lệ)")
-        return ""
-
-    # Ghi ra file tạm rồi gọi pdfminer qua /tmp/pdfenv nếu có
     tmp_pdf = "/tmp/filter_%s.pdf" % os.path.basename(pdf_url).replace("/", "_")
     tmp_txt = "/tmp/filter_%s.txt" % os.path.basename(pdf_url).replace("/", "_")
+    # Dùng curl thay urllib: arxiv hay throttle/stall connection, urllib hang
+    # không timeout được socket-read. curl --retry + --max-time 180 (pitfall 19).
     try:
-        with open(tmp_pdf, "wb") as f:
-            f.write(pdf_bytes)
+        for f in (tmp_pdf, tmp_txt):
+            try:
+                os.remove(f)
+            except OSError:
+                pass
+        curl_cmd = [
+            "curl", "-sL", "--max-time", "180", "--retry", "2",
+            "--retry-delay", "3", "-A", "arxiv-distill-research/1.0",
+            "-o", tmp_pdf, pdf_url,
+        ]
+        subprocess.run(curl_cmd, capture_output=True, timeout=200)
     except Exception as ex:
-        print("    (ghi PDF tạm lỗi: %s)" % ex)
+        print("    (curl lỗi: %s)" % ex)
         return ""
-
+    try:
+        with open(tmp_pdf, "rb") as f:
+            head = f.read(5)
+        if head[:4] != b"%PDF":
+            print("    (không phải PDF hợp lệ — arxiv trả HTML/403?)")
+            return ""
+    except Exception:
+        return ""
     pdfenv_python = "/tmp/pdfenv/bin/python"
     extract_cmd = [
         pdfenv_python, "-c",
@@ -122,7 +125,6 @@ def extract_pdf_text(pdf_url):
         tmp_pdf,
     ]
     try:
-        import subprocess
         res = subprocess.run(
             extract_cmd,
             capture_output=True, text=True, timeout=120,
