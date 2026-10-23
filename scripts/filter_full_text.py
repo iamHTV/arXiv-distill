@@ -60,17 +60,22 @@ def call_openrouter(prompt, key, max_tokens=1200):
         "max_tokens": max_tokens,
         "temperature": 0.3,
     }).encode()
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions",
-        data=body,
-        headers={
-            "Authorization": "Bearer " + key,
-            "Content-Type": "application/json",
-        },
-    )
+    # Dùng curl thay urllib: urlopen có thể hang vô hạn trên connection
+    # stalled (Cloudflare keepalive) dù đã set timeout — bài học 2026-10-24.
     try:
-        with urllib.request.urlopen(req, timeout=LLM_TIMEOUT) as r:
-            d = json.load(r)
+        res = subprocess.run(
+            ["curl", "-sS", "--max-time", str(LLM_TIMEOUT), "--retry", "1",
+             "-X", "POST", "https://openrouter.ai/api/v1/chat/completions",
+             "-H", "Authorization: Bearer " + key,
+             "-H", "Content-Type: application/json",
+             "-d", "@-"],
+            input=body, capture_output=True, timeout=LLM_TIMEOUT + 30,
+        )
+        d = json.loads((res.stdout or b"").decode("utf-8", "replace"))
+    except Exception as ex:
+        print("  Lỗi gọi LLM (curl): %s" % ex)
+        return ""
+    try:
         msg = d["choices"][0]["message"]
         content = msg.get("content", "") or ""
         reasoning = msg.get("reasoning", "") or ""
@@ -145,7 +150,7 @@ def extract_pdf_text(pdf_url):
 
 
 def llm_rerank(name, arxiv_id, abstract, full_text, key):
-    """Gọi LLM đánh giá lại bài dựa trên full text. Trả về điểm 0-100 + lý do."""
+    """Gọi LLM đánh giá lại bài dựa trên full text. Trả về điểm 0-120 + lý do."""
     # Cắt full text để không quá dài (LLM context hạn chế)
     text_preview = full_text[:6000] if full_text else "(không đọc được full text)"
     abs_preview = abstract[:1200] if abstract else ""
@@ -156,31 +161,38 @@ def llm_rerank(name, arxiv_id, abstract, full_text, key):
         "Tên paper: %s (arXiv %s)\n"
         "Abstract: %s\n\n"
         "Full text (cắt 6.000 ký tự đầu):\n%s\n\n"
-        "Hãy đánh giá lại bài này theo 3 tiêu chí, mỗi tiêu chí 0-40 điểm (tổng 0-120):\n"
+        "Đánh giá bài này theo 3 tiêu chí, mỗi tiêu chí 0-40 điểm (tổng 0-120):\n"
         "1. Ứng dụng thực tiễn cho business/content/AI (có experiment, dataset, benchmark thật?)\n"
         "2. Insight hành động được (đọc xong làm được ngay mà không cần reproduce?)\n"
-        "3. Phù hợp solopreneur Việt Nam (ít tài nguyên, cần kết quả nhanh, không cần 팀 lớn?)\n\n"
-        "Trả về DUY NHẤT JSON:\n"
+        "3. Phù hợp solopreneur Việt Nam (ít tài nguyên, cần kết quả nhanh, không cần nhóm lớn?)\n\n"
+        "QUY TẮC OUTPUT BẮT BUỘC: Trả về DUY NHẤT 1 dòng JSON, KHÔNG có lời giải thích, "
+        "KHÔNG có text nào khác trước hoặc sau:\n"
         "{\"score\": <0-120>, \"reason\": \"<1 câu lý do>\", \"verdict\": \"<KEEP/DROP>\"}\n"
-        "Nếu không đọc được full text hoặc bài lý thuyết thuần, teoría toán, y học, hoá học → verdict DROP.\n"
+        "KEEP nếu bài có thí nghiệm/benchmark thật VÀ rút ra được insight dùng được. "
+        "DROP nếu không đọc được full text, hoặc bài lý thuyết thuần, lý thuyết toán, y học, hoá học.\n"
     ) % (name, arxiv_id, abs_preview, text_preview)
 
-    raw = call_openrouter(prompt, key, max_tokens=800)
+    raw = call_openrouter(prompt, key, max_tokens=2000)
     if not raw:
         return -1, "LLM lỗi", "DROP"
 
-    # Parse JSON
-    try:
-        m = re.search(r"\{.*\}", raw, re.S)
-        if not m:
-            return -1, "JSON parse lỗi", "DROP"
-        j = json.loads(m.group(0))
-        score = int(j.get("score", 0))
-        reason = j.get("reason", "")
-        verdict = j.get("verdict", "DROP")
-        return score, reason, verdict
-    except Exception:
-        return -1, "JSON parse lỗi", "DROP"
+    # Parse robust: thử mọi block {...} KHÔNG lồng nhau, từ CUỐI về ĐẦU,
+    # lấy block đầu tiên có field "verdict" (model hay thải prose trước JSON).
+    import re as _re
+    for cand in reversed(_re.findall(r"\{[^{}]*\}", raw, _re.S)):
+        try:
+            j = json.loads(cand)
+        except Exception:
+            continue
+        if isinstance(j, dict) and "verdict" in j:
+            try:
+                score = int(j.get("score", 0))
+            except Exception:
+                score = -1
+            reason = str(j.get("reason", ""))[:200]
+            verdict = str(j.get("verdict", "DROP"))[:10].upper()
+            return score, reason, verdict
+    return -1, "JSON parse lỗi", "DROP"
 
 
 def main():
@@ -225,6 +237,7 @@ def main():
 
         # LLM đánh giá lại
         score, reason, verdict = llm_rerank(name, arxiv_id, abstract, full_text, key)
+        print("      full_text=%d ký tự → score=%s verdict=%s | %s" % (len(full_text), score, verdict, reason[:100]))
 
         p["full_text_score"] = score
         p["full_text_reason"] = reason
@@ -245,6 +258,18 @@ def main():
     print("Đã chọn %d bài KEEP, giữ top %d" % (len(filtered), len(final)))
 
     # Ghi file filtered
+    all_evals = [
+        {
+            "id": p.get("id", ""),
+            "title": p.get("title", ""),
+            "llm_score": p.get("llm_score", -1),
+            "full_text_score": p.get("full_text_score", -1),
+            "full_text_verdict": p.get("full_text_verdict", "DROP"),
+            "full_text_reason": p.get("full_text_reason", ""),
+            "has_full_text": p.get("has_full_text", False),
+        }
+        for p in candidates
+    ]
     out = {
         "date": date_str,
         "source_scan": scan_path,
@@ -253,6 +278,7 @@ def main():
         "kept_count": len(filtered),
         "final_count": len(final),
         "papers": final,
+        "all_evaluations": all_evals,
     }
     out_path = os.path.join(SCANS_DIR, date_str + "_filtered.json")
     with open(out_path, "w", encoding="utf-8") as f:
