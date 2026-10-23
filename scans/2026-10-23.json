@@ -1,175 +1,177 @@
 {
   "date": "2026-10-23",
-  "watermark_from": "2026-10-20T17:59:56Z",
-  "seen_before": 230,
+  "watermark_from": "2026-10-21T17:59:14Z",
+  "seen_before": 240,
   "total_fetched": 6078,
-  "after_seen": 5882,
-  "after_category": 5337,
-  "after_heuristic": 5129,
+  "after_seen": 5872,
+  "after_category": 5327,
+  "after_heuristic": 5119,
   "papers": [
     {
-      "id": "2610.28909v1",
-      "title": "DiffResearch: Accelerating Deep Research with Diffusion Language Models",
-      "abstract": "Deep research systems iteratively plan, gather evidence, synthesize, and revise, making end-to-end latency a key bottleneck for interactive use. Almost all production systems are built on autoregressive (AR) language models and inherit left-to-right decoding in planning and long-form writing. We present DiffResearch, an open multi-agent deep research framework that places a diffusion language model (dLLM) at the core of every stage, and measure how a diffusion backbone changes latency and report quality. Holding the agentic scaffold, retrieval code, prompts, and evaluation fixed, we swap the backbone between an open diffusion model and a comparable AR model. Across 100 Deep Research Bench tasks, the diffusion backbone is roughly 6 times faster end-to-end, driven by order-of-magnitude reductions in planning and writing. We further introduce dFast, a decomposition mode that reads intermediate denoising states and extracts subqueries before generation finishes, providing a 1.99 times median speedup for decomposition in isolation with no loss of report quality. On the benchmark's RACE rubric, dFast obtains the best overall score among the three configurations. Finally, in a public system-level leaderboard snapshot, an instance built on a stronger diffusion model ranks above several commercial systems. We release DiffResearch under an Apache-2.0 license.",
-      "published": "2026-10-20T20:40:20Z",
-      "updated": "2026-10-20T20:40:20Z",
+      "id": "2610.28397v1",
+      "title": "MAS-Guard: Unified Guardrails from Individual Agents to Multi-Agent LLM Systems",
+      "abstract": "Agentic AI extends large language models (LLMs) from generating responses to planning and executing complex workflows, substantially expanding their utility while exposing applications to unsafe actions, information leakage, and adversarial manipulation. Multi-agent systems further expand these capabilities through specialization and collaboration, but distributed authority, heterogeneous roles, and opaque or potentially compromised participants make safeguarding even more challenging. Existing defenses address important individual threats but provide fragmented coverage across local execution, system-level interactions, and enforcement mechanisms. We introduce MAS-Guard, a unified framework that closes this gap for safeguarding single- and multi-agent AI applications containing both instrumentable and opaque agents. Within instrumentable agents, the proposed local Agent Guardrail (A-Guard) layer applies task-specific experts to assess agentic events. At the system level, developer-owned Agent Charters and a Control Plane combine deterministic structural checks of routes, agent capabilities, and message formats with semantic assessments of roles and message content. These complementary layers enable enforcement through a shared set of interventions: allow, reflection, confirmation, and block. Evaluated across six benchmarks covering diverse single- and multi-agent scenarios with three agent LLMs from different providers, MAS-Guard reduces the overall attack success rate by 71.5-86.3% relative to unguarded agents, while meeting the utility reference criterion on benign tasks.",
+      "published": "2026-10-20T15:44:37Z",
+      "updated": "2026-10-20T15:44:37Z",
       "cats": [
-        "cs.AI"
-      ],
-      "link": "http://arxiv.org/abs/2610.28909v1",
-      "heuristic": 49,
-      "llm_score": 88,
-      "llm_summary": "DiffResearch thay backbone AR bằng diffusion LLM trong toàn bộ pipeline deep research multi-agent, đạt nhanh hơn ~6 lần trên 100 tác vụ Deep Research Bench mà vẫn giữ chất lượng báo cáo, mã nguồn Apache-2.0.",
-      "llm_reason": "Multi-agent + deep research đúng chủ đề cốt lõi, benchmark thật có leaderboard, mở nguồn; speed 6x là insight hành động thẳng cho ai làm research content hằng ngày.",
-      "group": "high"
-    },
-    {
-      "id": "2610.22671v2",
-      "title": "MemoProAgent: Toward Memory-Driven Proactive Assistance",
-      "abstract": "As assistants move from reactive answering toward proactive intervention, memory changes role: it no longer only supplies the answer to a query, it determines whether and when to speak at all. Prior work in this setting hands the system the relevant fact in context; we study the regime that makes the problem hard, where the evidence justifying an intervention must be mined from a long-horizon personal memory. We introduce MemoProBench, a benchmark for memory-driven proactive assistance (MPA), pairing egocentric video with year-long, distractor-rich user memories (~618K tokens on average), human-verified trigger windows, and a protocol that scores content and timing jointly. Every baseline we evaluate performs poorly (at most 15%), including frontier models given summarized or retrieval-augmented memory. A controlled study explains why: with oracle evidence delivered inside the trigger window GPT-5.3-Chat reaches 96%; letting it choose the timing drops it to 38%, and replacing oracle evidence with retrieval drops it to 15%. Content and timing are separately necessary, and missing either is catastrophic. Guided by this, we build MemoProAgent with a plug-and-play harness that surfaces memory from a graph-organized store and gates it down to what is worth interrupting for, plus a lightweight RL stage that curbs early and repeated firing. Without any training, MemoProAgent lifts strict accuracy from below 10% to 37.5% on Qwen3.8-27B and 38% on GPT-5.3-Chat; RL post-training reaches 42.4%.",
-      "published": "2026-10-15T21:40:17Z",
-      "updated": "2026-10-21T05:59:44Z",
-      "cats": [
+        "cs.CR",
+        "cs.AI",
         "cs.CL"
       ],
-      "link": "http://arxiv.org/abs/2610.22671v2",
-      "heuristic": 51,
+      "link": "http://arxiv.org/abs/2610.28397v1",
+      "heuristic": 54,
       "llm_score": 85,
-      "llm_summary": "MemoProAgent + MemoProBench giải quyết trợ lý chủ động: khai thác memory dài hạn (~618K token) để biết KHI NÀO nên ngắt người dùng, kèm harness plug-and-play và RL chống bắn sớm.",
-      "llm_reason": "Đúng trọng tâm agent/memory/proactive AI (32/35), benchmark nghiêm ngặt với phân tích lỗi rõ ràng (22/25), ý 'timing quyết định can thiệp' cực kỳ applicable cho content automation & marketing timing (16/20), và cho harness reuse được ngay (15/20).",
+      "llm_summary": "MAS-Guard cung cấp guardrails thống nhất cho hệ thống agent đơn và đa LLM: lớp A-Guard cục bộ, Agent Charters + Control Plane kiểm tra cấu trúc/ngữ nghĩa, thực thi qua allow/reflection/confirmation/block.",
+      "llm_reason": "Cực kỳ liên quan cốt lõi agent/multi-agent safety (33/35), benchmark 6 tập (20/25), nội dung an toàn AI rất dễ làm content 30+ và các can thiệp 4 nível áp dụng ngay khi build agent.",
       "group": "high"
     },
     {
-      "id": "2610.25858v1",
-      "title": "Are Self-Evolving Agents Continual Learners?",
-      "abstract": "Large language model agents are often deployed in environments where new knowledge, tools, and workflows keep arriving. Such an agent is therefore expected to adapt continually, learning new tasks as they arrive without forgetting earlier ones. This resembles the continual learning problem, but at a pace that conventional gradient updates cannot sustain. Nonparametric self-evolving agents are a natural alternative: they adapt by rewriting their own harness, such as prompts, memory, and skills, from task feedback while the model weights stay frozen. We study whether such agents are effective continual learners across four drifting task streams that shift in topic, workflow, or domain (built from BIRD, BFCL, and ScienceWorld). Evaluating three representative methods spanning experience retrieval and self-modification (ReasoningBank, GEPA, and Meta-Harness), we find that although self-evolution improves aggregate performance on most streams, higher plasticity consistently comes at the cost of stability. Specifically, self-modifying methods apply global edits to a shared prompt or workspace, interfering with unseen tasks and overwriting earlier knowledge as the stream shifts. Conversely, similarity-based memory retrieval localizes updates across distant domains, but still retrieves foreign memories on unseen tasks and suffers from retrieval collision when similar queries require conflicting workflows. These findings show that current self-evolving agents remain incomplete continual learners.",
-      "published": "2026-10-19T06:12:45Z",
-      "updated": "2026-10-19T06:12:45Z",
-      "cats": [
-        "cs.AI",
-        "cs.LG"
-      ],
-      "link": "http://arxiv.org/abs/2610.25858v1",
-      "heuristic": 47,
-      "llm_score": 85,
-      "llm_summary": "Nghiên cứu xem self-evolving agent (rewrite prompt/memory/skills, weights đông lạnh) có phải continual learner không, trên 4 luồng task drift từ BIRD/BFCL/ScienceWorld.",
-      "llm_reason": "Core agent cao, benchmark thật, insight cực hành động: plasticity đổi lấy stability, global edit gây nhiễu, retrieval memory bị collision — ai dùng agent cho content/workflow cũng áp dụng được ngay.",
-      "group": "high"
-    },
-    {
-      "id": "2610.26199v1",
-      "title": "TaQFormer: A Treatment-as-Query Transformer with Data-Fusion for Multidimensional Treatment Modeling in Coupon Allocation",
-      "abstract": "We study coupon allocation on an online marketplace offering multiple service categories. Issuing coupons requires choosing a vector of category-specific discounts, accounting for both their direct effects and cross-category demand shifts. We present TaQFormer, a treatment-as-query Transformer for this multidimensional treatment setting. Each treatment coordinate is represented as a query token, allowing cross-attention to estimate the response to the full treatment vector. To combine large but policy-biased observational logs with a smaller stream of randomized controlled trial data, we use a two-stage pipeline: observational pretraining learns general outcome patterns, followed by LoRA fine-tuning on RCT data with a request-specific fusion gate. We evaluate the resulting system through the checks required for production, including offline uplift metrics, treatment-parallel serving, latency monitoring, and a 14-day online A/B test. At essentially the same subsidy cost rate, \\model increases business value per user by 1.26\\% over the production baseline and significantly outperforms both the production baseline and the RCT-only model, while meeting the latency budget. It was subsequently rolled out to all marketplace traffic and has operated at full scale for several months as of October 2026. The deployment illustrates how multidimensional treatment modeling and observational pretraining, combined with adaptation using RCT data, can support effective joint discount decisions in production.",
-      "published": "2026-10-19T11:27:46Z",
-      "updated": "2026-10-19T11:27:46Z",
-      "cats": [
-        "cs.LG"
-      ],
-      "link": "http://arxiv.org/abs/2610.26199v1",
-      "heuristic": 46,
-      "llm_score": 85,
-      "llm_summary": "Dùng transformer điều trị-truy vấn kết hợp log quan sát và RCT để phân phối coupon, A/B test 14 ngày tăng 1.26% giá trị/người dùng và đã triển khai toàn bộ traffic.",
-      "llm_reason": "Paper hiếm có experiment A/B thật, đã rollout, gắn trực tiếp marketing/ROI — cực kỳ có ích cho người làm content-business về AI.",
-      "group": "high"
-    },
-    {
-      "id": "2608.18473v1",
-      "title": "A Locally Deployable Tool-Grounded LLM Multi-agent Framework for Automating Methane Emission Analysis and Reporting",
-      "abstract": "Methane field monitoring requires the integration of sampling design, meteorological interpretation, sensor processing, plume analysis, visualization, and reporting, but these steps are often distributed across separate expert-driven workflows. We developed a locally deployable, tool-grounded large language model (LLM) multi-agent framework for our low-cost methane sensing and field-monitoring campaigns. The framework uses LLM agents as workflow coordinators that link field measurements, meteorological data, deterministic sensor-processing routines, Gaussian plume inversion, and report generation, rather than directly estimating methane concentrations or emissions. Extensive field deployments across diverse real-world environments (e.g., wastewater treatment facilities, landfills, and oil and gas sites) demonstrate that our framework can achieve 92.0\\% accuracy in workflow routing and parameter extraction, 85.0\\% success in emission-rate estimation and plume prediction, and 95.0\\% success in generating editable reports under practical operating conditions. Compared with manual and general-purpose LLM-assisted workflows, it reduced workflow time from hours-level to minutes-level, lowered manual coordination and prompt-engineering requirements, and retained traceable plume-based outputs. In addition, most processing can be performed locally, reducing exposure of sensitive facility and field data to cloud services. These results indicate that tool-grounded LLM coordination can reduce the time, labor, usability, and data-security barriers of methane field monitoring.",
-      "published": "2026-08-19T02:58:12Z",
-      "updated": "2026-08-19T02:58:12Z",
+      "id": "2609.29701v1",
+      "title": "Multi-Agent Debate for Explainable Trading: Reasoning, Consensus, and Performance in Simulated Markets",
+      "abstract": "Large language models (LLMs) are increasingly used for financial decision-making, yet it remains unclear whether improvements in reasoning quality translate into better economic outcomes. We investigate this question using a multi-agent debate framework for portfolio allocation in historical market simulations, where specialized agents propose, critique, and revise investment decisions. Reasoning quality is evaluated across four dimensions: logical validity, evidential support, alternative consideration, and causal alignment, and compared with downstream financial performance. Across 210 controlled runs, aggregate reasoning quality shows no meaningful relationship with Sharpe ratio (r = 0.07, p = 0.29) or total return (r = 0.03, p = 0.70). Structured prompting increases measured reasoning quality from about 0.72 to 0.84 (+17.7%, Cohen's d about 2.0), but these gains do not consistently translate into higher returns. We identify sycophantic convergence as a central failure mode, where agents abandon independent positions during critique-revision cycles and converge toward similar allocations. A Jensen-Shannon divergence intervention that preserves disagreement improves Sharpe by +0.14 (p = 0.028) and Sortino by +0.25 (p = 0.026), while interventions enforcing stronger causal reasoning do not improve financial performance. Our results suggest that multi-agent debate is most valuable when it preserves independent informational signals rather than simply improving measured reasoning quality.",
+      "published": "2026-08-31T08:23:59Z",
+      "updated": "2026-08-31T08:23:59Z",
       "cats": [
         "cs.MA"
       ],
-      "link": "http://arxiv.org/abs/2608.18473v1",
-      "heuristic": 58,
+      "link": "http://arxiv.org/abs/2609.29701v1",
+      "heuristic": 46,
       "llm_score": 84,
-      "llm_summary": "Framework multi-agent LLM tool-grounded, deploy local, tự động hóa toàn bộ quy trình phân tích phát thải methane từ cảm biến tới báo cáo, đạt 92% routing accuracy và giảm thời gian từ hàng giờ xuống phút.",
-      "llm_reason": "Case study multi-agent hoàn chỉnh với số liệu thực tế ngoài thực địa – ví dụ vàng để làm content về 'AI agent thay thế quy trình chuyên gia', kèm insight local deployment.",
+      "llm_summary": "Multi-agent debate cho portfolio allocation: reasoning quality không liên quan Sharpe/return, JSD intervention cải thiện Sharpe +0.14.",
+      "llm_reason": "Multi-agent debate + business decision (30+18), 210 runs có stats rõ (22), liên quan trực tiếp quyết định tài chính (16), insight sycophantic convergence & JSD actionable mạnh (16).",
       "group": "high"
     },
     {
-      "id": "2610.27816v1",
-      "title": "RAG-NIMBF: A Non-Invasive, Modular Benchmarking Framework for Automated RAG Configuration Analysis",
-      "abstract": "Retrieval-Augmented Generation (RAG) has become the dominant paradigm for grounding the outputs of large language models (LLM) in external knowledge. However, practitioners are faced with a vast configuration space comprising chunking, embedding, retrieval, reranking, prompting and generation models, and there is limited guidance on how these components interact. We present RAG-NIMBF, a modular benchmarking framework that attaches to existing RAG pipelines as a non-invasive evaluation layer. It evaluates the configuration space through controlled ablation with end-to-end experiment tracking. The evaluation combines LLM-based answer quality scores, retrieval correctness measures, and runtime indicators. This study validates the framework across multiple generation models on the SQuAD dataset. This process reveals non-obvious interactions and demonstrates how the experiments are tracked. The findings indicate that the retrieval balance of relevance and diversity substantially enhances the relevance and coverage of retrieved context in comparison to a conventional similarity search, with MMR raising nDCG@5 by +4 to +11 percentage points across the swept models. More detailed prompt instructions meaningfully increase how faithfully generated answers stick to the retrieved evidence, especially for capable and reasoning models (+10 to +13pp on Qwen3.6-27B, GPT-4o-mini and Qwen3.5-think, but negligible on the 20B generator). Overall, RAG-NIMBF transforms the configuration space of RAG into reproducible, comparable experiments. By attaching to existing production pipelines in a non-invasive way, it enables practitioners to systematically evaluate and improve deployed systems without disrupting existing workflows. This replaces ad hoc choices with evidence-based decisions.",
-      "published": "2026-10-20T08:08:08Z",
-      "updated": "2026-10-20T08:08:08Z",
-      "cats": [
-        "cs.SE",
-        "cs.AI"
-      ],
-      "link": "http://arxiv.org/abs/2610.27816v1",
-      "heuristic": 57,
-      "llm_score": 84,
-      "llm_summary": "RAG-NIMBF là framework benchmark module hóa, ablation có kiểm soát để phân tích cấu hình RAG, phát hiện MMR nâng nDCG@5 +4–11pp và prompt chi tiết tăng faithfulness +10–13pp.",
-      "llm_reason": "RAG cực kỳ thực dụng cho ai làm content/knowledge base; kết quả cụ thể, có thể áp dụng ngay để tune pipeline, rất nhiều insight hành động.",
-      "group": "high"
-    },
-    {
-      "id": "2610.24913v1",
-      "title": "A Cross-Domain Evaluation of Prompting Techniques for Large Language Models",
-      "abstract": "Prompt engineering has become a central mechanism for guiding the behavior of Large Language Models (LLMs) across a wide range of reasoning and language understanding tasks [1], [2]. However, existing studies frequently evaluate prompting techniques using different LLMs, datasets, or task settings, making direct comparisons across methods and domains difficult [3]. Consequently, in this paper we present a controlled cross-domain evaluation of Zero-Shot prompting, Few-Shot prompting, Retrieval-Augmented Generation (RAG), and automatic prompt optimization based on a PE2-inspired optimization pipeline [4]-[6]. All experiments were conducted with the same LLM and evaluated on six benchmark datasets covering arithmetic reasoning, logical reasoning, commonsense reasoning, and factual verification. The results show that no prompting strategy consistently outperforms the others across all domains, and pairwise statistical comparisons of the highest-performing configurations revealed no significant differences. RAG achieves the highest overall average accuracy of 78.33% when 300 examples are available for retrieval, while Few-Shot Prompting achieves comparatively high accuracies across several structured reasoning tasks. Zero-Shot Prompting remains competitive on tasks with self-contained inputs, whereas the PE2-inspired optimization approach produces stable but not systematically superior results compared to the other evaluated prompting techniques. Furthermore, increasing the number of task-specific examples does not consistently improve performance across prompting techniques, indicating strong domain and task dependency. These findings suggest that prompting techniques should be selected adaptively based on task characteristics rather than treated as universally applicable optimization strategies.",
-      "published": "2026-10-17T23:18:46Z",
-      "updated": "2026-10-17T23:18:46Z",
+      "id": "2610.27548v2",
+      "title": "Act on Your Behalf, Beyond Your Authorization: Benchmarking LLM Agent Authorization Alignment",
+      "abstract": "When an LLM agent acts on behalf of a user, it is expected to act within the authorization scope the user grants. Existing agent evaluations largely measure task completion or harmful consequences and can therefore overlook actions that violate this delegation without producing conventional safety or privacy harms. We introduce AuthorizationBench, a benchmark of authorization alignment grounded in documented real-world cases. A scalable construction pipeline produces 286 executable tasks spanning situational triggers, the presence or absence of direct harmful consequences, and ten application domains. We execute every task with four models at two reasoning-effort settings across three agent harnesses in an authorization-aware sandbox that keeps authorized and out-of-authorization paths executable and observable, yielding 6,864 trajectories. Agents act out of authorization in 19.2% of trajectories, with rates ranging from 10.5% to 26.6% across the 24 configurations. Task completion does not imply authorization. Increasing reasoning effort leaves the aggregate rate nearly unchanged, with effects varying across models. On controlled pairs, agents act out of authorization at similar rates with (17.9%) and without (20.8%) direct harmful consequences, and more often under benign pressures than malicious injections (23.5% versus 17.6%, p=0.002). Our results show that task capability, additional reasoning, and consequence-oriented safety evaluation do not by themselves ensure authorization alignment. Moreover, agents that consult the principal before completing a task exhibit lower rates of out-of-authorization behavior (14.0% versus 21.6%, p&lt;0.001), pointing to a tension between agent autonomy and preserving users' decision authority that calls for further human-centered study. Dataset and code are available at https://github.com/PEACH-Research-Lab/AuthorizationBench .",
+      "published": "2026-10-20T03:01:39Z",
+      "updated": "2026-10-21T06:31:44Z",
       "cats": [
         "cs.AI",
-        "cs.CL"
+        "cs.CR",
+        "cs.HC"
       ],
-      "link": "http://arxiv.org/abs/2610.24913v1",
-      "heuristic": 52,
-      "llm_score": 81,
-      "llm_summary": "Đánh giá chéo các prompting techniques (Zero-Shot, Few-Shot, RAG, PE2) trên 6 benchmark, cho thấy không có phương pháp nào thống trị mọi lĩnh vực và RAG đạt 78.33% khi có 300 examples.",
-      "llm_reason": "Cực kỳ thực tiễn cho solopreneur — biết prompt nào hiệu quả cho từng loại task content, có benchmark rõ ràng, insight hành động ngay.",
+      "link": "http://arxiv.org/abs/2610.27548v2",
+      "heuristic": 61,
+      "llm_score": 82,
+      "llm_summary": "AuthorizationBench benchmark 286 task/6.864 trajectory cho thấy agent LLM hành động ngoài phạm vi được ủy quyền tới 19,2%, và việc tăng reasoning effort không giảm được tỷ lệ này.",
+      "llm_reason": "Rất thực tiễn (benchmark quy mô lớn từ case thực) và cực kỳ relevant business: ai dùng agent tự động đều cần kiểm soát phạm vi ủy quyền — insight 'task completion ≠ authorization' là content gold cho đối tượng 30+.",
       "group": "high"
     },
     {
-      "id": "2609.28007v1",
-      "title": "Evaluating Open-Weight LLMs for Turkish Domain Documents Under Retrieval and Hardware Constraints",
-      "abstract": "Most Turkish-capable large language models (LLMs) are evaluated using general-purpose benchmarks rather than long, structurally complex domain documents. This paper evaluates five open-weight 7B-8B models for Turkish document question answering under a resource-constrained local deployment setting. The primary benchmark contains 100 systematically validated questions derived from a 109-page industrial R&amp;D report, and the evaluation protocol is replicated using a second 112-page public-sector report and an independently constructed 100-question set. All models are evaluated locally on an NVIDIA RTX 3050 laptop GPU with 6 GB VRAM using controlled prompting, decoding, and 4-bit quantisation. The principal methodological contribution is an evidence-annotated evaluation protocol that separates retrieval failure from downstream model reasoning failure without requiring additional model calls. On the primary benchmark, end-to-end accuracy ranges from 49% to 75%. Seven lexical, dense, and hybrid retrieval configurations are additionally compared using 95% Wilson intervals and exact paired McNemar tests; none significantly outperforms the character TF-IDF baseline on either document. Evidence recall saturates differently across the two reports, showing that retrieval and effective context capacity can be binding constraints for some documents but not others. These results demonstrate that model selection, retrieval behaviour, and hardware limits must be evaluated separately when deploying open-weight LLMs for Turkish domain documents.",
-      "published": "2026-09-23T12:33:57Z",
-      "updated": "2026-09-23T12:33:57Z",
+      "id": "2610.28686v1",
+      "title": "A Small Model Asks Better: Fine-Tuning Query Clarification for Retrieval-Augmented Generation",
+      "abstract": "Query clarification is essential for retrieval-augmented generation (RAG) systems that face ambiguous user queries. We consider multi-turn grounded conversational scenarios where a user query is either ill-formed or ambiguous in the context of the prior dialog or, more interestingly, it may be well-formed but when posed against retrieved documents there are multiple relevant interpretations. The task is to recognize both such cases and then generate an appropriate clarification request to the user. We present ClariEdge, a new dataset of approximately 3,900 examples that include such ambiguous queries along with negative examples that do not require clarification. We also show that a lightweight fine-tuned LoRA achieves 96.6% classification accuracy and outperforms prompted baselines of many larger models on both classification and quality of clarification generation. Our study shows that hard negatives are an essential ingredient to separate out queries that are truly ambiguous from queries that may look ambiguous but are not (i.e., can be resolved from the context). The same LoRA achieves high performance in both pre-retrieval and post-retrieval scenarios; thus, it can be used in two places in a RAG pipeline as a check before answer generation. The ClariEdge dataset is available at https://huggingface.co/datasets/ibm-research/ClariEdge.",
+      "published": "2026-10-19T22:33:41Z",
+      "updated": "2026-10-19T22:33:41Z",
       "cats": [
-        "cs.CL",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.28686v1",
+      "heuristic": 46,
+      "llm_score": 82,
+      "llm_summary": "ClariEdge là dataset + pipeline fine-tune LoRA model nhỏ để RAG nhận diện truy vấn mơ hồ và hỏi làm rõ, đạt 96.6% accuracy, đánh bại các model lớn hơn.",
+      "llm_reason": "Ứng dụng trực tiếp cho chatbot/RAG của content creator: model nhỏ, dataset công khai, hard negatives, dùng được cả pre- và post-retrieval — đọc xong làm được ngay.",
+      "group": "high"
+    },
+    {
+      "id": "2610.29189v1",
+      "title": "Reasoning-Search-Augmented LLMs: An Operational Taxonomy, Benchmark Analysis and Controlled Evidence Synthesis",
+      "abstract": "Large language models (LLMs) demonstrate impressive emergent reasoning capabilities, yet they remain constrained by fixed model parameters and finite context windows. Even when augmented with static retrieval, they can produce statements that are unsupported by, or even contradictory to, retrieved evidence. This leads to hallucinations, difficulty incorporating up-to-date information, and failures to correctly interpret or reconcile sources. Recent work addresses these limitations by tightly coupling step-by-step reasoning with interactive search, treating retrieval as an action within an iterative agentic loop rather than a one-shot preprocessing step. This study reviews frameworks that implement such reasoning-search loops by interleaving planning, querying, retrieval, integration, verification, and stopping. We analyze these systems through four architectural axes: retrieval coupling, controller design, knowledge source, and grounding strictness. We separately treat the learning signal as a cross-cutting dimension because prompting, supervision, preference optimization, and reinforcement learning can instantiate the same architecture while producing materially different search, stopping, and grounding behavior. We further distinguish benchmark difficulty from RSA-loop demand and synthesize controlled within-study ablations and quality-cost deltas, avoiding invalid pooling across heterogeneous model backbones, retrievers, corpora, and evaluation protocols. Our goal is to clarify the landscape of reasoning-search-augmented LLMs and outline a unified perspective on the design choices shaping future research.",
+      "published": "2026-10-21T04:19:06Z",
+      "updated": "2026-10-21T04:19:06Z",
+      "cats": [
         "cs.IR",
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.29189v1",
+      "heuristic": 46,
+      "llm_score": 82,
+      "llm_summary": "Tổng quan hệ thống LLM kết hợp suy luận và tìm kiếm tương tác theo vòng lặp agent, phân loại kiến trúc và tổng hợp bằng chứng kiểm soát.",
+      "llm_reason": "Rất liên quan đến AI agent có khả năng tìm kiếm và suy luận, có benchmark và bằng chứng thực nghiệm, hữu ích cho nghiên cứu thị trường và sáng tạo nội dung chính xác.",
+      "group": "high"
+    },
+    {
+      "id": "2610.24537v1",
+      "title": "Write Once, Query Many: Evolving Compact Reusable Memory for Long Videos",
+      "abstract": "Long videos often exceed the context capacity of multimodal large language models (MLLMs), while agentic search repeats costly video processing and grounding for each query. Reusable memory can amortize this cost, but must preserve information for questions unknown during construction. We propose Video-EMem, an evolvable video memory harness built on time-anchored perceptual observations. This representation combines compact free-form text with sparse images to preserve semantic content and complementary visual details across temporal scales, supporting temporal navigation without a fixed semantic schema. A Writer encodes each video once by consolidating overlapping multiscale observations, and a Reader retrieves and organizes evidence solely from the resulting memory. With the underlying models frozen, we evolve their workflows and operators using distinct feedback: query-independent source fidelity and coverage for the Writer, and QA failures in evidence localization and utilization for the Reader. Experiments support this separation for generalization beyond development queries, with our evolution strategy improving average accuracy by 7.2% over the unevolved harness. While reducing storage by about 99.86% on average relative to raw videos, Video-EMem improves Qwen3-VL-30B by an average of 2.6% across three long-video QA benchmarks over direct input of 2,048 frames. Using the same o3 answer model as the state-of-the-art agentic method, it improves average accuracy by 2.5% with lower per-query latency.",
+      "published": "2026-10-17T07:58:29Z",
+      "updated": "2026-10-17T07:58:29Z",
+      "cats": [
+        "cs.CV",
         "cs.LG"
       ],
-      "link": "http://arxiv.org/abs/2609.28007v1",
-      "heuristic": 49,
+      "link": "http://arxiv.org/abs/2610.24537v1",
+      "heuristic": 52,
       "llm_score": 81,
-      "llm_summary": "Đánh giá 5 LLM open-weight 7-8B chạy local trên laptop RTX 3050 6GB (4-bit quant) cho QA tài liệu domain Thổ Nhĩ Kỳ dài 100+ trang, accuracy 49-75%, đồng thời chứng minh TF-IDF baseline không thua các retrieval đắt tiền hơn.",
-      "llm_reason": "Rất sát business solopreneur: chạy model rẻ trên laptop, protocol tách lỗi retrieval vs reasoning có thể dùng ngay để chọn stack cho nội dung đa ngôn ngữ; benchmark chặt chẽ với McNemar/Wilson.",
+      "llm_summary": "Video-EMem xây dựng bộ nhớ video tái sử dụng dạng compact cho MLLM, giảm 99.86% dung lượng và cải thiện QA video dài.",
+      "llm_reason": "Rất thực tiễn cho content video, có benchmark thật, pattern Writer-Reader reusable memory dễ áp dụng cho multi-channel.",
       "group": "high"
     },
     {
-      "id": "2610.22594v1",
-      "title": "The Model Knows Better: Defending Medical Multi-Agent Systems Against Prompt Injection",
-      "abstract": "Medical multi-agent systems, in which LLM agents discuss a case, are increasingly studied for clinical decision support. Prompt injection, text that an attacker adds to a model's input, can manipulate LLMs into wrong decisions. How it affects these systems, and how to protect them, remains unclear. Across two systems, two model families and three benchmarks, a single injected passage succeeds in up to 61% of cases, and collaboration does not consistently protect against it. Existing defenses help only partly: they miss injections that look like ordinary clinical text. Yet when asked to check the injected text against the patient's findings, a model that followed the injection usually rejects it. We therefore propose a training-free defense that verifies the clinical judgments behind the system's decision. Following clinical practice, it separates the patient's findings from clinical judgments, such as diagnoses, recommendations and instructions, and checks each judgment against the findings alone, so the decision rests only on supported judgments. Our defense outperforms all baselines on every benchmark, lowering attack success on MedQA to 4-7% while maintaining accuracy on cases without an attack, and remains effective with a medical model and against defense-aware and adaptive attacks.",
-      "published": "2026-10-15T19:43:57Z",
-      "updated": "2026-10-15T19:43:57Z",
+      "id": "2610.28364v1",
+      "title": "Context-Aware Prompt Injection Detection via Small Language Models in RAG Pipelines: nokast-secureRAG",
+      "abstract": "Local Retrieval-Augmented Generation (RAG) systems are vulnerable to indirect prompt injection and retrieval poisoning, where malicious instructions in retrieved content are mistaken for trusted input. We present nokast-secureRAG, a roughly 0.5B-parameter small language model that acts as a semantic firewall between retrieval and generation. It jointly evaluates the user query and retrieved context, classifying the pair as safe, suspicious, or malicious. The model is trained using a teacher-judge-student pipeline: a 35B teacher generates 5,233 examples across four attack families, and an independent 120B judge re-labels them, achieving 95.0% agreement before student fine-tuning. On a held-out in-distribution test set, the model achieves 0.994 detection recall at a 0.026 false-positive rate and a 0.006 attack-success-rate proxy, outperforming a regex baseline, a public prompt-injection classifier, Llama Guard 3 1B, and its untuned version. Prompt-Guard-86M reaches 0.900 recall but has a 0.690 false-positive rate. On a judgment-flip test, where the same sentence is benign or malicious depending on context, the model correctly classifies both cases 75% of the time, outperforming the compared baselines. Ablations indicate that retrieved context carries the main attack signal, while query-context consistency reduces false positives. Single-request latency is 293-404 ms, above the target of 100 ms, while amortized throughput latency is 37 ms under batching. On the external PoisonedRAG benchmark, recall falls to near zero, indicating that fluent fact-poisoning attacks lie outside the detector's instruction-consistency threat model. We report this limitation alongside the in-distribution results. The model, data-generation pipeline, and evaluation harness are released open source.",
+      "published": "2026-10-20T15:26:15Z",
+      "updated": "2026-10-20T15:26:15Z",
       "cats": [
-        "cs.CL"
+        "cs.CR",
+        "cs.AI"
       ],
-      "link": "http://arxiv.org/abs/2610.22594v1",
-      "heuristic": 55,
+      "link": "http://arxiv.org/abs/2610.28364v1",
+      "heuristic": 60,
       "llm_score": 80,
-      "llm_summary": "Chỉ ra prompt injection đánh bại multi-agent y khoa tới 61% và đề xuất defense training-free tách findings khỏi judgments để kiểm chứng lại quyết định, hạ attack success còn 4-7% trên MedQA.",
-      "llm_reason": "Bảo mật agent là bắt buộc khi làm content/business automation; defense không cần training, dễ triển khai, benchmark thật trên 3 benchmark — insight hành động cao nhất nhóm.",
+      "llm_summary": "nokast-secureRAG dùng SLM ~0,5B làm 'tường lửa ngữ nghĩa' giữa retrieval và generation trong RAG, đạt recall 0,994 ở FPR 0,026, latency 293–404ms.",
+      "llm_reason": "Thiết thực cao cho ai chạy RAG local (phát hiện prompt injection/poisoning với model nhỏ, metric rõ ràng), insight 'context mới là nơi chứa attack signal' rất actionable cho product và content bảo mật.",
       "group": "high"
     },
     {
-      "id": "2609.14493v1",
-      "title": "VARG: Value-Aware and Ranking-Aligned Generative Retrieval for Dynamic E-commerce Search",
-      "abstract": "Integrating recall and pre-ranking in e-commerce search requires candidate generation to account for relevance, personalization, and business value before final ranking. To this end, we present VARG, a generative retrieval system for Tmall App search that directly admits generated item candidates to the existing final ranker. VARG-ID constructs semantic prefixes using RQ-VAE, enhances search relevance through bidirectional query-item contrastive learning, and combines these prefixes with a value-ordered third token to provide fine-grained item addresses and a business-value prior. Three-stage supervised fine-tuning progressively learns item-to-identifier mappings, query-semantic retrieval, and personalized retrieval. Personalized model training combines value-aware and hierarchy-aligned supervision with expanded user context, and uses local ordinal supervision (LO-SFT) to learn the local within-cluster ordering encoded by the third token. Prefix-GRPO combines gated rewards based on output legality, user behavior, ranker advantage, and search relevance with prefix-aware token weighting to align candidate generation with business value and ranking objectives. Coordinated daily product and model updates preserve existing item addresses while incorporating new products and behavioral feedback. Offline experiments on tens of millions of products validate identifier stability and demonstrate gains in retrieval quality and head-level value recall from SFT strategies and Prefix-GRPO over their respective baselines. In a 14-day online A/B test covering 20% of search traffic, VARG directly admits generated candidates to the final ranker and improves GMV by 1.45%, per-user IPV by 0.22%, and PCTR by 0.31%. Online shopping-guide query evaluations further show that VARG maintains competitive relevance with a smaller candidate quota.",
-      "published": "2026-09-13T12:59:04Z",
-      "updated": "2026-09-13T12:59:04Z",
+      "id": "2610.26548v1",
+      "title": "Agentic Orchestration of EDC Data Space Retrieval and Natural Language Driven Data Processing",
+      "abstract": "Participating in a data space still requires the Dataspace Protocol (DSP) negotiation flow to be hand-coded against each provider's access policy. We present a multi-agent architecture that automates this process using natural language requests. Built on LangGraph over an Eclipse Dataspace Components (EDC), the design separates concerns into cooperating agents. The orchestrator's role is to route and plan. The data extraction agent's role is to expose the DSP protocol's three composable tools (catalog discovery, contract negotiation and download). The agent also gates negotiations on the consumers' verifiable credentials, refusing assets rather than fabricating them. Furthermore, there are downstream Machine Learning (ML) and Visualization agents, as well as a final Verification agent, which confirms that the request was actually fulfilled and rechecks the intended operation against the contract's usage policy. In a primary benchmark involving 600 runs, the system achieved 89% task success with zero policy violations when evaluating multi-dimensional policy reasoning with a locally hosted open-weight model. It failed safely through refusal rather than misrouting. The reliability of the system is largely dependent on the phrasing of requests: technical and expert requests succeed up to 98% of the time, whereas casual and under-specified requests succeed 72% of the time. Furthermore, in a secondary evaluation of 600 runs isolating hierarchical geographic access control, the framework successfully blocks 100% of unauthorized regional requests. While the verification agent hallucinates that 1% of these requests, the system logs confirm that no data is ever extracted and the framework simultaneously achieves an end-to-end verified delivery rate of 86% for eligible consumers.",
+      "published": "2026-10-19T15:10:26Z",
+      "updated": "2026-10-19T15:10:26Z",
       "cats": [
-        "cs.IR"
+        "cs.AI"
       ],
-      "link": "http://arxiv.org/abs/2609.14493v1",
-      "heuristic": 55,
+      "link": "http://arxiv.org/abs/2610.26548v1",
+      "heuristic": 54,
       "llm_score": 80,
-      "llm_summary": "VARG là generative retrieval cho search Tmall, dùng RQ-VAE semantic prefix + token giá trị kinh doanh và Prefix-GRPO để align candidate generation với relevance, cá nhân hóa và giá trị business.",
-      "llm_reason": "Generative retrieval/GRPO đúng AI (24), deploy thật tens of millions products Tmall (23), cực kỳ sát business e-commerce/personalization (18), insight 'value-aware token + business reward' dùng được cho content commerce (15).",
+      "llm_summary": "Kiến trúc multi-agent trên LangGraph tự động hóa đàm phán Dataspace Protocol bằng ngôn ngữ tự nhiên (orchestrator + extraction + ML/visualization + verification agents), đạt 89% success, 0 vi phạm policy.",
+      "llm_reason": "Multi-agent orchestration rõ ràng (30/35), benchmark 600 runs thật (22/25), insight về phân tách vai trò và tác động của cách diễn đạt request (98% vs 72%) rất actionable cho content về prompting.",
+      "group": "high"
+    },
+    {
+      "id": "2610.25550v1",
+      "title": "Editing as Language: Teaching LLM Agents a Grammar for Native Context Editing",
+      "abstract": "A synopsis in novels folds a story into a few lines; a function in code gathers many steps with a single execution. Context editing is native to language itself. In this paper, we propose the Native Context Editing (NCE) framework, which gives language model agents a grammar for natively editing their own context. By encoding context-editing operations in a grammar of dedicated special tokens, we teach the agents to invoke edits through the language itself. We train agents on iteratively constructed trajectory segments, with each teacher edit conditioned on the evolving context. This establishes context editing as an atomic and inherent capability of LLM agents, enabling them to dynamically modify their context as they generate responses over long-horizon reasoning and interaction. Compared with context-editing methods that learn to generate tool-use code within specific external harness environments, our approach integrates context editing as an internal mechanism of the model's native generation process, enabling better generalization across diverse real-world workflows. On four long-horizon agentic benchmarks (Terminal-Bench 2.0, SWE-bench Verified, SWE-bench Multilingual, and SWE-bench Pro), NCE improves the average task success rate over the base model by 5.6 percentage points for LongCat-Flash-Lite-Sparse and by 4.5 for Qwen3.6-35B-A3B, while reducing average token usage by 36% and 15%, respectively.",
+      "published": "2026-10-18T21:48:56Z",
+      "updated": "2026-10-18T21:48:56Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.25550v1",
+      "heuristic": 47,
+      "llm_score": 80,
+      "llm_summary": "NCE dạy agent LLM ngữ pháp chỉnh sửa context bằng special tokens, cải thiện +5.6pp trên 4 benchmark long-horizon (Terminal-Bench 2.0, SWE-bench) và giảm token.",
+      "llm_reason": "Rất liên quan agent/context/tool-use, benchmark thật, insight về context editing và hiệu quả token áp dụng được cho workflow content automation.",
+      "group": "high"
+    },
+    {
+      "id": "2610.26554v1",
+      "title": "BetaMem: Learning to Remember a Changing World for Embodied Agents",
+      "abstract": "Long-horizon embodied agents face temporal confusion and incomplete or distorted records, recurring errors from fixed memory rules, and growing storage and retrieval costs. We present BetaMem, a framework for building and evolving traceable long-term memory through six linked layers: working, spatial, entity, episodic, experiential, and procedural memory. A dual-level write contract constrains operation executability and source support for content: supervised fine-tuning learns compliant memory operations, while reinforcement learning combines repeated sampling with teacher verification of the original observations to reward complete, accurate records and penalize omissions, distortion, and unsupported content. We formulate failure-driven policy recursive self-improvement through diagnosis along the causal sequence of memory operations and local rule repairs gated by independent replay. Atomic tools frame storage, updates, retrieval, and forgetting as cost-utility allocation under storage and read budgets. Using the open-source Qwen3.5-9B model for memory generation, BetaMem achieves overall scores of 48.08% on M3-Bench-robot, 92.08% on LoCoMo, 72.6% on OpenEQA EM-EQA, and 62.4% on EgoLifeQA, the highest among the listed memory methods under their respective evaluation protocols. Training the model for memory generation raises the contract pass rate from 50.9% to 86.2% while reducing output tokens per stored action by 47.3%. A separate Qwen3-VL-8B-Instruct evaluation on EMem-Bench achieves an average success rate of 38.4% and an average error recurrence rate of 24.9%. We perform best among evaluated methods using comparably sized open-source models. Category results show that we have advantages in integrating information across observations, recalling events over long histories, and inferring personal habits.",
+      "published": "2026-10-19T15:13:56Z",
+      "updated": "2026-10-19T15:13:56Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.26554v1",
+      "heuristic": 64,
+      "llm_score": 78,
+      "llm_summary": "BetaMem xây dựng bộ nhớ dài hạn 6 lớp (làm việc, không gian, thực thể, sự kiện, kinh nghiệm, thủ tục) cho agent embodied, dùng SFT+RL để ghi/chỉnh sửa bộ nhớ đúng quy tắc và tiết kiệm chi phí lưu trữ.",
+      "llm_reason": "Cực kỳ sát lõi agent/tool-use với benchmark thật (LoCoMo 92%, M3-Bench...), nhưng thiênên về embodied nên ít áp dụng trực tiếp vào content/business, trừ khi làm sản phẩm agent cần nhớ ngữ cảnh dài.",
       "group": "high"
     }
   ]
