@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-24",
+  "watermark_from": "2026-10-21T17:59:14Z",
+  "seen_before": 250,
+  "total_fetched": 4268,
+  "after_seen": 4147,
+  "after_category": 3653,
+  "after_heuristic": 3470,
+  "papers": [
+    {
+      "id": "2610.30769v1",
+      "title": "LLM Multi-Agent Systems Are Vulnerable to Herding and Runaway Cascades",
+      "abstract": "Large language models (LLMs) increasingly operate in multi-agent systems where they collaborate by responding to others' choices, creating endogenous feedback loops with vulnerability to social influence, herding behavior and runaway cascades. Following the design of the classic Music Lab experiment, we tested this vulnerability in large populations of LLM agents that recommended unfamiliar songs, with or without exposure to cumulative recommendation counts. Exposure led to runaway cascades that generated extreme and unpredictable collective recommendations increasingly divergent from a song's intrinsic appeal. Compared to humans, LLM populations were generally far more susceptible to herding behavior, and unlike humans, LLM cascades were less able to self-correct. This vulnerability has implications for multi-agent collaboration in recommender systems, automated evaluation, complex problem-solving, and unauthorized conspiracies.",
+      "published": "2026-10-22T05:42:55Z",
+      "updated": "2026-10-22T05:42:55Z",
+      "cats": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.30769v1",
+      "heuristic": 44,
+      "llm_score": 89,
+      "llm_summary": "Chứng minh qua experiment quy mô lớn rằng LLM multi-agent dễ bị 'bầy đàn' và cascades mất kiểm soát hơn con người, với hệ quả cho recommender system, đánh giá tự động và hợp tác đa tác tử.",
+      "llm_reason": "Cực kỳ liên quan multi-agent (33/35), experiment thực tế so sánh với con người (22/25), insight cực kỳ giá trị cho content creator về viral/recommendation dynamics và AI evaluation (17+17/40).",
+      "group": "high"
+    },
+    {
+      "id": "2610.23071v1",
+      "title": "Before Retrieval Begins: Safety and Tool-Use Decisions in LLM Agents",
+      "abstract": "Large language models increasingly act as agents that call external tools, yet most tool-safety research examines only what follows a tool call. The prior decision of whether to call the tool remains largely unexamined and can influence downstream safety. Across the seven open-weight models, the unweighted model-average harm rate after admitted harmful requests is 74.5%. To identify what governs this decision, we apply a factorial intervention to the input request. Within our generated construction, neutralizing the requested-operation component produces the largest admission contrast (19 pp). A linear direction estimated from this contrast influences held-out admission in four of seven models; effects on operation-neutralized requests in some models show that it is not an operation-specific mechanism. We then test whether written refusal is behaviorally and representationally coupled to the same decision. Written refusal accompanies 33.6% of admitted harmful calls. Plain-text refusal training reduces unsafe admission in models that retain benign tool use, showing that response-level safety training can transfer to the call decision. Together, these results establish a partial, model-dependent relation between written refusal and tool admission. They motivate direct evaluation and supervision of tool admission rather than treating text refusal as its proxy.",
+      "published": "2026-10-16T07:42:47Z",
+      "updated": "2026-10-16T07:42:47Z",
+      "cats": [
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.23071v1",
+      "heuristic": 56,
+      "llm_score": 87,
+      "llm_summary": "Nghiên cứu quyết định CÓ gọi tool hay không của 7 LLM open-weight (harm rate 74.5%), tìm direction điều khiển admission, và cho thấy refusal-training có thể transfer sang call-decision.",
+      "llm_reason": "Core tool-use/safety, experiment factorial thật trên 7 model, insight 'giám sát tool admission chứ không tin text refusal' cực kỳ actionable cho ai dùng AI agent trong business/content.",
+      "group": "high"
+    },
+    {
+      "id": "2610.31351v1",
+      "title": "Automating Feature Flag Cleanup at Scale with Multi-Agent LLM Systems: An Industrial Experience at DoorDash",
+      "abstract": "Feature flags are runtime configuration mechanisms used for gradual feature rollouts, experimentation, and kill switches. Once a feature is fully rolled out, the flag and its gated code become technical debt and can introduce operational risk through inadvertently enabling dormant code paths. At DoorDash, over 56,000 feature flags span 623 repositories, with 1,659 currently stale as of May 2026, with internal estimates of one to two hours per manual cleanup. Existing rule-based cleanup tools proved insufficient in DoorDash's codebases. Our contribution is an end-to-end automated LLM-based feature flag cleanup system that integrates querying live feature flag rollout data using MCP, Jira ticket processing, and end-to-end pull request creation. Our system successfully produced engineer-approved flag removal PRs for 45 (90%) of the 50 stale flags it was evaluated on, proving the system's operational viability at scale with each cleanup averaging only $4.79 and 13.8 minutes. We evaluated the system's quality and reliability boundary based on success rates, cost per cleanup and time metrics. Furthermore, we discuss our lessons learned when architecting this system, to provide practical guidance for developing similar multi-agent systems.",
+      "published": "2026-10-22T14:32:23Z",
+      "updated": "2026-10-22T14:32:23Z",
+      "cats": [
+        "cs.SE",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.31351v1",
+      "heuristic": 45,
+      "llm_score": 86,
+      "llm_summary": "DoorDash chia sẻ kinh nghiệm industrial triển khai hệ thống multi-agent LLM tự động cleanup feature flags, đạt 90% PR được approve, chi phí $4.79/flag, 13.8 phút/flag, tích hợp MCP và Jira.",
+      "llm_reason": "Case study industrial thực tế nhất trong batch, có số liệu cost/time/success rate rõ ràng, pattern multi-agent với MCP/tool-use可直接 áp dụng, và là nội dung cực kỳ giá trị cho ai làm content về AI business automation.",
+      "group": "high"
+    },
+    {
+      "id": "2610.29722v1",
+      "title": "Retrieval Augmented Generation Compositionality",
+      "abstract": "Retrieval Augmented Generation (RAG) grounds large language models in external knowledge. Modern pipelines combine embedding, chunking, retrieval, reranking, query augmentation, context compression, and agentic verification, yet these techniques are typically evaluated one at a time. It remains unclear whether their isolated gains survive composition, whether retrieval quality and answer faithfulness favor the same design choices, and whether conclusions from small corpora hold at large scale. We pre-declare three hypotheses and introduce LASAGNA, an open-source framework for controlled RAG evaluation. We test 450 configurations across eight benchmarks and corpora ranging from 5K to 200K documents. Three findings emerge. First, individually strong techniques from different phases of a RAG pipeline do not necessarily compose: three retrieval techniques predict a +47% combined improvement but deliver only +17% when used together. Second, component gains stack differently for retrieval and faithfulness, and optimizing one can hurt the other. Third, the best composition changes as the corpus grows: the combination that wins on a small corpus may not remain best at large scale. These findings show that gains measured in isolation are not reliable predictors of realistic performance, and that new RAG techniques should be tested with the full surrounding stack. We call on researchers to do so and supply LASAGNA to simplify these experiments.",
+      "published": "2026-10-21T13:30:29Z",
+      "updated": "2026-10-21T13:30:29Z",
+      "cats": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.29722v1",
+      "heuristic": 45,
+      "llm_score": 84,
+      "llm_summary": "Đánh giá 450 cấu hình RAG trên 8 benchmark để chứng minh rằng các kỹ thuật RAG riêng lẻ mạnh chưa chắc đã phối hợp tốt với nhau, và cấu hình tối ưu thay đổi theo quy mô dữ liệu.",
+      "llm_reason": "Rất liên quan cốt lõi đến RAG/LLM, experiment quy mô lớn, insight 'đừng tin gain cô lập' cực kỳ actionable cho ai xây dựng hệ thống AI hoặc làm content về RAG.",
+      "group": "high"
+    },
+    {
+      "id": "2610.26511v1",
+      "title": "RouterWorld: Scaling Conversational AI with Latency-Aware LLM Routing",
+      "abstract": "Conversational AI systems built on Large Language Models (LLMs) require routing mechanisms that balance answer quality and response latency at scale. However, existing LLM routing benchmarks assume full observability of all candidate model outcomes, under-emphasize latency as a first-class metric, and fragment evaluation across heterogeneous protocols misaligned with real-world settings. We introduce RouterWorld, a comprehensive benchmark for LLM routing in conversational GenAI. RouterWorld unifies 371k single-turn responses and 76k multi-turn agentic trajectories, adopts natural user interactions with a standardized LLM-as-a-judge protocol, and decouples efficiency from transient pricing via hardware-grounded latency annotations. Crucially, RouterWorld formalizes routing under partial observability through two setups: Cold-Start, which restricts learning to sparse, static logs, and Voyager, which models continuous data streams where routing decisions shape future training distributions. Evaluating 13 routing baselines, we find that most routers over-emphasize accuracy while ignoring latency under partial observability. Code and benchmark data are publicly available.",
+      "published": "2026-10-19T14:45:25Z",
+      "updated": "2026-10-19T14:45:25Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2610.26511v1",
+      "heuristic": 45,
+      "llm_score": 84,
+      "llm_summary": "Xây dựng RouterWorld benchmark với 371K response và 76K trajectory agentic để đánh giá LLM routing trong conversational AI, phát hiện hầu hết router bỏ qua latency khi hoạt động dưới partial observability.",
+      "llm_reason": "Rất liên quan LLM routing/agent, benchmark lớn với real interaction, insight về trade-off cost-quality-latency cực kỳ actionable cho ai chạy AI business hoặc làm content về tối ưu LLM.",
+      "group": "high"
+    },
+    {
+      "id": "2610.30435v1",
+      "title": "Self-Assessment Reinforcement Learning for Search-State Awareness in Retrieval-Augmented Large Language Models",
+      "abstract": "Recent advances in search agents have enabled large language models to tackle complex tasks by retrieving and synthesizing external information. However, existing search agents often lack search-state awareness, i.e., the ability to recognize what information has been obtained and what remains missing, leading to hallucinated reasoning and prematurely terminated search. To address this limitation, we propose Self-Assessment Reinforcement Learning (SARL), a reinforcement learning framework in which models learn to recognize their own search state during training and improve their search behavior accordingly, without requiring additional assessment at test time. SARL achieves this through a dual reward design that captures the corrective effect of each assessment while penalizing excessive reliance on it, jointly encouraging effective and efficient search trajectories. Under this setup, SARL achieves a 24.3% relative improvement over the strongest baseline, with average gains of 35.9% on multi-hop reasoning and 27.9% on deep research benchmarks against the strongest per-benchmark baselines. SARL further surpasses methods built on auxiliary supervision or multi-agent coordination, despite operating as a standalone RL framework with no inference-time scaffolding. Beyond final performance, SARL maintains training stability under extended search horizons, a regime where existing methods consistently degrade, enabling sustained gains as task complexity grows.",
+      "published": "2026-10-21T20:46:24Z",
+      "updated": "2026-10-21T20:46:24Z",
+      "cats": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.30435v1",
+      "heuristic": 58,
+      "llm_score": 83,
+      "llm_summary": "SARL dùng RL để LLM tự nhận biết trạng thái search (đã có gì, còn thiếu gì) trong RAG/search agent, cải thiện 24.3% so với baseline mạnh nhất.",
+      "llm_reason": "Rất phù hợp agent/search RAG, có benchmark đa-hop và deep research rõ ràng, insight về 'search-state awareness' giúp solopreneur xây dựng workflow research content chất lượng hơn.",
+      "group": "high"
+    },
+    {
+      "id": "2610.27032v1",
+      "title": "M-Plan: Comprehensive Planning For LLM Agents with Memory Arrangement",
+      "abstract": "Large language model (LLM)-based agents have recently demonstrated outstanding performance in single-turn tasks, yet they continue to struggle with long-horizon tasks, particularly in environments without prior training. A key limitation of single LLMs is their difficulty in processing long contexts, which stems from weaknesses in continuous decision-making and reasoning capabilities. Although existing multi-agent systems (MAS) equipped with long-term memory bases can partially address this gap, they mostly rely on knowledge reuse or summarization, an approach that is often constrained by directly retrieval without any adaptation for the current task, while the retrieved memory may contain much history noises waiting to be preprocessed. In contrast, MAS characterized by task-specific guidance often lack long-term memory specifically designed for the guidance. To address these challenges, we propose M-Plan, a closed-loop MAS framework that integrates long-term and short-term memory. By combining global-local and past-current guidance, M-Plan enhances agents' performance on multi-turn tasks while maintaining a plug-and-play design. During task execution, agents receive task-specific milestones and insights, and are provided with local hints only when confusion arises, which form global-local guidance together. These guidance generation and utilization construct the short-term memory as well. After task completion, relevant information about the current task is optimized or reorganized before being sent to the long-term memory storage for future retrieval. The designments mentioned above build a comprehensive framework different from other individual long-term or short-term memory works. Extensive experiments on multi-turn tasks including ALFWorld, Webshop, and PDDL across diverse models demonstrate that M-Plan outperforms multiple baseline methods in both accuracy and efficiency.",
+      "published": "2026-10-19T16:30:42Z",
+      "updated": "2026-10-19T16:30:42Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.27032v1",
+      "heuristic": 58,
+      "llm_score": 83,
+      "llm_summary": "M-Plan là MAS closed-loop tích hợp bộ nhớ dài-ngắn hạn với guidance global-local (milestone + hint khi agent bị rối) để xử lý task long-horizon, thiết kế plug-and-play.",
+      "llm_reason": "Trực tiếp liên quan agent planning/memory cho task dài hạn, plug-and-play dễ thử, giúp solopreneur multi-channel thiết kế pipeline content và delegation agent tốt hơn.",
+      "group": "high"
+    },
+    {
+      "id": "2610.31519v1",
+      "title": "From Prompt Rules to Golden Data Model: Production-Scale Generation of Personalized, Compliant Pharmaceutical Claims",
+      "abstract": "Large language models (LLMs) are increasingly used to generate domain-specific commercial &amp; medical content (e.g., claims, statements, and promotional phrases) in regulated industries such as pharmaceuticals. However, ensuring its regulatory compliance, factual accuracy, and audience-specific personalization remains a major challenge. We report a production case study asking whether moving compliance and personalization signal from prompt-level rules into retrieval time structured context improves pharmaceutical claims generation, using Composer, a deployed internal tool built on a Golden Data Model (GDM) of 1,867 pharmaceutical claims spanning four products. The GDM integrates claim metadata, references, audience labels, material type, usage history, Match Text Variant (MTV) links, and a six dimension quality score (6C). Across six product-audience segments, the context pipeline improves intended indication (+29%), intended content type (+62%) and intended target audience (+67%), 6C quality score (+86%), and claim reuse (+34%). Production log analysis over the deployment period shows a 29.5% reduction in weekly API cost. We report this as descriptive deployment evidence. This work is a systems and data architecture contribution: it shows that in a regulated, high-stakes domain, restructuring claim data for retrieval-time filtering is a more scalable lever than expanding prompt-level rules, and documents the engineering path data cleaning, graph linking, and quality scoring.",
+      "published": "2026-10-22T16:31:36Z",
+      "updated": "2026-10-22T16:31:36Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.31519v1",
+      "heuristic": 54,
+      "llm_score": 83,
+      "llm_summary": "Case study production cho thấy việc chuyển compliance và personalization signal từ prompt rules sang structured retrieval-time context (Golden Data Model) cải thiện mạnh chất lượng content và giảm 29.5% chi phí API hàng tuần.",
+      "llm_reason": "Rất liên quan business/content: production content generation pipeline, personalization, cost optimization đo được; insight Golden Data Model và retrieval-time filtering vs prompt expansion cực kỳ actionable cho solopreneur làm content AI ở scale.",
+      "group": "high"
+    },
+    {
+      "id": "2610.27777v1",
+      "title": "RITE: Evaluating End-to-End Resilience to Silent Tool Errors in E-Commerce Agentic Systems",
+      "abstract": "Tool-using LLM agents increasingly answer e-commerce queries through multi-step tool interactions. The expected output of a tool call can shift between agent development and execution, allowing a plausible but incorrect value to be returned without an explicit failure signal. These silent errors may propagate through subsequent decisions into final answers. To study agents' resilience across this end-to-end process, we formulate Silent-error Resilience Task, an interactive task that evaluates whether they complete the original query after a silent error corrupts an intermediate state. We introduce RITE, a benchmark built from human-authored industrial workflows and production-log-derived inputs. To enable controlled and reproducible evaluation, we use a semantic error taxonomy to inject errors into fixed workflow prefixes, freeze recorded tool behavior, and let agents continue freely. It contains 167 matched units across nine e-commerce workflows, yielding 501 silent-error, correct-value, and explicit-failure instances. Across 10 recent LLMs, silent errors roughly halve task success and are consistently harder than explicit failures. Recognition, use of an available verification path, and integration of the resulting evidence form successive bottlenecks. We also propose a light State Checker as an intervention to test whether resilience can be improved.",
+      "published": "2026-10-20T07:42:11Z",
+      "updated": "2026-10-20T07:42:11Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.27777v1",
+      "heuristic": 45,
+      "llm_score": 83,
+      "llm_summary": "Xây dựng benchmark RITE với 167 workflow e-commerce để đánh giá khả năng phục hồi của LLM agent khi gặp lỗi thầm lặng từ tool call, phát hiện silent error làm giảm ~50% tỷ lệ thành công.",
+      "llm_reason": "Rất liên quan tool-use agent, benchmark thực từ production log, domain e-commerce sát business, insight về nhận diện lỗi thầm lặng rất actionable cho người dùng/dạy về AI agent.",
+      "group": "high"
+    },
+    {
+      "id": "2609.20889v1",
+      "title": "Proxifield: Decentralized Multi-Agent Communication through Semantic Proximity",
+      "abstract": "As LLM capabilities have expanded, multi-agent communication has emerged as an increasingly active area of research. Prevailing protocols often adopt rigid structures that introduce coordination bottlenecks and can degrade as the number of agents increases. We introduce Proxifield, a round-adaptive multi-agent protocol with decentralized agent decision-making that constructs sparse communication graphs from the evolving semantic proximity of agents. Without model training or a centralized planner, Proxifield connects agents using four routing signals derived at inference time: direct address, information needs, plan alignment, and information complementarity. We compare Proxifield with two representative coordination baselines, a centralized Star protocol and a decentralized Shared Context protocol, across two domains: Drone Search and Rescue and the collective-reasoning benchmark HiddenBench. We first ablate base-model capability and find that, in both domains, the performance of Proxifield improves with model size (35B -&gt; 397B parameter model) and Proxifield outperforms all baselines at the largest scale. As team size increases, Proxifield's task-reward advantage over Star widens from 5.4% at (N=5) to 53.0% at (N=25) and 59.5% at (N=50), while Shared Context consistently underperforms both protocols. Proxifield is also substantially more robust to permanent agent failure, retaining 73.6% of its no-failure task reward under the most severe condition, compared with 58.3% for Shared Context and 38.8% for Star. These results demonstrate that decentralized, semantically adaptive routing can improve the scalability and fault tolerance of multi-agent systems.",
+      "published": "2026-09-16T23:34:05Z",
+      "updated": "2026-09-16T23:34:05Z",
+      "cats": [
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2609.20889v1",
+      "heuristic": 56,
+      "llm_score": 82,
+      "llm_summary": "Proxifield giao thức multi-agent phi tập trung, round-adaptive, xây sparse communication graph từ semantic proximity (4 routing signals), vượt baseline rõ rệt khi scale N=5→50 và robust với agent failure.",
+      "llm_reason": "Very relevant multi-agent coordination, experiment scaling + robustness mạnh, insight 'sparse graph + routing signals' actionable khi solopreneur mở rộng agent team/nội dung đa kênh.",
+      "group": "high"
+    }
+  ]
+}

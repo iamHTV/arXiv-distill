@@ -86,6 +86,9 @@ def call_openrouter(prompt, key, max_tokens=1200):
 
 def extract_pdf_text(pdf_url):
     """Tải PDF và trích xuất text bằng pdfminer.six. Trả về text hoặc rỗng."""
+    # scan json lưu link = abs page (/abs/<id>) → chuyển thành PDF URL (/pdf/<id>)
+    if "/abs/" in pdf_url:
+        pdf_url = pdf_url.replace("/abs/", "/pdf/")
     try:
         req = urllib.request.Request(
             pdf_url,
