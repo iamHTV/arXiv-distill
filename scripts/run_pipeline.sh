@@ -19,6 +19,7 @@ cd "$REPO" || exit 1
 
 TODAY="$(date +%F)"
 SCAN_FILE="scans/$TODAY.json"
+FILTER_FILE="scans/$TODAY_filtered.json"
 LOGDIR="$REPO/logs"
 LOG="$LOGDIR/pipeline-$TODAY.log"
 mkdir -p "$LOGDIR" "$REPO/state" "$REPO/scans"
@@ -31,8 +32,8 @@ log "=========================================="
 log "PIPELINE BẮT ĐẦU — mode=$MODE ngày $TODAY"
 log "=========================================="
 
-# ── Bước 1+2+3: Quét + lọc + chấm điểm ─────────────────────────────────────
-log "[1/4] Quét arXiv + lọc + chấm điểm LLM..."
+# ── Bước 1+2+3: Quét + lọc + chấm điểm abstract ─────────────────────────────
+log "[1/5] Quét arXiv + lọc + chấm điểm LLM (abstract)..."
 python3 scripts/scan_arxiv.py 2>&1 | tee -a "$LOG"
 SCAN_RC=${PIPESTATUS[0]}
 if [[ $SCAN_RC -ne 0 ]]; then
@@ -45,12 +46,26 @@ if [[ ! -f "$SCAN_FILE" ]]; then
     exit 1
 fi
 
-# ── Bước 4: Gửi Telegram ───────────────────────────────────────────────────
+# ── Bước 2: Đọc full text + LLM đánh giá lại → chọn top 10 chuẩn nhất ───────
+log "[2/5] Đọc full text PDF + LLM đánh giá lại → lọc top 10 chuẩn nhất..."
+python3 scripts/filter_full_text.py "$TODAY" 2>&1 | tee -a "$LOG"
+FILTER_RC=${PIPESTATUS[0]}
+if [[ $FILTER_RC -ne 0 ]]; then
+    log "LỖI: filter_full_text.py thất bại (mã $FILTER_RC). Dừng pipeline."
+    exit $FILTER_RC
+fi
+
+if [[ ! -f "$FILTER_FILE" ]]; then
+    log "LỖI: Không thấy $FILTER_FILE sau khi lọc full text."
+    exit 1
+fi
+
+# ── Bước 3: Gửi Telegram ───────────────────────────────────────────────────
 if [[ "$MODE" != "--no-tele" ]]; then
-    log "[2/4] Gửi Telegram..."
+    log "[3/5] Gửi Telegram..."
     python3 scripts/send_telegram.py "$SCAN_FILE" 2>&1 | tee -a "$LOG"
 else
-    log "[2/4] Bỏ qua Telegram (--no-tele)"
+    log "[3/5] Bỏ qua Telegram (--no-tele)"
 fi
 
 if [[ "$MODE" == "--scan-only" ]]; then
@@ -58,22 +73,22 @@ if [[ "$MODE" == "--scan-only" ]]; then
     exit 0
 fi
 
-# ── Bước 5: Distill từ điểm cao xuống ──────────────────────────────────────
-log "[3/4] Chuẩn bị danh sách distill (điểm cao xuống)..."
+# ── Bước 4: Distill từ top 10 chuẩn nhất ────────────────────────────────────
+log "[4/5] Chuẩn bị danh sách distill (top 10 từ full-text filter)..."
 
-# Lấy paper nhóm high + mid (tự động), sắp theo điểm
-python3 - "$SCAN_FILE" "$REPO/state/distill_queue.txt" <<'PY'
+# Lấy paper từ file filtered (đã sắp điểm full_text_score cao xuống)
+python3 - "$FILTER_FILE" "$REPO/state/distill_queue.txt" <<'PY'
 import json, sys
 scan = json.load(open(sys.argv[1]))
 papers = scan.get("papers", [])
-auto = [p for p in papers if p.get("group") in ("high", "mid")]
-auto.sort(key=lambda x: -x.get("llm_score", 0))
+auto = [p for p in papers if p.get("full_text_verdict") == "KEEP"]
+auto.sort(key=lambda x: -x.get("full_text_score", 0))
 with open(sys.argv[2], "w") as f:
     for p in auto:
-        f.write("%d\t%s\t%s\n" % (p.get("llm_score", 0), p["id"], p["title"]))
-print("Queue: %d bài (high+mid)" % len(auto))
+        f.write("%d\t%s\t%s\n" % (p.get("full_text_score", 0), p["id"], p["title"]))
+print("Queue: %d bài (top 10 từ full-text filter)" % len(auto))
 for p in auto[:10]:
-    print("  %3d  %s  %s" % (p.get("llm_score", 0), p["id"], p["title"][:60]))
+    print("  %3d  %s  %s" % (p.get("full_text_score", 0), p["id"], p["title"][:60]))
 PY
 
 QUEUE="$REPO/state/distill_queue.txt"
@@ -85,8 +100,8 @@ if [[ "$N_QUEUE" -eq 0 ]]; then
     exit 0
 fi
 
-# ── Bước 6: Chạy distill ───────────────────────────────────────────────────
-log "[4/4] Distill ($N_QUEUE bài, ưu tiên chất lượng, tuần tự)..."
+# ── Bước 5: Chạy distill ───────────────────────────────────────────────────
+log "[5/5] Distill ($N_QUEUE bài, ưu tiên chất lượng, tuần tự)..."
 log "Danh sách: $QUEUE"
 log "Chạy hermes — agent đọc queue + report.md và distill từ cao xuống."
 
@@ -97,8 +112,8 @@ RC=${PIPESTATUS[0]}
 
 log "Hermes distill thoát (mã $RC). Pipeline xong."
 
-# ── Bước 5: Sinh báo cáo tổng hợp ngày + gửi Telegram ─────────────────────
-log "[5/5] Sinh README tổng hợp ngày + gửi Telegram..."
+# ── Bước 6: Sinh báo cáo tổng hợp ngày + gửi Telegram ─────────────────────
+log "[6/6] Sinh README tổng hợp ngày + gửi Telegram..."
 python3 scripts/daily_summary.py 2>&1 | tee -a "$LOG"
 log "Báo cáo tổng hợp đã ghi vào scans/$TODAY/README.md"
 
