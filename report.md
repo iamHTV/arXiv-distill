@@ -905,3 +905,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: agentic-rag-enterprise-retail | Test: SKILL VALID
 ✓ Insight: RetailRAG vượt tất cả 6 cơ sở RAG trên RetailBridge (1,680 truy vấn đa nguồn, 3 cấp độ), đạt LLM-judge 0.429 trung bình vs 0.336 của HetaRAG (cơ sở mạnh nhất) và ít hơn 3 lần API call (7.45 vs 25.21).
 → Tiếp tục: [YES]
+
+## Paper #221 — Business Arena: Benchmarking LLM Agents in a Realistic Marketplace (2608.08621) [applied]
+✓ Skill: business-arena-llm-agent-benchmark | Test: SKILL VALID
+✓ Insight: Business Arena đánh giá 15 mô hình LLM trong môi trường mô phỏng cửa hàng xuyên biên giới, tìm ra khoảng cách 9.0× trong trị giá ròng cuối cùng ($188,488 vs $20,856), 51% lần chạy lỗ tiền, chỉ 4 mô hình bảo toàn vốn mọi lần thử.
+→ Tiếp tục: [YES]
