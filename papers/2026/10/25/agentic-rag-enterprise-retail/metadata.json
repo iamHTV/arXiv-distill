@@ -1,0 +1,13 @@
+{
+  "name": "Toward Agentic Retrieval-Augmented Generation for Enterprise Retail Workflows over Heterogeneous Data Sources",
+  "authors": ["Jeonghwan Choi", "Jibin Hwang", "Hayoon Park", "Hyeonjae Cheon", "Hwanjun Song"],
+  "link": "https://arxiv.org/abs/2610.25096v1",
+  "arxiv_id": "2610.25096v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distill_date": "2026-10-25"
+}

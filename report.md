@@ -900,3 +900,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: spra-structured-paper-representation | Test: SKILL VALID
 ✓ Insight: SPRA biến nghiên cứu khoa học thành đối tượng có cấu trúc và quan hệ được trích lập để tác tử AI tra cứu, duyệt và tái sử dụng nội dung bài báo hiệu quả, giảm 28.5% token so với truy xuất đoạn văn và 95.3% so với văn bản đầy đủ.
 → Tiếp tục: [YES]
+
+## Paper #220 — Toward Agentic Retrieval-Augmented Generation for Enterprise Retail Workflows over Heterogeneous Data Sources (2610.25096v1) [applied]
+✓ Skill: agentic-rag-enterprise-retail | Test: SKILL VALID
+✓ Insight: RetailRAG vượt tất cả 6 cơ sở RAG trên RetailBridge (1,680 truy vấn đa nguồn, 3 cấp độ), đạt LLM-judge 0.429 trung bình vs 0.336 của HetaRAG (cơ sở mạnh nhất) và ít hơn 3 lần API call (7.45 vs 25.21).
+→ Tiếp tục: [YES]
