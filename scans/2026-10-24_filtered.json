@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-24",
+  "source_scan": "/home/iamhtv/work/arXiv-distill/scans/2026-10-24.json",
+  "total_in_scan": 10,
+  "full_text_candidates": 10,
+  "kept_count": 3,
+  "final_count": 3,
+  "papers": [
+    {
+      "id": "2610.29722v1",
+      "title": "Retrieval Augmented Generation Compositionality",
+      "abstract": "Retrieval Augmented Generation (RAG) grounds large language models in external knowledge. Modern pipelines combine embedding, chunking, retrieval, reranking, query augmentation, context compression, and agentic verification, yet these techniques are typically evaluated one at a time. It remains unclear whether their isolated gains survive composition, whether retrieval quality and answer faithfulness favor the same design choices, and whether conclusions from small corpora hold at large scale. We pre-declare three hypotheses and introduce LASAGNA, an open-source framework for controlled RAG evaluation. We test 450 configurations across eight benchmarks and corpora ranging from 5K to 200K documents. Three findings emerge. First, individually strong techniques from different phases of a RAG pipeline do not necessarily compose: three retrieval techniques predict a +47% combined improvement but deliver only +17% when used together. Second, component gains stack differently for retrieval and faithfulness, and optimizing one can hurt the other. Third, the best composition changes as the corpus grows: the combination that wins on a small corpus may not remain best at large scale. These findings show that gains measured in isolation are not reliable predictors of realistic performance, and that new RAG techniques should be tested with the full surrounding stack. We call on researchers to do so and supply LASAGNA to simplify these experiments.",
+      "published": "2026-10-21T13:30:29Z",
+      "updated": "2026-10-21T13:30:29Z",
+      "cats": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.29722v1",
+      "heuristic": 45,
+      "llm_score": 84,
+      "llm_summary": "Đánh giá 450 cấu hình RAG trên 8 benchmark để chứng minh rằng các kỹ thuật RAG riêng lẻ mạnh chưa chắc đã phối hợp tốt với nhau, và cấu hình tối ưu thay đổi theo quy mô dữ liệu.",
+      "llm_reason": "Rất liên quan cốt lõi đến RAG/LLM, experiment quy mô lớn, insight 'đừng tin gain cô lập' cực kỳ actionable cho ai xây dựng hệ thống AI hoặc làm content về RAG.",
+      "group": "high",
+      "full_text_score": 80,
+      "full_text_reason": "Có experiment thật (450 configs, 8 benchmarks, corpus 5K-200K docs) và rút ra insight hành động được (kỹ thuật RAG mạnh riêng lẻ không compose tuyến tính, best config thay đổi theo scale corpus), nhưn",
+      "full_text_verdict": "KEEP",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.26511v1",
+      "title": "RouterWorld: Scaling Conversational AI with Latency-Aware LLM Routing",
+      "abstract": "Conversational AI systems built on Large Language Models (LLMs) require routing mechanisms that balance answer quality and response latency at scale. However, existing LLM routing benchmarks assume full observability of all candidate model outcomes, under-emphasize latency as a first-class metric, and fragment evaluation across heterogeneous protocols misaligned with real-world settings. We introduce RouterWorld, a comprehensive benchmark for LLM routing in conversational GenAI. RouterWorld unifies 371k single-turn responses and 76k multi-turn agentic trajectories, adopts natural user interactions with a standardized LLM-as-a-judge protocol, and decouples efficiency from transient pricing via hardware-grounded latency annotations. Crucially, RouterWorld formalizes routing under partial observability through two setups: Cold-Start, which restricts learning to sparse, static logs, and Voyager, which models continuous data streams where routing decisions shape future training distributions. Evaluating 13 routing baselines, we find that most routers over-emphasize accuracy while ignoring latency under partial observability. Code and benchmark data are publicly available.",
+      "published": "2026-10-19T14:45:25Z",
+      "updated": "2026-10-19T14:45:25Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2610.26511v1",
+      "heuristic": 45,
+      "llm_score": 84,
+      "llm_summary": "Xây dựng RouterWorld benchmark với 371K response và 76K trajectory agentic để đánh giá LLM routing trong conversational AI, phát hiện hầu hết router bỏ qua latency khi hoạt động dưới partial observability.",
+      "llm_reason": "Rất liên quan LLM routing/agent, benchmark lớn với real interaction, insight về trade-off cost-quality-latency cực kỳ actionable cho ai chạy AI business hoặc làm content về tối ưu LLM.",
+      "group": "high",
+      "full_text_score": 72,
+      "full_text_reason": "Benchmark thật với 371k responses/76k trajectories và 13 baseline, insight 'router thường tối ưu accuracy mà bỏ latency, cần routing latency-aware theo partial observability' dùng được để chọn model n",
+      "full_text_verdict": "KEEP",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.27777v1",
+      "title": "RITE: Evaluating End-to-End Resilience to Silent Tool Errors in E-Commerce Agentic Systems",
+      "abstract": "Tool-using LLM agents increasingly answer e-commerce queries through multi-step tool interactions. The expected output of a tool call can shift between agent development and execution, allowing a plausible but incorrect value to be returned without an explicit failure signal. These silent errors may propagate through subsequent decisions into final answers. To study agents' resilience across this end-to-end process, we formulate Silent-error Resilience Task, an interactive task that evaluates whether they complete the original query after a silent error corrupts an intermediate state. We introduce RITE, a benchmark built from human-authored industrial workflows and production-log-derived inputs. To enable controlled and reproducible evaluation, we use a semantic error taxonomy to inject errors into fixed workflow prefixes, freeze recorded tool behavior, and let agents continue freely. It contains 167 matched units across nine e-commerce workflows, yielding 501 silent-error, correct-value, and explicit-failure instances. Across 10 recent LLMs, silent errors roughly halve task success and are consistently harder than explicit failures. Recognition, use of an available verification path, and integration of the resulting evidence form successive bottlenecks. We also propose a light State Checker as an intervention to test whether resilience can be improved.",
+      "published": "2026-10-20T07:42:11Z",
+      "updated": "2026-10-20T07:42:11Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.27777v1",
+      "heuristic": 45,
+      "llm_score": 83,
+      "llm_summary": "Xây dựng benchmark RITE với 167 workflow e-commerce để đánh giá khả năng phục hồi của LLM agent khi gặp lỗi thầm lặng từ tool call, phát hiện silent error làm giảm ~50% tỷ lệ thành công.",
+      "llm_reason": "Rất liên quan tool-use agent, benchmark thực từ production log, domain e-commerce sát business, insight về nhận diện lỗi thầm lặng rất actionable cho người dùng/dạy về AI agent.",
+      "group": "high",
+      "full_text_score": 60,
+      "full_text_reason": "Có benchmark RITE thật với 167 units từ production logs của Tencent và experiment trên 10 LLM, insight về 3 bottleneck (nhận diện lỗi, dùng verification path, tích hợp bằng chứng) hữu ích nhưng mang t",
+      "full_text_verdict": "KEEP",
+      "has_full_text": true
+    }
+  ],
+  "all_evaluations": [
+    {
+      "id": "2610.30769v1",
+      "title": "LLM Multi-Agent Systems Are Vulnerable to Herding and Runaway Cascades",
+      "llm_score": 89,
+      "full_text_score": 45,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Có experiment thật (replicate Music Lab với LLM agents) nhưng insight chủ yếu là cảnh báo rủi ro cho hệ thống multi-agent, ít actionable trực tiếp cho solopreneur Việt Nam dùng AI đơn lẻ trong content",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.23071v1",
+      "title": "Before Retrieval Begins: Safety and Tool-Use Decisions in LLM Agents",
+      "llm_score": 87,
+      "full_text_score": 25,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Bài có experiment thật (7 mô hình, HarmBench, factorial design) nhưng thuộc lĩnh vực AI safety research, insight về tool admission decision không actionable cho solopreneur dùng AI làm content/bán hàn",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.31351v1",
+      "title": "Automating Feature Flag Cleanup at Scale with Multi-Agent LLM Systems: An Industrial Experience at DoorDash",
+      "llm_score": 86,
+      "full_text_score": 25,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Bài có experiment thật tại DoorDash nhưng bài toán cleanup feature flag hoàn toàn không liên quan đến solopreneur Việt Nam (content, bán hàng, CSKH, quản lý thời gian), đòi hỏi hạ tầng enterprise lớn ",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.29722v1",
+      "title": "Retrieval Augmented Generation Compositionality",
+      "llm_score": 84,
+      "full_text_score": 80,
+      "full_text_verdict": "KEEP",
+      "full_text_reason": "Có experiment thật (450 configs, 8 benchmarks, corpus 5K-200K docs) và rút ra insight hành động được (kỹ thuật RAG mạnh riêng lẻ không compose tuyến tính, best config thay đổi theo scale corpus), nhưn",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.26511v1",
+      "title": "RouterWorld: Scaling Conversational AI with Latency-Aware LLM Routing",
+      "llm_score": 84,
+      "full_text_score": 72,
+      "full_text_verdict": "KEEP",
+      "full_text_reason": "Benchmark thật với 371k responses/76k trajectories và 13 baseline, insight 'router thường tối ưu accuracy mà bỏ latency, cần routing latency-aware theo partial observability' dùng được để chọn model n",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.30435v1",
+      "title": "Self-Assessment Reinforcement Learning for Search-State Awareness in Retrieval-Augmented Large Language Models",
+      "llm_score": 83,
+      "full_text_score": 30,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Bài có benchmark thật nhưng là RL training framework đòi hỏi hạ tầng tính toán lớn, không actionable ngay cho solopreneur, và chỉ đọc được phần intro không đủ full text.",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.27032v1",
+      "title": "M-Plan: Comprehensive Planning For LLM Agents with Memory Arrangement",
+      "llm_score": 83,
+      "full_text_score": 35,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Có benchmark thật (ALFWorld, Webshop, PDDL) nhưng là academic agent benchmarks, framework MAS yêu cầu triển khai kỹ thuật phức tạp, insight ở mức kiến trúc hệ thống không áp dụng ngay được cho solopre",
+      "has_full_text": true,
+      "note": "re-evaluated after parser fix (was JSON parse lỗi)"
+    },
+    {
+      "id": "2610.31519v1",
+      "title": "From Prompt Rules to Golden Data Model: Production-Scale Generation of Personalized, Compliant Pharmaceutical Claims",
+      "llm_score": 83,
+      "full_text_score": 52,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Có production case study thật với dataset 1,867 claims và metrics cụ thể, nhưng thuộc domain dược phẩm quy định chặt chẽ, hệ thống enterprise-scale (Roche/Accenture), insight chính (structured data > ",
+      "has_full_text": true,
+      "note": "re-evaluated after parser fix (was JSON parse lỗi)"
+    },
+    {
+      "id": "2610.27777v1",
+      "title": "RITE: Evaluating End-to-End Resilience to Silent Tool Errors in E-Commerce Agentic Systems",
+      "llm_score": 83,
+      "full_text_score": 60,
+      "full_text_verdict": "KEEP",
+      "full_text_reason": "Có benchmark RITE thật với 167 units từ production logs của Tencent và experiment trên 10 LLM, insight về 3 bottleneck (nhận diện lỗi, dùng verification path, tích hợp bằng chứng) hữu ích nhưng mang t",
+      "has_full_text": true
+    },
+    {
+      "id": "2609.20889v1",
+      "title": "Proxifield: Decentralized Multi-Agent Communication through Semantic Proximity",
+      "llm_score": 82,
+      "full_text_score": 45,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Có benchmark thật (DSSE, HiddenBench) nhưng domain xa thực tế solopreneur, insight cần build hệ thống multi-agent phức tạp mới dùng được, không hành động ngay được cho content/bán hàng/CSKH.",
+      "has_full_text": true
+    }
+  ]
+}
