@@ -895,3 +895,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: extending-functiongemma-on-device-mobile-function-calling | Test: SKILL VALID
 ✓ Insight: Một mô hình function-calling (gọi hàm) 270 triệu tham số có thể được điều chỉnh để điều khiển Android cục bộ với độ chính xác 76.5% trên 15 danh mục hành động thiết bị, chỉ cần tập dữ liệu tổng hợp ~9.500 mẫu và không cần mô hình đám mây lớn cho mỗi yêu cầu.
 → Tiếp tục: [YES]
+
+## Paper #219 — Do Agents Need a New Kind of Paper? SPRA: Structured Paper Representation for Agents (2610.21424v2) [applied]
+✓ Skill: spra-structured-paper-representation | Test: SKILL VALID
+✓ Insight: SPRA biến nghiên cứu khoa học thành đối tượng có cấu trúc và quan hệ được trích lập để tác tử AI tra cứu, duyệt và tái sử dụng nội dung bài báo hiệu quả, giảm 28.5% token so với truy xuất đoạn văn và 95.3% so với văn bản đầy đủ.
+→ Tiếp tục: [YES]
