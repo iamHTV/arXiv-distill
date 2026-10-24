@@ -1,0 +1,13 @@
+{
+  "name": "E-Commerce Bench: Evaluating LLM Agents on Long-Horizon Autonomous Business Operation",
+  "authors": ["Wei Fan", "Xinjie Shen", "Xudong Guo", "Jianhong Tu", "Yang Su", "Yinger Zhang", "Lianghao Deng", "Fengyu Wang", "Baohua Dong", "Yangqiu Song", "Dayiheng Liu"],
+  "link": "https://arxiv.org/abs/2608.30730v1",
+  "arxiv_id": "2608.30730v1",
+  "year": 2026,
+  "category": "cs.LG",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distill_date": "2026-10-25"
+}

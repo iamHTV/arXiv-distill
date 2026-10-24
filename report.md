@@ -910,3 +910,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: business-arena-llm-agent-benchmark | Test: SKILL VALID
 ✓ Insight: Business Arena đánh giá 15 mô hình LLM trong môi trường mô phỏng cửa hàng xuyên biên giới, tìm ra khoảng cách 9.0× trong trị giá ròng cuối cùng ($188,488 vs $20,856), 51% lần chạy lỗ tiền, chỉ 4 mô hình bảo toàn vốn mọi lần thử.
 → Tiếp tục: [YES]
+
+## Paper #222 — E-Commerce Bench: Evaluating LLM Agents on Long-Horizon Autonomous Business Operation (2608.30730v1) [applied]
+✓ Skill: e-commerce-bench-long-horizon-business | Test: SKILL VALID
+✓ Insight: E-Commerce Bench đánh giá 18 mô hình LLM trên 7 chiều trong môi trường mô phỏng thương mại một năm, tìm ra hệ số 1,264 giữa mô hình tốt nhất và kém nhất (¥1,431,425 vs ¥1,132), không có mô hình nào thống trị mọi chiều.
+→ Tiếp tục: [YES]
