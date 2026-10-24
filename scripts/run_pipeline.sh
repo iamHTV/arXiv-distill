@@ -19,7 +19,7 @@ cd "$REPO" || exit 1
 
 TODAY="$(date +%F)"
 SCAN_FILE="scans/$TODAY.json"
-FILTER_FILE="scans/$TODAY_filtered.json"
+FILTER_FILE="scans/${TODAY}_filtered.json"
 LOGDIR="$REPO/logs"
 LOG="$LOGDIR/pipeline-$TODAY.log"
 mkdir -p "$LOGDIR" "$REPO/state" "$REPO/scans"

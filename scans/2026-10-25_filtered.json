@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-25",
+  "source_scan": "/home/iamhtv/work/arXiv-distill/scans/2026-10-25.json",
+  "total_in_scan": 10,
+  "full_text_candidates": 10,
+  "kept_count": 3,
+  "final_count": 3,
+  "papers": [
+    {
+      "id": "2609.25373v2",
+      "title": "Extending FunctionGemma for Practical On-Device Mobile Function Calling",
+      "abstract": "On-device assistants require function-calling models that map natural language to local system actions, but existing resources emphasize web APIs or narrow mobile-action catalogs. We extend FunctionGemma 270M-it to practical Android workflows by introducing MOBILEACTIONSEXTENDED, a synthetic, schema-validated dataset of ~9,500 conversations covering fifteen device-control categories, including messaging, phone calls, camera/screenshot, brightness control, device-status queries, flashlight control, and application management. We fine-tune the 270M model with TRL supervised fine-tuning under completion-only loss, producing an extended specialist and a combined model trained jointly with Google's MOBILEACTIONSGOOGLE. On MOBILEACTIONSEXTENDED, end-to-end accuracy improves from 29.3% for the base model and 17.2% for Google's Mobile-Actions variant to 76.5%. The combined model retains 76.5% on MOBILEACTIONSEXTENDED and reaches 82.3% on MOBILEACTIONSGOOGLE, down from the 90.3% of Google's Mobile-Actions specialist, representing an 8.0-percentage-point trade-off in return for doubling category coverage. We release the dataset, fine-tuned models, reproducible training/evaluation pipeline, and an Android demo, highlighting compact local function calling as a practical path towards low-latency and privacy-preserving mobile assistants.",
+      "published": "2026-09-21T20:12:22Z",
+      "updated": "2026-10-22T15:03:53Z",
+      "cats": [
+        "cs.LG",
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2609.25373v2",
+      "heuristic": 47,
+      "llm_score": 78,
+      "llm_summary": "Mở rộng FunctionGemma 270M để gọi hàm điều khiển thiết bị Android trên máy, với dataset ~9.500 hội thoại và pipeline fine-tune công khai, nâng accuracy từ 29,3% lên 76,5%.",
+      "llm_reason": "Cực kỳ đúng chủ đề tool-use/function calling, có dataset-mô hình-demo công bố để làm lại, gợi ý xây dựng trợ lý local chi phí thấp cho ứng dụng AI cá nhân.",
+      "group": "high",
+      "full_text_score": 55,
+      "full_text_reason": "Có experiment/benchmark thật (fine-tune FunctionGemma 270M, accuracy 29.3%→76.5%, release dataset/model/demo app), nhưng ứng dụng hướng đến device-control trên Android (flashlight, brightness, SMS) ít",
+      "full_text_verdict": "KEEP",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.21424v2",
+      "title": "Do Agents Need a New Kind of Paper? SPRA: Structured Paper Representation for Agents",
+      "abstract": "Scientific agents must connect research problems, methods, and findings dispersed through narrative articles. We introduce SPRA (Structured Paper Representation for Agents), a paper-level representation of persistent research objects and typed relations. Its empirical-AI profile organizes Problems, Contributions, Components, ExperimentSetups, Measures, and Findings for querying, traversal, and reuse. Selected paper-level citation relations record dependencies, component use, and comparisons with prior work; source locations support verification. We instantiate SPRA across more than one million AI papers, with 19.95 million research units and 24.07 million internal relations. Evaluations access SPRA through Schema-RAG with task evidence fixed before inference. Across seven subfields, SPRA improves source-conditioned scientific QA by 0.381/5 over passage retrieval while remaining close to Full Compact (0.078/5 lower on average). In directed cross-paper reasoning, qualification improves by 0.184/5 over passage retrieval; Top-5 synthesis shows mixed quality effects. Across all paired RQ2 tasks, including Top-5, input+output tokens decrease by 28.5% relative to passage retrieval and 95.3% relative to Full Compact. In idea generation, a 0.067-point lower Overall score than Full Compact accompanies 93.7% fewer input+output tokens. Together, these results support SPRA as a usable representation of scientific content and a foundation for research workflows that connect, inspect, and reuse paper-level research objects. The SPRA resource is accessible through the Sciverse scholarly-data platform.",
+      "published": "2026-10-15T07:34:12Z",
+      "updated": "2026-10-19T08:27:16Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.21424v2",
+      "heuristic": 48,
+      "llm_score": 77,
+      "llm_summary": "SPRA biểu diễn 1M+ AI papers thành research objects có typed relations (19.95M units), giúp agent QA/traversal tốt hơn passage retrieval và giảm 28.5% token.",
+      "llm_reason": "Rất phù hợp solopreneur nghiên cứu nhiều paper/multi-channel: cấu trúc để agent tổng hợp, QA + tiết kiệm token là insight hành động trực tiếp cho workflow content research.",
+      "group": "high",
+      "full_text_score": 52,
+      "full_text_reason": "Có experiment thật trên 1M+ papers với benchmark rõ ràng (QA +0.381/5, token giảm 28.5-95.3%), nhưng ứng dụng hướng đến scientific research infrastructure chứ không trực tiếp phục vụ content/bán hàng/",
+      "full_text_verdict": "KEEP",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.25096v1",
+      "title": "Toward Agentic Retrieval-Augmented Generation for Enterprise Retail Workflows over Heterogeneous Data Sources",
+      "abstract": "Enterprise retail workflows require agents to chain evidence across heterogeneous sources, from structured product and order records to unstructured inquiries and reviews, yet existing agentic RAG benchmarks rarely capture this challenge. To enable controlled evaluation of such workflows, we introduce RetailBridge, a compositional retail benchmark built from persona-driven simulations. Its questions are constructed by linking entities and intermediate answers across heterogeneous sources, requiring agents to identify the relevant sources, carry evidence between them, and produce a grounded answer. To systematically evaluate LLMs on these retail workflows, we develop RetailRAG, a retail-aware framework equipped with auto-schema briefing, source-routed plan chaining, and diagnostic plan revision. RetailRAG consistently outperforms existing agentic RAG baselines across all evaluation axes, serving as a strong reference system for assessing LLM agents on retail workflows. On RetailBridge, evaluating ten LLM backbones with RetailRAG reveals multi-source chaining as the dominant bottleneck across providers and model scales, suggesting that reliable retail agents require explicit cross-source orchestration rather than scaling alone. Code and data are publicly available at \\url{https://github.com/DISL-Lab/RetailBridge}.",
+      "published": "2026-10-18T08:15:12Z",
+      "updated": "2026-10-18T08:15:12Z",
+      "cats": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2610.25096v1",
+      "heuristic": 48,
+      "llm_score": 77,
+      "llm_summary": "Giới thiệu RetailBridge benchmark + RetailRAG cho agentic RAG retail đa nguồn (structured/unstructured), test 10 backbone và chỉ ra multi-source chaining là nghẽn lớn nhất.",
+      "llm_reason": "Agentic RAG rất cốt lõi, benchmark thật quy mô tốt, ứng dụng retail/e-commerce gần business thật và cho insight hành động (cần orchestration cross-source, không chỉ scale model).",
+      "group": "high",
+      "full_text_score": 45,
+      "full_text_reason": "Có benchmark RetailBridge và thí nghiệm trên 10 LLM thật, nhưng insight chính (multi-source chaining là bottleneck) quá enterprise-focused, khó áp dụng ngay cho solopreneur Việt Nam ít tài nguyên.",
+      "full_text_verdict": "KEEP",
+      "has_full_text": true
+    }
+  ],
+  "all_evaluations": [
+    {
+      "id": "2610.29812v1",
+      "title": "Real PMIDs, Wrong Papers: Harness Design for Biomedical Claim-Verification Agents",
+      "llm_score": 87,
+      "full_text_score": 42,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Có experiment thật trên SciFact với PubMed API nhưng thuộc domain biomedical hoàn toàn, insight chính (retrieval là bottleneck, agent tự viết query tốt hơn naive RAG) hữu ích chung nhưng cần adapt nhi",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.12920v1",
+      "title": "SCCGBench: Executability-Oriented Evaluation for Real-World Web Service-Call Code Generation",
+      "llm_score": 85,
+      "full_text_score": 32,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Có benchmark và experiment thật (3,135 RapidAPI functions, đánh giá 6 code LLMs), nhưng insight chính (cần cung cấp tài liệu API khi dùng LLM sinh code gọi dịch vụ) quá hẹp và không liên quan trực tiế",
+      "has_full_text": true
+    },
+    {
+      "id": "2609.11231v2",
+      "title": "A Voice-Interactive Multi-Agent System for Smart Operating Rooms: Architecture Design and Key Technologies",
+      "llm_score": 79,
+      "full_text_score": 23,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Bài thuộc lĩnh vực y tế (phẫu thuật), không đọc được full text, và hệ thống phức tạp không phù hợp solopreneur Việt Nam dù có vài kỹ thuật latency optimization đáng chú ý.",
+      "has_full_text": false
+    },
+    {
+      "id": "2609.19825v1",
+      "title": "EviRCA: Decoupling Evidence Extraction from Reasoning for Microservice Root-Cause Analysis",
+      "llm_score": 78,
+      "full_text_score": 35,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Bài có benchmark thật (OpenRCA) và kết quả rõ ràng, nhưng chủ đề RCA cho microservice thuộc DevOps hạ tầng enterprise, không liên quan content/bán hàng/chăm sóc khách hàng/quản lý thời gian, và insigh",
+      "has_full_text": true
+    },
+    {
+      "id": "2609.32939v1",
+      "title": "Theory of Scene: Breaking the Symmetry Trap in Multi-Agent LLM Coordination",
+      "llm_score": 78,
+      "full_text_score": -1,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "LLM lỗi",
+      "has_full_text": true
+    },
+    {
+      "id": "2609.25373v2",
+      "title": "Extending FunctionGemma for Practical On-Device Mobile Function Calling",
+      "llm_score": 78,
+      "full_text_score": 55,
+      "full_text_verdict": "KEEP",
+      "full_text_reason": "Có experiment/benchmark thật (fine-tune FunctionGemma 270M, accuracy 29.3%→76.5%, release dataset/model/demo app), nhưng ứng dụng hướng đến device-control trên Android (flashlight, brightness, SMS) ít",
+      "has_full_text": true
+    },
+    {
+      "id": "2609.13261v1",
+      "title": "From Process Loss to Assembly Bonus: Human-Grounded Diagnosis of Multi-Agent LLM Collaboration",
+      "llm_score": 78,
+      "full_text_score": 42,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Bài có experiment thật (Wason task, so sánh human vs LLM group deliberation) nhưng insight chủ yếu về dynamics của multi-agent LLM collaboration, quá học thuật và không actionable ngay cho solopreneur",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.25096v1",
+      "title": "Toward Agentic Retrieval-Augmented Generation for Enterprise Retail Workflows over Heterogeneous Data Sources",
+      "llm_score": 77,
+      "full_text_score": 45,
+      "full_text_verdict": "KEEP",
+      "full_text_reason": "Có benchmark RetailBridge và thí nghiệm trên 10 LLM thật, nhưng insight chính (multi-source chaining là bottleneck) quá enterprise-focused, khó áp dụng ngay cho solopreneur Việt Nam ít tài nguyên.",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.21424v2",
+      "title": "Do Agents Need a New Kind of Paper? SPRA: Structured Paper Representation for Agents",
+      "llm_score": 77,
+      "full_text_score": 52,
+      "full_text_verdict": "KEEP",
+      "full_text_reason": "Có experiment thật trên 1M+ papers với benchmark rõ ràng (QA +0.381/5, token giảm 28.5-95.3%), nhưng ứng dụng hướng đến scientific research infrastructure chứ không trực tiếp phục vụ content/bán hàng/",
+      "has_full_text": true
+    },
+    {
+      "id": "2610.30932v1",
+      "title": "UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents",
+      "llm_score": 77,
+      "full_text_score": 35,
+      "full_text_verdict": "DROP",
+      "full_text_reason": "Benchmark thật từ Alibaba với A/B test production nhưng là research infrastructure cho giới học thuật, không có insight hành động được nào mà solopreneur có thể áp dụng ngay vào content/bán hàng/CSKH.",
+      "has_full_text": true
+    }
+  ]
+}

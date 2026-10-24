@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-25",
+  "watermark_from": "2026-10-22T17:59:51Z",
+  "seen_before": 260,
+  "total_fetched": 6059,
+  "after_seen": 5841,
+  "after_category": 5302,
+  "after_heuristic": 5094,
+  "papers": [
+    {
+      "id": "2610.29812v1",
+      "title": "Real PMIDs, Wrong Papers: Harness Design for Biomedical Claim-Verification Agents",
+      "abstract": "Literature-searching language agents are becoming a standard component of scientific assistants for the life sciences, yet there is little controlled evidence on which parts of their harness matter. We run a controlled ablation on biomedical claim verification (SciFact) with the live PubMed API as the only tool. Holding the backbone and output format fixed, we compare four harnesses: closed-book answering, single-shot retrieval using the claim as the query, a ReAct-style agent that writes its own PubMed queries, and an oracle given the gold abstracts, each with two efficient frontier backbones. Naive single-shot retrieval finds the gold paper for only 6% of claims and turns overconfident errors into abstentions without improving accuracy. Letting the model formulate its own queries triples gold recall and yields the best verdicts (62% accuracy vs. 49-59% for the other realistic harnesses), although these differences are not significant at our sample size and agents use fewer than half of their search budget. With gold abstracts, the same models reach 79-86% accuracy, a significant 17-24 point gap showing that retrieval, not reasoning, is the main bottleneck. Finally, a citation audit shows that closed-book models cite PubMed IDs that almost always exist (327/335) but are almost never relevant: a cross-family LLM judge rates only 3 of 327 existing citations as relevant to the claim, versus 67% for citations produced by the search agent. Existence checks are therefore insufficient safeguards for scientific agents. We release code, prompts, and all cached tool calls at https://github.com/saqlain2204/real-pmids-wrong-papers.",
+      "published": "2026-10-21T14:35:56Z",
+      "updated": "2026-10-21T14:35:56Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.IR",
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2610.29812v1",
+      "heuristic": 45,
+      "llm_score": 87,
+      "llm_summary": "Ablation bốn harness claim-verification agent chỉ với PubMed API, cho thấy để agent tự viết query triples gold recall (62% accuracy) và closed-book tạo PMID thật nhưng gần như luôn sai nghĩa.",
+      "llm_reason": "Rất phù hợp content creator: benchmark thật, chỉ rõ retrieval là bottleneck (gap 17-24 điểm với gold abstracts) và cách chọn query/harness để tránh trích dẫn ảo; chỉ hơi hẹp vì domain biomedical.",
+      "group": "high"
+    },
+    {
+      "id": "2610.12920v1",
+      "title": "SCCGBench: Executability-Oriented Evaluation for Real-World Web Service-Call Code Generation",
+      "abstract": "LLM-generated service-call code is increasingly important for service computing, where developers rely on large language models (LLMs) to compose services and invoke third-party services. However, current approaches have not yet evaluated the invocation and execution of services in the actual code environment. To support execution-grounded evaluation, we present the Service-Call Code Generation Benchmark (SCCGBench), a benchmark of 3,135 traceable and decontamination-filtered RapidAPI call functions from real GitHub repositories. SCCGBench uses redacted-intent generation to reduce circular leakage and introduces Mock, Robust, ParamF1, and host-, endpoint-, method-, and parameter-level diagnostics. Mock denotes a virtual-execution hit that simultaneously matches the gold host, endpoint, and HTTP method, while Robust further requires status checking and exception handling. We evaluate six code LLMs and one non-neural retrieval baseline under intent-only, retrieval-augmented, and gold-documentation Oracle settings. Results show that models often generate syntactically correct or superficially similar HTTP-request code but achieve low Mock success in the intent-only setting; the strongest evaluated model obtains only 3.76% Mock. Under the gold-documentation Oracle settings (C3 and C5), Mock reaches 88.73%--90.52% for the open-source models evaluated in RQ2 and 76.47%--81.86% for DeepSeek-V4-Pro, whereas sparse and dense retrieval remain far below this oracle level. The findings indicate that service/API grounding is the main bottleneck: Mock is dominated by host, endpoint, and method alignment, while ParamF1 separately reveals parameter-alignment errors. SCCGBench provides an execution-grounded benchmark for Web service invocation, API recommendation, service-interface retrieval, endpoint grounding, and reliable service-call automation.",
+      "published": "2026-10-09T03:10:33Z",
+      "updated": "2026-10-09T03:10:33Z",
+      "cats": [
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2610.12920v1",
+      "heuristic": 46,
+      "llm_score": 85,
+      "llm_summary": "Tạo SCCGBench gồm 3.135 hàm gọi RapidAPI thật để đo code LLM tạo có thực thi service-call đúng host/endpoint/method không, kèm Mock/Robust/ParamF1 và chẩn đoán theo cấp.",
+      "llm_reason": "Cực liên quan agent tool-use với benchmark thực tiễn; insight vàng là intent-only chỉ Mock 3.76% còn gold-documentation nâng Mock ~89-90%, chỉ thiếu chạm marketing/content trực tiếp.",
+      "group": "high"
+    },
+    {
+      "id": "2609.11231v2",
+      "title": "A Voice-Interactive Multi-Agent System for Smart Operating Rooms: Architecture Design and Key Technologies",
+      "abstract": "This paper presents SurgicalRoomAgent, a voice-interactive multi-agent system for smart operating rooms based on large language models (LLMs). The system achieves natural language understanding, device control, intraoperative recording, and surgical report generation through a layered architecture comprising a voice interaction pipeline (wake, ASR, turn detection, agent reasoning, TTS) and an agent core (skill registry, task planner, device manager). Three key technologies are investigated: (1) KV Cache prefix warming for low-latency inference, reducing recomputation overhead from approximately 500 ms to tens of milliseconds via byte-level Longest Common Prefix reuse; (2) streaming partial JSON parsing with early parallel task execution, reducing end-to-end latency by approximately 30%; and (3) progressive skill prompt disclosure, which dynamically filters system prompts based on user role, connected devices, and surgical phase to maximize information density within limited context windows. The system is implemented using the Qwen3-27B model with llama.cpp/sglang inference engines. Experimental analysis demonstrates effective operation within a 16,384-token context limit and multi-device parallel control response times meeting OR real-time requirements.",
+      "published": "2026-09-10T08:29:27Z",
+      "updated": "2026-09-14T03:32:00Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.HC"
+      ],
+      "link": "http://arxiv.org/abs/2609.11231v2",
+      "heuristic": 46,
+      "llm_score": 79,
+      "llm_summary": "Dựng SurgicalRoomAgent, hệ voice-interactive multi-agent LLM cho phòng mổ với ASR/TTS/planner/skill registry và tối ưu latency bằng KV prefix warming, streaming partial JSON parse, progressive skill prompt.",
+      "llm_reason": "Cực actionable cho ai làm voice agent/nhiều kênh: context 16k, recompute ~500ms xuống vài chục ms và end-to-end latency giảm ~30% đều có số liệu; chỉ bị giới hạn bởi domain y tế.",
+      "group": "high"
+    },
+    {
+      "id": "2609.19825v1",
+      "title": "EviRCA: Decoupling Evidence Extraction from Reasoning for Microservice Root-Cause Analysis",
+      "abstract": "Root-cause analysis (RCA) is a critical yet labor-intensive task for maintaining modern microservice systems, making it an attractive target for large language models (LLMs). Recent agentic approaches allow an LLM to iteratively explore raw telemetry by generating and executing code, asking a single model to simultaneously retrieve evidence, localize faults, and infer root causes over large volumes of heterogeneous telemetry, which leads to high computational cost, unstable behavior, and limited diagnostic accuracy. However, raw telemetry consists of numeric metrics, structured traces, and machine-generated logs that are not directly suitable for LLM processing. We present EviRCA, a framework for LLM-based RCA that decouples deterministic evidence extraction from LLM reasoning. A system-agnostic extraction stage converts raw metrics, traces, and logs into a compact set of faithful multimodal evidence cards, while the LLM reasons only over these structured observations through a small set of predefined read-only tools, without accessing raw telemetry or executing code. We evaluate EviRCA on OpenRCA, a benchmark built from real, heterogeneous telemetry across three enterprise systems. EviRCA achieves a correct rate of 40.6%-43.9% across two different LLMs, substantially outperforming prior OpenRCA baselines that achieve up to 15.2%, while reducing token consumption by 15-26x and execution time by 3-20x. Moreover, EviRCA solves hard cases requiring simultaneous reasoning over time, components, and root causes, a setting where previous approaches reported near-zero performance. Our process-level failure analysis further shows that the bottleneck lies in judging the evidence that the extraction stage has already surfaced, rather than searching for it, suggesting that the effectiveness of LLM-based RCA depends heavily on the quality of evidence extraction.",
+      "published": "2026-09-17T07:32:08Z",
+      "updated": "2026-09-17T07:32:08Z",
+      "cats": [
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2609.19825v1",
+      "heuristic": 54,
+      "llm_score": 78,
+      "llm_summary": "EviRCA tách evidence extraction (deterministic, convert telemetry thành evidence cards) khỏi LLM reasoning qua read-only tools, benchmark OpenRCA đạt 40-44% correct rate, giảm token 15-26x.",
+      "llm_reason": "Pattern decouple-retrieval-from-reasoning cực actionable cho agent design, benchmark thật, insight giảm cost 15-26x rất mạnh cho business content về efficient agents.",
+      "group": "high"
+    },
+    {
+      "id": "2609.32939v1",
+      "title": "Theory of Scene: Breaking the Symmetry Trap in Multi-Agent LLM Coordination",
+      "abstract": "Multi-agent systems built on large language models (LLMs) are largely homogeneous, as their agents behave alike even across distinct LLMs. We show that when such agents act concurrently without communication, they collide on targets they must split and diverge on targets they must take together, a double failure we term the symmetry trap. Theory of Mind (ToM), widely used for coordination without communication, cannot escape this trap, since homogeneous agents form the same prediction of one another and respond to it in the same way. We propose Theory of Scene (ToS), a training-free reasoning schema in which each agent reads its public role, the only difference between the agents, and the task context they all observe. Homogeneous agents thereby derive one division of labor, each taking the part its role fixes, which turns homogeneity from the cause of the trap into the cure. ToS reads the role together with the scene through role gating, which determines whether ownership overlaps or is already divided, and the task context through task coupling, which infers whether the team must converge on each target, divide it, or take its stages in turn. We evaluate on DivvyBench, a controlled environment we introduce, whose target types make an episode Competitive, Cooperative, or Mixed across Tabletop, Airspace, and Household scenarios, and on two established agentic benchmarks, GovSim and Overcooked. ToS outperforms all six baselines on every benchmark, and each baseline falls far behind it in at least one setting. Against ToM given the same inputs, ToS raises the DivvyBench success rate from 71.1% to 99.6%, the GovSim total gain from 207 to 400, and the Overcooked level-normalized throughput from 1.41 to 1.67.",
+      "published": "2026-09-26T20:56:41Z",
+      "updated": "2026-09-26T20:56:41Z",
+      "cats": [
+        "cs.LG",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2609.32939v1",
+      "heuristic": 48,
+      "llm_score": 78,
+      "llm_summary": "Chứng minh 'symmetry trap' khi các agent đồng nhất hành động đồng thời (đụng đích cần chia, lệch đích cần hợp) và đề xuất Theory of Scene (ToS) — schema reasoning không cần training dùng role gating và task coupling để chia công việc duy nhất giữa các agent.",
+      "llm_reason": "Insight chia labor theo vai trò observable, không cần training, cực kỳ actionable để thiết kế đội agent làm content/workflow, có DivvyBench + GovSim đánh giá rõ ràng, rất liên quan cốt lõi multi-agent coordination.",
+      "group": "high"
+    },
+    {
+      "id": "2609.25373v2",
+      "title": "Extending FunctionGemma for Practical On-Device Mobile Function Calling",
+      "abstract": "On-device assistants require function-calling models that map natural language to local system actions, but existing resources emphasize web APIs or narrow mobile-action catalogs. We extend FunctionGemma 270M-it to practical Android workflows by introducing MOBILEACTIONSEXTENDED, a synthetic, schema-validated dataset of ~9,500 conversations covering fifteen device-control categories, including messaging, phone calls, camera/screenshot, brightness control, device-status queries, flashlight control, and application management. We fine-tune the 270M model with TRL supervised fine-tuning under completion-only loss, producing an extended specialist and a combined model trained jointly with Google's MOBILEACTIONSGOOGLE. On MOBILEACTIONSEXTENDED, end-to-end accuracy improves from 29.3% for the base model and 17.2% for Google's Mobile-Actions variant to 76.5%. The combined model retains 76.5% on MOBILEACTIONSEXTENDED and reaches 82.3% on MOBILEACTIONSGOOGLE, down from the 90.3% of Google's Mobile-Actions specialist, representing an 8.0-percentage-point trade-off in return for doubling category coverage. We release the dataset, fine-tuned models, reproducible training/evaluation pipeline, and an Android demo, highlighting compact local function calling as a practical path towards low-latency and privacy-preserving mobile assistants.",
+      "published": "2026-09-21T20:12:22Z",
+      "updated": "2026-10-22T15:03:53Z",
+      "cats": [
+        "cs.LG",
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2609.25373v2",
+      "heuristic": 47,
+      "llm_score": 78,
+      "llm_summary": "Mở rộng FunctionGemma 270M để gọi hàm điều khiển thiết bị Android trên máy, với dataset ~9.500 hội thoại và pipeline fine-tune công khai, nâng accuracy từ 29,3% lên 76,5%.",
+      "llm_reason": "Cực kỳ đúng chủ đề tool-use/function calling, có dataset-mô hình-demo công bố để làm lại, gợi ý xây dựng trợ lý local chi phí thấp cho ứng dụng AI cá nhân.",
+      "group": "high"
+    },
+    {
+      "id": "2609.13261v1",
+      "title": "From Process Loss to Assembly Bonus: Human-Grounded Diagnosis of Multi-Agent LLM Collaboration",
+      "abstract": "LLM agents are increasingly used for collaborative problem solving and human-group simulation. This makes outcome-only evaluation insufficient: if LLM groups are used as models of human groups, we need to know whether they succeed or fail through human-like deliberative mechanisms. We compare human group chats with matched LLM deliberation traces on Wason-style deductive reasoning, then test whether the same process signatures generalize to analogical, abductive, and analytical tasks. Humans and LLMs show the same assembly bonus asymmetry: discussion improves the average member more often than the best initial member. Initial-answer diversity accounts for the effect of model heterogeneity, increasing movement in both corrective and destructive directions. The main differences are process-level. Compared with humans, LLM groups follow majorities more often, surface less unique information, and converge earlier; correct minority signals succeed mainly when re-expressed early. Interventions motivated by human group-decision research yield modest improvements in collective outcomes, but do not remove the coordination bottleneck. Together, these results suggest that LLM groups can reproduce some outcome-level patterns of human deliberation while diverging in the mechanisms that generate assembly bonus and process loss, with implications for group simulation and human-AI collaboration.",
+      "published": "2026-09-06T17:58:09Z",
+      "updated": "2026-09-06T17:58:09Z",
+      "cats": [
+        "cs.MA",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2609.13261v1",
+      "heuristic": 46,
+      "llm_score": 78,
+      "llm_summary": "So sánh cơ chế deliberation của nhóm người và nhóm LLM agents trên nhiều loại task, phát hiện LLM groups hội tụ sớm hơn, theo majority nhiều hơn, và diversity ban đầu là yếu tố then chốt.",
+      "llm_reason": "Rất liên quan multi-agent collaboration, experiment đa dạng trên nhiều task type, insight về diversity/convergence/timing cực kỳ actionable khi thiết kế agent workflow và làm content về AI collaboration.",
+      "group": "high"
+    },
+    {
+      "id": "2610.25096v1",
+      "title": "Toward Agentic Retrieval-Augmented Generation for Enterprise Retail Workflows over Heterogeneous Data Sources",
+      "abstract": "Enterprise retail workflows require agents to chain evidence across heterogeneous sources, from structured product and order records to unstructured inquiries and reviews, yet existing agentic RAG benchmarks rarely capture this challenge. To enable controlled evaluation of such workflows, we introduce RetailBridge, a compositional retail benchmark built from persona-driven simulations. Its questions are constructed by linking entities and intermediate answers across heterogeneous sources, requiring agents to identify the relevant sources, carry evidence between them, and produce a grounded answer. To systematically evaluate LLMs on these retail workflows, we develop RetailRAG, a retail-aware framework equipped with auto-schema briefing, source-routed plan chaining, and diagnostic plan revision. RetailRAG consistently outperforms existing agentic RAG baselines across all evaluation axes, serving as a strong reference system for assessing LLM agents on retail workflows. On RetailBridge, evaluating ten LLM backbones with RetailRAG reveals multi-source chaining as the dominant bottleneck across providers and model scales, suggesting that reliable retail agents require explicit cross-source orchestration rather than scaling alone. Code and data are publicly available at \\url{https://github.com/DISL-Lab/RetailBridge}.",
+      "published": "2026-10-18T08:15:12Z",
+      "updated": "2026-10-18T08:15:12Z",
+      "cats": [
+        "cs.AI",
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2610.25096v1",
+      "heuristic": 48,
+      "llm_score": 77,
+      "llm_summary": "Giới thiệu RetailBridge benchmark + RetailRAG cho agentic RAG retail đa nguồn (structured/unstructured), test 10 backbone và chỉ ra multi-source chaining là nghẽn lớn nhất.",
+      "llm_reason": "Agentic RAG rất cốt lõi, benchmark thật quy mô tốt, ứng dụng retail/e-commerce gần business thật và cho insight hành động (cần orchestration cross-source, không chỉ scale model).",
+      "group": "high"
+    },
+    {
+      "id": "2610.21424v2",
+      "title": "Do Agents Need a New Kind of Paper? SPRA: Structured Paper Representation for Agents",
+      "abstract": "Scientific agents must connect research problems, methods, and findings dispersed through narrative articles. We introduce SPRA (Structured Paper Representation for Agents), a paper-level representation of persistent research objects and typed relations. Its empirical-AI profile organizes Problems, Contributions, Components, ExperimentSetups, Measures, and Findings for querying, traversal, and reuse. Selected paper-level citation relations record dependencies, component use, and comparisons with prior work; source locations support verification. We instantiate SPRA across more than one million AI papers, with 19.95 million research units and 24.07 million internal relations. Evaluations access SPRA through Schema-RAG with task evidence fixed before inference. Across seven subfields, SPRA improves source-conditioned scientific QA by 0.381/5 over passage retrieval while remaining close to Full Compact (0.078/5 lower on average). In directed cross-paper reasoning, qualification improves by 0.184/5 over passage retrieval; Top-5 synthesis shows mixed quality effects. Across all paired RQ2 tasks, including Top-5, input+output tokens decrease by 28.5% relative to passage retrieval and 95.3% relative to Full Compact. In idea generation, a 0.067-point lower Overall score than Full Compact accompanies 93.7% fewer input+output tokens. Together, these results support SPRA as a usable representation of scientific content and a foundation for research workflows that connect, inspect, and reuse paper-level research objects. The SPRA resource is accessible through the Sciverse scholarly-data platform.",
+      "published": "2026-10-15T07:34:12Z",
+      "updated": "2026-10-19T08:27:16Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.21424v2",
+      "heuristic": 48,
+      "llm_score": 77,
+      "llm_summary": "SPRA biểu diễn 1M+ AI papers thành research objects có typed relations (19.95M units), giúp agent QA/traversal tốt hơn passage retrieval và giảm 28.5% token.",
+      "llm_reason": "Rất phù hợp solopreneur nghiên cứu nhiều paper/multi-channel: cấu trúc để agent tổng hợp, QA + tiết kiệm token là insight hành động trực tiếp cho workflow content research.",
+      "group": "high"
+    },
+    {
+      "id": "2610.30932v1",
+      "title": "UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents",
+      "abstract": "Agentic recommendation pursues shopper goals through sequences of context-dependent decisions. Developing and evaluating such policies requires faithful recommendation world models that capture both the interactive shopping environment and users' behavioral responses over long interactions. Existing resources rarely provide long-horizon, fine-grained real-user trajectories or support trajectory-level evaluation and offline validation against production A/B results. We introduce UserArena, a real-world e-commerce interactive benchmark containing 64,729 session trajectories from 11,010 users, spanning 566,102 items and 13 action types. UserArena pairs these trajectories with an interactive environment and supports offline validation against outcomes from a controlled production A/B test, enabling five-level evaluation from output validity and local decisions to sequential behavior, personalization, and outcomes. To improve simulator fidelity over these long-horizon interactions, we further propose On-Policy Trajectory Distillation (OPTD), which uses trajectory-level intent to provide dense teacher targets on student-generated rollouts. Experiments show that OPTD achieves the strongest overall fidelity among the evaluated simulators under UserArena's evaluation protocol and most closely reproduces the production policy effect in offline simulation.",
+      "published": "2026-10-22T08:54:16Z",
+      "updated": "2026-10-22T08:54:16Z",
+      "cats": [
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2610.30932v1",
+      "heuristic": 46,
+      "llm_score": 77,
+      "llm_summary": "Giới thiệu UserArena — benchmark e-commerce với 64K trajectories thực từ 11K users — để đánh giá shopping agents, kèm method OPTD cải thiện fidelity simulator.",
+      "llm_reason": "Benchmark thực tế quy mô lớn, liên quan agentic recommendation và e-commerce business, A/B test validation cực kỳ practical; hữu ích cho content về AI trong commerce và hiểu behavior simulation.",
+      "group": "high"
+    }
+  ]
+}
