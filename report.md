@@ -890,3 +890,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: turkish-llm-evidence-annotated-eval | Test: SKILL VALID
 ✓ Insight: Sự điều chỉnh ngôn ngữ đơn lẻ không đảm bảo hiệu năng tài liệu-grounded (Qwen2.5 đa ngôn ngữ vượt qua các mô hình điều chỉnh Turkce); truy xuất có thể là ràng buộc buộc đối với một số tài liệu (57% nhớ lại báo cáo chính) nhưng không phải tất cả (91% báo cáo thứ cấp); chọn mô hình dựa trên kết quả thực nghiệm chứ không chỉ nhãn ngôn ngữ (Trendyol 75% chính xác nhưng chậm 14 lần Qwen2.5).
 → Tiếp tục: [YES]
+
+## Paper #218 — Extending FunctionGemma for Practical On-Device Mobile Function Calling (2609.25373v2) [applied]
+✓ Skill: extending-functiongemma-on-device-mobile-function-calling | Test: SKILL VALID
+✓ Insight: Một mô hình function-calling (gọi hàm) 270 triệu tham số có thể được điều chỉnh để điều khiển Android cục bộ với độ chính xác 76.5% trên 15 danh mục hành động thiết bị, chỉ cần tập dữ liệu tổng hợp ~9.500 mẫu và không cần mô hình đám mây lớn cho mỗi yêu cầu.
+→ Tiếp tục: [YES]

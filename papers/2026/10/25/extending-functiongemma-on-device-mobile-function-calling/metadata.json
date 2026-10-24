@@ -1,0 +1,13 @@
+{
+  "name": "Extending FunctionGemma for Practical On-Device Mobile Function Calling",
+  "authors": ["Ali Rezagholizadeh", "Soheila Samiee"],
+  "link": "https://arxiv.org/abs/2609.25373v2",
+  "arxiv_id": "2609.25373v2",
+  "year": 2026,
+  "category": "cs.LG",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_test": "VALID",
+  "distill_date": "2026-10-25"
+}
