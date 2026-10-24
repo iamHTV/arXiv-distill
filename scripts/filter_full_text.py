@@ -149,6 +149,35 @@ def extract_pdf_text(pdf_url):
             pass
 
 
+def _extract_verdict_json(raw):
+    """Trích JSON object có key 'verdict' từ raw LLM output.
+    Model hay thải prose/fence trước JSON, hoặc JSON có nested object
+    (reason/details chứa {}) → regex non-nested fail. Dùng raw_decode
+    scan từ mỗi '{' để handle nesting."""
+    if not raw:
+        return None
+    s = raw.strip()
+    # strip markdown fences nếu có
+    if s.startswith("```"):
+        s = s.strip("`")
+        if s[:4].lower() == "json":
+            s = s[4:]
+        s = s.strip()
+    dec = json.JSONDecoder()
+    idx = 0
+    while True:
+        i = s.find("{", idx)
+        if i == -1:
+            return None
+        try:
+            obj, _end = dec.raw_decode(s[i:])
+            if isinstance(obj, dict) and "verdict" in obj:
+                return obj
+        except Exception:
+            pass
+        idx = i + 1
+
+
 def llm_rerank(name, arxiv_id, abstract, full_text, key):
     """Gọi LLM đánh giá lại bài dựa trên full text. Trả về điểm 0-120 + lý do."""
     # Cắt full text để không quá dài (LLM context hạn chế)
@@ -176,23 +205,16 @@ def llm_rerank(name, arxiv_id, abstract, full_text, key):
     if not raw:
         return -1, "LLM lỗi", "DROP"
 
-    # Parse robust: thử mọi block {...} KHÔNG lồng nhau, từ CUỐI về ĐẦU,
-    # lấy block đầu tiên có field "verdict" (model hay thải prose trước JSON).
-    import re as _re
-    for cand in reversed(_re.findall(r"\{[^{}]*\}", raw, _re.S)):
-        try:
-            j = json.loads(cand)
-        except Exception:
-            continue
-        if isinstance(j, dict) and "verdict" in j:
-            try:
-                score = int(j.get("score", 0))
-            except Exception:
-                score = -1
-            reason = str(j.get("reason", ""))[:200]
-            verdict = str(j.get("verdict", "DROP"))[:10].upper()
-            return score, reason, verdict
-    return -1, "JSON parse lỗi", "DROP"
+    j = _extract_verdict_json(raw)
+    if j is None:
+        return -1, "JSON parse lỗi", "DROP"
+    try:
+        score = int(j.get("score", 0))
+    except Exception:
+        score = -1
+    reason = str(j.get("reason", ""))[:200]
+    verdict = str(j.get("verdict", "DROP"))[:10].upper()
+    return score, reason, verdict
 
 
 def main():
