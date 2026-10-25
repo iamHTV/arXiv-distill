@@ -920,3 +920,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: inhibitory-message-passing-router | Test: SKILL VALID
 ✓ Insight: Router truyền thông hạn chế với 3 quy tắc (truyền bằng chứng gốc, một lần mỗi vòng, chỉ nếu chưa có) giúp nhóm agent chính xác +39-77 điểm phần trăm và giảm 10-46% token, ổn định lên đến 64 agent.
 → Tiếp tục: [YES]
+
+## Paper #224 — ARCTIC-SWE: Revisiting the Long Horizon Agent Training by Modeling-System Co-Design (2610.24914v1) [applied]
+✓ Skill: arctic-swe-rl-baseline | Test: SKILL VALID
+✓ Insight: Overfit trên nhóm tác vụ nhỏ làm kiểm tra định kỳ phơi bày lỗi hạ tầng phần thưởng sớm che lấp; gated reward + kiểm tra định dạng thó + căn chỉnh số giúp Qwen3.5-4B đạt 62.0% trên SWE-bench Verified với 1/6 lượt huấn luyện so với FrogNano.
+→ Tiếp tục: [YES]
