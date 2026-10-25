@@ -915,3 +915,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: e-commerce-bench-long-horizon-business | Test: SKILL VALID
 ✓ Insight: E-Commerce Bench đánh giá 18 mô hình LLM trên 7 chiều trong môi trường mô phỏng thương mại một năm, tìm ra hệ số 1,264 giữa mô hình tốt nhất và kém nhất (¥1,431,425 vs ¥1,132), không có mô hình nào thống trị mọi chiều.
 → Tiếp tục: [YES]
+
+## Paper #223 — Neuro-Inspired Inhibitory Message Passing for Accurate and Token-Efficient Multi-Agent Reasoning (2610.24718v1) [applied]
+✓ Skill: inhibitory-message-passing-router | Test: SKILL VALID
+✓ Insight: Router truyền thông hạn chế với 3 quy tắc (truyền bằng chứng gốc, một lần mỗi vòng, chỉ nếu chưa có) giúp nhóm agent chính xác +39-77 điểm phần trăm và giảm 10-46% token, ổn định lên đến 64 agent.
+→ Tiếp tục: [YES]
