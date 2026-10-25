@@ -1,0 +1,184 @@
+{
+  "date": "2026-10-26",
+  "watermark_from": "2026-10-22T17:59:51Z",
+  "seen_before": 280,
+  "total_fetched": 6059,
+  "after_seen": 5821,
+  "after_category": 5282,
+  "after_heuristic": 5074,
+  "papers": [
+    {
+      "id": "2610.24718v1",
+      "title": "Neuro-Inspired Inhibitory Message Passing for Accurate and Token-Efficient Multi-Agent Reasoning",
+      "abstract": "Multi-agent systems promise to solve problems by bringing together information beyond the reach of any individual agent. Retrieval and tool use can distribute this information across agents, making communication essential to collaboration. A central challenge is keeping crucial evidence visible in each agent's context as messages accumulate. Repeated information can crowd out rare, decisive evidence. Models of cortical circuits suggest a principle for addressing this imbalance: inhibition can selectively suppress shared inputs while preserving sensitivity to weaker signals. We adapt this principle into inhibitory message passing, a training-free communication router that cancels redundant evidence separately for each evidence sentence and receiver. Each round, it forwards evidence sentences restated in agents' messages, delivering each at most once to receivers whose own evidence lacks it and excluding the senders' reasoning and answers. Against standard message passing, accuracy in peer groups rose by 39-77 percentage points across three benchmarks, and tokens per run fell by 10-46%. Gains held across seven open models spanning four to thirty-two billion parameters and two commercial models, in groups up to sixty-four agents, and across multi-agent architectures including peer-to-peer, orchestrator-worker, and multilevel hierarchical organizations. These findings support a scalable design pattern for more accurate and token-efficient multi-agent reasoning.",
+      "published": "2026-10-17T14:30:37Z",
+      "updated": "2026-10-17T14:30:37Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.24718v1",
+      "heuristic": 45,
+      "llm_score": 88,
+      "llm_summary": "Inhibitory message passing lấy cảm hứng từ vỏ não, router không cần training để triệt chứng cứ trùng lặp giữa các agent đa tác vụ, tăng 39-77 điểm accuracy và giảm 10-46% token trên 9 mô hình, tối đa 64 agent.",
+      "llm_reason": "Đúng trục multi-agent/tool-use với benchmark mạnh nhiều kiến trúc, training-free nên áp dụng ngay vào workflow nội dung AI, tiết kiệm token rõ ràng giúp cắt chi phí vận hành nhiều kênh.",
+      "group": "high"
+    },
+    {
+      "id": "2610.23234v2",
+      "title": "MultiAgent-OPD: End-to-End Training of Hierarchical Multi-Agent Systems with On-Policy Distillation",
+      "abstract": "In a hierarchical multi-agent system, a Leader assigns tasks and subagents carry them out. Jointly training the Leader and the subagents is difficult because a final answer gives only indirect feedback to the subagents. An LLM judge can score the performance of the subagents, but these scores depend on the judge's own assessment of the quality of subagents' responses. We present MultiAgent-OPD, which combines on-policy distillation with reinforcement learning to jointly train a shared-parameter Leader-Searcher-Answerer team end to end. We first train a Teacher in a Searcher-Answerer workflow using answer correctness. During team training, the frozen Teacher scores student-generated search and summary tokens to provide local process supervision for the Searchers, while the Leader learns from team success and the Answerer from candidate correctness. Across seven datasets, the trained system reaches 38.68% macro avg@4, exceeding Prompted Critic by 4.06 percentage points and C-MAS + RL, the trained cascaded multiagent system, by 2.61 percentage points. The team also solves more questions within four attempts.",
+      "published": "2026-10-16T10:01:52Z",
+      "updated": "2026-10-20T08:51:14Z",
+      "cats": [
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.23234v2",
+      "heuristic": 48,
+      "llm_score": 81,
+      "llm_summary": "MultiAgent-OPD huấn luyện end-to-end hệ thống phân cấp Leader giao việc cho subagents (Searcher-Answerer), dùng on-policy distillation cho joint training.",
+      "llm_reason": "Cao nhất: mô hình Leader → Specialist rất phù hợp cho solopreneur quản lý nhiều kênh content; có benchmark thật và insight phân công tác vụ rõ ràng.",
+      "group": "high"
+    },
+    {
+      "id": "2610.24914v1",
+      "title": "Arctic-SWE: Revisiting the Long Horizon Agent Training by Modeling-System Co-Design",
+      "abstract": "Long-horizon agent training, including software engineering, is advancing rapidly, but the recipe and infrastructure needed for a strong reinforcement-learning baseline remain difficult to reproduce. This makes gains from new algorithms or data hard to distinguish from improvements to an under-tuned baseline. We present Arctic-SWE, a fully asynchronous RL framework that establishes such a baseline through model-system co-design, using overfitting on a small task pool as the testbed. This testbed exposes failures that early reward gains conceal and guides the integration of established components: gated reward, importance-weight control, aligned training and inference engines, and consistent state across policy updates. No single component is new, yet together they form the missing foundation. On raw R2E-Gym data, without new algorithms or data work, Arctic-SWE trains Qwen3.5-4B to 62.0% pass@1 on SWE-bench Verified. This is comparable to concurrent FrogNano (61.5%), which relies on online task synthesis, after about one-sixth as many training rollouts. Building on this foundation, we further filter and refine R2E-Gym, SWE-rebench V2, and Scale-SWE. With this curated subset, the 4B model improves from 47.4%/25.0%/37.9% to 65.0%/38.3%/59.7% on SWE-bench Verified/Pro-v1/Pro-v2, and the recipe also improves Qwen3.5-9B from 56.2%/31.9%/48.8% to 65.7%/39.6%/70.2% on Verified/Pro-v1/Pro-v2. Controlled comparisons show that both curation and test strengthening improve held-out performance, although stronger tests reduce apparent training-task mastery. Arctic-SWE provides a documented starting point for studying better algorithms, data and environments for asynchronous agent RL.",
+      "published": "2026-10-17T23:24:03Z",
+      "updated": "2026-10-17T23:24:03Z",
+      "cats": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.24914v1",
+      "heuristic": 48,
+      "llm_score": 79,
+      "llm_summary": "Arctic-SWE thiết lập baseline RL cho long-horizon agent training (phần mềm), cho thấy model-system co-design quan trọng hơn thuật toán mới.",
+      "llm_reason": "Rất thực tiễn cho solopreneur muốn tự động hóa workflow phức tạp; insight 'không cần algorithm mới, cần tune baseline tốt' rất actionable.",
+      "group": "high"
+    },
+    {
+      "id": "2610.21290v1",
+      "title": "Bias Control and Injection for Multi-Agent Aggregation",
+      "abstract": "Multi-agent reasoning with large language models (LLMs) raises a central question for collective decision-making: when agents disagree, whose decision should be trusted? Resolving such disagreements is difficult because agents' decisions are susceptible to non-semantic biases such as majority pressure and response-style preferences, which can obscure the quality of the underlying reasoning. Our analysis shows how bias can be both mitigated and exploited: bias control improves initial answer selection, while bias injection elicits decision instability that serves as a reliability signal. Building on these findings, we introduce a test-time aggregation framework that requires neither validation data nor prior knowledge of relative model strength. The framework implements bias control by presenting one style-normalized reasoning trace per distinct answer, and bias injection by placing each aggregating agent's initially selected answer in the minority. Overall, our framework achieves higher average accuracy and better token efficiency than competing non-oracle aggregation methods across three mathematical reasoning benchmarks and four heterogeneous LLM combinations. It also improves final-answer accuracy when applied to multi-agent debate and Mixture-of-Agents, without modifying their interaction or synthesis processes.",
+      "published": "2026-10-15T05:37:49Z",
+      "updated": "2026-10-15T05:37:49Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.21290v1",
+      "heuristic": 45,
+      "llm_score": 79,
+      "llm_summary": "Framework tổng hợp quyết định multi-agent lúc test-time qua bias control + bias injection, không cần validation data, nâng accuracy và hiệu quả token trên 3 benchmark toán với 4 tổ hợp LLM.",
+      "llm_reason": "Multi-agent cốt lõi với method dễ triển khai và benchmark thật; ý tưởng 'kiểm tra độ ổn định khi bất đồng' dùng được cho việc tin tưởng output AI trong quyết định content, nhưng benchmark toán học hơi xa marketing.",
+      "group": "high"
+    },
+    {
+      "id": "2610.28787v1",
+      "title": "Is Anyone Enforcing the Cartel? What Reinforcement Learning Teaches LLM Agents in Markets",
+      "abstract": "Evaluations of large language model (LLM) agents report that pricing agents collude at others' expense. Yet collusion is defined by enforcement: a cartel, in which competitors share monopoly profits, holds only if a member who cheats is punished. We introduce an audit that tests enforcement by forcing a member to cheat in counterfactual copies of a market, and use it to study what reinforcement learning (RL) teaches agents in pricing and trading. Small LLMs trained by RL learn what their training rivals reward, but only what they readily try. In self-play, they learn fixed rules ignoring their rivals; against a punishing rival, to be deterred; against a cheating rival, to match its cuts, never the costly price war that would deter it, which they rarely try. A war forced into training is learned, but mostly only where it was forced. Against their own copies, deterred and matching agents can earn the same cartel profits, but only matching ones can enforce them, and then thinly: as a by-product and only against large cuts. Q-learners enforce collusion only in pricing. Prompted LLMs reach cartel-like outcomes mostly through rules that ignore the market. Outcome measures cannot tell these cases apart; the audit can.",
+      "published": "2026-10-20T18:18:10Z",
+      "updated": "2026-10-20T18:18:10Z",
+      "cats": [
+        "cs.CL",
+        "cs.GT",
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2610.28787v1",
+      "heuristic": 46,
+      "llm_score": 78,
+      "llm_summary": "Nghiên cứu xem RL dạy LLM agent học hành vi gì trong thị trường định giá/giao dịch, dùng 'audit' ép agent gian lận để kiểm tra liệu thông đồng có thật sự bị thực thi không.",
+      "llm_reason": "Rất đúng chủ đề LLM agent + RL + multi-agent (31/35), có experiment thật ở nhiều kịch bản (20/25), gần gũi business giá cả/thị trường (18/20), nhưng insight hành động thiên về cảnh báo hơn công cụ dùng ngay (12/20).",
+      "group": "high"
+    },
+    {
+      "id": "2610.28933v1",
+      "title": "The Data Differentiator Framework (DDF): Quantifying Marginal Data Value with Information-Theoretic and Game-Theoretic Measures in an Agentic Evaluation Pipeline (SDSAE)",
+      "abstract": "In data-rich enterprises the hard question is not whether a candidate dataset is good in isolation, but whether it adds information beyond what the organization already holds, and whether that increment is worth its price. We present the Data Differentiator Framework (DDF), a composite scoring method for candidate data assets that combines (i) a mutual-information-based redundancy penalty against the existing portfolio, (ii) a cost-normalized, significance-gated marginal utility score derived from an ablation study, and (iii) explicit governance inputs (trust, identity resolution quality, strategic weights) set by the business. The framework is executed by a staged pipeline, the Strategic Data Sourcing Agent Ecosystem (SDSAE), that short-circuits expensive model-retraining steps for assets failing governance or redundancy gates. Conceptually, the DDF extends the relevance-minus-redundancy principle of mRMR feature selection from the feature level to the asset level, and adds cost normalization, a statistical significance gate, and governance terms that per-sample valuation methods such as Data Shapley do not model. We validate the framework on the public credit-card fraud benchmark (284,807 transactions) with five constructed candidate assets spanning the redundancy spectrum. Only the genuinely differentiated asset passes the significance gate ($Δ$AUC = +0.0029, DeLong $p = 1.4\\times 10^{-9}$, Holm-corrected $p = 7.2\\times 10^{-9}$) and receives an acquire recommendation (DDS = +0.663); the fully redundant asset scores lowest (DDS = -0.135). The recommendation is stable across 19 of 22 admissible strategic-weight configurations and across all decision thresholds in [0.15, 0.66]. We state clearly which quantities in the case study are computed from data and which are simulated governance inputs, and we discuss the design limits of a single-dataset evaluation.",
+      "published": "2026-10-20T21:10:19Z",
+      "updated": "2026-10-20T21:10:19Z",
+      "cats": [
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2610.28933v1",
+      "heuristic": 46,
+      "llm_score": 78,
+      "llm_summary": "Framework DDF chấm giá trị gia tăng thực sự của dataset mới (mutual-info redundancy, marginal utility significance-gated, governance) qua pipeline agent SDSAE, validate trên benchmark fraud 284k giao dịch.",
+      "llm_reason": "Có pipeline agentic nhưng thiên data-valuation (24/35), experiment benchmark thật với số liệu rõ (21/25), cực gần business: mua/dùng data có đáng tiền không (18/20), áp dụng trực tiếp cho quyết định data (15/20).",
+      "group": "high"
+    },
+    {
+      "id": "2608.25770v1",
+      "title": "HypoForge: A Self-Improving Multi-Agent Framework for Automated Hypothesis Generation and Testing via Scientific Skill Learning",
+      "abstract": "Large language models (LLMs) have enabled AI scientist systems to automate scientific discovery, yet existing approaches most rely on static prompting or fixed workflows and fail to accumulate experience for continual improvement. We propose HypoForge, an experience-guided multi-agent framework that learns reusable scientific skills for automated hypothesis generation and hypothesis testing. HypoForge is built on the observation that these two stages involve different supervision signals. For hypothesis generation, where explicit feedback is unavailable, HypoForge adopts an adversarial generator--discriminator mechanism to improve reasoning through comparative critique. For hypothesis testing, where empirical feedback is available, HypoForge learns testing skills from execution outcomes and ground-truth results. By matching skill learning strategies with stage-specific supervision, HypoForge enables continual improvement without fine-tuning foundation models. Experiments on hypothesis generation and testing benchmarks show that HypoForge consistently outperforms existing AI scientist frameworks and skill-level variants. Further analysis demonstrates the effectiveness of the proposed stage-specific skill learning paradigms.",
+      "published": "2026-08-26T13:14:23Z",
+      "updated": "2026-08-26T13:14:23Z",
+      "cats": [
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2608.25770v1",
+      "heuristic": 56,
+      "llm_score": 77,
+      "llm_summary": "HypoForge là framework multi-agent tự cải thiện liên tục để tạo và kiểm chứng giả thuyết khoa học, dùng cơ chế adversarial generator-discriminator cho phần sinh giả thuyết và học skill từ kết quả thực thi cho phần kiểm chứng, không cần fine-tune LLM nền.",
+      "llm_reason": "Rất sát chủ đề multi-agent/skill-learning cốt lõi (30/35), có benchmark thật (20/25), ý tưởng tích lũy skill + critique đối kháng có thể áp dụng cho hệ thống content AI (12/20 business, 15/20 insight) nhưng nghiêng research khoa học nên không tối đa.",
+      "group": "high"
+    },
+    {
+      "id": "2608.23622v1",
+      "title": "LLM Agents Perform Controlled Experiments Using Simulation Models",
+      "abstract": "Large language models (LLMs) have shown strong capabilities in reasoning, planning, and tool use, but many scientific and engineering tasks require more than plausible text and code generation. They require understanding how a system responds to intervention, which in practice depends on controlled experimentation. In this work, we propose a multi-agent framework that enables LLM agents to conduct controlled experiments with scientific simulation models for pharmaceutical process design. Given a user query and a baseline configuration, the system constructs a structured task representation, designs experiments, executes comparative simulation, interprets the resulting outcomes, and synthesizes evidence-based recommendations for process parameter optimization. By coupling language models with high-fidelity simulation models in an interactive agent framework, the proposed system supports reasoning through intervention, comparison, and observation. As a result, it produces more specific and actionable outputs than language-only reasoning. In an industrial application setting, this advantage is reflected in higher output specificity as well as improved user-rated correctness and helpfulness. Ablation studies and visualized case analyses further demonstrate the effectiveness and practical utility of simulation-integrated experimental reasoning.",
+      "published": "2026-08-22T18:54:52Z",
+      "updated": "2026-08-22T18:54:52Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA",
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2608.23622v1",
+      "heuristic": 48,
+      "llm_score": 76,
+      "llm_summary": "Multi-agent framework để LLM agents tự thiết kế và chạy controlled experiments trên model simulation dược phẩm: xây task representation, so sánh baseline, diễn giải kết quả, tổng hợp recommendation tối ưu tham số, được đánh giá correctness/helpfulness cao hơn và có ablation study.",
+      "llm_reason": "Agent + tool-use với simulation cốt lõi (30), experiment công nghiệp thật + ablation + user rating (21), tư duy 'agent chạy thử nghiệm so sánh rồi ra quyết định' map trực tiếp sang A/B test content/marketing (10) và cho framework tái dùng ngay cho content experimentation (15).",
+      "group": "high"
+    },
+    {
+      "id": "2610.26937v1",
+      "title": "Do We Need the Largest LLMs for Every Clinical Decision?",
+      "abstract": "Large clinical language models often require multi-GPU infrastructure, limiting local deployment. We introduce CERTA, a decision-level statistical certificate that determines when a quantized model may substitute for its native BF16 reference and escalates decisions that cannot be certified to it. Across eleven instruction-tuned models, both general-purpose and domain-adapted, from three families (7-72B), we evaluated 2,500 clinical-verification decisions from de-identified patient contexts (2,484 patients), with patient-disjoint calibration and testing. In the higher-power operational analysis, round-to-nearest 8-bit quantization at BF16 storage served 99.8-100% of held-out decisions across all eleven models; formal finite-sample guarantees were assessed separately using the exact split-sample procedure. In the same operational analysis, the class-conditional 4-bit frontier reduced the amortized, BF16-equivalent deployment cost to 25.8% and 27.3% of the BF16 reference for Qwen2.5-72B and HuatuoGPT-o1-72B, respectively, with measured peak memory of 43.0 and 42.7 GB, below the nominal capacity of a single 48 GB accelerator. Deployment on that specific hardware was not directly tested. Under the exact split-sample certificate, which also accounts for configuration selection, these costs were 26.7% and 27.9%. On external disease named-entity benchmarks against human annotations, the frontier-selected NF4 configurations had a mean absolute F1 change of 0.045 on both datasets, with substantial model-specific variation. CERTA converts compression from a fixed precision choice into a risk-controlled deployment policy for this verification task.",
+      "published": "2026-10-17T22:07:43Z",
+      "updated": "2026-10-17T22:07:43Z",
+      "cats": [
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.26937v1",
+      "heuristic": 45,
+      "llm_score": 76,
+      "llm_summary": "CERTA cấp chứng nhận thống kê khi nào mô hình lượng tử hóa (4-8 bit) có thể thay thế mô hình BF16 gốc trong quyết định lâm sàng, giảm chi phí triển khai xuống ~26% trên 11 mô hình 7-72B.",
+      "llm_reason": "Cốt lõi LLM + experiment thật 2.500 quyết định/11 mô hình, góc tối ưu chi phí triển khai 4-bit rất phù hợp solopreneur chạy local cho nhiều kênh, nhưng bối cảnh lâm sàng giới hạn mức liên quan business/content.",
+      "group": "high"
+    },
+    {
+      "id": "2610.27645v1",
+      "title": "CUA-Recovery: Benchmarking Error Recovery in Long-Horizon Computer-Use Agents",
+      "abstract": "As computer-use agents (CUAs) move to long-horizon workflows spanning multiple applications, undetected errors can silently corrupt persistent state and cause cascading failures in subsequent actions. Reliable error detection and recovery have become critical bottlenecks for building robust CUAs. However, existing benchmarks focus primarily on end-to-end task performance, providing limited insight into whether agents can detect and recover from errors during execution. The few benchmarks that evaluate recovery rely largely on manually injected errors, which may not reflect the types or horizons of failures induced by real agent policies. We introduce CUA-Recovery, a benchmark comprising test and training suites across multiple desktop applications. We construct it using ReRail, a framework for synthesizing long-horizon tasks and trajectories in a persistent desktop environment. ReRail composes MyPCBench tasks into new long-horizon workflows with executable ground truth, collects verifier-confirmed failures from multiple policies, and turns them into verified recovery trajectories. CUA-Recovery comprises a human-verified test suite of 2,250 erroneous states over 100 tasks and a training suite of 8.6K trajectories over 377 tasks. Evaluation on the test suite shows that agents struggle both to recognize inherited errors and to complete the task. Across six agents and six takeover depths, Error Awareness Rate (EAR) reaches at most 44.0% and Pass@3 at most 25.5%. After fine-tuning Qwen3.5-35B-A3B on the training suite, its average EAR rises from 19.9% to 35.2% on held-out recovery states, and its Rubric Score goes from 5.0% to 16.1%. It also gains 15.3 points on MyPCBench and 10.8 points on Odysseys for Pass@3, showing that the training trajectories help both with recovery and with completing tasks from a clean start. Our code is available at https://github.com/xu-hu-2002/CUA-Recovery.",
+      "published": "2026-10-20T05:06:00Z",
+      "updated": "2026-10-20T05:06:00Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2610.27645v1",
+      "heuristic": 45,
+      "llm_score": 75,
+      "llm_summary": "Đánh giá khả năng phát hiện và phục hồi lỗi của các computer-use agent trong tác vụ dài nhiều ứng dụng.",
+      "llm_reason": "Benchmark thực tế về độ tin cậy agent rất hữu ích cho solopreneur muốn tự động hóa workflow bằng AI một cách ổn định.",
+      "group": "high"
+    }
+  ]
+}

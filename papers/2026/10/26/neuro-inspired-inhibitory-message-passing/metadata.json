@@ -1,0 +1,14 @@
+{
+  "name": "Neuro-Inspired Inhibitory Message Passing for Accurate and Token-Efficient Multi-Agent Reasoning",
+  "authors": ["Nima H. Siboni", "Magdalena Springer", "Vahid Rostami"],
+  "link": "https://arxiv.org/pdf/2610.24718",
+  "arxiv_id": "2610.24718",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "inhibitory-message-passing-router",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-26"
+}
