@@ -1,0 +1,14 @@
+{
+  "name": "ARCTIC-SWE: Revisiting the Long Horizon Agent Training by Modeling-System Co-Design",
+  "authors": ["Boyi Liu", "Yite Wang", "Xinyu Lian", "Fan Shu", "Sida Li", "Feng Yan", "Minjia Zhang", "Yuxiong He", "Zhewei Yao"],
+  "link": "https://arxiv.org/pdf/2610.24914",
+  "arxiv_id": "2610.24914",
+  "year": 2026,
+  "category": "cs.LG",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "arctic-swe-rl-baseline",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-26"
+}
