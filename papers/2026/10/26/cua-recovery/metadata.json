@@ -1,0 +1,14 @@
+{
+  "name": "CUA-Recovery: Benchmarking Error Recovery in Long-Horizon Computer-Use Agents",
+  "authors": ["Xu Hu", "Haoming Li", "Yuxiang Wang", "Jinxin Yang", "Kangshuo Li", "Licheng Wang", "Dingyi Kang", "Jiayu Song", "Tianhao Wang", "Zhanhua Hu", "Xu Yang", "Qiannan Li", "Bingzhe Li", "Feng Chen"],
+  "link": "https://arxiv.org/pdf/2610.27645",
+  "arxiv_id": "2610.27645",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "cua-recovery-error-recovery",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-26"
+}
