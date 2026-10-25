@@ -925,3 +925,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: arctic-swe-rl-baseline | Test: SKILL VALID
 ✓ Insight: Overfit trên nhóm tác vụ nhỏ làm kiểm tra định kỳ phơi bày lỗi hạ tầng phần thưởng sớm che lấp; gated reward + kiểm tra định dạng thó + căn chỉnh số giúp Qwen3.5-4B đạt 62.0% trên SWE-bench Verified với 1/6 lượt huấn luyện so với FrogNano.
 → Tiếp tục: [YES]
+
+## Paper #225 — CUA-Recovery: Benchmarking Error Recovery in Long-Horizon Computer-Use Agents (2610.27645v1) [applied]
+✓ Skill: cua-recovery-error-recovery | Test: SKILL VALID
+✓ Insight: Hiệu suất từ trạng thái sạch không dự báo khả năng khôi phục lỗi — Kimi-K3 giải quyết 66.9% MyPCBench từ sạch nhưng chỉ nhận ra 7.8-18.5% lỗi của riêng mình; fine-tuning trên quỹ đạo khôi phục đã xác thực giúp EAR 19.9%→35.2%.
+→ Tiếp tục: [YES]
