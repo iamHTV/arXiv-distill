@@ -1,0 +1,14 @@
+{
+  "name": "Not Every Agent Needs the Strongest Model: Unified Prompt–Model Optimization for Heterogeneous LLM-based Multi-Agent Systems",
+  "authors": ["Mingxiu Cai", "Haoyang Xian", "Xinyu Ma", "Yutong Wang", "Zhenxi Song", "Jing Li", "Xuebo Liu"],
+  "link": "https://arxiv.org/pdf/2610.31743",
+  "arxiv_id": "2610.31743",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "unimaso-prompt-model-optimization",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-27"
+}

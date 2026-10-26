@@ -944,3 +944,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: cauprophet-causal-cognition-agent | Test: SKILL VALID
 ✓ Insight: Agent có thể xây dựng triết nhân quả tồn tại dài hạn qua Triết Nhận thức Nhân Quả và Tin Tín Nhân Quả; trong tài chính, cải thiện 25,4% tương quan hạng với lợi nhuận ngày sau, độ chính xác dự đoán từ 21,3% lên 28,6%.
 → Tiếp tục: [YES]
+
+## Paper #229 — Not Every Agent Needs the Strongest Model: Unified Prompt–Model Optimization for Heterogeneous LLM-based Multi-Agent Systems (2610.31743v1) [applied]
+✓ Skill: unimaso-prompt-model-optimization | Test: SKILL VALID
+✓ Insight: Không phải mọi agent đều cần mô hình mạnh nhất — UniMASO phân bổ mô hình theo vai trò, đạt điểm 70,40 (tăng từ 69,79) và giảm chi phí token-weighted 85,2% so với DeepSeek-V4-Pro đồng nhất.
+→ Tiếp tục: [YES]
