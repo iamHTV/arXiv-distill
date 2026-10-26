@@ -966,3 +966,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: provenance-gate-synthesis-verification | Test: SKILL VALID
 ✓ Insight: MAD synthesis bịa consensus trôi chảy (baseline PF 0,288/0,183); APG — hard gate PF ≥ 0,95 + self-healing tối đa 3 lần + Divergence Report — nâng terminal PF 0,617/0,586, divergence 75% dưới xung đột zero-sum; validator phải khác và mạnh hơn proposer (symmetric fail 85,6%, asymmetric reject 63,3%); 75,8% người dùng tin báo cáo thừa nhận thất bại hơn bản bịa fluency (trust 3,27 vs 2,45, p=0,0039).
 → Tiếp tục: [YES]
+
+## Paper #233 — Poisoning Agentic Alpha: Adversarial Vulnerabilities Across Roles and Architectures in Multi-Agent Trading Systems (2608.24069v1) [applied]
+✓ Skill: multi-agent-red-team-role-topology | Test: SKILL VALID
+✓ Insight: Jailbreak terminal Risk Manager: ASR 98,9%/95,5% (BUY/SELL) — cao gấp 1,9× attack mạnh thứ hai, bypass hết aggregation/debate upstream; persuasive adversary 41,9–53,3% > mọi data-level attack (p<0,005); không architecture nào robust bản chất (APS ordering Dec 0,00 < Hyb 0,33 < Lin 0,50 < Cen 1,00 khớp ASR, r=0,85/0,88); quorum effect — vote majority fail khi 1 benign analyst đã theo target (44,6% ngày), 2 channel compromise → 68,7%; ASR ≠ financial harm (jailbreak 97,2% ASR median $0, objective hijacking median −$85, EV +$40); poison 10%→80% chỉ nâng ASR 19,1→30,6%; Dec clean return tốt nhất (−2,68%) nhưng degrade lớn nhất (−12,01/−12,38 pp).
+→ Tiếp tục: [YES]
