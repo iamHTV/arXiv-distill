@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "2610.32435",
+  "title": "Profile-Driven User Simulation via Reinforcement Learning with Hierarchical Rewards for Task-Oriented Dialogues",
+  "short_name": "ProfileSim",
+  "authors": ["Juan Li", "Fangshu Chang", "Xinyi Jiang", "Ling Huang", "Yunzhang Chen"],
+  "year": 2026,
+  "category": "cs.CL",
+  "link": "https://arxiv.org/abs/2610.32435",
+  "classification": "applied",
+  "llm_score": 80,
+  "skill": "profilesim-user-simulator",
+  "skill_status": "VALID",
+  "distilled_date": "2026-10-27",
+  "paper_index": 236,
+  "base_model": "Qwen3.5-9B (LoRA)",
+  "agent_backbone": "DeepSeek-R1",
+  "judge_model": "Gemini 3.1 Pro",
+  "annotation_model": "GPT-5",
+  "datasets": ["Bairong financial marketing outbound calls (242,438 raw → 72,296 valid)"],
+  "code": null,
+  "citation_count": null
+}
