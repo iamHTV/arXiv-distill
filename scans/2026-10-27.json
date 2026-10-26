@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-27",
+  "watermark_from": "2026-10-22T17:59:51Z",
+  "seen_before": 300,
+  "total_fetched": 6081,
+  "after_seen": 5830,
+  "after_category": 5276,
+  "after_heuristic": 5072,
+  "papers": [
+    {
+      "id": "2610.32477v1",
+      "title": "CauProphet: Teaching Agents to Develop Causal Cognition like Humans",
+      "abstract": "Large language model (LLM) agents increasingly support long-horizon tasks by leveraging external memory and past experience. However, existing agents mainly retrieve records or summaries, lacking the ability to form and refine causal understanding of the world. Inspired by human causal cognition, we introduce CauProphet, an agent that develops and updates causal knowledge within its Causal Cognition. For each task, CauProphet combines relevant knowledge in Causal Cognition with current evidence to construct a Causal Belief, a structured belief capturing causal factors and the effects of possible actions. It uses this belief for decision-making and continuously updates both the belief and Causal Cognition as new observations emerge, enabling causal knowledge that persists beyond individual experiences. Evaluations demonstrate that CauProphet progressively acquires causal knowledge and transfers it to future decision-making. In financial research, CauProphet leverages prior discoveries to improve downstream analyses and outperforms all baselines in mean rank correlation with next-day returns, achieving a 25.4% improvement over a baseline agent. It also improves prediction accuracy from 21.3% to 28.6% in dynamic real-world settings. Further experiments validate its ability to perform reliable causal analysis and action selection across scientific and everyday tasks, demonstrating the potential of causal experience learning for next-generation LLM agents.",
+      "published": "2026-10-23T10:45:03Z",
+      "updated": "2026-10-23T10:45:03Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.32477v1",
+      "heuristic": 45,
+      "llm_score": 88,
+      "llm_summary": "CauProphet trang bị agent \"causal cognition\" — xây dựng Causal Belief, cập nhật kiến thức nhân quả xuyên task, và đạt +25.4% rank correlation với lợi nhuận ngày tiếp theo trong financial research.",
+      "llm_reason": "Agent + memory + causal reasoning là cốt lõi, experiment thật trong tài chính (rất gần business/decision), và cho pattern hành động rõ: build agent tích lũy tri thức nhân quả để cải thiện quyết định kinh doanh.",
+      "group": "high"
+    },
+    {
+      "id": "2610.32305v1",
+      "title": "DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical Tasks",
+      "abstract": "Multi-stage analytical tasks require LLM agents to use intermediate evidence to decide whether to continue, redirect or stop. Self-reflection, in which an agent critiques its output, is widely studied, yet a critique does not show whether evidence changed the next action. We call that capability self-restraint. Existing agent benchmarks largely measure task completion or output quality and leave it untested. DMAIC-Bench evaluates it with 97 seeded tasks across 15 industrial cases in four sectors, built around Lean Six Sigma's explicit statistical prerequisites. Paired counterfactual variants require opposite actions at the same workflow position, distinguishing warranted restraint from indiscriminate stopping. We assess execution traces with a private scorer and final claims through independent expert review. Across 13 models from six providers, execution-level routing accuracy averages 92% on matched GO decisions and 19% on NO-GO decisions, counting any forbidden downstream computation as a route error. Execution traces show agents reporting correct diagnostics before performing analyses that those results disallow. Separately, blinded expert review of the 11 audited agents estimates that reports act on invalid evidence at 47% of reached NO-GO decisions, with an interval from 31% to 61%. Explicit stopping permission helps some models without consistently restoring correct decisions at both GO and NO-GO forks. Sixteen life-sciences tasks in bulk ribonucleic acid sequencing (RNA-seq) and case-control genome-wide association studies (GWAS) show that the same framework can evaluate evidence-dependent decisions beyond industrial workflows. Project code and data are available at: https://github.com/psptpx/DMAIC-Bench-public.",
+      "published": "2026-10-23T08:04:10Z",
+      "updated": "2026-10-23T08:04:10Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "link": "http://arxiv.org/abs/2610.32305v1",
+      "heuristic": 45,
+      "llm_score": 88,
+      "llm_summary": "DMAIC-Bench đo \"self-restraint\" của agent: 13 model thường đúng diagnostic nhưng vẫn chạy phân tích bị cấm, NO-GO accuracy chỉ 19%, expert audit thấy 47% decision NO-GO dùng bằng chứng không hợp lệ.",
+      "llm_reason": "Benchmark thật trên 97 task công nghiệp, thẳng vào quyết định khi nào dừng/tiếp tục — cực kỳ có giá trị cho business automation và content workflow; insight \"cho phép dừng rõ ràng\" là actionable ngay cho solopreneur dùng agent.",
+      "group": "high"
+    },
+    {
+      "id": "2610.31709v1",
+      "title": "Mining the Design Space of Multi-Agent Workflows",
+      "abstract": "Designing large language model (LLM) multi-agent systems (MAS) still relies on trial and error and informal \"folk wisdom.\" Manual studies test only a few communication structures or topologies (e.g., sequential, parallel, shared-memory, or debate), while automated optimizers discard search trajectories after selecting a task-specific workflow. We present a two-phase pipeline for mining reproducible design principles from workflow code and execution traces. We repurpose AFlow's MCTS optimizer across six composable operators and 26 deterministically verified Enigmata tasks, retaining all intermediate rounds to build a corpus of 28,568 executable workflows. A sandboxed AutoResearch loop then mines orchestration code and prompt templates under an $L_0$-penalized validation objective and tests candidate principles on held-out searches. Across 300 feature-mining trials, we identify effects that persist on held-out searches across three levels of workflow design: workflows beginning with independent solvers and one-shot aggregation (Star-first) perform worse ($Δ= -0.045$); persistent shared documents (SharedMemory) outperform debate ($Δ= +0.135$); and prompt specificity and placeholder-based context routing yield gains comparable to communication-structure selection ($Δ= +0.118$). More broadly, our pipeline and results show the feasibility of turning discarded search trajectories into a statistical testbed for discovering and validating multi-agent workflow design principles.",
+      "published": "2026-10-22T00:31:39Z",
+      "updated": "2026-10-22T00:31:39Z",
+      "cats": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.31709v1",
+      "heuristic": 48,
+      "llm_score": 85,
+      "llm_summary": "Khai thác không gian thiết kế multi-agent workflow bằng pipeline 2 pha (MCTS + AutoResearch) để rút ra các nguyên tắc thiết kế có thể tái lập từ 28.568 workflow và execution traces.",
+      "llm_reason": "Cực kỳ liên quan cốt lõi multi-agent/LLM (35/35), có experiment thật với delta cụ thể (23/25), và cho insight hành động trực tiếp: SharedMemory > debate (+0.135), prompt specificity quan trọng tương đương cấu trúc giao tiếp, Star-first kém hơn — đọc xong áp dụng ngay vào việc thiết kế pipeline AI content cho nhiều kênh (17/20), nhưng không chạm trực tiếp marketing nên business chỉ 10/20.",
+      "group": "high"
+    },
+    {
+      "id": "2610.32004v1",
+      "title": "CRM-Agent-Bench: Benchmarking Tool-Using Agents in Stateful Enterprise Environments",
+      "abstract": "Deploying language agents in real applications demands more than the right answer: an agent must execute a multi-step business process correctly, follow domain-specific rules, and interact with a user across a dialogue, where the gap between saying and doing is the gap between a satisfied customer and a real loss. We argue that a deployable-agent benchmark should jointly assess four facets: the outcome an agent reaches, the trajectory it takes, its operational viability, and its policy compliance. Customer relationship management (CRM), where mutable records meet operational rules and consequential effects, exercises all four. We introduce CRM-Agent-Bench, an execution-grounded benchmark of 555 stateful, multi-turn tasks across nine business domains and 36 capability tags. Each task supplies a task-specific executable contract drawn from checks over actions, arguments, order, response, target state, and protected state; success is the strict conjunction of the checks declared for that task. We evaluate the complete agent system through these contracts and report scored coverage, latency, and cost. Across sixteen systems evaluated on the audited final release, strict success spans 64.32% to 83.60%; the closely grouped leading systems nonetheless diverge sharply in cost and per-domain reliability. CRM-Agent-Bench offers an auditable framework for measuring contract-grounded business-transaction integrity and adherence to task-declared benchmark policies, with a portable structure designed for extension as models improve. Github repository: https://github.com/salesforce-misc/crm-agent-bench",
+      "published": "2026-10-23T00:05:21Z",
+      "updated": "2026-10-23T00:05:21Z",
+      "cats": [
+        "cs.HC",
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.32004v1",
+      "heuristic": 55,
+      "llm_score": 83,
+      "llm_summary": "Giới thiệu CRM-Agent-Bench, benchmark 555 tác vụ stateful multi-turn trên 9 domain business để đánh giá tool-using agent trong môi trường doanh nghiệp, với executable contract kiểm tra outcome, trajectory, operational viability và policy compliance.",
+      "llm_reason": "Trực tiếp liên quan agent tool-use trong business context (CRM), benchmark lớn với 16 hệ thống và metric cụ thể, insights về gap giữa 'nói' và 'làm' của agent rất actionable cho người làm content AI và business automation.",
+      "group": "high"
+    },
+    {
+      "id": "2610.31743v1",
+      "title": "Not Every Agent Needs the Strongest Model: Unified Prompt-Model Optimization for Heterogeneous LLM-based Multi-Agent Systems",
+      "abstract": "Large language model (LLM)-based multi-agent systems (MAS) rely on role-specific prompts and execution models to solve complex tasks collaboratively. However, prompt optimization typically keeps model assignments fixed, leaving differences in role requirements and their associated inference costs outside the search. We present UniMASO, a Unified framework for heterogeneous Multi-Agent System Optimization through the joint adaptation of prompts and model assignments. UniMASO evaluates candidate updates through local, downstream, and global feedback, using cost-aware Pareto search to retain useful quality-cost trade-offs. Topology-aware co-evolution then coordinates these updates according to agent roles and dependencies. Cross-level trajectory memory further supplies historical successes and failures to guide subsequent optimization. Experiments on five benchmarks and five execution topologies show that UniMASO achieves competitive task performance at substantially lower deployment cost than the strongest homogeneous configurations. Under centralized execution, it improves the average score from 69.79 to 70.40 while reducing token-weighted deployment cost by 85.2% relative to DeepSeek-V4-Pro with MASPO. These results support joint prompt-model adaptation as an effective approach to efficient multi-agent collaboration. The code is available at https://github.com/Achilles008/UniMASO_main.",
+      "published": "2026-10-22T17:24:23Z",
+      "updated": "2026-10-22T17:24:23Z",
+      "cats": [
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.31743v1",
+      "heuristic": 66,
+      "llm_score": 82,
+      "llm_summary": "UniMASO tối ưu đồng thời prompt và phân công model cho từng agent trong hệ thống multi-agent, đạt hiệu năng tương đương nhưng giảm 85.2% chi phí token so với cấu hình mạnh nhất.",
+      "llm_reason": "Rất liên quan multi-agent/LLM, experiment mạnh trên 5 benchmark, insight 'không phải agent nào cũng cần model mạnh nhất' cực kỳ actionable cho solopreneur tối ưu chi phí vận hành AI.",
+      "group": "high"
+    },
+    {
+      "id": "2609.24152v1",
+      "title": "Graded-Relevance Composed Multimodal Retrieval for E-commerce Visual Search at Scale",
+      "abstract": "Visual search on large e-commerce catalogs must serve both \"similarity\" queries that ask for items resembling an uploaded image and \"modifier\" queries that comprise an image and text describing a desired modification (e.g. a color change or style swap). The latter is the setting known as composed image retrieval (CIR). Existing CIR methods, however, treat relevance as binary and train on triplets with a single positive target - a poor fit for real catalogs where many candidates partially satisfy a user query and ranking across that partial-match spectrum drives the customer experience. We propose a methodology for training CIR retrievers on graded relevance, consisting of: (i) a VLM to curate training data, generating both queries (object detection + modifier synthesis) and 4-level relevance labels without manual annotation, (ii) an iterative relevance-feedback loop that expands the training set by mining hard negatives from the in-training retriever, and (iii) a hierarchy-aware angular objective to train the retriever directly on the graded labels rather than collapsing them to a binary split. We call this methodology GradCIR and instantiate it on a PaliGemma2 bi-encoder trained on 3.5M graded pairs curated from raw Walmart catalog data. A controlled graded-vs-binary ablation isolates the supervision granularity and shows lift of 4.9%-5.9% in NDCG@10. The same recipe applied to other multimodal encoders lifts early-fusion backbones by up to 8.5% NDCG@10. On the public FashionIQ benchmark, GradCIR (applied to PaliGemma2) reaches 0.6703 average recall when fine-tuned, slightly ahead of the strongest peer-reviewed supervised baseline we compare against, and matching or exceeding all published CLIP-L-class zero-shot CIR methods. The system is deployed in production at Walmart, where it's serving live visual-search user traffic.",
+      "published": "2026-09-21T06:09:52Z",
+      "updated": "2026-09-21T06:09:52Z",
+      "cats": [
+        "cs.IR",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "link": "http://arxiv.org/abs/2609.24152v1",
+      "heuristic": 46,
+      "llm_score": 80,
+      "llm_summary": "Đề xuất GradCIR — huấn luyện retriever tìm kiếm hình ảnh e-commerce theo mức độ liên quan 4 bậc, dùng VLM tự tạo dữ liệu và hard negatives, thử nghiệm trên 3.5M cặp từ catalog Walmart.",
+      "llm_reason": "VLM + retrieval là chủ đề cốt lõi, có experiment thật với lift NDCG rõ ràng, cực kỳ sát business e-commerce/content marketplace và cho recipe hành động được để áp dụng cho search/curation.",
+      "group": "high"
+    },
+    {
+      "id": "2610.10126v1",
+      "title": "Know the Shape, Find the Fault: Topology-Conditioned Diagnosis of Multi-Agent LLM Failures",
+      "abstract": "Multi-agent LLM systems coordinate task execution through exchanges of information among agents. When coordination breaks down, similar symptoms in execution traces can reflect different problems in how information is passed, used, or verified. Communication topology captures how agents exchange information and provides structural cues for distinguishing coordination failure modes. Using these cues for diagnosis requires establishing how topology relates to failure patterns and recovering the relevant structure from execution traces that lack explicit topology labels. We analyze the relationship between communication topology and failure patterns and introduce MAScope, a two-stage framework for topology-conditioned diagnosis. Its Trace Structural Extractor TSE recovers communication topology from heterogeneous execution traces by grounding an interaction graph in message evidence. The Topology-Conditioned Judge TC-Judge then classifies failures using the trace, predicted topology, an empirical failure prior estimated from separate labeled traces, and a short description of topology-specific failure patterns. Under a fixed orchestration structure, the recovered topology can be reused across executions. Experimental results show a statistically significant association between communication topology and failure type, with $χ^2 = 409.9$ and $p = 1.2 \\times 10^{-70}$. On the \\num{851} MAST-clean traces, ground-truth topology context raises gpt-mini's Macro-F1 from $0.173$ to $0.350$. With predicted topology, the pipeline achieves $0.346$, approaching the trace-only gpt-5.4 baseline of $0.372$. For \\num{1000} traces under a fixed orchestration structure, the projected pipeline cost, including one topology extraction, is approximately $6\\%$ of repeated gpt-5.4 diagnosis cost. These results show that topology-conditioned context improves failure diagnosis and supports lower-cost deployment.",
+      "published": "2026-10-07T14:07:48Z",
+      "updated": "2026-10-07T14:07:48Z",
+      "cats": [
+        "cs.MA",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.10126v1",
+      "heuristic": 45,
+      "llm_score": 79,
+      "llm_summary": "MAScope chẩn đoán lỗi hệ thống multi-agent LLM dựa trên communication topology, phát hiện mối liên hệ thống kê mạnh giữa cấu trúc giao tiếp và loại thất bại.",
+      "llm_reason": "Core multi-agent LLM với framework chẩn đoán lỗi thực tiễn; experiment có ý nghĩa thống kê rất cao; cực kỳ relevant cho ai xây dựng/dùng multi-agent system; content angle 'vì sao multi-agent thất bại' dễ biên soạn và có giá trị thực hành cao.",
+      "group": "high"
+    },
+    {
+      "id": "2610.32326v1",
+      "title": "TGR-EvoDAG: A DAG-based Multi-Agent Code Evolution Framework for Generative Recommendation on Tencent",
+      "abstract": "Large Language Model (LLM) agents have enabled automated code evolution for algorithm discovery. However, current recursive self-improvement (RSI) research for sequential recommendation faces a dilemma: general-purpose frameworks lack domain-specific feedback, while recommender-specific frameworks rely on linear evolution. Crucially, naively integrating them fails when applied to Generative Recommendation (GR). Unlike end-to-end models, GR relies on a module-cascaded pipeline (tokenization, pre-training, and alignment). In this paradigm, existing evolution methods suffer from: i) cost blindness, squandering budgets by ignoring stage-asymmetric retraining overheads; and ii) short-sighted evaluation, discarding promising upstream innovations that temporarily regress metrics before downstream adaptation. To bridge these gaps, we propose TGR-EvoDAG, a multi-agent code evolution framework tailored for GR. TGR-EvoDAG models code evolution as a Directed Acyclic Graph (DAG) to maintain multiple evolution branches and merge complementary innovations, unifying advanced search with rich GR diagnostic feedback. We further introduce stage-aware cost planning to optimize GPU-hour budgets, and active downstream co-adaptation to navigate temporary regressions and unlock cross-stage gains. On public Amazon datasets, TGR-EvoDAG enables the first autonomous evolution of a complete GR pipeline, improving offline metrics by up to 37.4% and Agent4Rec simulated user satisfaction by 19.7% over the strongest baseline. Furthermore, in industrial deployment on Tencent's large-scale commercial media platform, the evolved GR achieves a 12.16% relative improvement in offline Hit@1 and a statistically significant 0.40% increase in online click-through rate (CTR).",
+      "published": "2026-10-23T08:23:42Z",
+      "updated": "2026-10-23T08:23:42Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.32326v1",
+      "heuristic": 58,
+      "llm_score": 78,
+      "llm_summary": "TGR-EvoDAG dùng multi-agent code evolution theo cấu trúc DAG để tự động tối ưu toàn bộ pipeline generative recommendation, đã triển khai tại Tencent.",
+      "llm_reason": "Multi-agent code evolution rất liên quan cốt lõi AI, experiment thật trên Amazon datasets và production Tencent, chủ đề recommendation trực tiếp liên quan business content distribution, và insight về stage-aware cost planning cùng DAG evolution có thể áp dụng để tối ưu workflow content.",
+      "group": "high"
+    },
+    {
+      "id": "2610.32851v1",
+      "title": "Reimagining Enterprise RAG for Multi-Agent Systems: A Knowledge Layer That Organizes Before It Retrieves",
+      "abstract": "Enterprises are deploying agentic AI across the software development lifecycle, and they need the behavioral logic of the systems they act on, not stakeholder documentation. A seven-agent reverse-engineering pipeline recovered this logic, processing 241 repositories across 18 services into thousands of artifacts describing scope, journeys, rules and acceptance criteria. Recovery does not confer usability. Entities like offer, eligibility, and activation recur across services under a shared vocabulary, related in name but operationally distinct, so one end-to-end journey implicates over a thousand near-identical rules that must not be conflated. Flat vector retrieval fails, returning an identical rule from the wrong service at high similarity with no signal of error. Content-level ontology, the traditional remedy, did not exist, and relating every occurrence of recurring entities would have cost more than the engagement and not survived a release cycle. We place the ontology at the artifact level. In this machine-generated corpus, each artifact retains its producer, component, service, domain and type, provenance that disambiguates before content is read. We present a knowledge layer that organizes before retrieving: a self-describing catalog, a sparse metadata registry, and a navigation hypergraph defined over artifacts rather than extracted entities. Queries resolve to artifact identifiers that constrain vector search, so the competing rule from another service is absent rather than outranked, making disambiguation structural, not statistical. Built in under a week and admitting new services by convention, the layer serves SDLC agents, developers, quality engineers and analysts. It supported root-cause analysis and resolution of 100+ production defects with developer verification and attributed 35 release regression failures to specific rules and services.",
+      "published": "2026-10-23T16:21:56Z",
+      "updated": "2026-10-23T16:21:56Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.32851v1",
+      "heuristic": 53,
+      "llm_score": 78,
+      "llm_summary": "Knowledge layer enterprise RAG tổ chức trước khi retrieval: catalog tự mô tả, metadata registry sparse, hypergraph trên artifact (kèm provenance producer/service/domain) thay vì flat vector retrieval, triển khai qua pipeline 7 agent trên 241 repos/18 services.",
+      "llm_reason": "Pattern 'organize-before-retrieve' với metadata/provenance là giải pháp trực tiếp cho người làm nhiều kênh content và RAG tri thức, có case thật chứng minh flat retrieval thất bại thế nào.",
+      "group": "high"
+    },
+    {
+      "id": "2610.32686v1",
+      "title": "OpenDraco: A Platform for Engineering and Experimenting with Configurable Multi-Agent Architectures for Software Engineering",
+      "abstract": "Experimenting with LLM-based multi-agent systems (MAS) involves an iterative cycle of modeling configurations, executing and evaluating them, comparing results, and refining system designs. Existing approaches provide limited end-to-end support for this experimentation lifecycle. We present OpenDraco, an open-source platform that integrates these activities into a single workflow. OpenDraco represents agents, prompts, tools, models, parameters, and communication topology in exportable, versioned JSON specifications, translated into executable LangGraph workflows supporting different interaction structures. Users can modify and re-evaluate configurations using local or cloud-based LLMs. We instantiate OpenDraco for automated program repair (APR) and evaluate a sequential baseline and seven reconstructed configurations on synthetic and real-world SWE-bench Lite issues. The results reveal substantial cost differences among configurations with similar repair outcomes, while the baseline resolves 12 of 77 SWE-bench issues using open-source LLMs. Additional proof-of-concept tasks illustrate applicability beyond APR. OpenDraco supports iterative experimentation with heterogeneous MAS configurations, enabling researchers to examine their outcomes and costs within a common environment. Demonstration video: https://youtu.be/278sOR4lBEk.",
+      "published": "2026-10-23T14:17:18Z",
+      "updated": "2026-10-23T14:17:18Z",
+      "cats": [
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2610.32686v1",
+      "heuristic": 54,
+      "llm_score": 77,
+      "llm_summary": "OpenDraco là platform open-source để thiết kế, chạy và so sánh nhiều cấu hình multi-agent (JSON→LangGraph) cho software engineering, đánh giá trên SWE-bench Lite và phát hiện chênh lệch cost lớn giữa cấu hình cùng outcome.",
+      "llm_reason": "Rất actionable cho solopreneur: workflow thử nghiệm agent có versioned config + phân tích cost/outcome giúp tối ưu automation content nhiều kênh, experiment thật trên SWE-bench Lite.",
+      "group": "high"
+    }
+  ]
+}

@@ -928,5 +928,9 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 
 ## Paper #225 — CUA-Recovery: Benchmarking Error Recovery in Long-Horizon Computer-Use Agents (2610.27645v1) [applied]
 ✓ Skill: cua-recovery-error-recovery | Test: SKILL VALID
-✓ Insight: Hiệu suất từ trạng thái sạch không dự báo khả năng khôi phục lỗi — Kimi-K3 giải quyết 66.9% MyPCBench từ sạch nhưng chỉ nhận ra 7.8-18.5% lỗi của riêng mình; fine-tuning trên quỹ đạo khôi phục đã xác thực giúp EAR 19.9%→35.2%.
+→ Tiếp tục: [YES]
+
+## Paper #226 — Mining the Design Space of Multi-Agent Workflows (2610.31709v1) [applied]
+✓ Skill: mining-design-space-multi-agent-workflows | Test: SKILL VALID
+✓ Insight: Star-first làm giảm hiệu quả (Δ = −0.045), SharedMemory vượt trội hơn Debate (Δ = +0.135), prompt cụ thể có lợi bằng cấu trúc liên lạc (Δ = +0.118) — thiết kế workflow nên bắt đầu bằng trạng thái chia sẻ liên tục, không phải fan-out độc lập.
 → Tiếp tục: [YES]
