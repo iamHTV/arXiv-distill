@@ -1,0 +1,16 @@
+{
+  "name": "Agentic AI Defense: Decode-Time Provenance Binding for MCP",
+  "authors": ["Eric Yocam", "Varghese Vaidyan", "Paris Kalathas", "Patrick Tague", "Bruce DeBruhl", "Yong Wang"],
+  "link": "https://arxiv.org/abs/2610.31974",
+  "pdf_link": "https://arxiv.org/pdf/2610.31974v1",
+  "arxiv_id": "2610.31974",
+  "year": 2026,
+  "category": "cs.CR",
+  "classification": "applied",
+  "skill_status": "created — decode-time-provenance-binding-mcp",
+  "code": "https://github.com/ericyoc/stego_provenance_defense",
+  "citation_count": null,
+  "llm_score": 83,
+  "distill_date": "2026-10-27",
+  "paper_number": 234
+}
