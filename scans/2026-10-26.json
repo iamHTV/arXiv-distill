@@ -1,183 +1,180 @@
 {
   "date": "2026-10-26",
   "watermark_from": "2026-10-22T17:59:51Z",
-  "seen_before": 280,
+  "seen_before": 290,
   "total_fetched": 6059,
-  "after_seen": 5821,
-  "after_category": 5282,
-  "after_heuristic": 5074,
+  "after_seen": 5811,
+  "after_category": 5272,
+  "after_heuristic": 5064,
   "papers": [
     {
-      "id": "2610.24718v1",
-      "title": "Neuro-Inspired Inhibitory Message Passing for Accurate and Token-Efficient Multi-Agent Reasoning",
-      "abstract": "Multi-agent systems promise to solve problems by bringing together information beyond the reach of any individual agent. Retrieval and tool use can distribute this information across agents, making communication essential to collaboration. A central challenge is keeping crucial evidence visible in each agent's context as messages accumulate. Repeated information can crowd out rare, decisive evidence. Models of cortical circuits suggest a principle for addressing this imbalance: inhibition can selectively suppress shared inputs while preserving sensitivity to weaker signals. We adapt this principle into inhibitory message passing, a training-free communication router that cancels redundant evidence separately for each evidence sentence and receiver. Each round, it forwards evidence sentences restated in agents' messages, delivering each at most once to receivers whose own evidence lacks it and excluding the senders' reasoning and answers. Against standard message passing, accuracy in peer groups rose by 39-77 percentage points across three benchmarks, and tokens per run fell by 10-46%. Gains held across seven open models spanning four to thirty-two billion parameters and two commercial models, in groups up to sixty-four agents, and across multi-agent architectures including peer-to-peer, orchestrator-worker, and multilevel hierarchical organizations. These findings support a scalable design pattern for more accurate and token-efficient multi-agent reasoning.",
-      "published": "2026-10-17T14:30:37Z",
-      "updated": "2026-10-17T14:30:37Z",
+      "id": "2609.27624v1",
+      "title": "Agent Name Collision Attacks in Multi-Agent Systems",
+      "abstract": "Multi-agent hosts turn remote Agent Cards into local agents, tools, workflow targets, and broker routes. A2A defines the card's name as human-readable metadata, not as a stable identity, and specifies no collision semantics. The security failure begins when a host nevertheless uses that remote name as a local routing identifier. We traced registration through dispatch and ran isolated regression tests at seven pinned open-source revisions. Six client-style integrations selected an attacker-controlled peer's client or loopback endpoint for a request addressed to a trusted peer's name. A seventh, brokered implementation collapsed both peers onto one name-derived route; queue and access-control state determine whether the result is interception or denial. The common result is wrong-peer dispatch, not universal privilege inheritance. Synthetic credential and tool tests found no A-specific credential transfer in the tested client bindings and no direct transfer of A-owned tools. The broker path forwards a caller-configuration object; delegated identity or tokens reach B only if present and B can consume the route. Two other paths expose a later, model-mediated decision rather than direct execution authority. The necessary conditions assign different responsibilities to the protocol, implementations, and deployments. Hosts should route by an origin-bound stable identity, keep names presentational, and reject ambiguous aliases. The evidence establishes a recurring implementation vulnerability class, not a universal A2A protocol exploit or a count of vulnerable deployments.",
+      "published": "2026-09-23T09:46:58Z",
+      "updated": "2026-09-23T09:46:58Z",
       "cats": [
-        "cs.AI",
-        "cs.CL",
+        "cs.CR",
         "cs.MA"
       ],
-      "link": "http://arxiv.org/abs/2610.24718v1",
-      "heuristic": 45,
-      "llm_score": 88,
-      "llm_summary": "Inhibitory message passing lấy cảm hứng từ vỏ não, router không cần training để triệt chứng cứ trùng lặp giữa các agent đa tác vụ, tăng 39-77 điểm accuracy và giảm 10-46% token trên 9 mô hình, tối đa 64 agent.",
-      "llm_reason": "Đúng trục multi-agent/tool-use với benchmark mạnh nhiều kiến trúc, training-free nên áp dụng ngay vào workflow nội dung AI, tiết kiệm token rõ ràng giúp cắt chi phí vận hành nhiều kênh.",
+      "link": "http://arxiv.org/abs/2609.27624v1",
+      "heuristic": 46,
+      "llm_score": 84,
+      "llm_summary": "Chỉ ra lỗ hổng Agent Name Collision trong hệ multi-agent (A2A): host dùng tên card làm ID định tuyến dẫn tới dispatch nhầm peer, test regression trên 7 repo open-source thật.",
+      "llm_reason": "Trực tiếp về agent architecture (33/35), experiment thực tế trên mã nguồn thật (23/25), có hướng dẫn hardening cụ thể (route by origin-bound stable identity) rất actionable cho ai tự build agent pipeline (17/20).",
       "group": "high"
     },
     {
-      "id": "2610.23234v2",
-      "title": "MultiAgent-OPD: End-to-End Training of Hierarchical Multi-Agent Systems with On-Policy Distillation",
-      "abstract": "In a hierarchical multi-agent system, a Leader assigns tasks and subagents carry them out. Jointly training the Leader and the subagents is difficult because a final answer gives only indirect feedback to the subagents. An LLM judge can score the performance of the subagents, but these scores depend on the judge's own assessment of the quality of subagents' responses. We present MultiAgent-OPD, which combines on-policy distillation with reinforcement learning to jointly train a shared-parameter Leader-Searcher-Answerer team end to end. We first train a Teacher in a Searcher-Answerer workflow using answer correctness. During team training, the frozen Teacher scores student-generated search and summary tokens to provide local process supervision for the Searchers, while the Leader learns from team success and the Answerer from candidate correctness. Across seven datasets, the trained system reaches 38.68% macro avg@4, exceeding Prompted Critic by 4.06 percentage points and C-MAS + RL, the trained cascaded multiagent system, by 2.61 percentage points. The team also solves more questions within four attempts.",
-      "published": "2026-10-16T10:01:52Z",
-      "updated": "2026-10-20T08:51:14Z",
+      "id": "2609.11758v1",
+      "title": "RAG-Safety-Bench: Reliable Evaluation of Retrieval-Augmented LLM Safety",
+      "abstract": "Allowing large language models (LLMs) to retrieve information from a set of trusted documents can increase reliability and reduce hallucination. However, recent work has demonstrated that retrieval-augmented generation (RAG) can have unintended side effects on the overall safety of the generated responses, when prompted for harmful or dangerous content. A clearer understanding of the mechanisms leading to this result is needed, as increasing numbers of end users turn to RAG to incorporate corporate documents and knowledge bases into LLM-based systems. We introduce RAG-Safety-Bench, a benchmark to measure the safety impact of RAG on LLM models. By removing the confounding effect of retriever quality, and cleanly separating the problem into four conditions -- non-RAG, RAG with an oracle document containing the answer to the harmful request, RAG with documents related to the harmful request but without the specific answer, and RAG with random, safe documents -- the benchmark isolates the impacts of different factors in the observed safety degradation. We report results across five open-source LLMs, showing an inverse relationship between benign and unsafe capability, strong evidence that baseline safety guardrails do not lead to downstream safety guarantees in the RAG case, and model-specific support for previous findings that even benign documents can lead to unsafe generation in retrieval-enabled systems.",
+      "published": "2026-09-10T16:12:25Z",
+      "updated": "2026-09-10T16:12:25Z",
       "cats": [
+        "cs.CL",
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2609.11758v1",
+      "heuristic": 45,
+      "llm_score": 83,
+      "llm_summary": "Giới thiệu RAG-Safety-Bench — benchmark đo lường tác động an toàn của RAG lên LLM bằng cách tách biệt 4 điều kiện (không RAG, RAG oracle, RAG related, RAG random) trên 5 LLM open-source, phát hiện guardrails baseline không đảm bảo an toàn khi có retrieval và ngay cả tài liệu vô hại cũng có thể gây unsafe generation.",
+      "llm_reason": "Rất liên quan RAG/LLM safety; experiment chặt chẽ với controlled benchmark; trực tiếp liên quan business vì ngày càng nhiều doanh nghiệp dùng RAG với knowledge bases; insight cực kỳ actionable — hiểu rằng RAG có thể phá vỡ safety guardrails, cần audit riêng cho RAG pipeline.",
+      "group": "high"
+    },
+    {
+      "id": "2610.25456v1",
+      "title": "System X: An LLM Decision Model That Replies from Its Own KV Cache",
+      "abstract": "Decision models return probabilities over supplied options, but a deployed agent may also need to reply in words. The present study introduces System X, a large language model (LLM) decision model that adds a text-reply option to the LLM-as-Jev readout. When this option wins, or confidence is low, the same model continues from the decision's key-value (KV) cache, avoiding a repeated prompt prefill. Qwen3-0.6B has been fine-tuned with LoRA on Reason-9k and Bitext reply rows. JevBench accuracy shows no statistically significant change (55.4% to 54.5%, p=0.87), while expected calibration error falls from 0.292 to 0.169. Held-out Bitext routing accuracy reaches 98.3%. Cache reuse saves 15-37% of latency on an Apple M4 Pro, with token-identical replies in the FP32 demonstration cases. Scoring options on copies of the prompt cache matches full-sequence scoring to within 1.4e-6 in probability. Adding dialogue, industry and complaint data (System X+) improves support-task results but lowers IFEval accuracy from 55.5% to 45.0%. System X v4 uses Qwen3-1.7B, rebalanced data and teacher-rewritten reply targets. Against its base LLM, JevBench accuracy rises from 55.0% to 61.0% (p=0.04), with no statistically significant IFEval change (p=0.71). A matched latency test on unadapted Qwen3-1.7B saves 17-39%. One LLM judge prefers v4 replies to an unadapted 1.7B second call (31 to 11 pairs, p=0.003); the other's preference is not significant. These reply comparisons also differ in prompts and generation limits. State conflicts and unsupported reply details remain failure modes. Further studies with several seeds, human raters and real support data are recommended.",
+      "published": "2026-10-18T18:40:50Z",
+      "updated": "2026-10-18T18:40:50Z",
+      "cats": [
+        "cs.AI",
         "cs.CL"
       ],
-      "link": "http://arxiv.org/abs/2610.23234v2",
-      "heuristic": 48,
-      "llm_score": 81,
-      "llm_summary": "MultiAgent-OPD huấn luyện end-to-end hệ thống phân cấp Leader giao việc cho subagents (Searcher-Answerer), dùng on-policy distillation cho joint training.",
-      "llm_reason": "Cao nhất: mô hình Leader → Specialist rất phù hợp cho solopreneur quản lý nhiều kênh content; có benchmark thật và insight phân công tác vụ rõ ràng.",
-      "group": "high"
-    },
-    {
-      "id": "2610.24914v1",
-      "title": "Arctic-SWE: Revisiting the Long Horizon Agent Training by Modeling-System Co-Design",
-      "abstract": "Long-horizon agent training, including software engineering, is advancing rapidly, but the recipe and infrastructure needed for a strong reinforcement-learning baseline remain difficult to reproduce. This makes gains from new algorithms or data hard to distinguish from improvements to an under-tuned baseline. We present Arctic-SWE, a fully asynchronous RL framework that establishes such a baseline through model-system co-design, using overfitting on a small task pool as the testbed. This testbed exposes failures that early reward gains conceal and guides the integration of established components: gated reward, importance-weight control, aligned training and inference engines, and consistent state across policy updates. No single component is new, yet together they form the missing foundation. On raw R2E-Gym data, without new algorithms or data work, Arctic-SWE trains Qwen3.5-4B to 62.0% pass@1 on SWE-bench Verified. This is comparable to concurrent FrogNano (61.5%), which relies on online task synthesis, after about one-sixth as many training rollouts. Building on this foundation, we further filter and refine R2E-Gym, SWE-rebench V2, and Scale-SWE. With this curated subset, the 4B model improves from 47.4%/25.0%/37.9% to 65.0%/38.3%/59.7% on SWE-bench Verified/Pro-v1/Pro-v2, and the recipe also improves Qwen3.5-9B from 56.2%/31.9%/48.8% to 65.7%/39.6%/70.2% on Verified/Pro-v1/Pro-v2. Controlled comparisons show that both curation and test strengthening improve held-out performance, although stronger tests reduce apparent training-task mastery. Arctic-SWE provides a documented starting point for studying better algorithms, data and environments for asynchronous agent RL.",
-      "published": "2026-10-17T23:24:03Z",
-      "updated": "2026-10-17T23:24:03Z",
-      "cats": [
-        "cs.LG",
-        "cs.AI",
-        "cs.CL"
-      ],
-      "link": "http://arxiv.org/abs/2610.24914v1",
-      "heuristic": 48,
+      "link": "http://arxiv.org/abs/2610.25456v1",
+      "heuristic": 55,
       "llm_score": 79,
-      "llm_summary": "Arctic-SWE thiết lập baseline RL cho long-horizon agent training (phần mềm), cho thấy model-system co-design quan trọng hơn thuật toán mới.",
-      "llm_reason": "Rất thực tiễn cho solopreneur muốn tự động hóa workflow phức tạp; insight 'không cần algorithm mới, cần tune baseline tốt' rất actionable.",
+      "llm_summary": "Giới thiệu System X, một LLM decision model có thể reply từ KV cache của chính nó, giúp tiết kiệm 15-39% latency mà không giảm chất lượng.",
+      "llm_reason": "Rất liên quan vì tối ưu chi phí vận hành LLM, tiết kiệm latency và chi phí inference — solopreneur chạy nhiều kênh AI sẽ được lợi trực tiếp từ kỹ thuật cache reuse này.",
       "group": "high"
     },
     {
-      "id": "2610.21290v1",
-      "title": "Bias Control and Injection for Multi-Agent Aggregation",
-      "abstract": "Multi-agent reasoning with large language models (LLMs) raises a central question for collective decision-making: when agents disagree, whose decision should be trusted? Resolving such disagreements is difficult because agents' decisions are susceptible to non-semantic biases such as majority pressure and response-style preferences, which can obscure the quality of the underlying reasoning. Our analysis shows how bias can be both mitigated and exploited: bias control improves initial answer selection, while bias injection elicits decision instability that serves as a reliability signal. Building on these findings, we introduce a test-time aggregation framework that requires neither validation data nor prior knowledge of relative model strength. The framework implements bias control by presenting one style-normalized reasoning trace per distinct answer, and bias injection by placing each aggregating agent's initially selected answer in the minority. Overall, our framework achieves higher average accuracy and better token efficiency than competing non-oracle aggregation methods across three mathematical reasoning benchmarks and four heterogeneous LLM combinations. It also improves final-answer accuracy when applied to multi-agent debate and Mixture-of-Agents, without modifying their interaction or synthesis processes.",
-      "published": "2026-10-15T05:37:49Z",
-      "updated": "2026-10-15T05:37:49Z",
+      "id": "2608.22657v1",
+      "title": "Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs",
+      "abstract": "Agentic AI frameworks interpret open-ended task goals and decompose them into multi-step plans. Richer information about embodiment-specific capabilities, physical preconditions, and cross-robot coordination improves grounding, but does not eliminate infeasible, mistimed, or unsafe physical actions. Physical robot crews therefore require an explicit architectural interface between semantic planning and execution, where every planned action is verified against robot capabilities, system state, and workflow constraints before actuation. This paper introduces Physical Agentic AI, a framework for skill-grounded robot agent orchestration, in which each robot exposes a typed library of executable skills while a foundation model planner decomposes a task into phases and assigns each phase to a robot-skill pair. A Robot Orchestration layer exposes the skill library, robot state, named locations, and workflow contracts to a non-actuating Mission Planner, while a deterministic Robot Orchestrator validates and authorizes one skill at a time. We evaluate on a drone-UGV search-and-dispatch mission, where every mission in every condition is executed live in Gazebo, and on a humanoid-quadruped transportation task using hardware-equivalent skill interfaces plus two physical trials on a Unitree G1 and Go2. Varying planner knowledge and runtime enforcement independently, we find that retrieval raises skill grounding from 51% to 96% yet leaves informed planners dispatching 23-29% of faulted steps. Per-dispatch enforcement reduces false dispatch to 0% with no false blocks, and a held-plan ablation confirms that the gate, not plan variation, is responsible. Live execution makes the difference physical: without enforcement all eight injected faults crossed the orchestration boundary and six produced robot motion; with enforcement all eight were refused before motion.",
+      "published": "2026-08-23T23:35:31Z",
+      "updated": "2026-08-23T23:35:31Z",
       "cats": [
+        "cs.RO",
         "cs.AI",
-        "cs.CL",
         "cs.MA"
       ],
-      "link": "http://arxiv.org/abs/2610.21290v1",
+      "link": "http://arxiv.org/abs/2608.22657v1",
+      "heuristic": 48,
+      "llm_score": 79,
+      "llm_summary": "Kiến trúc Physical Agentic AI tách planner LLM khỏi orchestrator tất định, kiểm chứng từng skill robot trước khi hành động, thử nghiệm thật trên Gazebo và robot Unitree.",
+      "llm_reason": "Đúng trọng tâm agentic/tool-skill use, experiment phần cứng thật, và cho lesson hành động rõ (planner≠executor, skill-grounding) áp dụng được cho nội dung về agent.",
+      "group": "high"
+    },
+    {
+      "id": "2610.27531v1",
+      "title": "Automated Multi-Agent Organization Design: From Architecture Search to Organizational Learning",
+      "abstract": "Agentic system design is increasingly shifting from hand-crafted prompts and workflows toward automated search over agentic programs and interaction structures, with multi-agent systems receiving growing attention. Yet a central question remains unresolved: when does an automatically generated multi-agent structure exhibit a functionally meaningful division of responsibility? We argue that automated multi-agent design should move beyond searching for effective architectures toward identifying which responsibilities are functionally necessary, how they should be allocated, and when they should change. To explore this, we propose Automated Multi-Agent Organization Design (AMOD), which treats organization itself as a first-class design object, explicitly modeling how agent teams are composed, what functional responsibilities the agents assume, how they coordinate, and how collective decisions are made. We formulate AMOD as an execution-driven design loop. For each task, an automated designer instantiates an organization by assigning functional responsibilities and coordination rules to a set of agents. After execution, task outcomes, intermediate artifacts, and interaction traces are examined to identify which responsibilities may be missing, duplicated, or ineffective, and the organization is revised accordingly. We also propose testing discovered responsibilities by removing them, replacing them with generic roles, or changing their assignment under matched resource budgets, with complementary evaluations. AMOD provides a principled foundation for evidence-based and adaptive multi-agent organization design.",
+      "published": "2026-10-20T02:47:52Z",
+      "updated": "2026-10-20T02:47:52Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.27531v1",
       "heuristic": 45,
       "llm_score": 79,
-      "llm_summary": "Framework tổng hợp quyết định multi-agent lúc test-time qua bias control + bias injection, không cần validation data, nâng accuracy và hiệu quả token trên 3 benchmark toán với 4 tổ hợp LLM.",
-      "llm_reason": "Multi-agent cốt lõi với method dễ triển khai và benchmark thật; ý tưởng 'kiểm tra độ ổn định khi bất đồng' dùng được cho việc tin tưởng output AI trong quyết định content, nhưng benchmark toán học hơi xa marketing.",
+      "llm_summary": "Đề xuất AMOD, framework tự động thiết kế tổ chức multi-agent xem xét tổ chức là đối tượng thiết kế bậc nhất, mô hình hóa thành phần agent, phân bổ trách nhiệm, phối hợp và ra quyết định tập thể qua vòng lặp execution-driven.",
+      "llm_reason": "Rất liên quan multi-agent system design; khái niệm organization design, responsibility allocation, coordination rules map trực tiếp vào tư duy xây dựng workflow AI cho content business; insight actionable cao.",
       "group": "high"
     },
     {
-      "id": "2610.28787v1",
-      "title": "Is Anyone Enforcing the Cartel? What Reinforcement Learning Teaches LLM Agents in Markets",
-      "abstract": "Evaluations of large language model (LLM) agents report that pricing agents collude at others' expense. Yet collusion is defined by enforcement: a cartel, in which competitors share monopoly profits, holds only if a member who cheats is punished. We introduce an audit that tests enforcement by forcing a member to cheat in counterfactual copies of a market, and use it to study what reinforcement learning (RL) teaches agents in pricing and trading. Small LLMs trained by RL learn what their training rivals reward, but only what they readily try. In self-play, they learn fixed rules ignoring their rivals; against a punishing rival, to be deterred; against a cheating rival, to match its cuts, never the costly price war that would deter it, which they rarely try. A war forced into training is learned, but mostly only where it was forced. Against their own copies, deterred and matching agents can earn the same cartel profits, but only matching ones can enforce them, and then thinly: as a by-product and only against large cuts. Q-learners enforce collusion only in pricing. Prompted LLMs reach cartel-like outcomes mostly through rules that ignore the market. Outcome measures cannot tell these cases apart; the audit can.",
-      "published": "2026-10-20T18:18:10Z",
-      "updated": "2026-10-20T18:18:10Z",
+      "id": "2609.33885v1",
+      "title": "Prospective Interpretation Risk: Principled Communication Control Between LLMs",
+      "abstract": "Large language model (LLM) agentic systems increasingly rely on models communicating with one another, yet existing uncertainty and multi-agent methods rarely estimate how a particular receiver will interpret a message before it is sent. This matters in heterogeneous systems, where capable receivers can reconstruct different tasks from the same message. We model this as a sender-receiver problem with a latent receiver type and define prospective interpretation risk (PIR): the probability that a receiver reconstructs a task other than intended. Rather than model an LLM's full input-output behaviour, we use black-box probes relating messages, intended tasks, and receiver-specific reconstructions, yielding scalable supervision while separating interpretation from downstream capability failure. Offline, heterogeneous frozen receivers provide supervision for receiver-conditioned risk and the effects of predefined mutable message features. At deployment, history induces a posterior over receiver types, guiding message revision and selection. We introduce value of interpretation information (VoII), querying for receiver information only when its expected communication benefit exceeds its cost. Our theory characterises when receiver information has decision value and bounds such queries. Empirically, interpretation-failure rates vary by 4-13x across receivers. Receiver information reduces PIR calibration error by 68% relative to a receiver-agnostic predictor, largely by correcting receiver-specific risk levels. PIR-guided revision reduces interpretation failure by 44% relative to the original message and 40% relative to a generic rewrite, mostly through a repair that helps every receiver. VoII outperforms information-gain and random querying at matched cost on the interpretation objective it optimises, lowering interpretation failure from 3.84% to 3.79% while querying 18.2% of episodes.",
+      "published": "2026-09-27T19:59:53Z",
+      "updated": "2026-09-27T19:59:53Z",
       "cats": [
-        "cs.CL",
-        "cs.GT",
-        "cs.LG"
-      ],
-      "link": "http://arxiv.org/abs/2610.28787v1",
-      "heuristic": 46,
-      "llm_score": 78,
-      "llm_summary": "Nghiên cứu xem RL dạy LLM agent học hành vi gì trong thị trường định giá/giao dịch, dùng 'audit' ép agent gian lận để kiểm tra liệu thông đồng có thật sự bị thực thi không.",
-      "llm_reason": "Rất đúng chủ đề LLM agent + RL + multi-agent (31/35), có experiment thật ở nhiều kịch bản (20/25), gần gũi business giá cả/thị trường (18/20), nhưng insight hành động thiên về cảnh báo hơn công cụ dùng ngay (12/20).",
-      "group": "high"
-    },
-    {
-      "id": "2610.28933v1",
-      "title": "The Data Differentiator Framework (DDF): Quantifying Marginal Data Value with Information-Theoretic and Game-Theoretic Measures in an Agentic Evaluation Pipeline (SDSAE)",
-      "abstract": "In data-rich enterprises the hard question is not whether a candidate dataset is good in isolation, but whether it adds information beyond what the organization already holds, and whether that increment is worth its price. We present the Data Differentiator Framework (DDF), a composite scoring method for candidate data assets that combines (i) a mutual-information-based redundancy penalty against the existing portfolio, (ii) a cost-normalized, significance-gated marginal utility score derived from an ablation study, and (iii) explicit governance inputs (trust, identity resolution quality, strategic weights) set by the business. The framework is executed by a staged pipeline, the Strategic Data Sourcing Agent Ecosystem (SDSAE), that short-circuits expensive model-retraining steps for assets failing governance or redundancy gates. Conceptually, the DDF extends the relevance-minus-redundancy principle of mRMR feature selection from the feature level to the asset level, and adds cost normalization, a statistical significance gate, and governance terms that per-sample valuation methods such as Data Shapley do not model. We validate the framework on the public credit-card fraud benchmark (284,807 transactions) with five constructed candidate assets spanning the redundancy spectrum. Only the genuinely differentiated asset passes the significance gate ($Δ$AUC = +0.0029, DeLong $p = 1.4\\times 10^{-9}$, Holm-corrected $p = 7.2\\times 10^{-9}$) and receives an acquire recommendation (DDS = +0.663); the fully redundant asset scores lowest (DDS = -0.135). The recommendation is stable across 19 of 22 admissible strategic-weight configurations and across all decision thresholds in [0.15, 0.66]. We state clearly which quantities in the case study are computed from data and which are simulated governance inputs, and we discuss the design limits of a single-dataset evaluation.",
-      "published": "2026-10-20T21:10:19Z",
-      "updated": "2026-10-20T21:10:19Z",
-      "cats": [
-        "cs.LG"
-      ],
-      "link": "http://arxiv.org/abs/2610.28933v1",
-      "heuristic": 46,
-      "llm_score": 78,
-      "llm_summary": "Framework DDF chấm giá trị gia tăng thực sự của dataset mới (mutual-info redundancy, marginal utility significance-gated, governance) qua pipeline agent SDSAE, validate trên benchmark fraud 284k giao dịch.",
-      "llm_reason": "Có pipeline agentic nhưng thiên data-valuation (24/35), experiment benchmark thật với số liệu rõ (21/25), cực gần business: mua/dùng data có đáng tiền không (18/20), áp dụng trực tiếp cho quyết định data (15/20).",
-      "group": "high"
-    },
-    {
-      "id": "2608.25770v1",
-      "title": "HypoForge: A Self-Improving Multi-Agent Framework for Automated Hypothesis Generation and Testing via Scientific Skill Learning",
-      "abstract": "Large language models (LLMs) have enabled AI scientist systems to automate scientific discovery, yet existing approaches most rely on static prompting or fixed workflows and fail to accumulate experience for continual improvement. We propose HypoForge, an experience-guided multi-agent framework that learns reusable scientific skills for automated hypothesis generation and hypothesis testing. HypoForge is built on the observation that these two stages involve different supervision signals. For hypothesis generation, where explicit feedback is unavailable, HypoForge adopts an adversarial generator--discriminator mechanism to improve reasoning through comparative critique. For hypothesis testing, where empirical feedback is available, HypoForge learns testing skills from execution outcomes and ground-truth results. By matching skill learning strategies with stage-specific supervision, HypoForge enables continual improvement without fine-tuning foundation models. Experiments on hypothesis generation and testing benchmarks show that HypoForge consistently outperforms existing AI scientist frameworks and skill-level variants. Further analysis demonstrates the effectiveness of the proposed stage-specific skill learning paradigms.",
-      "published": "2026-08-26T13:14:23Z",
-      "updated": "2026-08-26T13:14:23Z",
-      "cats": [
-        "cs.MA"
-      ],
-      "link": "http://arxiv.org/abs/2608.25770v1",
-      "heuristic": 56,
-      "llm_score": 77,
-      "llm_summary": "HypoForge là framework multi-agent tự cải thiện liên tục để tạo và kiểm chứng giả thuyết khoa học, dùng cơ chế adversarial generator-discriminator cho phần sinh giả thuyết và học skill từ kết quả thực thi cho phần kiểm chứng, không cần fine-tune LLM nền.",
-      "llm_reason": "Rất sát chủ đề multi-agent/skill-learning cốt lõi (30/35), có benchmark thật (20/25), ý tưởng tích lũy skill + critique đối kháng có thể áp dụng cho hệ thống content AI (12/20 business, 15/20 insight) nhưng nghiêng research khoa học nên không tối đa.",
-      "group": "high"
-    },
-    {
-      "id": "2608.23622v1",
-      "title": "LLM Agents Perform Controlled Experiments Using Simulation Models",
-      "abstract": "Large language models (LLMs) have shown strong capabilities in reasoning, planning, and tool use, but many scientific and engineering tasks require more than plausible text and code generation. They require understanding how a system responds to intervention, which in practice depends on controlled experimentation. In this work, we propose a multi-agent framework that enables LLM agents to conduct controlled experiments with scientific simulation models for pharmaceutical process design. Given a user query and a baseline configuration, the system constructs a structured task representation, designs experiments, executes comparative simulation, interprets the resulting outcomes, and synthesizes evidence-based recommendations for process parameter optimization. By coupling language models with high-fidelity simulation models in an interactive agent framework, the proposed system supports reasoning through intervention, comparison, and observation. As a result, it produces more specific and actionable outputs than language-only reasoning. In an industrial application setting, this advantage is reflected in higher output specificity as well as improved user-rated correctness and helpfulness. Ablation studies and visualized case analyses further demonstrate the effectiveness and practical utility of simulation-integrated experimental reasoning.",
-      "published": "2026-08-22T18:54:52Z",
-      "updated": "2026-08-22T18:54:52Z",
-      "cats": [
-        "cs.AI",
-        "cs.CL",
         "cs.MA",
-        "cs.SE"
+        "cs.LG"
       ],
-      "link": "http://arxiv.org/abs/2608.23622v1",
-      "heuristic": 48,
-      "llm_score": 76,
-      "llm_summary": "Multi-agent framework để LLM agents tự thiết kế và chạy controlled experiments trên model simulation dược phẩm: xây task representation, so sánh baseline, diễn giải kết quả, tổng hợp recommendation tối ưu tham số, được đánh giá correctness/helpfulness cao hơn và có ablation study.",
-      "llm_reason": "Agent + tool-use với simulation cốt lõi (30), experiment công nghiệp thật + ablation + user rating (21), tư duy 'agent chạy thử nghiệm so sánh rồi ra quyết định' map trực tiếp sang A/B test content/marketing (10) và cho framework tái dùng ngay cho content experimentation (15).",
+      "link": "http://arxiv.org/abs/2609.33885v1",
+      "heuristic": 46,
+      "llm_score": 78,
+      "llm_summary": "Đo lường rủi ro LLM agent 'hiểu sai' tin nhắn của agent khác trước khi gửi, dùng probe hộp đen và chỉ hỏi thông tin receiver khi lợi ích vượt chi phí (VoII).",
+      "llm_reason": "Cực kỳ phù hợp multi-agent/tool-use (32/35) với experiment thật (biến thiên 4-13x giữa các receiver), giúp solopreneur thiết kế prompt/pipeline agent nhiều bước ít bị 'service khác hiểu sai task' (17/20 actionable).",
       "group": "high"
     },
     {
-      "id": "2610.26937v1",
-      "title": "Do We Need the Largest LLMs for Every Clinical Decision?",
-      "abstract": "Large clinical language models often require multi-GPU infrastructure, limiting local deployment. We introduce CERTA, a decision-level statistical certificate that determines when a quantized model may substitute for its native BF16 reference and escalates decisions that cannot be certified to it. Across eleven instruction-tuned models, both general-purpose and domain-adapted, from three families (7-72B), we evaluated 2,500 clinical-verification decisions from de-identified patient contexts (2,484 patients), with patient-disjoint calibration and testing. In the higher-power operational analysis, round-to-nearest 8-bit quantization at BF16 storage served 99.8-100% of held-out decisions across all eleven models; formal finite-sample guarantees were assessed separately using the exact split-sample procedure. In the same operational analysis, the class-conditional 4-bit frontier reduced the amortized, BF16-equivalent deployment cost to 25.8% and 27.3% of the BF16 reference for Qwen2.5-72B and HuatuoGPT-o1-72B, respectively, with measured peak memory of 43.0 and 42.7 GB, below the nominal capacity of a single 48 GB accelerator. Deployment on that specific hardware was not directly tested. Under the exact split-sample certificate, which also accounts for configuration selection, these costs were 26.7% and 27.9%. On external disease named-entity benchmarks against human annotations, the frontier-selected NF4 configurations had a mean absolute F1 change of 0.045 on both datasets, with substantial model-specific variation. CERTA converts compression from a fixed precision choice into a risk-controlled deployment policy for this verification task.",
-      "published": "2026-10-17T22:07:43Z",
-      "updated": "2026-10-17T22:07:43Z",
-      "cats": [
-        "cs.CL"
-      ],
-      "link": "http://arxiv.org/abs/2610.26937v1",
-      "heuristic": 45,
-      "llm_score": 76,
-      "llm_summary": "CERTA cấp chứng nhận thống kê khi nào mô hình lượng tử hóa (4-8 bit) có thể thay thế mô hình BF16 gốc trong quyết định lâm sàng, giảm chi phí triển khai xuống ~26% trên 11 mô hình 7-72B.",
-      "llm_reason": "Cốt lõi LLM + experiment thật 2.500 quyết định/11 mô hình, góc tối ưu chi phí triển khai 4-bit rất phù hợp solopreneur chạy local cho nhiều kênh, nhưng bối cảnh lâm sàng giới hạn mức liên quan business/content.",
-      "group": "high"
-    },
-    {
-      "id": "2610.27645v1",
-      "title": "CUA-Recovery: Benchmarking Error Recovery in Long-Horizon Computer-Use Agents",
-      "abstract": "As computer-use agents (CUAs) move to long-horizon workflows spanning multiple applications, undetected errors can silently corrupt persistent state and cause cascading failures in subsequent actions. Reliable error detection and recovery have become critical bottlenecks for building robust CUAs. However, existing benchmarks focus primarily on end-to-end task performance, providing limited insight into whether agents can detect and recover from errors during execution. The few benchmarks that evaluate recovery rely largely on manually injected errors, which may not reflect the types or horizons of failures induced by real agent policies. We introduce CUA-Recovery, a benchmark comprising test and training suites across multiple desktop applications. We construct it using ReRail, a framework for synthesizing long-horizon tasks and trajectories in a persistent desktop environment. ReRail composes MyPCBench tasks into new long-horizon workflows with executable ground truth, collects verifier-confirmed failures from multiple policies, and turns them into verified recovery trajectories. CUA-Recovery comprises a human-verified test suite of 2,250 erroneous states over 100 tasks and a training suite of 8.6K trajectories over 377 tasks. Evaluation on the test suite shows that agents struggle both to recognize inherited errors and to complete the task. Across six agents and six takeover depths, Error Awareness Rate (EAR) reaches at most 44.0% and Pass@3 at most 25.5%. After fine-tuning Qwen3.5-35B-A3B on the training suite, its average EAR rises from 19.9% to 35.2% on held-out recovery states, and its Rubric Score goes from 5.0% to 16.1%. It also gains 15.3 points on MyPCBench and 10.8 points on Odysseys for Pass@3, showing that the training trajectories help both with recovery and with completing tasks from a clean start. Our code is available at https://github.com/xu-hu-2002/CUA-Recovery.",
-      "published": "2026-10-20T05:06:00Z",
-      "updated": "2026-10-20T05:06:00Z",
+      "id": "2609.09153v1",
+      "title": "Procedural Graphs: Self-Evolving Execution Structures for LLM Agents",
+      "abstract": "Large language models are increasingly deployed as agents that plan over long horizons and act through external tools. Most agents select actions through unconstrained generation over an accumulating history, leaving implicit the procedural knowledge of what to do, in what order, and under which conditions. As trajectories lengthen, agents can lose track of their objectives, invoke tools out of order, and repeat unproductive actions. We introduce the Procedural Graph: just as a knowledge graph organizes factual knowledge into (entity, relation, entity) triplets for what-is questions, a Procedural Graph organizes procedural knowledge into (procedure, relation, procedure) triplets for what-to-do questions. At each decision step, the framework localizes the agent's active node, and a guidance model translates the surrounding subgraph into step-level situational guidance that biases the solver's next action without dictating it. The graph is self-evolving: an LLM refiner contrasts failed trajectories with successful ones and edits the graph's topology and attributes, committing edits that preserve or improve held-out validation performance while retaining rejected ones to discourage repetition. Starting from a minimal skeleton, the loop builds graphs that match or surpass hand-designed ones. It can also repair a flawed expert prior. Across multiple datasets, task types, and LLMs, the Procedural Graph delivers consistent gains over memory-based baselines, and self-evolution further improves performance without manual engineering.",
+      "published": "2026-09-08T17:59:41Z",
+      "updated": "2026-09-08T17:59:41Z",
       "cats": [
         "cs.AI",
         "cs.CL",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2609.09153v1",
+      "heuristic": 45,
+      "llm_score": 77,
+      "llm_summary": "Giới thiệu Procedural Graph — cấu trúc đồ thị tự tiến hóa tổ chức tri thức thủ tục (what-to-do) cho LLM agents, dùng mô hình hướng dẫn dịch subgraph thành step-level guidance và tự sửa graph từ trajectory thành công/thất bại, đạt hoặc vượt graph thiết kế thủ công.",
+      "llm_reason": "Rất liên quan LLM agents, tool-use, planning; có experiment đa dataset/model; insight 'tự xây dựng graph quy trình từ thất bại' truyền cảm hứng cho việc thiết kế workflow AI automation tốt hơn trong content production.",
+      "group": "high"
+    },
+    {
+      "id": "2610.23455v1",
+      "title": "HydraLLM: Adaptive Width Slicing for Elastic Text and Vision-Language Models",
+      "abstract": "LLMs and LVLMs are increasingly deployed across heterogeneous hardware, ranging from data-center GPUs to resource-constrained edge devices. Their fixed-size architectures limit the ability to reuse a single model across deployment settings with different compute, latency, and model-size targets. We introduce HydraLLM, an elastic MQA-based architecture. Its number of active attention heads determines the effective widths of the embeddings, attention projections, feed-forward layers, and the output head, forming a nested family of subnetworks within a single parameter set. We introduce a static-to-elastic conversion pipeline that, starting from a pre-trained model checkpoint, includes importance-driven weight reordering and stochastic subnetwork training with knowledge distillation. We extend this principle to multimodal inference through an elastic projection module whose output width follows the active text width. HydraLLM covers a wider range of active parameter configurations than FFN-only elastic architectures. With 75% of heads active, HydraLLM achieves 2.2 percentage points higher TriviaQA accuracy than a state-of-the-art nested baseline configuration which has 17.25% more parameters. With 50% of heads active, our multimodal model achieves a CLIPScore comparable to that of the 7$\\times$ larger Gemma 3 4B model. With only 25% of heads active, HydraLLM increases token-generation throughput by 75.3% over the full-width configuration.",
+      "published": "2026-10-16T13:38:11Z",
+      "updated": "2026-10-16T13:38:11Z",
+      "cats": [
+        "cs.CL",
         "cs.LG"
       ],
-      "link": "http://arxiv.org/abs/2610.27645v1",
+      "link": "http://arxiv.org/abs/2610.23455v1",
+      "heuristic": 50,
+      "llm_score": 76,
+      "llm_summary": "HydraLLM tạo một mô hình LLM/VLM \"co giãn\" được: bật ít attention head hơn để chạy trên nhiều loại hardware (GPU数据中心 đến edge) mà vẫn giữ chất lượng.",
+      "llm_reason": "Cực kỳ relevant AI/LLM (kiến trúc弹性, MQA), benchmark thật (TriviaQA, CLIPScore so Gemma 3 4B), nhưng ít chạm trực tiếp marketing/content; insight chủ yếu là cách chọn size model để tiết kiệm chi phí triển khai cho solopreneur.",
+      "group": "high"
+    },
+    {
+      "id": "2610.07030v1",
+      "title": "LLM-Based Multi-Agent Collaboration for Constrained Multi-Objective Container Placement",
+      "abstract": "Container placement in data centers must simultaneously minimize power consumption and maximize affinity preferences, while satisfying multi-resource capacity and anti-affinity constraints. Traditional approaches typically rely on fixed rules, which lack adaptability to dynamic cluster states and are difficult to extend for adaptive decision-making. On the other hand, meta-heuristic methods, although more flexible, are often computationally expensive, slower and prone to getting trapped in local optima. In this work, we propose an adaptive and efficient approach based on an LLM-driven multi-agent collaboration framework, where four specialized agents operate in a closed-loop ReAct cycle at each placement step. A Power Consumption Agent and an Affinity Agent debate over competing objectives, while a Placement Agent resolves conflicts using Tolerance-Gated Arbitration (TGA). A Rearrangement Agent further refines decisions through the Monotone Improvement Rule (MIR) in a post-placement refinement phase. All the agents reason over deterministic, feasibility-filtered candidate tables provided by the environment, ensuring that every proposed action inherently satisfies hard constraints. Based on experimental evaluation using the Google Cluster Trace with a configuration of 100 applications and 25 machines, the proposed framework consumes 8.36% less power and achieves 39.30% higher affinity than the power-greedy baseline. Ablation studies confirm that each architectural component, the multi-round debate mechanism, the TGA in the Placement Agent, and the MIR in the Rearrangement Agent, contributes meaningfully to the overall performance, with removal of any single component degrading both power consumption and affinity satisfaction.",
+      "published": "2026-10-04T18:50:54Z",
+      "updated": "2026-10-04T18:50:54Z",
+      "cats": [
+        "cs.DC",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.07030v1",
+      "heuristic": 48,
+      "llm_score": 76,
+      "llm_summary": "Framework multi-agent ReAct với 4 chuyên gia (Power, Affinity, Placement, Rearrangement) tranh luận và arbitrage để tối ưu placement container, tiết kiệm 8.36% điện.",
+      "llm_reason": "Mô hình debate + arbitration giữa các agent chuyên biệt rất sát với cách solopreneur cân bằng các KPI (lượng truy cập, engagement, doanh thu) trên nhiều kênh; có benchmark thực.",
+      "group": "high"
+    },
+    {
+      "id": "2610.19128v1",
+      "title": "CLASHarness: Benchmarking Multi-Agent Conflict in Computer Use via a Controllable and Verifiable Generation Pipeline",
+      "abstract": "Vision-language models (VLMs) are increasingly deployed in multi-agent systems to automate complex computer-use workflows, yet existing benchmarks mostly assume consistent, cooperative environments. In contrast, real-world collaboration rarely runs on consistent information: peer or sub-agents frequently report outdated states, issue contradictory instructions, or compete over shared permissions and files, forcing agents to check others' outputs and verify ground truth in the environment. Evaluating such conflict resolution remains challenging: manual authoring cannot scale across complex systems, while unconstrained LLM generation produces narrative drift, answer leakage, and unsatisfiable rubrics. We introduce CLASHarness (Conflict-Loaded Agent Scenario Harness), a controllable framework for generating verifiable multi-agent conflicts in computer use, with a benchmark of 600 multi-round tasks. By combining hierarchical scenario planning with an eight-step verified micro-pipeline, CLASHarness pre-commits decisive visual facts before rendering and compiles hybrid code and semantic graders directly from executed reference trajectories, guaranteeing every task is solvable by construction. Evaluating 15 frontier models on CLASHarness reveals three core bottlenecks. First, when sub-agent outputs conflict with the environment, weaker models blindly follow misleading information, whereas stronger models inspect visual evidence to verify ground truth. Second, resolving conflicts is much harder than finding them: while agents can spot inconsistencies, actively fixing system state drops task success significantly. Third, coordination protocols remain a universal bottleneck: even frontier models fail over 58% of closing actions, often forgetting to release shared locks or hand off tasks. CLASHarness provides a scalable, verifiable foundation for building reliable multi-agent systems.",
+      "published": "2026-10-13T20:01:18Z",
+      "updated": "2026-10-13T20:01:18Z",
+      "cats": [
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.19128v1",
       "heuristic": 45,
-      "llm_score": 75,
-      "llm_summary": "Đánh giá khả năng phát hiện và phục hồi lỗi của các computer-use agent trong tác vụ dài nhiều ứng dụng.",
-      "llm_reason": "Benchmark thực tế về độ tin cậy agent rất hữu ích cho solopreneur muốn tự động hóa workflow bằng AI một cách ổn định.",
+      "llm_score": 76,
+      "llm_summary": "Xây dựng CLASHarness, benchmark 600 task multi-round đánh giá khả năng xử lý xung đột của multi-agent VLM trong computer use, phát hiện 3 bottleneck cốt lõi bao gồm việc model yếu mù quáng theo thông tin sai lệch từ sub-agent.",
+      "llm_reason": "Multi-agent conflict cực kỳ relevant trend (33/35), benchmark quy mô lớn 15 model (23/25), findings rất dễ chuyển thành content viral về giới hạn AI agents (10/20 business, 10/20 actionable).",
       "group": "high"
     }
   ]
