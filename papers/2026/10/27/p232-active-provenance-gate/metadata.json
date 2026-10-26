@@ -1,0 +1,16 @@
+{
+  "name": "Towards Mitigating Fabricated Consensus: The Active Provenance Gate for Multi-Agent Debate Synthesis",
+  "authors": ["Jakub Masłowski", "Jarosław A. Chudziak"],
+  "link": "https://arxiv.org/abs/2609.31422",
+  "pdf_link": "https://arxiv.org/pdf/2609.31422v1",
+  "arxiv_id": "2609.31422",
+  "year": 2026,
+  "category": "cs.MA",
+  "classification": "applied",
+  "skill_status": "created — provenance-gate-synthesis-verification",
+  "venue": "ICTAI 2026 (accepted)",
+  "citation_count": null,
+  "llm_score": 90,
+  "distill_date": "2026-10-27",
+  "paper_number": 232
+}

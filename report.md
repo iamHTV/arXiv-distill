@@ -960,4 +960,9 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Insight: Grad-CIR huấn luyện CIR retriever trên nhãn liên quan phân cấp 4 cấp thay vì nhị phân — tăng 4,9%–5,9% NDCG@10, VLM tự động tạo dữ liệu, vòng phản hồi khai thác hard negative, đã triển khai production tại Walmart.
 → Tiếp tục: [YES]
 
-# HẾT QUEUE — Tất cả 6 paper đã distill xong (#226-#231)
+# HẾT QUEUE CŨ (2026-10-26) — 6 paper #226–#231 xong. Scan mới 2026-10-27 05:00 khóa top10 mới (10 paper high-group 77–90) → queue hôm nay: #232–#241.
+
+## Paper #232 — Towards Mitigating Fabricated Consensus: The Active Provenance Gate for Multi-Agent Debate Synthesis (2609.31422v1) [applied]
+✓ Skill: provenance-gate-synthesis-verification | Test: SKILL VALID
+✓ Insight: MAD synthesis bịa consensus trôi chảy (baseline PF 0,288/0,183); APG — hard gate PF ≥ 0,95 + self-healing tối đa 3 lần + Divergence Report — nâng terminal PF 0,617/0,586, divergence 75% dưới xung đột zero-sum; validator phải khác và mạnh hơn proposer (symmetric fail 85,6%, asymmetric reject 63,3%); 75,8% người dùng tin báo cáo thừa nhận thất bại hơn bản bịa fluency (trust 3,27 vs 2,45, p=0,0039).
+→ Tiếp tục: [YES]
