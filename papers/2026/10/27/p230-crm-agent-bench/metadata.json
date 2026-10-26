@@ -1,0 +1,14 @@
+{
+  "name": "CRM-Agent-Bench: Benchmarking Tool-Using Agents in Stateful Enterprise Environments",
+  "authors": ["Monojit Banerjee", "Zhujun Lan", "Defu Cao"],
+  "link": "https://arxiv.org/pdf/2610.32004",
+  "arxiv_id": "2610.32004",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "crm-agent-bench-contract-evaluation",
+  "skill_test": "VALID",
+  "distilled_date": "2026-10-27"
+}

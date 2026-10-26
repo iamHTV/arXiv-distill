@@ -949,3 +949,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: unimaso-prompt-model-optimization | Test: SKILL VALID
 ✓ Insight: Không phải mọi agent đều cần mô hình mạnh nhất — UniMASO phân bổ mô hình theo vai trò, đạt điểm 70,40 (tăng từ 69,79) và giảm chi phí token-weighted 85,2% so với DeepSeek-V4-Pro đồng nhất.
 → Tiếp tục: [YES]
+
+## Paper #230 — CRM-Agent-Bench: Benchmarking Tool-Using Agents in Stateful Enterprise Environments (2610.32004v1) [applied]
+✓ Skill: crm-agent-bench-contract-evaluation | Test: SKILL VALID
+✓ Insight: 555 tác vụ trạng thái đa lượt trên 9 miền kinh doanh; strict success 64,32%–83,60% trên 16 hệ thống — agent vẫn khó thực hiện đúng quy trình đa giai đoạn; các hệ thống dẫn đầu khác biệt mạnh về chi phí và độ tin cậy theo miền.
+→ Tiếp tục: [YES]
