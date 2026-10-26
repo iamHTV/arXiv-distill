@@ -954,3 +954,10 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: crm-agent-bench-contract-evaluation | Test: SKILL VALID
 ✓ Insight: 555 tác vụ trạng thái đa lượt trên 9 miền kinh doanh; strict success 64,32%–83,60% trên 16 hệ thống — agent vẫn khó thực hiện đúng quy trình đa giai đoạn; các hệ thống dẫn đầu khác biệt mạnh về chi phí và độ tin cậy theo miền.
 → Tiếp tục: [YES]
+
+## Paper #231 — Graded-Relevance Composed Multimodal Retrieval for E-commerce Visual Search at Scale (2609.24152v1) [applied]
+✓ Skill: grad-cir-graded-relevance-retrieval | Test: SKILL VALID
+✓ Insight: Grad-CIR huấn luyện CIR retriever trên nhãn liên quan phân cấp 4 cấp thay vì nhị phân — tăng 4,9%–5,9% NDCG@10, VLM tự động tạo dữ liệu, vòng phản hồi khai thác hard negative, đã triển khai production tại Walmart.
+→ Tiếp tục: [YES]
+
+# HẾT QUEUE — Tất cả 6 paper đã distill xong (#226-#231)
