@@ -934,3 +934,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: mining-design-space-multi-agent-workflows | Test: SKILL VALID
 ✓ Insight: Star-first làm giảm hiệu quả (Δ = −0.045), SharedMemory vượt trội hơn Debate (Δ = +0.135), prompt cụ thể có lợi bằng cấu trúc liên lạc (Δ = +0.118) — thiết kế workflow nên bắt đầu bằng trạng thái chia sẻ liên tục, không phải fan-out độc lập.
 → Tiếp tục: [YES]
+
+## Paper #227 — DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical Tasks (2610.32305v1) [applied]
+✓ Skill: dmaic-bench-self-restraint-evaluation | Test: SKILL VALID
+✓ Insight: Agent tốt trong việc tiếp tục (92% GO) nhưng kém trong việc dừng (19% NO-GO, khoảng cách 73 điểm); 47% quyết định NO-GO có báo cáo hành động trên bằng chứng không hợp lệ — chẩn đoán đúng không đủ, cần kiềm chế hành động dựa trên bằng chứng.
+→ Tiếp tục: [YES]
