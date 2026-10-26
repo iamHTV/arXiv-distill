@@ -939,3 +939,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: dmaic-bench-self-restraint-evaluation | Test: SKILL VALID
 ✓ Insight: Agent tốt trong việc tiếp tục (92% GO) nhưng kém trong việc dừng (19% NO-GO, khoảng cách 73 điểm); 47% quyết định NO-GO có báo cáo hành động trên bằng chứng không hợp lệ — chẩn đoán đúng không đủ, cần kiềm chế hành động dựa trên bằng chứng.
 → Tiếp tục: [YES]
+
+## Paper #228 — CauProphet: Teaching Agents to Develop Causal Cognition like Humans (2610.32477v1) [applied]
+✓ Skill: cauprophet-causal-cognition-agent | Test: SKILL VALID
+✓ Insight: Agent có thể xây dựng triết nhân quả tồn tại dài hạn qua Triết Nhận thức Nhân Quả và Tin Tín Nhân Quả; trong tài chính, cải thiện 25,4% tương quan hạng với lợi nhuận ngày sau, độ chính xác dự đoán từ 21,3% lên 28,6%.
+→ Tiếp tục: [YES]
