@@ -1,0 +1,16 @@
+{
+  "name": "Poisoning Agentic Alpha: Adversarial Vulnerabilities Across Roles and Architectures in Multi-Agent Trading Systems",
+  "authors": ["CheolWon Na", "Hao Ni", "Lukasz Szpruch", "Zhangyang Wang", "Dhagash Mehta", "Alejandro Lopez-Lira", "Chanyeol Choi", "Jee-Hyong Lee", "Saurabh Nagrecha", "Yongjae Lee"],
+  "link": "https://arxiv.org/abs/2608.24069",
+  "pdf_link": "https://arxiv.org/pdf/2608.24069v1",
+  "arxiv_id": "2608.24069",
+  "year": 2026,
+  "category": "cs.AI",
+  "classification": "applied",
+  "skill_status": "created — multi-agent-red-team-role-topology",
+  "code": "https://github.com/cwna97/multi_agent_trading_attack",
+  "citation_count": null,
+  "llm_score": 84,
+  "distill_date": "2026-10-27",
+  "paper_number": 233
+}
