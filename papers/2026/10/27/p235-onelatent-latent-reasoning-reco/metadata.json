@@ -1,7 +1,22 @@
 {
   "arxiv_id": "2610.30675",
+  "name": "OneLatent: Latent Reasoning for Efficient Foundation Recommendation Models",
   "title": "OneLatent: Latent Reasoning for Efficient Foundation Recommendation Models",
-  "authors": ["Hao Jiang", "Peiru Du", "Pengfei Yao", "Mengting Li", "Siyuan Lou", "Kuo Cai", "Sheng Yu", "Qiang Luo", "Jian Liang", "Ruiming Tang", "Fei Pan", "Peng Jiang", "Wenwu Ou"],
+  "authors": [
+    "Hao Jiang",
+    "Peiru Du",
+    "Pengfei Yao",
+    "Mengting Li",
+    "Siyuan Lou",
+    "Kuo Cai",
+    "Sheng Yu",
+    "Qiang Luo",
+    "Jian Liang",
+    "Ruiming Tang",
+    "Fei Pan",
+    "Peng Jiang",
+    "Wenwu Ou"
+  ],
   "year": 2026,
   "category": "cs.IR",
   "link": "https://arxiv.org/abs/2610.30675",
@@ -11,10 +26,16 @@
   "skill_status": "VALID",
   "distilled_date": "2026-10-27",
   "paper_index": 235,
-  "backbone": ["Qwen3.5-0.8B", "Qwen3.5-9B"],
+  "backbone": [
+    "Qwen3.5-0.8B",
+    "Qwen3.5-9B"
+  ],
   "teacher_model": "Qwen3-235B-A22B-Instruct-2507",
   "judge_model": "GPT-5.5",
-  "datasets": ["Kuaishou Locallife (industrial, 7 days)", "Kuaishou LLM-Rec (public benchmark)"],
+  "datasets": [
+    "Kuaishou Locallife (industrial, 7 days)",
+    "Kuaishou LLM-Rec (public benchmark)"
+  ],
   "code": null,
   "citation_count": null
 }

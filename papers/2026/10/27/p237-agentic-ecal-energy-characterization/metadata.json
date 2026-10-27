@@ -1,8 +1,14 @@
 {
   "arxiv_id": "2609.18283",
+  "name": "Where Should Agents Live? Energy-Memory Characterization of Agentic AI for the Edge-Cloud Continuum (agentic-eCAL)",
   "title": "Where Should Agents Live? Energy-Memory Characterization of Agentic AI for the Edge-Cloud Continuum",
   "short_name": "agentic-eCAL",
-  "authors": ["Carolina Fortuna", "Vid Hanžel", "Tim Strnad", "Blaž Bertalanič"],
+  "authors": [
+    "Carolina Fortuna",
+    "Vid Hanžel",
+    "Tim Strnad",
+    "Blaž Bertalanič"
+  ],
   "year": 2026,
   "category": "cs.AI",
   "link": "https://arxiv.org/abs/2609.18283",
@@ -12,8 +18,18 @@
   "skill_status": "VALID",
   "distilled_date": "2026-10-27",
   "paper_index": 237,
-  "validated_models": ["Qwen2.5-7B", "Llama-3.1-8B"],
-  "hardware": ["NVIDIA A100-80GB", "H100", "AGX Orin 64GB", "L4 24GB", "Orin Nano 8GB", "RTX 4090 24GB"],
+  "validated_models": [
+    "Qwen2.5-7B",
+    "Llama-3.1-8B"
+  ],
+  "hardware": [
+    "NVIDIA A100-80GB",
+    "H100",
+    "AGX Orin 64GB",
+    "L4 24GB",
+    "Orin Nano 8GB",
+    "RTX 4090 24GB"
+  ],
   "benchmark": "Kubeply Infra-Bench kubernetes-core 24 incidents on k3s edge clusters",
   "code": "https://github.com/sensorlab/a-eCAL",
   "citation_count": null

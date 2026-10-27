@@ -289,7 +289,8 @@ def main():
             scan_data = json.load(open(scan_path, encoding="utf-8"))
             papers_scan = scan_data.get("papers", [])
             papers_scan.sort(key=lambda p: -p.get("llm_score", 0))
-            top10_ids = [p["id"] for p in papers_scan[:10]]
+            # Strip arXiv version suffix (e.g. 2609.31422v1 -> 2609.31422) để match với bare arxiv_id trong metadata.json
+            top10_ids = [re.sub(r"v\d+$", "", p["id"]) for p in papers_scan[:10]]
             print("Lấy top 10 từ scans/%s.json: %s" % (date_str, top10_ids))
         except Exception as e:
             print("Không đọc được scans/%s.json: %s" % (date_str, e))
