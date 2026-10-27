@@ -1,0 +1,20 @@
+{
+  "name": "CoSA: The Conflict of Skills Attack in Real-World LLM Agent Ecosystems",
+  "authors": ["Yujia Zheng", "Tianhao Li", "Shangzhi Xu", "Yuekai Huang", "Ziyou Jiang", "Zhaoyang Li", "Yuyao Ge", "Junran Peng", "Mingyang Li"],
+  "link": "https://arxiv.org/abs/2610.35082",
+  "pdf_link": "https://arxiv.org/pdf/2610.35082v1",
+  "id": "2610.35082",
+  "version": "v1",
+  "year": 2026,
+  "published": "2026-10-26",
+  "category": ["cs.CL", "cs.AI", "cs.CR"],
+  "classification": "applied",
+  "llm_score": 89,
+  "group": "high",
+  "distill_date": "2026-10-28",
+  "paper_number": 249,
+  "skill_status": "created_and_validated",
+  "skill_name": "agent-skill-composition-audit",
+  "citation_count": "NOT FOUND (paper 2 days old; Semantic Scholar API rate-limited)",
+  "project_page": "sigmir-org.github.io/CoSA"
+}

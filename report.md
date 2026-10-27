@@ -1041,3 +1041,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: ant-or-contrastive-annotation-framework | Test: SKILL VALID
 ✓ Insight nổi bật nhất: ANT-OR cải thiện agreement@≥2 4.5 điểm so với baseline mạnh nhất và đạt Fleiss' κ trong 2 điểm so với đồng nhất giữa annotator người — nhờ distillation quy tắc quyết định tương phản.
 → Tiếp tục: [YES]
+
+## Paper #249 — CoSA: The Conflict of Skills Attack in Real-World LLM Agent Ecosystems (2610.35082v1) [applied]
+✓ Skill: agent-skill-composition-audit | Test: SKILL VALID
+✓ Insight nổi bật nhất: Thêm ≤5% Skill individually-benign (lành mạnh khi xét riêng) vào pool agent làm tỷ lệ vi phạm policy tăng +23.43 percentage point (điểm phần trăm) (35.02%→58.45%) trong khi scanner tĩnh không đổi alert — an toàn Skill phải audit composition (thành phần ghép), không audit package đơn lẻ.
+→ Tiếp tục: [YES]
