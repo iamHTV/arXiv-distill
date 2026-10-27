@@ -1011,3 +1011,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: sabench-collateral-damage-evaluation | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Task success bị låg giá vì final-state chỉ kiểm tra kết quả cuối, không kiểm tra từng bước ghi viết có vượt ranh giờ ủy quyền hay không; CD xảy ra ở 15.2% tất cả lần chạy và 12.8% trong số các lần đạt goal.
 → Tiếp tục: [YES]
+
+## Paper #243 — Lessons from Luck: Do LLM-Written Lessons Carry Chance into an Agent's Next Decision? (2610.33029v1) [applied]
+✓ Skill: lessons-from-luck-memory-writing-test | Test: SKILL VALID
+✓ Insight nổi bật nhất: Bài học tự viết từ kết quả do ngẫu nhiên có thể làm đè lên ghi chép quyền thẩm quyền — sau sự cố ngẫu nhiên của công cụ tốt hơn, người đọc chọn công cụ kém hơn ở 11.6% lần chạy (vs 0.4% với item không liên quan và 0.4% với bài học từ thành công).
+→ Tiếp tục: [YES]

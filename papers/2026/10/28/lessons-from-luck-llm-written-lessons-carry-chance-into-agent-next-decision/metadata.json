@@ -1,0 +1,17 @@
+{
+  "name": "Lessons from Luck: Do LLM-Written Lessons Carry Chance into an Agent's Next Decision?",
+  "authors": ["Kazuki Nakayashiki"],
+  "link": "https://arxiv.org/pdf/2610.33029v1",
+  "arxiv_id": "2610.33029v1",
+  "year": 2026,
+  "category": "cs.LG",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "lessons-from-luck-memory-writing-test",
+  "distill_date": "2026-10-28",
+  "knowledge_count": 10,
+  "insight_count": 3,
+  "idea_count": 3,
+  "wisdom_count": 1
+}
