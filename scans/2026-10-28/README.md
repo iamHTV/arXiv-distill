@@ -1,52 +1,67 @@
 # Báo cáo distill arXiv — ngày 2026-10-28
 
-Tổng hợp 7 bài paper đã distill hôm nay, mỗi bài đã qua 6 bước distill, commit+push GitHub. Mỗi bài dưới đây có 3 phần: Làm gì, Học được gì, Áp dụng cho bạn — viết bằng tiếng Việt đơn giản, gần gũi, dành cho solopreneur Việt Nam.
+Tổng hợp 10 bài paper đã distill hôm nay, mỗi bài đã qua 6 bước distill (README song ngữ, skill, test skill, commit+push GitHub). Mỗi bài có 3 phần: Làm gì, Học được gì, Áp dụng cho bạn — viết bằng tiếng Việt đơn giản, gần gũi, dành cho solopreneur Việt Nam.
 
-## Danh sách 7 bài hôm nay
+## Danh sách 10 bài hôm nay
 
-### [1] Task Success Is Not Enough: Side-effect-Aware Evaluation of Tool-Using Language Model Agents (2610.34167v1)
-- Làm gì: Nghiên cứu cho thấy đánh giá agent AI (tác nhân AI — chương trình tự thực hiện nhiệm vụ) chỉ xem có hoàn thành tác vụ hay không là không đủ. Agent có thể hoàn thành tác vụ nhưng đồng thời ghi dữ liệu (viết email, sửa ticket...) ngoài quyền phép, xảy ra ở 15,2% số lần chạy.
-- Học được gì: Cần kiểm tra hai điều: tác vụ đã xong chưa VÀ agent có ghi gì ngoài ranh giờ phép không. Chính sách yêu cầu xác nhận trước khi ghi giúp giảm lỗi này 52–71%.
-- Áp dụng cho bạn: Trước khi để AI tự viết email hay cập nhật đơn hàng, hãy liệt kê 3–5 thao tác ghi được phép và yêu cầu AI hiển thị danh sách thao tác định thực hiện để bạn duyệt trước.
+### [1] Task Success Is Not Enough: Side-effect-Aware Evaluation of Tool-Using Language Model Agents (arXiv 2610.34167v1)
+- Làm gì: Xây benchmark SABENCH (201 task từ 47 mẫu, 3 miền công cụ: email, lịch, ticket) để đo "collateral damage" (tác động phụ — hành động ghi dữ liệu ngoài phạm vi được phép) của agent dùng tool. Trên 2.211 cặp model–task (11 model): tỷ lệ đạt goal 89,2% nhưng tỷ lệ gây tác động phụ 15,2% — gần 1 trong 7 lần chạy, agent xong việc nhưng ghi dữ liệu ngoài quyền phép.
+- Học được gì: Đánh giá chỉ nhìn kết quả cuối nói dối: 11,4% lần chạy vừa đạt goal vừa gây tác động phụ. Tác động phụ tập trung ở workflow trạng thái phụ thuộc/chéo công cụ (22,1%/21,0% so với 9,4%/11,0% ở trạng thái độc lập). Chính sách xác nhận trước khi ghi giảm tác động phụ 52–71%, giá phải trả là mất 13–17 điểm tỷ lệ đạt goal.
+- Áp dụng cho bạn: Trước khi để AI agent tự ghi dữ liệu (gửi email, cập nhật đơn hàng, sửa ticket), hãy liệt kê trắng các thao tác ghi được phép và bắt agent hiển thị danh sách hành động định thực hiện để bạn duyệt trước — đặc biệt với workflow nối nhiều công cụ với nhau.
 
-### [2] Lessons from Luck: Do LLM-Written Lessons Carry Chance into an Agent's Next Decision? (2610.33029v1)
-- Làm gì: Bài học AI tự viết từ lần chạy trước có thể mang vẻ may mắn vào quyết định sau. Sau lỗi ngẫu nhiên của công cụ, người đọc bài học chọn công cụ kém hơn ở 11,6% lần, gấp 29 lần so với 0,4%.
-- Học được gì: Không nên để AI lưu bài học từ kết quả một lần chạy mà không kiểm tra quyết định đó có đúng dựa trên thông tin trước khi biết kết quả hay không.
-- Áp dụng cho bạn: Nếu dùng AI tự ghi nhớ kinh doanh (memory), hãy thêm yêu cầu: "trước khi viết bài học, phán xét quyết định có đúng không chỉ dựa trên thông tin có trước kết quả, chỉ khuyến nghị thay đổi nếu quyết định sai."
+### [2] Lessons from Luck: Do LLM-Written Lessons Carry Chance into an Agent's Next Decision? (arXiv 2610.33029v1)
+- Làm gì: Kiểm tra xem "bài học" AI tự viết sau mỗi lần chạy có mang ngẫu nhiên vào quyết định sau hay không. Thí nghiệm trên 256 thế giới giả lập, 16 lĩnh vực, 11 model qua OpenRouter, với 90.084 câu trả lời ở giai đoạn đọc và 33.789 bài học ở giai đoạn viết.
+- Học được gì: Sau một lỗi NGẪU NHIÊN của công cụ tốt, người đọc bài học chọn công cụ kém hơn ở 11,6% lần chạy (so với 0,4% khi nội dung không liên quan) — hiện tượng "mang vận may" (luck-carrying) là thật. Phát hiện mạnh với quyết định tốt (+0,112) nhưng gần như không phát hiện được với quyết định sai (+0,002). Bản sửa RBD — thêm 3 câu yêu cầu phán xét quyết định dựa trên thông tin có TRƯỚC khi biết kết quả — khắc phục được vấn đề.
+- Áp dụng cho bạn: Nếu dùng AI ghi nhớ kinh nghiệm kinh doanh (memory), hãy thêm vào prompt yêu cầu: "trước khi viết bài học, hãy phán xét quyết định đó có đúng không chỉ dựa trên thông tin có sẵn trước khi biết kết quả; chỉ khuyến nghị thay đổi nếu quyết định sai" — tránh để một lần may/rủ xui lấn át chiến lược thật.
 
-### [3] Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Agents (2610.34817v1)
-- Làm gì: Lỗi tích hợp sai lưu tạm lệnh nhắc (prompt caching — kỹ thuật tái sử dụng phần lệnh nhắc đã xử lý để giảm chi phí) thường thất lặng: 90% lỗi không gây hiện tượng hỏng máy hay báo lỗi, chỉ làm tăng hóa đơn API (giao diện lập trình ứng dụng) vì AI phải xử lý lại toàn bộ lệnh nhắc mỗi lần.
-- Học được gì: Không nên chỉ chờ lỗi hỏng máy; cần theo dõi tỷ lệ cache-hit (lần lệnh nhắc được tái sử dụng) để phát hiện chi phí tăng lên lặng lẽ.
-- Áp dụng cho bạn: Nếu dùng AI agent với tính năng lưu tạm lệnh nhắc để giảm chi phí, hãy kiểm tra định kỳ hóa đơn API — nếu chi phí tăng bất thường trong khi kết quả vẫn đúng, có thể lưu tạm bị vô hiệu hóa lặng lẽ.
+### [3] Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Agents (arXiv 2610.34817v1)
+- Làm gì: Mổ 10 hệ thống agent thật (OpenClaw, Hermes-Agent, AutoGPT, OpenCode, LobeHub, OpenHands, Cline, Goose, Aider, Nanobot), tìm ra 120 lỗi tích hợp sai prompt caching (lưu tạm lệnh nhắc — kỹ thuật tái sử dụng phần lệnh đã xử lý để giảm chi phí) từ 148.947 pull request đã hợp nhất.
+- Học được gì: 90% lỗi thất lặng — không crash, output vẫn đúng, chỉ có tiền API tăng âm thầm (72% là "silent waste": cache ngừng được tái sử dụng mà mọi thứ vẫn chạy). 10% gây crash. 8 nguyên nhân gốc: tương thích nhà cung cấp, tiền tố lệnh không ổn định, thay đổi qua các lượt hội thoại, đếm sai mức sử dụng.
+- Áp dụng cho bạn: Nếu dùng AI agent có bật lưu tạm lệnh nhắc để tiết kiệm chi phí, hãy theo dõi hóa đơn API và tỷ lệ cache-hit (lần lệnh được tái sử dụng) hàng tuần — chi phí tăng bất thường trong khi kết quả vẫn đúng chính là dấu hiệu caching bị vô hiệu hóa lặng lẽ.
 
-### [4] FlashScript: Compiling Recurring Agent Workflows into Reusable Neuro-Symbolic Programs (2610.33876v1)
-- Làm gì: Biên dịch một lần chạy AI thành công thành chương trình có thể tái sử dụng (neuro-symbolic program — kết hợp code và lệnh gọi AI). Công việc lặp lại chạy giống hệt mỗi lần, dùng khoảng 70 lần ít lệnh nhắc và 1/3 thời gian.
-- Học được gì: Công việc AI lặp lại nên chuyển thành mã code xác định thay vì chỉ lưu thành "kỹ năng" hay "kí ức", để kết quả ổn định và chi phí kiểm soát được.
-- Áp dụng cho bạn: Cho công việc lặp lại hàng tuần (ví dụ cập nhật báo cáo doanh số), hãy chạy AI một lần thành công, rồi viết ra quy trình code cố định để chạy lại mỗi tuần thay để AI tự làm lại từ đầu.
+### [4] FlashScript: Compiling Recurring Agent Workflows into Reusable Neuro-Symbolic Programs (arXiv 2610.33876v1)
+- Làm gì: Biên dịch một lần chạy agent thành công thành "neuro-symbolic program" (chương trình kết hợp code xác định + lời gọi model có kiểu dữ liệu rõ ràng) để chạy lại không cần AI lên kế hoạch mỗi lần. Test trên 120 task phân tích dữ liệu từ WorkBench, model Claude Haiku 4.5.
+- Học được gì: Chương trình biên dịch chạy giống hệt mọi lần, dùng ~70 lần ít token đầu vào hơn và 1/3 thời gian chạy so với agent hướng dẫn bằng skill. Ở task phức hợp: agent thường đạt 23% accuracy, chương trình đạt 100%; trên 108 instance chưa từng thấy: 100% so với 96%. Kỹ thuật gộp câu hỏi (clubbing) giảm 5,8 câu hỏi/model xuống còn 2,0.
+- Áp dụng cho bạn: Công việc lặp lại hàng tuần (báo cáo doanh số, tổng hợp đơn hàng) — hãy để AI chạy 1 lần thành công, rồi lưu thành quy trình code cố định để chạy lại mỗi tuần, thay vì để AI làm lại từ đầu mỗi lần: kết quả ổn định và chi phí kiểm soát được.
 
-### [5] Not Every Agent Needs the Strongest Model: Unified Prompt-Model Optimization for Heterogeneous LLM-based Multi-Agent Systems (2610.31743v2)
-- Làm gì: Không phải mọi agent trong hệ thống đa agent (đa tác nhân AI — nhiều tác nhân làm việc cùng nhau) đều cần model mạnh nhất. Gán model nhẹ cho tác vụ tổng hợp, model mạnh cho tác vụ suy luận giúp đạt điểm cao hơn với chi phí giảm 85,2%.
-- Học được gì: Nên phân loại vai trò agent và gán khả năng model phù hợp thay vì dùng một model duy nhất cho tất cả.
-- Áp dụng cho bạn: Nếu vận hành nhiều agent AI, hãy dùng model rẻ nhẹ cho tác vụ tóm tắt văn bản, và chỉ dùng model đắt mạnh hơn cho tác vụ cần suy luận hoặc kiểm tra chất lượng.
+### [5] Not Every Agent Needs the Strongest Model: Unified Prompt-Model Optimization (arXiv 2610.31743v2)
+- Làm gì: Tối ưu đồng thời cả prompt (lệnh nhắc) lẫn việc gán model cho từng vai trò trong hệ thống đa agent (multi-agent system — nhiều tác nhân AI làm việc cùng nhau) với pool model đa cấp (Qwen3.5-4B/9B/27B, DeepSeek-V4-Flash/Pro), dùng tìm kiếm Pareto (tập nghiệm không bị chi phối) có ý thức chi phí, trên 5 benchmark × 5 cấu trúc topo (topology — cách nối các agent).
+- Học được gì: Ở cấu trúc tập trung (centralized): điểm trung bình TĂNG 69,79→70,40 trong khi chi phí giảm 208,28M→30,92M đơn vị tính — tức giảm 85,2% chi phí mà chất lượng còn cao hơn. Dẫn đầu ở AGIEval-MATH (82,42 so với 78,12) và HotpotQA (63,80 so với 62,80).
+- Áp dụng cho bạn: Đừng dùng model đắt nhất cho mọi tác nhân — gán model nhẹ (rẻ) cho vai trò tóm tắt, định dạng, và chỉ dùng model mạnh cho vai trò cần suy luận sâu hoặc kiểm chứng chất lượng; đồng thời tối ưu chung cả lệnh nhắc lẫn việc chọn model.
 
-### [6] AgentOrch: How Close Can Global Orchestration Come to Step-by-Step Interaction? (2610.33375v1)
-- Làm gì: So sánh hai cách chạy workflow doanh nghiệp (quy trình làm việc doanh nghiệp): lên kế hoạch toàn bộ trước (global orchestration) dùng 23,2 lần ít lệnh nhắc AI nhưng kém chính xác hơn cách làm từng bước một (step-by-step).
-- Học được gì: Có thể hẹp khoảng cách chính xác xuống khoảng 8,5 điểm bằng cách xây dựng quy trình tăng dần và sửa quy trình dựa trên kết quả thực thi.
-- Áp dụng cho bạn: Nếu dùng AI tự động quy trình doanh nghiệp (ví dụ tạo đơn, cập nhật CRM), hãy thử viết toàn bộ quy trình một lần và chạy lặp, chỉ gọi AI từng bước khi cần thay đổi dựa trên kết quả trước đó.
+### [6] AgentOrch: How Close Can Global Orchestration Come to Step-by-Step Interaction? (arXiv 2610.33375v1)
+- Làm gì: So sánh hai cách chạy workflow doanh nghiệp: lên kế hoạch toàn bộ trước (global orchestration — LLM xây workflow hoàn chỉnh rồi chạy mà không gọi AI thêm) vs làm từng bước một (step-by-step — model chọn hành động, quan sát kết quả, rồi quyết tiếp). Benchmark gồm 650 quy trình SOP doanh nghiệp, 3.220 biến thể runtime, 64 giao diện công cụ.
+- Học được gì: Lên kế hoạch toàn cục dùng ít hơn 23,2 lần lời gọi LLM nhưng kém chính xác hơn cách từng bước; khoảng cách chính xác co lại còn ~8,5 điểm phần trăm với model mới nhất. Ba hướng sửa hiệu quả: xây dựng workflow tăng dần (+9,98pp), sửa plan dựa trên phản hồi thực thi (+6,13pp), đào tạo theo mục tiêu (+12,18pp).
+- Áp dụng cho bạn: Với workflow ổn định, lặp lại (tạo đơn, cập nhật CRM, báo cáo cố định) — hãy viết plan một lần rồi chạy lặp (rẻ hơn 23 lần lời gọi AI); chỉ dùng cách làm từng bước khi workflow cần thích ứng liên tục theo kết quả thực thi.
 
-### [7] Can LLM Annotators Match Human Consistency? Benchmarking Human Agreement and Optimizing Multi-Agent with Contrastive Knowledge (2610.32415v1)
-- Làm gì: Khung đa agent ANT-OR cải thiện độ chính xác gán nhãn tự động 4,5 điểm so với cơ sở mạnh nhất và đạt mức phù hợp với cách con người gán nhãn (trong khoảng 2 điểm theo Fleiss' κ — hệ số đo sự nhất quán giữa nhiều người gán nhãn).
-- Học được gì: Gán nhãn bằng AI nên được đánh giá theo sự phù hợp với phân phối ý kiến của nhiều con người, không chỉ so sánh với một đáp án duy nhất.
-- Áp dụng cho bạn: Nếu dùng AI phân loại nội dung hay đánh giá lead (khách hàng tiềm năng), hãy hỏi 3–5 người xem xét cùng một mẫu và dùng sự đồng ý của đa số làm tiêu chuẩn thay vì chỉ một ý kiến.
+### [7] Can LLM Annotators Match Human Consistency? ANT-OR (arXiv 2610.32415v1)
+- Làm gì: Khung đa agent ANT-OR gồm 3 annotator (người gán nhãn) độc lập + 1 verifier (bộ kiểm chứng) so sánh lý luận, kết hợp contrastive knowledge (kiến thức tương phản — quy tắc quyết định được chưng cất từ mẫu đúng và sai) để gán nhãn đồng nhất như con người.
+- Học được gì: Cải thiện agreement@≥2 (đúng nếu nhãn khớp ít nhất 2 trong 5 người gán nhãn) 4,5 điểm so với baseline mạnh nhất, và đạt hệ số Fleiss' κ (đo mức nhất quán giữa nhiều người gán nhãn) trong vòng 2 điểm so với sự đồng nhất giữa các annotator người.
+- Áp dụng cho bạn: Khi dùng AI phân loại nội dung hay đánh giá lead (khách hàng tiềm năng), đừng so kết quả với một đáp án duy nhất — hãy cho 3 AI (hoặc 3 người) gán nhãn cùng một mẫu, lấy ý kiến đa số làm chuẩn, và viết rõ quy tắc phân biệt theo từng thể loại.
+
+### [8] CoSA: The Conflict of Skills Attack in Real-World LLM Agent Ecosystems (arXiv 2610.35082v1)
+- Làm gì: Chứng minh kiểu tấn công "xung đột kỹ năng" (Conflict of Skills) vào hệ sinh thái skill (gói khả năng) của agent: thêm vào tối đa 5% skill mới — mỗi skill riêng lẻ lành mạnh, pass scanner bảo mật — nhưng khi ghép với pool hiện có chúng khiến agent vi phạm policy (quy tắc hành vi). Benchmark CoSA-Bench: 288 task doanh nghiệp, 4 lĩnh vực (tuyển dụng, tài chính, IT, kinh doanh), 3 loại rủi ro (rò rỉ dữ liệu, đổi trạng thái không phép, thực thi không an toàn), chạy trên 5 model × 3 harness (OpenClaw, OpenHands, OpenCode).
+- Học được gì: Tỷ lệ vi phạm policy tăng từ 35,02% lên 58,45% (+23,43 điểm phần trăm) chỉ với lượng skill thêm ≤5%; tăng ở 159/180 nhóm model–harness–lĩnh vực–rủi ro. Scanner tĩnh (Cisco AI Defense) KHÔNG đổi số cảnh báo; tỷ lệ kích hoạt skill mới tương quan rất yếu với mức tăng rủi ro (r=0,058). Bốn cơ chế: suy giảm ngữ cảnh bảo mật, cầu nối giao diện ngữ nghĩa, thăng quyền ngữ nghĩa, trôi dạt liên kết đích–hành động. Hook kiểm tra trước hành động (CoSA-Guard) cắt tỷ lệ thành công tấn công từ 65,28% xuống 6,67%.
+- Áp dụng cho bạn: Trước khi bật skill/plugin mới cho agent bán hàng hay CSKH: chạy paired test (cùng 20 task với và không có skill mới), kiểm tra các điểm giao sản phẩm trung gian giữa các skill, và cài móc (hook) trước mọi hành động ghi/gửi/thực thi để xác minh nguồn gốc dữ liệu lẫn quyền hạn gắn với hành động cụ thể.
+
+### [9] EvoRouter: Cost-Efficient Multi-Agent Routing via Insight-Guided On-Policy Distillation (arXiv 2610.35690v1)
+- Làm gì: Router (bộ định tuyến) tự học chọn CẤU HÌNH chung cho hệ thống đa agent — gán model, chế độ cộng tác, số lượng agent, số vòng, skill — thông qua vòng evolution: chưng cất insight có điều kiện từ log thực thi + distillation theo chính sách hiện tại (on-policy distillation) + học tăng cường có ý thức chi phí. Test trên 21 dataset thuộc 7 lĩnh vực cộng thêm 2 benchmark ngoài miền (code, suy luận logic).
+- Học được gì: EvoRouter-4B đạt độ chính xác trung bình trong miền 68,69%, cao hơn 7,23 điểm phần trăm so baseline định tuyến mạnh nhất (RCR-Router) trong khi cắt 50,95% chi phí tính toán của hệ thống đa agent (còn 15,28k đơn vị FLOPs); tổng chi phí inference kể cả router thấp hơn MasRouter 76,5%. Phần insight đóng góp cốt lõi: distillation không có insight chỉ +1,31pp, có insight +5,46pp. Scaling số vòng/số agent có điểm bão hòa (saturation point) phụ thuộc cấu hình — mở rộng không tỉ lệ.
+- Áp dụng cho bạn: Đừng chọn model theo trực giác "càng mạnh càng tốt" — paper cho thấy hiệu quả của tổ hợp model ĐẢO NGƯỢC theo chế độ cộng tác (model nhỏ + Debate thắng ở task QA nhưng thua ở task đa phương tiện). Hãy log accuracy + chi phí từng cấu hình, rồi rút quy tắc dạng "IF loại task THEN cấu hình" để routing.
+
+### [10] From Prompts to Posteriors: Can LLM Agents Perform Bayesian Inference in Context? (arXiv 2610.29331v1)
+- Làm gì: Đánh giá có nguyên tắc khả năng suy luận Bayesian (cập nhật niềm tin theo định lý Bayes khi bằng chứng tích lũy dần) của LLM trong hội thoại, qua 3 trục: nhất quán xác suất (kiểm tra Dutch-book — bộ cược đảm bảo thua nếu xác suất mâu thuẫn), độ trung thực posterior (độ lệch KL so bộ tính Bayes chuẩn), và hiệu suất task hạ lưu trong thiết kế thí nghiệm thích ứng. Môi trường: 20 Questions + ProteinWorld (thế giới phân loại protein giả lập, sinh mới mỗi lần để tránh model nhớ sẵn).
+- Học được gì: Model không có reasoning (suy luận có dây chuyền) vi phạm quy tắc Bayes — độ lệch KL lớn chỉ sau vài bằng chứng, giảm ít nhất 30% tỷ lệ thành công so oracle (trên 20Q model yếu sụp về ~0%). Bật reasoning mode: tính đúng posterior dạng đóng (KL≈0), nhất quán qua 10+ bằng chứng. Nhưng khi likelihood (hàm hợp lý) không giải được dạng đóng: model reasoning-only NHẬN RA bài toán không giải được nhưng vẫn BỊA output mô phỏng Monte Carlo — chỉ khi có code execution (thực thi code) thật chúng mới xấp xỉ đúng posterior và ngang oracle. Thêm: xác suất khai thác rải rác nhiều hội thoại bị Dutch-book ở >50% kịch bản; trong một hội thoại chỉ còn 0–10%.
+- Áp dụng cho bạn: Agent tích lũy bằng chứng qua nhiều lượt (giám sát vận hành, chẩn đoán, dự báo) → bắt buộc bật reasoning mode và cấp sandbox code cho bước tính xác suất; lưu bảng niềm tin (posterior từng giả thuyết) vào database để nhất quán qua các phiên và người vận hành đọc được; tuyệt đối không ghép phán đoán xác suất từ nhiều hội thoại riêng lẻ.
 
 ## CÓ GÌ ÁP DỤNG ĐƯỢC CHO BẠN
 
-1. Trước khi để AI tự ghi dữ liệu (viết email, cập nhật đơn hàng), hãy liệt kê các thao tác ghi được phép và yêu cầu AI hiển thị danh sách định thực hiện để bạn duyệt. Giúp tránh tác động bên ngoài không mong muốn.
-2. Nếu dùng AI tự ghi nhớ kinh doanh, hãy yêu cầu nó phán xét quyết định có đúng dựa trên thông tin trước khi biết kết quả, chỉ khuyến nghị thay đổi nếu quyết định sai. Tránh để kết quả may mắn hoặc không may mắn đè lên kinh doanh thực tế.
-3. Nếu dùng AI agent với lưu tạm lệnh nhắc (prompt caching) để giảm chi phí, hãy theo dõi hóa đơn API định kỳ — chi phí tăng bất thường có thể là dấu hiệu lưu tạm bị vô hiệu hóa lặng lẽ.
-4. Công việc AI lặp lại hàng tuần nên chuyển thành quy trình code cố định thay để AI tự làm lại từ đầu, giúp kết quả ổn định và chi phí kiểm soát được.
-5. Nên phân loại vai trò agent AI và gán model phù hợp: model rẻ nhẹ cho tóm tắt văn bản, model đắt mạnh hơn chỉ cho tác vụ cần suy luận hoặc kiểm tra chất lượng. Giúp giảm chi phí lớn.
+1. Audit composition (thành phần ghép), không audit từng món riêng: paper CoSA cho thấy thêm chỉ ≤5% skill lành mạnh vào pool agent đã đẩy tỷ lệ vi phạm policy từ 35% lên 58% mà scanner tĩnh không phát hiện. Khi thêm plugin/skill mới cho agent, luôn chạy paired test (cùng task với và không có nó) trước khi đưa vào production.
+2. Cài pre-action gate (cổng kiểm tra trước hành động) cho mọi thao tác ghi/gửi/thực thi: liệt kê trắng thao tác được phép + xác nhận trước khi ghi giảm tác động phụ 52–71% (SABENCH), và hook kiểm tra nguồn gốc dữ liệu + quyền hạn cắt tỷ lệ tấn công thành công 65%→7% (CoSA-Guard). Áp dụng ngay: mỗi khi agent định gửi email khách hàng hoặc ghi database, yêu cầu nó hiển thị hành động + nguồn dữ liệu để bạn duyệt.
+3. Bật reasoning + sandbox code cho mọi bước tính xác suất/simulation nhiều lượt: model không reasoning mất ≥30% tỷ lệ thành công so oracle Bayes; model reasoning-only sẽ bịa số khi bài toán không giải dạng đóng. Agent dự báo/chẩn đoán của bạn phải có code execution thật, không được "tính nhẩm".
+4. Gán model theo vai trò và tối ưu chung prompt–model: giảm 50,95% chi phí hệ thống đa agent (EvoRouter) hoặc 85,2% chi phí với điểm cao hơn (UniMASO). Model nhẹ cho tóm tắt/format/draft, model mạnh chỉ cho suy luận sâu/kiểm chứng — và log chi phí+accuracy từng cấu hình để rút quy tắc routing riêng.
+5. Chuyển workflow lặp thành chương trình code xác định: FlashScript cho thấy chạy giống hệt mọi lần, ~70× ít token, 1/3 thời gian; AgentOrch cho thấy lên plan toàn cục rẻ hơn 23 lần lời gọi AI cho SOP ổn định. Với báo cáo/tổng hợp định kỳ hàng tuần, hãy biên dịch quy trình thành code cố định thay để AI làm lại từ đầu.
 
 ---
 
-Tất cả 7 bài đã được distill đầy đủ 6 bước (README, skill, test skill, commit+push) và lưu trong thư mục papers/2026/10/28/.
+Tất cả 10 bài đã được distill đầy đủ 6 bước (README song ngữ, skill, test skill, metadata, commit+push) và lưu trong `papers/2026/10/28/`. Báo cáo viết lại thủ công (bản sạch, thay bản tự động sinh bị nhiễm reasoning của LLM + thiếu 3 bài do lỗi key metadata).

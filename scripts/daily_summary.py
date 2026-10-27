@@ -95,16 +95,17 @@ def extract_insight_from_report(date_str, arxiv_id):
     if not arxiv_id or not os.path.exists(REPORT_FILE):
         return ""
     text = open(REPORT_FILE, encoding="utf-8").read()
+    aid_core = re.sub(r"v\d+$", "", arxiv_id)
     pattern = re.compile(
-        r"## Paper #\d+ — .*?\(%s\)[^\n]*\n(.*?)(?=\n## Paper #\d+|\Z)"
-        % re.escape(arxiv_id),
+        r"## Paper #\d+ — .*?\(%s(v\d+)?\)[^\n]*\n(.*?)(?=\n## Paper #\d+|\Z)"
+        % re.escape(aid_core),
         re.S,
     )
     m = pattern.search(text)
     if not m:
         return ""
     block = m.group(1)
-    im = re.search(r"✓ Insight:\s*(.+)", block)
+    im = re.search(r"✓ Insight(?: nổi bật nhất)?:\s*(.+)", block)
     if im:
         return first_sentences(im.group(1).strip(), 2)
     return ""
@@ -298,9 +299,10 @@ def main():
     folder_by_id = {}
     for folder in folders:
         meta = read_meta(folder)
-        aid = meta.get("arxiv_id", "")
-        if aid:
-            folder_by_id[aid] = folder
+        aid = meta.get("arxiv_id", "") or meta.get("id", "")
+        aid_core = re.sub(r"v\d+$", "", aid)
+        if aid_core:
+            folder_by_id[aid_core] = folder
 
     selected_folders = []
     used_ids = set()
@@ -311,10 +313,11 @@ def main():
                 used_ids.add(aid)
         for folder in folders:
             meta = read_meta(folder)
-            aid = meta.get("arxiv_id", "")
-            if aid and aid not in used_ids and len(selected_folders) < 10:
+            aid = meta.get("arxiv_id", "") or meta.get("id", "")
+            aid_core = re.sub(r"v\d+$", "", aid)
+            if aid_core and aid_core not in used_ids and len(selected_folders) < 10:
                 selected_folders.append(folder)
-                used_ids.add(aid)
+                used_ids.add(aid_core)
     else:
         selected_folders = folders
 

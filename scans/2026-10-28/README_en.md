@@ -1,52 +1,67 @@
-# arXiv Distill Daily Report — 2026-10-28
+# arXiv Distill Report — 2026-10-28
 
-Summary of 7 papers distilled today, each gone through the 6-step distill process, committed and pushed to GitHub. Each paper below has 3 parts: What it does, What we learn, Apply to you — written in simple English for solo entrepreneurs in Vietnam.
+Summary of 10 papers distilled today. Each paper went through the full 6-step distill protocol (bilingual README, skill.md, skill test, metadata, git commit+push). Each entry has three parts: What it does, What we learned, How you can apply it — written in plain language for a Vietnamese solopreneur.
 
-## 7 papers today
+## Today's 10 papers
 
-### [1] Task Success Is Not Enough: Side-effect-Aware Evaluation of Tool-Using Language Model Agents (2610.34167v1)
-- What it does: Research shows evaluating an AI agent (autonomous task performer) only by whether it completes the task is insufficient. An agent can complete the task while still writing data (emails, tickets...) outside its authorized scope, happening in 15.2% of runs.
-- What we learn: Need to check two things: is the task done AND did the agent write anything outside permitted scope. A confirmation policy before writing reduces this error by 52–71%.
-- Apply to you: Before letting AI write emails or update orders automatically, list 3–5 permitted write operations and ask AI to show the list of operations it intends to perform for your approval first.
+### [1] Task Success Is Not Enough: Side-effect-Aware Evaluation of Tool-Using Language Model Agents (arXiv 2610.34167v1)
+- What it does: Builds SABENCH (201 tasks from 47 templates, 3 tool domains: email, calendar, ticket) to measure "collateral damage" (side effects — state writes outside the user's authorized scope) of tool-using agents. Over 2,211 model–task pairs (11 models): goal rate 89.2% but side-effect rate 15.2% — in nearly 1 of 7 runs, the agent finishes the task but writes data it had no permission to touch.
+- What we learned: Evaluating only the final outcome is misleading: 11.4% of runs both achieved the goal AND caused collateral damage. Side effects concentrate in dependent and cross-tool state structures (22.1%/21.0%) versus independent/externally-reachable ones (9.4%/11.0%). A confirmation-before-write policy cuts side effects by 52–71%, at the cost of 13–17 goal-rate points.
+- Apply it for you: Before letting an AI agent write data autonomously (send emails, update orders, modify tickets), whitelist the permitted write operations and require the agent to display its planned actions for your approval — especially for workflows chaining multiple tools together.
 
-### [2] Lessons from Luck: Do LLM-Written Lessons Carry Chance into an Agent's Next Decision? (2610.33029v1)
-- What it does: Lessons AI writes from previous runs can carry luck into later decisions. After a random tool failure, readers of that lesson chose a worse tool in 11.6% of runs, 29× higher than 0.4%.
-- What we learn: Don't let AI save lessons from a single run's outcome without checking whether the decision was correct based on information available before knowing the outcome.
-- Apply to you: If you use AI to auto-remember business experience (memory), add this requirement: "before writing a lesson, judge whether the decision was correct based only on information before the outcome; only recommend a change if the decision was wrong."
+### [2] Lessons from Luck: Do LLM-Written Lessons Carry Chance into an Agent's Next Decision? (arXiv 2610.33029v1)
+- What it does: Tests whether "lessons" an LLM writes after each run carry randomness into later decisions. Experiments over 256 synthetic worlds, 16 domains, 11 models via OpenRouter, with 90,084 reader-stage answers and 33,789 writer-stage lessons.
+- What we learned: After a RANDOM failure of a good tool, readers of the lesson pick the worse tool in 11.6% of runs (vs 0.4% for unrelated content) — "luck-carrying" is real. Detection is strong for good decisions (+0.112) but nearly absent for bad ones (+0.002). The RBD fix — adding three sentences that require judging the decision only on information available BEFORE the outcome — resolves the problem.
+- Apply it for you: If you use AI memory for business lessons, add to the prompt: "before writing a lesson, judge whether the decision was right based only on information available before the outcome; recommend a change only if the decision itself was wrong" — so one lucky or unlucky run cannot overwrite your real strategy.
 
-### [3] Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Agents (2610.34817v1)
-- What it does: Errors from incorrect integration of prompt caching (technique to reuse processed prompt parts to reduce cost) often fail silently: 90% of errors don't crash or report errors, just increase the API bill because AI reprocesses the entire prompt every time.
-- What we learn: Don't just wait for crashes; monitor cache-hit rate (times prompt is reused) to detect cost increases happening silently.
-- Apply to you: If you use AI agents with prompt caching to reduce cost, check your API bill regularly — if cost rises abnormally while results remain correct, caching may have been silently disabled.
+### [3] Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Agents (arXiv 2610.34817v1)
+- What it does: Dissects 10 real agent systems (OpenClaw, Hermes-Agent, AutoGPT, OpenCode, LobeHub, OpenHands, Cline, Goose, Aider, Nanobot) and finds 120 prompt-caching (reusing computed prefixes of the prompt to cut cost) mis-integration defects from 148,947 merged pull requests.
+- What we learned: 90% of defects fail silently — no crash, output still correct, only the API bill quietly rises (72% are "silent waste": cache stops hitting while everything keeps running). 10% cause crashes. Eight root causes: provider compatibility, prefix instability, cross-turn mutation, usage miscounting.
+- Apply it for you: If your AI agents use prompt caching to save money, track the API bill and cache-hit ratio weekly — costs rising abnormally while output stays correct is the signature of silently disabled caching.
 
-### [4] FlashScript: Compiling Recurring Agent Workflows into Reusable Neuro-Symbolic Programs (2610.33876v1)
-- What it does: Compiles a successful AI run into a reusable program (neuro-symbolic program — combines code and AI calls). Repeated work runs identically every time, using ~70× fewer prompt calls and 1/3 of the time.
-- What we learn: Repeated AI work should be turned into deterministic code rather than just saved as a "skill" or "memory", for stable results and controllable cost.
-- Apply to you: For weekly repeated work (e.g. updating sales reports), run AI once successfully, then write a fixed code process to run each week instead of letting AI redo it from scratch.
+### [4] FlashScript: Compiling Recurring Agent Workflows into Reusable Neuro-Symbolic Programs (arXiv 2610.33876v1)
+- What it does: Compiles one successful agent run into a "neuro-symbolic program" (deterministic code plus typed model calls) so re-runs need no AI planning each time. Tested on 120 WorkBench analytics tasks with Claude Haiku 4.5.
+- What we learned: The compiled program runs identically every time, uses ~70× fewer input tokens and 1/3 the runtime of a skill-guided agent. On composite tasks: ordinary agent 23% accuracy vs program 100%; on 108 unseen instances: 100% vs 96%. Question-clubbing cuts model questions per task from 5.8 to 2.0.
+- Apply it for you: For weekly recurring work (sales reports, order aggregation) — let the AI run once successfully, then save the workflow as fixed code to re-run each week instead of letting the AI redo it from scratch: stable results and controlled cost.
 
-### [5] Not Every Agent Needs the Strongest Model: Unified Prompt-Model Optimization for Heterogeneous LLM-based Multi-Agent Systems (2610.31743v2)
-- What it does: Not every agent in a multi-agent system (multiple AI agents working together) needs the strongest model. Assigning lighter models to summarization tasks and stronger models to reasoning tasks achieves higher scores with 85.2% lower cost.
-- What we learn: Should classify agent roles and assign appropriate model capabilities rather than using one model for everything.
-- Apply to you: If you run multiple AI agents, use cheaper lighter models for text summarization tasks, and only use more expensive stronger models for tasks requiring reasoning or quality checking.
+### [5] Not Every Agent Needs the Strongest Model: Unified Prompt-Model Optimization (arXiv 2610.31743v2)
+- What it does: Jointly optimizes the prompt AND the model assignment for each role in a heterogeneous multi-agent system (pool: Qwen3.5-4B/9B/27B, DeepSeek-V4-Flash/Pro), using cost-aware Pareto search, across 5 benchmarks × 5 topologies.
+- What we learned: In centralized execution: average score INCREASES 69.79→70.40 while cost drops 208.28M→30.92M units — i.e. 85.2% cost reduction with HIGHER quality. Leads on AGIEval-MATH (82.42 vs 78.12) and HotpotQA (63.80 vs 62.80).
+- Apply it for you: Do not use the most expensive model for every agent — assign cheap light models to summarizing/formatting roles and reserve strong models for deep reasoning or quality verification; optimize prompt and model assignment together.
 
-### [6] AgentOrch: How Close Can Global Orchestration Come to Step-by-Step Interaction? (2610.33375v1)
-- What it does: Compares two ways to run enterprise workflows: planning everything upfront (global orchestration) uses 23.2× fewer AI prompt calls but is less accurate than step-by-step.
-- What we learn: Can close the accuracy gap to about 8.5 points by building workflows incrementally and revising workflows based on execution results.
-- Apply to you: If you use AI to automate business workflows (e.g. creating orders, updating CRM), try writing the entire workflow once and running it in a loop, only calling AI step-by-step when changes are needed based on previous results.
+### [6] AgentOrch: How Close Can Global Orchestration Come to Step-by-Step Interaction? (arXiv 2610.33375v1)
+- What it does: Compares two ways to run enterprise workflows: global orchestration (LLM builds the complete workflow plan first, then runs with no further AI calls) versus step-by-step interaction (the model picks an action, observes the result, then decides the next). Benchmark: 650 enterprise SOPs, 3,220 runtime variants, 64 tool interfaces.
+- What we learned: Global orchestration uses 23.2× fewer LLM calls but is less accurate than step-by-step; the accuracy gap narrows to ~8.5 percentage points with the newest models. Three effective fixes: incrementally building the workflow (+9.98pp), replanning from execution feedback (+6.13pp), training toward the objective (+12.18pp).
+- Apply it for you: For stable, repeating workflows (order creation, CRM updates, fixed reports) — write the plan once and run it in a loop (23× cheaper in AI calls); use step-by-step only when the workflow must continuously adapt to execution results.
 
-### [7] Can LLM Annotators Match Human Consistency? Benchmarking Human Agreement and Optimizing Multi-Agent with Contrastive Knowledge (2610.32415v1)
-- What it does: The ANT-OR multi-agent framework improves automatic labeling accuracy by 4.5 points over the strongest baseline and reaches a level consistent with how humans label (within 2 points by Fleiss' κ — coefficient measuring consistency among multiple labelers).
-- What we learn: AI labeling should be evaluated by consistency with the distribution of opinions from multiple people, not just compared to a single answer.
-- Apply to you: If you use AI to classify content or evaluate leads (potential customers), ask 3–5 people to review the same sample and use majority agreement as the standard instead of just one opinion.
+### [7] Can LLM Annotators Match Human Consistency? ANT-OR (arXiv 2610.32415v1)
+- What it does: The ANT-OR multi-agent framework — three independent annotators plus one verifier that compares rationales — combined with contrastive knowledge (decision rules distilled from positive and negative samples) to label data as consistently as humans.
+- What we learned: Improves agreement@≥2 (a label counts as correct if it matches at least 2 of 5 human annotators) by 4.5 points over the strongest baseline, and reaches Fleiss' kappa (an inter-annotator consistency coefficient) within 2 points of human-level agreement.
+- Apply it for you: When using AI to classify content or score leads, do not compare against a single gold answer — have 3 AIs (or 3 people) label the same sample, take the majority, and write explicit per-category decision rules.
 
-## WHAT YOU CAN APPLY
+### [8] CoSA: The Conflict of Skills Attack in Real-World LLM Agent Ecosystems (arXiv 2610.35082v1)
+- What it does: Demonstrates the "Conflict of Skills" attack on agent skill ecosystems: adding at most 5% new skills — each individually benign and passing static security scanners — but composed with the existing pool they make the agent violate policies. CoSA-Bench: 288 enterprise tasks, 4 domains (HR, finance, IT, sales), 3 risk types (data exfiltration, unauthorized state change, unsafe execution), across 5 models × 3 harnesses (OpenClaw, OpenHands, OpenCode).
+- What we learned: Policy-violation rate rises from 35.02% to 58.45% (+23.43pp) with only ≤5% added skills; rises in 159/180 model–harness–domain–risk groups. The static scanner (Cisco AI Defense) shows UNCHANGED alert counts; new-skill trigger rate correlates very weakly with risk increase (r=0.058). Four mechanisms: security-context attenuation, semantic interface bridging, semantic privilege escalation, target–action binding drift. A pre-action harness-layer hook (CoSA-Guard) cuts attack success rate from 65.28% to 6.67%.
+- Apply it for you: Before enabling a new skill/plugin for your sales or support agent: run a paired test (same 20 tasks with and without the new skill), inspect intermediate handoff points between skills, and install a hook before every write/send/execute action that verifies data provenance and the permission bound to that specific action.
 
-1. Before letting AI write data automatically (emails, order updates), list permitted write operations and ask AI to show intended operations for your approval first. Helps avoid unintended side effects.
-2. If you use AI to auto-remember business experience, require it to judge whether a decision was correct based on information before knowing the outcome, only recommend changes if the decision was wrong. Avoid letting lucky or unlucky outcomes override real business experience.
-3. If you use AI agents with prompt caching to reduce cost, monitor your API bill regularly — abnormal cost increases may indicate caching was silently disabled.
-4. Weekly repeated AI work should be turned into fixed code processes instead of letting AI redo from scratch, for stable results and controllable cost.
-5. Classify AI agent roles and assign appropriate models: cheaper lighter models for text summarization, more expensive stronger models only for reasoning or quality-checking tasks. Helps reduce costs significantly.
+### [9] EvoRouter: Cost-Efficient Multi-Agent Routing via Insight-Guided On-Policy Distillation (arXiv 2610.35690v1)
+- What it does: A router that learns to select the WHOLE configuration of a multi-agent system — model assignment, collaboration mode, agent count, rounds, skills — through evolution loops: insight-guided conditional distillation from execution logs, on-policy distillation, and cost-aware reinforcement learning. Tested on 21 datasets across 7 domains plus 2 out-of-domain benchmarks (code, logical reasoning).
+- What we learned: EvoRouter-4B reaches 68.69% average in-domain accuracy, +7.23pp over the strongest routing baseline (RCR-Router) while cutting multi-agent system compute cost by 50.95% (to 15.28k FLOPs units); total inference cost including the router is 76.5% lower than MasRouter. The insight component is the core contribution: distillation without insights +1.31pp, with insights +5.46pp. Scaling rounds/agents shows configuration-dependent saturation — scaling is not proportional.
+- Apply it for you: Do not pick models by gut feeling ("stronger is better") — the paper shows the best model–mode combination REVERSES by collaboration mode (small model + Debate wins on QA tasks but loses on multimodal). Log accuracy + cost per configuration, then distill your own routing rules of the form "IF task type THEN configuration".
+
+### [10] From Prompts to Posteriors: Can LLM Agents Perform Bayesian Inference in Context? (arXiv 2610.29331v1)
+- What it does: A principled evaluation of LLMs' ability to perform Bayesian inference (updating beliefs via Bayes' rule as evidence accumulates) in conversation, across three axes: probabilistic coherence (Dutch-book checks — a set of bets guaranteeing loss if stated probabilities contradict each other), posterior fidelity (KL divergence from a Bayesian oracle), and downstream performance in adaptive experimental design. Environments: 20 Questions plus ProteinWorld (a procedurally generated protein-classification world, regenerated each time so models cannot rely on memorized knowledge).
+- What we learned: Non-reasoning models violate Bayes' rule — KL divergence is large after only a few evidence points, and downstream success drops at least 30% versus the oracle (on 20Q weak models collapse to ~0%). With reasoning mode: correct closed-form posteriors (KL≈0), consistent over 10+ evidence points. But when the likelihood is analytically intractable: reasoning-only models RECOGNIZE the intractability yet then FABRICATE Monte Carlo simulation output — only with real code execution do they correctly approximate the intractable posterior and match the oracle. Additionally: probabilities elicited across scattered conversations are Dutch-bookable in >50% of scenarios; within a single dialogue this drops to 0–10%.
+- Apply it for you: For agents that accumulate evidence over many turns (operations monitoring, diagnostics, forecasting) → mandatory reasoning mode plus a code sandbox for probability computations; persist the belief table (posterior per hypothesis) to a database so it stays consistent across sessions and auditable by operators; never stitch probability judgments from separate conversations.
+
+## TOP INSIGHTS YOU CAN APPLY TODAY
+
+1. Audit composition, not individual items: CoSA shows adding only ≤5% benign skills to an agent's pool pushed policy violations from 35% to 58% while the static scanner noticed nothing. Before adding any new plugin/skill to your agent, run a paired test (same tasks with and without it) before production.
+2. Install a pre-action gate for every write/send/execute operation: a whitelist plus confirmation-before-write cuts side effects 52–71% (SABENCH), and a hook verifying data provenance plus action-bound permissions cuts attack success 65%→7% (CoSA-Guard). Apply today: whenever the agent is about to email a customer or write to the database, require it to show the action and its data source for your approval.
+3. Turn on reasoning + a code sandbox for any multi-turn probability/simulation step: non-reasoning models lose at least 30% success rate versus the Bayesian oracle; reasoning-only models hallucinate numbers when the problem is intractable. Your forecasting/diagnostic agents must have real code execution, not "mental math".
+4. Assign models per role and optimize prompt–model jointly: EvoRouter cuts multi-agent cost 50.95% and UniMASO cuts 85.2% while scoring HIGHER. Light models for summarizing/formatting/drafting, strong models only for deep reasoning/verification — and log cost+accuracy per configuration to distill your own routing rules.
+5. Compile recurring workflows into deterministic code: FlashScript runs identically every time with ~70× fewer input tokens and 1/3 the runtime; AgentOrch shows global planning is 23× cheaper in AI calls for stable SOPs. For weekly recurring reports, compile the procedure into fixed code instead of letting the AI redo it from scratch.
 
 ---
 
-All 7 papers have been fully distilled through 6 steps (README, skill, skill test, commit+push) and stored in papers/2026/10/28/.
+All 10 papers were fully distilled (6-step protocol: bilingual README, skill, skill test, metadata, commit+push) and are stored in `papers/2026/10/28/`. This report was rewritten manually (clean version, replacing the auto-generated one that was contaminated with LLM reasoning leakage and missing 3 papers due to a metadata key bug).
