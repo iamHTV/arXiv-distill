@@ -1,0 +1,21 @@
+{
+  "name": "EvoRouter: Cost-Efficient Multi-Agent Routing via Insight-Guided On-Policy Distillation",
+  "authors": ["Yitao Xiao", "Shaoyong Guo", "Sitao Xie", "Xu Zhang", "Yan Sun", "Ye Cheng", "Ziyue Zhu", "Guo Tong", "Haoran Luo"],
+  "link": "https://arxiv.org/abs/2610.35690",
+  "pdf_link": "https://arxiv.org/pdf/2610.35690v1",
+  "id": "2610.35690",
+  "version": "v1",
+  "year": 2026,
+  "published": "2026-10-26",
+  "category": ["cs.AI", "cs.MA"],
+  "classification": "applied",
+  "llm_score": 87,
+  "group": "high",
+  "distill_date": "2026-10-28",
+  "paper_number": 250,
+  "skill_status": "created_and_validated",
+  "skill_name": "conditional-insight-routing-loop",
+  "citation_count": "NOT FOUND (Semantic Scholar API rate-limited)",
+  "code": "https://github.com/CenYangtze/EvoRouter",
+  "notes": "Table 2 per-cell extraction mangled by pdfminer; only prose-verified figures + clean Table 3 used"
+}

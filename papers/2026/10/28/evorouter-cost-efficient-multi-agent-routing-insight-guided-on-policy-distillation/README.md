@@ -1,0 +1,38 @@
+# [2610.35690] EvoRouter: Cost-Efficient Multi-Agent Routing via Insight-Guided On-Policy Distillation
+
+## Problem
+- LLM router (bộ định tuyến chọn model/cấu hình cho query) hiện nay chọn model đơn lẻ hoặc cấu hình MAS (multi-agent system — hệ thống đa tác nhân) theo cách rời rạc. Prior work chưa giải quyết được bài toán cấu hình chung (joint configuration: model assignment, collaboration mode — chế độ cộng tác, agent count, interaction rounds, skills/subtasks) vì: (i) configuration space (không gian cấu hình) phát nổ tổ hợp → đánh giá exhaustive (toàn bộ) bất khả thi, một trajectory (dấu vết thực thi) đơn lẻ chỉ cho kết quả dưới 1 cấu hình cụ thể, không đủ chứng cứ để kết luận decision nào cần thiết/thừa; (ii) reward signal (tín hiệu phần thưởng) từ RL (reinforcement learning — học tăng cường) chỉ có final success + cost — sparse feedback (phản hồi thưa) không chỉ rõ decision planning nào hiệu quả, decision nào lãng phí resource.
+
+## Contribution
+- Insight-guided self-improvement loop (vòng tự cải thiện có hướng dẫn insight): expert (chuyên gia LLM) định kỳ tổng hợp performance–cost feedback từ trajectory across tasks thành reusable conditional routing insights (quy tắc định tuyến có điều kiện áp dụng) về capability requirement (yêu cầu năng lực), return from resource scaling (lợi tức từ mở rộng resource), và interaction among configuration choices.
+- Insight-conditioned on-policy distillation (OPD — distillation theo chính sách hiện tại): privileged teacher (giáo viên đặc quyền) kết hợp insight evolving + execution feedback hiện tại để cho dense token-level supervision (giám sát mức token) trên chính trajectory planning của student router.
+- Cost-aware RL: reward R(τ)=R_perf−λ_C·R_cost, R_cost = log2(1+C(τ)/B(q)) (chuẩn hóa theo budget task), jointly optimize accuracy và compute cost; joint loss L_θ = L_RL + λ_D·L_OPD + β·L_KL (KL penalty — phạt Kullback-Leibler chống policy drift).
+- 3 empirical insights nền (Figure 3): Insight 1 where to scale — benefit scaling phụ thuộc task (đổi mβ+IO→mα+FullConnected: Multimodal +13.1pp nhưng QA −5.0pp); Insight 2 how much — returns non-monotonic (không đơn điệu) theo rounds/agent count, saturation point (điểm bão hòa) phụ thuộc config; Insight 3 what to combine — ranking model composition đảo ngược theo collaboration mode (all-mβ thắng FullConnected; all-mα thắng Debate và giảm MAS FLOPs 79.8%).
+
+## Method (tóm tắt cốt lõi)
+- Router sinh plan cấu hình P = {c, r, {(u_j, m_j, s_j, p_j)}} trong tag <plan> (sau khi phân tích trong <analysis>), deterministic executor (bộ thực thi tất định) khởi tạo MAS, outcome về làm observation, router trả lời trong <answer> → two-stage trajectory.
+- Giai đoạn 1: SFT (supervised fine-tuning — tinh chỉnh có giám sát) cold-start trên demonstration trajectory đã lọc (format hợp lệ + answer đúng); mask prompt context và environment feedback; tạo frozen reference policy π_ref.
+- Giai đoạn 2 evolution loop: sample G rollouts (lần triển khai) mỗi task → group-relative advantage (GRPO-style); insight distillation expert FUpdate 3 bước: (i) rule induction (cảm nạp quy tắc) so sánh trajectory trong-category across success/failure/cost spectra, (ii) precondition refinement (tinh chỉnh điều kiện tiên quyết) giải xung đột bằng siết boundary (độ khó task, domain), (iii) capacity pruning (cắt tỉa dung lượng) gộp quy tắc trùng + ceiling để tránh context inflation. I_{k+1}=F(I_k,B_k).
+- OPD: teacher frozen nhận privileged information (thông tin đặc quyền) z=(I, P_i, o_i, s(τ_i)) — insight pool, plan, outcome, verifier score — cùng context/prefix với student; loss DKL(p^S || sg(p^T)) weighted bằng insight reward. Inference deployment KHÔNG cần privileged feedback.
+
+## Key Findings
+- 21 datasets (19 in-domain 5 domain: math MATH/GSM8K/OmniMATH-2/Apex, commonsense ARC-Challenge/StrategyQA/SocialIQA, knowledge MMLU-Pro/GPQA-Diamond/SuperGPQA, retrieval NQ/TriviaQA/HotpotQA/2WikiMultiHopQA/PopQA/MuSiQue, multimodal ChartQAPro/MMMU/MMMU-Pro) + 2 out-of-domain (code LiveCodeBench, reasoning BBH-LD). LLM pool: Qwen3.5-35B-A3B/122B-A10B/397B-A17B, DeepSeek-V4-Flash, GLM-5; modes: IO, CoT, Reflection, Chain, FullConnected, Debate.
+- In-domain average accuracy (độ chính xác): EvoRouter-4B 68.69%, EvoRouter-8B 71.23%; out-of-domain sample-weighted 74.67–78.93%, vượt strongest baseline 7.74–12.00 percentage point (pp — điểm phần trăm).
+- EvoRouter-4B: +7.23pp accuracy so với strongest baseline RCR-Router đồng thời giảm mean MAS cost 50.95% (còn 15.28k FLOPs — đơn vị tính toán dấu phẩy động); total inference incl. router overhead 18.94k units, thấp hơn MasRouter 76.5%, RCR-Router 39.2%.
+- Ablation Table 3 (EvoRouter-4B): full 68.69%/74.67% (in/out) cost 15280.79/25952.47; w/o Insights 64.54/70.93; w/o OPD 63.23/69.87; w/o RL+OPD 59.77/63.20; w/o SFT+RL+OPD 53.23/52.80 cost 25472/19795. OPD without Insights chỉ +1.31/+1.06pp over RL, insight-guided OPD đẩy lên +5.46/+4.80pp — insight là phần value-add cốt lõi.
+- Evolution dynamics (LLaMa-8B): early updates +2.62pp success kèm −16.4% compute; later +1.35pp kèm −7.4% cost.
+- Sensitivity λ_C∈{0,0.025,0.05,0.1,0.2}: λ_C cao → policy nghiêng config低成本, phân bố per-question compute sang regime budget thấp, suppress expensive upper tail → predictable workload expenditure.
+- Unseen resource generalization: +3.85pp in-domain / +7.47pp OOD vs MasRouter với MAS compute −6.7%/−18.5%; vượt strongest OOD baseline 5.9pp với <½ compute.
+
+## Actionable Insights
+1. Cấu hình MAS là decision CHUNG, đừng tối ưu từng thành phần riêng: hiệu quả model composition đảo ngược theo collaboration mode. Ví dụ: trước khi lock pipeline content agent, A/B test (so sánh 2 cấu hình) 2-3 cấu hình (model nhỏ + Debate vs model lớn + FullConnected) trên cùng 20 task, đo cả accuracy lẫn FLOPs/tiền — chọn winner theo task loại, không theo直觉 "model lớn hơn luôn tốt".
+2. Đặt giới hạn rounds/agents mặc định rồi mở theo verifier: scaling có saturation point phụ thuộc config (Insight 2). Ví dụ: agent QA_RESULT dùng max 3 rounds; chỉ cho phép round 4 khi verifier (bộ kiểm chứng) fail, log success rate each round để tìm saturation point riêng của workflow bạn.
+3. Thu thập insight có điều kiện, không thu thập kết quả đơn lẻ: mỗi tuần expert LLM rà soát log execution để cảm nạp quy tắc dạng "IF task_type=X AND difficulty=high THEN model=mβ+FullConnected", mỗi quy tắc gắn điều kiện áp dụng; gộp quy tắc trùng, giữ ceiling ~20 quy tắc. Ví dụ: log 100 ticket CSKH → quy tắc "request hoàn tiền → Deb5ate 2 agent nhỏ" thay vì "luôn dùng GPT lớn".
+
+## Assumptions & Limitations
+- Điều kiện để method work: deterministic executor parse được plan cấu hình; verifier (bộ kiểm chứng) reliability per task (sandbox test code, exact-match QA); frozen teacher + bootstrap router mạnh available cho training; cost đo bằng relative FLOPs units (Appendix B).
+- Paper thừa nhận: framework design cho cloud-based agent service; chưa cover edge environment (resource-constrained — tài nguyên giới hạn, device heterogeneity, inter-agent communication overhead).
+- Mày thấy thêm: Table 2 per-cell extraction từ PDF bị mangled → chỉ dùng số liệu prose-verified + Table 3 clean; cost FLOPs ≠ API dollar thật (giá model khác nhau); training cost (teacher + bootstrap + RL) không tính trong con số tiết kiệm 50.95% inference; insight quality phụ thuộc expert LLM — failure mode mới; generalization unseen-resource test chỉ 1 setup.
+
+## Metadata
+- Năm: 2026 (26/10/2026). Tác giả: Yitao Xiao, Shaoyong Guo (BUPT), Sitao Xie (Fudan), Xu Zhang, Yan Sun, Ye Cheng, Ziyue Zhu (BUPT), Guo Tong, Haoran Luo (NTU). Category: cs.AI, cs.MA. Link: https://arxiv.org/abs/2610.35690. Code: https://github.com/CenYangtze/EvoRouter. Citation count: [NOT FOUND — API rate-limited].

@@ -1046,3 +1046,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: agent-skill-composition-audit | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Thêm ≤5% Skill individually-benign (lành mạnh khi xét riêng) vào pool agent làm tỷ lệ vi phạm policy tăng +23.43 percentage point (điểm phần trăm) (35.02%→58.45%) trong khi scanner tĩnh không đổi alert — an toàn Skill phải audit composition (thành phần ghép), không audit package đơn lẻ.
 → Tiếp tục: [YES]
+
+## Paper #250 — EvoRouter: Cost-Efficient Multi-Agent Routing via Insight-Guided On-Policy Distillation (2610.35690v1) [applied]
+✓ Skill: conditional-insight-routing-loop | Test: SKILL VALID
+✓ Insight nổi bật nhất: Router jointly cấu hình MAS (model + collaboration mode + agent count + rounds + skills) đạt in-domain accuracy 68.69% (EvoRouter-4B), +7.23pp so strongest baseline RCR-Router trong khi cắt MAS cost 50.95% — nhờ insight-guided OPD (distillation theo chính sách hiện tại có hướng dẫn insight) đóng góp +5.46pp so +1.31pp khi không có insight; scaling rounds/agents có saturation point (điểm bão hòa) phụ thuộc cấu hình.
+→ Tiếp tục: [YES]
