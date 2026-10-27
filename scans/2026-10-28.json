@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-28",
+  "watermark_from": "2026-10-23T17:59:56Z",
+  "seen_before": 320,
+  "total_fetched": 6072,
+  "after_seen": 5840,
+  "after_category": 5276,
+  "after_heuristic": 5073,
+  "papers": [
+    {
+      "id": "2610.33876v1",
+      "title": "FlashScript: Compiling Recurring Agent Workflows into Reusable Neuro-Symbolic Programs",
+      "abstract": "Many agent tasks recur with new data or small changes, yet agents regenerate their reasoning and actions on each run, producing different results. Distilling a prior run into a skill helps the agent avoid earlier mistakes, but it still re-runs the full process each time, so runs can vary and incur that cost. We compile a successful agent run into a reusable neuro-symbolic program (NSP) with a set of guidelines we call FlashScript. Actions and data transformations become code, instance-specific values become parameters, and decisions that need model judgment become LLM calls. We identify three layers where these calls belong and three techniques that replace most of them with code. The compilation does not remove nondeterminism; it localizes it, so the deterministic program and its neural calls can be reviewed and tested separately. Across 120 WorkBench analytics tasks with Claude Haiku 4.5, the NSPs were correct and made identical tool calls on every run, using about 70 times fewer input tokens and a third of the runtime of a skill-guided agent whose runs were inconsistent. In a composite version of the tasks, the skill-guided agent's accuracy fell to 23%, and its output inconsistency increased, while the NSPs remained correct and identical across all runs. The NSPs successfully generalized to all 108 unseen instances of the same templates. Our findings suggest that NSPs from agent trajectories can be considered cumulative software assets for end-users to test, maintain, and reuse in their recurring workflows.",
+      "published": "2026-10-24T19:32:30Z",
+      "updated": "2026-10-24T19:32:30Z",
+      "cats": [
+        "cs.HC",
+        "cs.AI",
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2610.33876v1",
+      "heuristic": 47,
+      "llm_score": 94,
+      "llm_summary": "FlashScript compile một lần chạy agent thành program neuro-symbolic tái sử dụng, giúp output deterministic, giảm ~70x input token và 1/3 runtime trên 120 tác vụ WorkBench.",
+      "llm_reason": "Trực tiếp teach cách làm agent workflow lặp lại rẻ hơn, ổn định hơn cho content/business automation, có experiment và số liệu ấn tượng, insight triển khai ngay được.",
+      "group": "high"
+    },
+    {
+      "id": "2610.31743v2",
+      "title": "Not Every Agent Needs the Strongest Model: Unified Prompt-Model Optimization for Heterogeneous LLM-based Multi-Agent Systems",
+      "abstract": "Large language model (LLM)-based multi-agent systems (MAS) rely on role-specific prompts and execution models to solve complex tasks collaboratively. However, prompt optimization typically keeps model assignments fixed, leaving differences in role requirements and their associated inference costs outside the search. We present UniMASO, a Unified framework for heterogeneous Multi-Agent System Optimization through the joint adaptation of prompts and model assignments. UniMASO evaluates candidate updates through local, downstream, and global feedback, using cost-aware Pareto search to retain useful quality-cost trade-offs. Topology-aware co-evolution then coordinates these updates according to agent roles and dependencies. Cross-level trajectory memory further supplies historical successes and failures to guide subsequent optimization. Experiments on five benchmarks and five execution topologies show that UniMASO achieves competitive task performance at substantially lower deployment cost than the strongest homogeneous configurations. Under centralized execution, it improves the average score from 69.79 to 70.40 while reducing token-weighted deployment cost by 85.2% relative to DeepSeek-V4-Pro with MASPO. These results support joint prompt-model adaptation as an effective approach to efficient multi-agent collaboration. The code is available at https://github.com/Achilles008/UniMASO_main.",
+      "published": "2026-10-22T17:24:23Z",
+      "updated": "2026-10-26T09:38:33Z",
+      "cats": [
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.31743v2",
+      "heuristic": 66,
+      "llm_score": 90,
+      "llm_summary": "UniMASO tối ưu đồng thời prompt VÀ lựa chọn model cho từng agent trong multi-agent system, dùng Pareto search theo cost, cắt 85.2% chi phí deploy mà vẫn giữ chất lượng.",
+      "llm_reason": "Cực kỳ actionable cho solopreneur nhiều kênh: chứng minh không cần agent nào cũng dùng model mạnh nhất, có benchmark 5 topologies + code public, tiết kiệm token là lợi ích business trực tiếp.",
+      "group": "high"
+    },
+    {
+      "id": "2610.33375v1",
+      "title": "AgentOrch: How Close Can Global Orchestration Come to Step-by-Step Interaction?",
+      "abstract": "Enterprise workflow agents typically rely on step-by-step interaction (Step-by-Step): the agent executes an action, observes its result, and invokes a large language model (LLM) again to decide the next step. Global orchestration (Global) instead generates a complete executable workflow in advance and executes it without further LLM calls, substantially reducing inference overhead, but it remains less accurate than Step-by-Step. We study how close Global can come to Step-by-Step and what narrows the remaining gap. We introduce AgentOrch, a benchmark that directly compares global orchestration with step-by-step interaction on 650 enterprise SOPs and 3,220 runtime variants under matched tools, environments, and evaluation. Step-by-Step remains more accurate for every evaluated model, but the gap has shrunk by about 79% from early models to the strongest recent model. We identify three routes to further narrowing this gap. Incremental workflow construction improves Global accuracy by an average of 9.98 percentage points (pp) without runtime execution feedback. Revising complete workflows with execution feedback improves all evaluated models, including 6.13 pp on held-out runtime variants. Targeted training on complete workflows improves accuracy by an average of 12.18 pp across all five trained models. Although a gap remains, global orchestration offers a promising path toward enterprise agents that deliver higher accuracy with fewer LLM calls.",
+      "published": "2026-10-24T00:08:11Z",
+      "updated": "2026-10-24T00:08:11Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.33375v1",
+      "heuristic": 48,
+      "llm_score": 88,
+      "llm_summary": "So sánh global orchestration (tạo toàn bộ workflow trước, không gọi LLM lại) với step-by-step interaction trên 650 SOP doanh nghiệp, cho thấy gap đã thu hẹp 79% và đề xuất 3 hướng cụ thể để tiếp tục thu hẹp (incremental construction +9.98pp, execution feedback +6.13pp, targeted training +12.18pp).",
+      "llm_reason": "Rất liên quan agent/orchestration (33/35), benchmark quy mô lớn với kết quả cụ thể (23/25), trực tiếp liên quan business workflow automation và tiết kiệm inference cost (17/20), insight hành động rõ ràng để chọn kiến trúc agent (15/20).",
+      "group": "high"
+    },
+    {
+      "id": "2610.33029v1",
+      "title": "Lessons from Luck: Do LLM-Written Lessons Carry Chance into an Agent's Next Decision?",
+      "abstract": "Self-improving agents write lessons from the outcomes of their runs; when outcomes are noisy, a lesson can carry chance into later decisions. We measure one link of this chain in a registered study. In 256 synthetic worlds, each a recurring task with two interchangeable tools of recorded reliability, a scripted previous run used the more reliable tool (a good decision) or the less reliable one (a bad decision), with an assigned outcome: success or a transient failure. A model wrote a lesson from the run with ReasoningBank's memory-writing instruction; a fresh session of the same model, holding the authoritative log and the previous result, chose the next run's first tool with one memory item: that lesson, the lesson from the other outcome, an irrelevant item, or an unreasoned directive. The protocol was frozen, deposited and timestamped before any confirmatory call; 11 LLM endpoints gave 90,084 answers. After a chance failure of the better tool, the panel's lessons carried the chance (registered reading luck-carrying; interaction +0.112, 95% interval [+0.097, +0.126]): readers named the worse tool in 11.6% of next runs with the lesson written from that failure, against 0.4% with an irrelevant item and 0.4% with the lesson written from a success. The effect was +0.042 where the log stated that failures are independent and +0.181 where it did not (descriptive). After a lucky success of the worse tool, the interaction was bounded below 0.10 (+0.002), a bound, not evidence of no harm. In exploratory readings, 6 endpoints carried the chance (up to +0.352); 5 were bounded below 0.10. In secondary comparisons, a three-sentence decision-quality note in the writing instruction lowered the worse-tool rate after a chance failure to 7.5%, and one instruction for both outcomes with a no-change option to 3.1%; neither met the registered harm-reduction rule at every such endpoint.",
+      "published": "2026-10-12T03:17:10Z",
+      "updated": "2026-10-12T03:17:10Z",
+      "cats": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL",
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2610.33029v1",
+      "heuristic": 47,
+      "llm_score": 88,
+      "llm_summary": "Registered study trên 256 synthetic worlds, 11 LLM endpoints, 90.084 answers cho thấy lesson viết từ một lần fail do xui (tool tốt mà fail) khiến agent chọn tool tệ hơn 11,6% lần sau (vs 0,4% baseline) — lesson của self-improving agent mang nhiễu vào decision, mạnh hơn khi không ghi log 'failures là independent'.",
+      "llm_reason": "Agent memory/self-improvement/decision rất lõi (30/35), protocol frozen-timestamped, CI 95%, quy mô lớn cực rigor (23/25), trực tiếp dạy solopreneur cách viết lesson từ outcome noisy — content gold cho cờ tướng/content 30+ (17/20), hành động cụ thể: discount outcome xui/lucky, ghi independence assumption (18/20).",
+      "group": "high"
+    },
+    {
+      "id": "2610.35690v1",
+      "title": "EvoRouter: Cost-Efficient Multi-Agent Routing via Insight-Guided On-Policy Distillation",
+      "abstract": "Serving web queries at scale with multi-agent systems requires jointly configuring large language models, collaboration modes, agent counts, interaction rounds, and skills. However, the resulting configuration space grows combinatorially, while sparse execution rewards provide limited fine-grained supervision for interdependent planning decisions. We propose EvoRouter, a self-evolving multi-agent routing framework driven by insight-guided on-policy distillation. A dedicated expert periodically synthesizes performance-cost feedback from configuration trajectories across tasks into reusable conditional routing insights about capability requirements, returns from resource scaling, and interactions among configuration choices. A privileged teacher combines these evolving insights with current execution feedback to provide dense token-level supervision for the router's own planning trajectories through on-policy distillation. Cost-aware reinforcement learning jointly optimizes task performance and computational cost. Together, these training signals internalize execution insights into the routing policy. The updated policy generates new trajectories that support subsequent insight extraction, forming an execution-driven self-improvement loop. We evaluate EvoRouter on 19 in-domain datasets spanning five domains and two out-of-domain benchmarks. EvoRouter achieves an average in-domain accuracy of 68.69%, outperforming the strongest routing baseline by 7.23 percentage points while reducing inference compute cost by 50.95%. Our code is open-sourced at https://github.com/CenYangtze/EvoRouter.",
+      "published": "2026-10-26T16:21:00Z",
+      "updated": "2026-10-26T16:21:00Z",
+      "cats": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "link": "http://arxiv.org/abs/2610.35690v1",
+      "heuristic": 60,
+      "llm_score": 87,
+      "llm_summary": "EvoRouter tự tiến hóa chính sách routing multi-agent bằng cách rút insight từ feedback hiệu suất-chi phí và on-policy distillation, tối ưu đồng thời chất lượng và chi phí tính toán trên 19 dataset trong-domain và 2 benchmark ngoài-domain.",
+      "llm_reason": "Cực kỳ sát multi-agent routing + tool-use (34), có benchmark thật quy mô lớn (22), ý tưởng chọn model/agent rẻ-hay-đắt theo độ khó task trực tiếp giúp solopreneur giảm chi phí vận hành nhiều kênh (17), và loop insight→policy có thể áp dụng cho workflow content (14).",
+      "group": "high"
+    },
+    {
+      "id": "2610.34817v1",
+      "title": "Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Agents",
+      "abstract": "Large language model (LLM) services process massive volumes of user requests, resulting in substantial inference costs. To reduce both cost and latency, providers have introduced prompt caching. However, correctly integrating prompt caching is non-trivial due to heterogeneous provider-specific APIs and continuously evolving caching semantics. To understand prompt-caching mis-integration in downstream applications, we conduct the first empirical study of 120 prompt-caching-related pull requests from 10 popular open-source agent systems. Our findings show that prompt-caching mis-integrations arise in both request-side misconfiguration and read-side usage miscount. More importantly, most mis-integrations fail silently without causing observable runtime failures. Motivated by these findings, we design CACHELINT, which models a prompt-caching mis-integration as an invocation site together with the preconditions required for correct cache integration. CACHELINT locates caching invocation sites with CodeQL and discharges each precondition either against a dated provider capability oracle or with an LLM guard check. CACHELINT achieves 0.71 precision and 0.78 recall in identifying the 120 labeled mis-integrations across the 10 studied agent systems. Our evaluation further demonstrates the effectiveness of CACHELINT in real-world settings, identifying 32 mis-integrations across 571 agent projects with 0.86 precision. These findings have received 21 developer confirmations and led to 18 upstream fixes, including one in Anthropic's official SDK.",
+      "published": "2026-10-26T04:01:18Z",
+      "updated": "2026-10-26T04:01:18Z",
+      "cats": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.34817v1",
+      "heuristic": 47,
+      "llm_score": 87,
+      "llm_summary": "Nghiên cứu thực nghiệm đầu tiên về lỗi tích hợp prompt-caching trong 10 agent hệ thống (120 PR), cho thấy lỗi thường 'fail silently' và ra CACHELINT phát hiện với P/R 0.71/0.78.",
+      "llm_reason": "Cực kỳ actionable cho solopreneur: tối ưu cost/latency LLM agent qua caching đúng cách, có empirical study thật và tool kiểm tra, gần như sát business vận hành AI.",
+      "group": "high"
+    },
+    {
+      "id": "2610.29331v1",
+      "title": "From Prompts to Posteriors: Can LLM Agents Perform Bayesian Inference in Context?",
+      "abstract": "Large language models (LLMs) are increasingly applied across the scientific discovery pipeline, from synthesizing literature to generating hypotheses to informing experimental design. A unifying principle behind these tasks is the need to continuously update beliefs as evidence accumulates, for which Bayesian inference provides a natural framework. However, existing work assumes that LLMs cannot carry out principled Bayesian belief updating in context, instead relying on simplifications and heuristics. To challenge this assumption, we present a principled evaluation of Bayesian reasoning capabilities in LLMs, analyzing both the model's internal consistency as well as its ability to recover an externally determined posterior. Specifically, we build an evaluation framework spanning qualitative epistemological examples to probe probabilistic coherence, quantitative benchmarks of Bayesian inference capabilities, and analyses of the impact of non-Bayesian updates on downstream task performance. Across different scenarios, we find that LLMs generally violate Bayes' rule when updating their beliefs in context. However, when equipped with modern reasoning abilities and code execution capabilities, their performance drastically improves, enabling even the close approximation of analytically intractable posteriors. Our evaluation shows that current LLMs with access to appropriate tools could already be used to make complex belief updates in scientific discovery, enabling rapid acceleration of the efficiency and scale of AI-powered scientific discovery.",
+      "published": "2026-10-21T07:29:24Z",
+      "updated": "2026-10-21T07:29:24Z",
+      "cats": [
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.29331v1",
+      "heuristic": 60,
+      "llm_score": 86,
+      "llm_summary": "Paper đánh giá khả năng Bayesian inference trong-context của LLM agent, cho thấy LLM thường vi phạm định luật Bayes khi update belief, nhưng kết hợp reasoning + code execution có thể gần đúng posterior ngay cả khi không giải tích được.",
+      "llm_reason": "Sát LLM agent + tool-use (31), framework eval qualitative+quantitative có benchmark下游 effect (21), Bayesian update-as-evidence-accumulates cực phù hợp cho quyết định content/marketing có dữ liệu dần (18), insight hành động rõ: luôn bật code tool khi cần suy luận xác suất, đừng tin raw LLM estimate (16).",
+      "group": "high"
+    },
+    {
+      "id": "2610.34167v1",
+      "title": "Task Success Is Not Enough: Side-effect-Aware Evaluation of Tool-Using Language Model Agents",
+      "abstract": "Tool-using language model agents are usually evaluated by whether they finish the user's task. That metric misses a common failure: an agent can complete the requested work while also taking an unauthorized side-effecting action, such as writing to the wrong object, expanding the scope of the request, or contacting an unintended recipient. We call this failure mode collateral damage (CD). We introduce SABench (Side-effect-Aware Benchmark), a benchmark of 201 email, calendar, and ticket tasks. Each task crosses one of four state structures (independent, dependent, externally reachable, cross-tool) with one of four trap families (ambiguity, mis-targeting, cascade harm, overreach), and each task has a deterministic trace-based oracle for both goal satisfaction and authorization compliance. Across 2,211 model-task pairs from 11 frontier LLMs spanning major commercial and open model families, 15.2% of all runs incur CD, with risk concentrated in ambiguity tasks (38.8% violation rate) while non-ambiguous traps average 8.4% CD. Among goal-satisfied runs, 12.8% still produce unauthorized writes. Cross-tool and dependent states have about twice the CD rate of independent states. CD rates vary by 4.7x across models at comparable goal rates, which suggests that task success alone is a poor proxy for safe tool use. The SABench task corpus is released at https://huggingface.co/datasets/Phaedrus/sabench; the traces, oracle, code, and analysis pipeline are released at https://github.com/hjj194/sabench-artifact.",
+      "published": "2026-10-25T08:54:08Z",
+      "updated": "2026-10-25T08:54:08Z",
+      "cats": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.34167v1",
+      "heuristic": 53,
+      "llm_score": 85,
+      "llm_summary": "Giới thiệu SABench, benchmark 201 tác vụ email/calendar/ticket đo lường 'tổn thương phụ' khi agent dùng tool: 15.2% chạy gây hành động ngoài ý muốn dù hoàn thành mục tiêu.",
+      "llm_reason": "Benchmark thật với 2.211 cặp model-task, insight \"task success ≠ an toàn\" cực kỳ dễ做成 nội dung cảnh báo về agent cho khán giả business.",
+      "group": "high"
+    },
+    {
+      "id": "2610.34535v1",
+      "title": "SentryBench: A Cost-Sensitive Benchmark for Adversarial Robustness of Tool-Using LLM Agents in Public-Safety Deployments",
+      "abstract": "Large language model (LLM) agents are increasingly wired to consequential tools that send public alerts, dispatch responders, and query citizen records, where one erroneous tool call carries real-world cost. Existing agent-safety benchmarks measure generic harm or prompt-injection success and implicitly treat refusing as the safe default. In public-safety deployments that assumption breaks: an agent too cautious to dispatch help fails as surely as one that triggers a false alert. We present SentryBench, which scores agents on a two-sided, cost-sensitive frontier jointly measuring attack success, over-refusal (missing a real emergency), and over-reaction (unwarranted action) under adversarial tool use, with scenarios grounded in real emergency-call transcripts, disaster messages, and real injection/jailbreak payloads. We formalize deployment harm as an asymmetric cost functional, prove naive caution is harm-dominated whenever it refuses more genuine emergencies than the attack harm it averts, and prove a targeted trust gate adds zero over-refusal on clean input. Across 840 scored episodes over three frontier models and three defenses, refuse-more caution drives over-refusal to 100 percent on two of three models for at most a 3.7-point change in attack success and yields the worst harm everywhere, whereas our trust-gating wrapper dominates the frontier (lowest harm on every model, over-refusal at or below baseline, higher containment). Provider content filters also silently perform part of the defending and must be reported separately.",
+      "published": "2026-10-25T19:49:40Z",
+      "updated": "2026-10-25T19:49:40Z",
+      "cats": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.34535v1",
+      "heuristic": 46,
+      "llm_score": 85,
+      "llm_summary": "SentryBench benchmark cost-sensitive cho agent LLM dùng tool trong an toàn công cộng, đo đồng thời attack success, over-refusal và over-reaction, chứng minh 'thận trọng quá mức' gây hại nhiều hơn cả attack.",
+      "llm_reason": "Tool-use agent + adversarial đúng cốt lõi nhất (32), 840 episodes, 3 model, 3 defense, dữ liệu real transcript (23), relevant cho quyết định deploy agent có tool của solopreneur (14), actionable cực cao: trust-gating wrapper và bài học over-caution harm-dominated (16).",
+      "group": "high"
+    },
+    {
+      "id": "2610.32415v1",
+      "title": "Can LLM Annotators Match Human Consistency? Benchmarking Human Agreement and Optimizing Multi-Agent with Contrastive Knowledge",
+      "abstract": "LLM-based annotation has advanced rapidly, yet existing benchmarks remain misaligned with real-world practice. Actual annotation often involves lengthy, task-specific guidelines, and different annotators may produce divergent but reasonable judgments, especially on boundary cases, where single-labeled dataset fail to reflect this disagreement. This gap also limits existing single-agent and workflow-based annotation systems, which often lack adaptability to complex, evolving guidelines. To bridge this gap, we introduce ANT-A Benchmark, a real-world multi-annotator benchmark spanning 7 datasets across domains and modalities, with task-specific guidelines and 5 independent human labels per instance. ANT-A enables a distribution-aware evaluation, using Fleiss kappa to assess how closely model annotations align with human labeling distributions. We further propose ANT-OR, a multi-agent annotation framework that refines prompts by distilling contrastive decision rules from positive and negative feedback. Experiments show that ANT-OR improves agreement@&gt;=2 accuracy by 4.5 points over the strongest baseline and achieves the highest alignment with human annotator distributions as measured by Fleiss kappa within 2 points. Code and benchmark are available at https://github.com/Krueske/ANT-OR.",
+      "published": "2026-10-23T09:43:38Z",
+      "updated": "2026-10-23T09:43:38Z",
+      "cats": [
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.32415v1",
+      "heuristic": 58,
+      "llm_score": 84,
+      "llm_summary": "ANT-A là benchmark annotation thực tế với guideline chi tiết và 5 nhãn người/instance trên 7 dataset, ANT-OR là framework multi-agent chưng cất contrastive decision rules để nâng agreement với phân phối nhãn người (Fleiss kappa).",
+      "llm_reason": "LLM annotation + multi-agent core (30), benchmark 7 dataset đa modalities + code public (23), rất hữu cho chất lượng content/moderation và đánh giá label đầu ra (16), insight dùng được ngay: distill rule từ feedback dương/âm để cải prompt, đánh giá theo phân phối chứ không đúng-n Hickory nhị nguyên (15).",
+      "group": "high"
+    }
+  ]
+}

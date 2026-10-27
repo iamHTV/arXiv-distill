@@ -1,0 +1,17 @@
+{
+  "name": "Task Success Is Not Enough: Side-effect-Aware Evaluation of Tool-Using Language Model Agents",
+  "authors": ["Jiaju Huang", "Shaobin Chen", "Xinglong Liang", "Xinyu Ma", "Hao Yang", "Wei Ke", "Tao Tan", "Yue Sun"],
+  "link": "https://arxiv.org/pdf/2610.34167v1",
+  "arxiv_id": "2610.34167v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "sabench-collateral-damage-evaluation",
+  "distill_date": "2026-10-28",
+  "knowledge_count": 8,
+  "insight_count": 3,
+  "idea_count": 3,
+  "wisdom_count": 1
+}
