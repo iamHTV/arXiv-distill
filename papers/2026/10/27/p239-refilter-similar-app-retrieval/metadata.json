@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "2609.25306",
+  "title": "ReFilter: Bridging Embeddings and LLM Filtering for Similar Mobile App Retrieval",
+  "authors": ["Buthayna AlMulla", "Maram Assi", "Safwat Hassan"],
+  "year": 2026,
+  "category": "cs.IR",
+  "venue": "ASIS&T Annual Meeting 2026 (Long Paper)",
+  "link": "https://arxiv.org/abs/2609.25306",
+  "classification": "applied",
+  "llm_score": 78,
+  "skill": "retrieve-then-filter-similarity",
+  "skill_status": "VALID",
+  "distilled_date": "2026-10-27",
+  "paper_index": 239,
+  "corpus": {"seed_apps": 34364, "processed_apps": 20635, "categories": 48, "collected": "2025-08"},
+  "ground_truth": {"evaluation_pairs": 1315, "dev_pairs": 450, "test_pairs": 450, "cohens_kappa": 0.79},
+  "embeddings": ["BGE-AVG", "BGE-FIRST", "Linq-Embed-Mistral", "SigLIP2-AVG", "SigLIP2-TopN", "Voyage-multimodal-3"],
+  "filter_llm": "GPT-5 (paper typo GPT-55)",
+  "key_metrics": {"embedding_best_f1_k45": 0.60, "embedding_peak_precision_k5": 0.86, "cr_f1_2shot": 0.90, "pr_f1_2shot": 0.86, "filter_precision": 0.97, "cost_per_query": "4.2s / $0.04", "gp_mean_similar": 93, "framework_mean_similar": 21},
+  "code": "https://github.com/b-almulla/ReFilter",
+  "citation_count": null
+}
