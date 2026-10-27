@@ -1016,3 +1016,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: lessons-from-luck-memory-writing-test | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Bài học tự viết từ kết quả do ngẫu nhiên có thể làm đè lên ghi chép quyền thẩm quyền — sau sự cố ngẫu nhiên của công cụ tốt hơn, người đọc chọn công cụ kém hơn ở 11.6% lần chạy (vs 0.4% với item không liên quan và 0.4% với bài học từ thành công).
 → Tiếp tục: [YES]
+
+## Paper #244 — Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Agents (2610.34817v1) [applied]
+✓ Skill: cachelint-prompt-caching-misintegration-detection | Test: SKILL VALID
+✓ Insight nổi bật nhất: Prompt-caching mis-integration thường thất lặng — 90% khuyết điều không gây lỗi runtime mà chỉ tăng chi phí API, và CACHELINT phát hiện được với precision 0.86 trên repo thực tế.
+→ Tiếp tục: [YES]

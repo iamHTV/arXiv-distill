@@ -1,0 +1,17 @@
+{
+  "name": "Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Agents",
+  "authors": ["Ying Zhang", "Ruoqi Guo", "Yi Liu", "Gelei Deng", "Yuekang Li", "Yepang Liu", "Leo Zhang"],
+  "link": "https://arxiv.org/pdf/2610.34817v1",
+  "arxiv_id": "2610.34817v1",
+  "year": 2026,
+  "category": "cs.SE",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "cachelint-prompt-caching-misintegration-detection",
+  "distill_date": "2026-10-28",
+  "knowledge_count": 9,
+  "insight_count": 3,
+  "idea_count": 3,
+  "wisdom_count": 1
+}
