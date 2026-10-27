@@ -1026,3 +1026,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: flashscript-nsp-compilation | Test: SKILL VALID
 ✓ Insight nổi bật nhất: NSP cục bộ hóa sự không xác định — agent chạy không nhất quán vì xây dựng lại quy trình mỗi lần, trong khi NSP chạy giống hệt mọi lần với ~70× ít token đầu vào và 1/3 runtime.
 → Tiếp tục: [YES]
+
+## Paper #246 — Not Every Agent Needs the Strongest Model: Unified Prompt-Model Optimization for Heterogeneous LLM-based Multi-Agent Systems (2610.31743v2) [applied]
+✓ Skill: unimaso-prompt-model-optimization | Test: SKILL VALID
+✓ Insight nổi bật nhất: Không phải mọi agent trong MAS đều cần model mạnh nhất — gán khả năng mô hình theo yêu cầu vai trò và tối ưu hóa chung prompt với model assignment giúp giảm chi phí 85.2% với điểm cao hơn.
+→ Tiếp tục: [YES]
