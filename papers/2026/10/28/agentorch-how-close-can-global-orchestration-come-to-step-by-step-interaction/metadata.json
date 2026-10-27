@@ -1,0 +1,17 @@
+{
+  "name": "AgentOrch: How Close Can Global Orchestration Come to Step-by-Step Interaction?",
+  "authors": ["Zijie Liu", "Yueh Che Lee", "Qi Yang Huang", "Zayne Turner", "Adam Seligman", "Tianlong Chen", "Zhaozhuo Xu", "Jinhao Duan", "Thomas A. Joseph"],
+  "link": "https://arxiv.org/pdf/2610.33375v1",
+  "arxiv_id": "2610.33375v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "agentorch-global-orchestration-improvement",
+  "distill_date": "2026-10-28",
+  "knowledge_count": 10,
+  "insight_count": 3,
+  "idea_count": 3,
+  "wisdom_count": 1
+}

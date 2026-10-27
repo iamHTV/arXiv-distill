@@ -1031,3 +1031,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: unimaso-prompt-model-optimization | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Không phải mọi agent trong MAS đều cần model mạnh nhất — gán khả năng mô hình theo yêu cầu vai trò và tối ưu hóa chung prompt với model assignment giúp giảm chi phí 85.2% với điểm cao hơn.
 → Tiếp tục: [YES]
+
+## Paper #247 — AgentOrch: How Close Can Global Orchestration Come to Step-by-Step Interaction? (2610.33375v1) [applied]
+✓ Skill: agentorch-global-orchestration-improvement | Test: SKILL VALID
+✓ Insight nổi bật nhất: Global orchestration dùng 23.2× ít LLM calls và khoảng cách chính xác coết xuống ~8.5 pp với model mới nhất; 3 hướng: xây dựng tăng dần (+9.98 pp), sửa bằng phản hồi thực thi (+6.13 pp), đào tạo mục tiêu (+12.18 pp).
+→ Tiếp tục: [YES]
