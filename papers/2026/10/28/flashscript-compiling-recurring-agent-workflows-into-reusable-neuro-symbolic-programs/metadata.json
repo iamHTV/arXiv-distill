@@ -1,0 +1,17 @@
+{
+  "name": "FlashScript: Compiling Recurring Agent Workflows into Reusable Neuro-Symbolic Programs",
+  "authors": ["Sadra Sabouri", "Hosein Hasanbeig", "Adam Sage", "Shreya Sinha", "Cale Darling", "Ashish Tiwari", "Katie Garms", "Souti Chattopadhyay", "Sumit Gulwani"],
+  "link": "https://arxiv.org/pdf/2610.33876v1",
+  "arxiv_id": "2610.33876v1",
+  "year": 2026,
+  "category": "cs.HC",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "flashscript-nsp-compilation",
+  "distill_date": "2026-10-28",
+  "knowledge_count": 9,
+  "insight_count": 3,
+  "idea_count": 3,
+  "wisdom_count": 1
+}

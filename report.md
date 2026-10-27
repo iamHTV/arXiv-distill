@@ -1021,3 +1021,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: cachelint-prompt-caching-misintegration-detection | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Prompt-caching mis-integration thường thất lặng — 90% khuyết điều không gây lỗi runtime mà chỉ tăng chi phí API, và CACHELINT phát hiện được với precision 0.86 trên repo thực tế.
 → Tiếp tục: [YES]
+
+## Paper #245 — FlashScript: Compiling Recurring Agent Workflows into Reusable Neuro-Symbolic Programs (2610.33876v1) [applied]
+✓ Skill: flashscript-nsp-compilation | Test: SKILL VALID
+✓ Insight nổi bật nhất: NSP cục bộ hóa sự không xác định — agent chạy không nhất quán vì xây dựng lại quy trình mỗi lần, trong khi NSP chạy giống hệt mọi lần với ~70× ít token đầu vào và 1/3 runtime.
+→ Tiếp tục: [YES]
