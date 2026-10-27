@@ -1,0 +1,21 @@
+{
+  "name": "From Prompts to Posteriors: Can LLM Agents Perform Bayesian Inference in Context?",
+  "authors": ["Linus Filbry", "Luckeciano C. Melo", "Yarin Gal"],
+  "link": "https://arxiv.org/abs/2610.29331",
+  "pdf_link": "https://arxiv.org/pdf/2610.29331v1",
+  "id": "2610.29331",
+  "version": "v1",
+  "year": 2026,
+  "published": "2026-10-21",
+  "category": ["cs.AI"],
+  "classification": "applied",
+  "llm_score": 86,
+  "group": "high",
+  "distill_date": "2026-10-28",
+  "paper_number": 251,
+  "skill_status": "created_and_validated",
+  "skill_name": "bayesian-belief-update-audit",
+  "citation_count": 0,
+  "code": "https://github.com/LinusFilbry/PromptsToPosteriors",
+  "affiliations": "OATML, University of Oxford"
+}

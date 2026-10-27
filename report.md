@@ -1051,3 +1051,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: conditional-insight-routing-loop | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Router jointly cấu hình MAS (model + collaboration mode + agent count + rounds + skills) đạt in-domain accuracy 68.69% (EvoRouter-4B), +7.23pp so strongest baseline RCR-Router trong khi cắt MAS cost 50.95% — nhờ insight-guided OPD (distillation theo chính sách hiện tại có hướng dẫn insight) đóng góp +5.46pp so +1.31pp khi không có insight; scaling rounds/agents có saturation point (điểm bão hòa) phụ thuộc cấu hình.
 → Tiếp tục: [YES]
+
+## Paper #251 — From Prompts to Posteriors: Can LLM Agents Perform Bayesian Inference in Context? (2610.29331v1) [applied]
+✓ Skill: bayesian-belief-update-audit | Test: SKILL VALID
+✓ Insight nổi bật nhất: LLM không reasoning vi phạm Bayes rule (KL lớn sau vài experiments, giảm ≥30% success rate vs oracle); reasoning mode tính đúng posterior closed-form (KL≈0, nhất quán 10+ evidence); nhưng trên likelihood intractable reasoning-only model HALLUCINATE output Monte Carlo — chỉ khi có code execution thật chúng mới xấp xỉ đúng posterior intractable và match oracle → strict harness kiểu BED-LLM có thể bỏ, nhưng phải giữ explicit belief state.
+→ Tiếp tục: [YES]
