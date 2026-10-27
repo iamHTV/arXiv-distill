@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "2610.25540",
+  "title": "Auditing Tool Traces in Agentic LLMs: Source Localization and Counterfactual Dependence Testing",
+  "authors": ["Junhao Liu", "Tianxiao Li", "Yongxian Wu", "Ziheng Duan", "Ren Li", "Jing Zhang", "Martin Renqiang Min"],
+  "year": 2026,
+  "category": "cs.AI",
+  "venue": "NeurIPS 2026 Workshop: Agentic AI for Biological Discovery (AgenticLS)",
+  "link": "https://arxiv.org/abs/2610.25540",
+  "classification": "applied",
+  "llm_score": 78,
+  "skill": "tool-trace-shortcut-audit",
+  "skill_status": "VALID",
+  "distilled_date": "2026-10-27",
+  "paper_index": 240,
+  "model": "Qwen3-4B (SFT)",
+  "dataset": "Slone et al. 2025 TCR-pMHC + peptide-disjoint cluster splits (Abeer et al. 2026): cluster 0 = 12,940 train (3,483 pos) + 1,438 val (397 pos); clusters 1-5 = 4,898 test (264 pos)",
+  "tools": 5,
+  "key_metrics": {"original_auroc": 0.8136, "no_evidence_baseline_auroc": 0.4928, "full_trace_auroc": "0.4818/0.4677/0.4876", "tool3_auroc_char": "0.6288/0.6365", "tool5_auroc_char": "0.5259-0.5310", "gap_A3_Afull": 0.1489, "word_tool3_auroc": 0.4946, "pdb_prefix_lookup_auroc": 0.6967, "delta_pdb": 0.3163, "redacted_pdb_auroc": 0.4972, "delta_peptide": -0.0017, "redacted_peptide_auroc": 0.8152, "dilution_range": "0.6365 to 0.4876", "chance_at_K": 5},
+  "shortcut": "PDB identifiers in ThermoMPNN_inference_<pdb_id>.csv (Tool 3); prefixes _21 (binders), _17 (non-binders)",
+  "citation_count": null
+}
