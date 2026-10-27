@@ -1036,3 +1036,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: agentorch-global-orchestration-improvement | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Global orchestration dùng 23.2× ít LLM calls và khoảng cách chính xác coết xuống ~8.5 pp với model mới nhất; 3 hướng: xây dựng tăng dần (+9.98 pp), sửa bằng phản hồi thực thi (+6.13 pp), đào tạo mục tiêu (+12.18 pp).
 → Tiếp tục: [YES]
+
+## Paper #248 — Can LLM Annotators Match Human Consistency? Benchmarking Human Agreement and Optimizing Multi-Agent with Contrastive Knowledge (2610.32415v1) [applied]
+✓ Skill: ant-or-contrastive-annotation-framework | Test: SKILL VALID
+✓ Insight nổi bật nhất: ANT-OR cải thiện agreement@≥2 4.5 điểm so với baseline mạnh nhất và đạt Fleiss' κ trong 2 điểm so với đồng nhất giữa annotator người — nhờ distillation quy tắc quyết định tương phản.
+→ Tiếp tục: [YES]

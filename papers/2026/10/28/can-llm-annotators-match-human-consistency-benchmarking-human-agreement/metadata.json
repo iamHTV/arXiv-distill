@@ -1,0 +1,17 @@
+{
+  "name": "Can LLM Annotators Match Human Consistency? Benchmarking Human Agreement and Optimizing Multi-Agent with Contrastive Knowledge",
+  "authors": ["Xiaopeng Ke", "Zhixin Wang", "Xuebo Liu", "Xinyu Ma", "Xing Zheng", "Bowen Song", "Weiqiang Wang", "Min Zhang"],
+  "link": "https://arxiv.org/pdf/2610.32415v1",
+  "arxiv_id": "2610.32415v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "ant-or-contrastive-annotation-framework",
+  "distill_date": "2026-10-28",
+  "knowledge_count": 10,
+  "insight_count": 3,
+  "idea_count": 3,
+  "wisdom_count": 1
+}
