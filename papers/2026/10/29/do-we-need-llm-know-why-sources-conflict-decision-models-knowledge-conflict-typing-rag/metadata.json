@@ -1,0 +1,17 @@
+{
+  "name": "Do We Need an LLM to Know Why Sources Conflict? Decision Models for Knowledge-Conflict Typing in RAG",
+  "authors": [
+    "Parv Khatri",
+    "Harshul Jain",
+    "Mehak Kapoor",
+    "Tanya Sah"
+  ],
+  "link": "https://arxiv.org/abs/2610.36915",
+  "id": "2610.36915",
+  "arxiv_id": "2610.36915v1",
+  "year": 2026,
+  "category": "cs.CL",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "VALID"
+}
