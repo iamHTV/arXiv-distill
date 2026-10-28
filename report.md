@@ -1061,3 +1061,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: agent-context-pipeline-yield-audit | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Harness cắt tool output theo vị trí ký tự chứ không theo giá trị, nên bằng chứng quan trọng bị xóa trong khi cửa sổ context vẫn trống 93% — sai sót có thể nằm ở harness chứ không phải model.
 → Tiếp tục: [YES]
+
+## Paper #253 — Do We Need an LLM to Know Why Sources Conflict? Decision Models for Knowledge-Conflict Typing in RAG (2610.36915v1) [applied]
+✓ Skill: rag-conflict-typing-decision-model | Test: SKILL VALID
+✓ Insight nổi bật nhất: Decision model phân loại loại xung đột trong RAG đúng gần như LLM nhưng tốn 4–39× ít chi phí và nhanh 2.6–6.0 lần, và niềm tin của nó xếp hạng được lỗi nên gửi chỉ phần không tự tin lên LLM cao cấp (cascade).
+→ Tiếp tục: [YES]
