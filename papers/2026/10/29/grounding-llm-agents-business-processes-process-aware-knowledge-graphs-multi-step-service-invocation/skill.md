@@ -37,6 +37,6 @@ Bạn xây dựng agent đặt mua doanh nghiệp. Truy vấn: "tạo đơn mua 
 ## Gotchas
 - Lợi ích chỉ xuất hiện trên truy vấn có tín hiệu xử lý (low lexical overlap). Không có cải thiện trên các dịch vụ OpenAPI không có tầng xử lý.
 - Bản đồ hoạt động sai làm suy giảm hiệu năng — hiệu năng phụ thuộc vào bản đồ đúng. Hãy kiểm tra bản đồ bằng xác thực nguồn gốc (provenance split) và kiểm tra độ trung thành xây dựng.
-- Validator giả lập chia sẻ cùng metadata với đồ thị, nên kết quả gọi không hợp lệ thấp cho thấy việc căn cứ ground-truth khóa 실패 mode theo thiết kế, không đo hiệu năng đối với backend độc lập.
-- Nỗ lực tạo bản đồ là khủyết thách chính: khoảng 20 phút mỗi hoạt động, khoảng 2 ngày làm việc cho 41 hoạt động. Có thể tự động bán bằng LLM đề xuất cạnh (độ chính xác 0.79, độ hồi giữa 0.93) và người kiểm tra.
+- Validator giả lập chia sẻ cùng metadata với đồ thị, nên kết quả gọi không hợp lệ thấp cho thấy việc căn cứ ground-truth khóa thất bại mode theo thiết kế, không đo hiệu năng đối với backend độc lập.
+- Nỗ lực tạo bản đồ là thách thức chính: khoảng 20 phút mỗi hoạt động, khoảng 2 ngày làm việc cho 41 hoạt động. Có thể bán tự động bằng LLM đề xuất cạnh (độ chính xác 0.79, độ hồi giữa 0.93) và người kiểm tra.
 - Tốc độ hoàn thành vẫn thấp cho cả hai phương pháp (0.387 vs 0.103), hệ thống chưa sẵn sàng cho triển khai thực tế.

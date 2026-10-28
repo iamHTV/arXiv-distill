@@ -19,7 +19,7 @@ Pipeline (quy trình xử lý) LM-DSB gồm 3 thành phần:
 
 ## KNOWLEDGE — Số liệu & khái niệm
 - Corpus (tập tài liệu): 37 HSE documents — 3 core policy documents (tài liệu chính sách lõi, 1,240 trang, 313,958 từ), 23 operational procedures (quy trình vận hành chuẩn, 44 trang, 989 từ), 11 PPE specifications (tiêu chuẩn thiết bị bảo hộ cá nhân, 13 trang, 9,432 từ).
-- Phase 1 benchmark trên 3 scenario (crane operations极端 cold; trenching + confined space entry; hazardous energy control + compressed gas), ground truth DSB 515-620 từ do domain expert viết.
+- Phase 1 benchmark trên 3 scenario (crane operations trong điều kiện lạnh cực đoan; trenching + confined space entry; hazardous energy control + compressed gas), ground truth DSB 515-620 từ do domain expert viết.
 - Bảng 8 (4 metrics): LM-DSB TF-IDF 0.6960 / BLEU 0.3898 / ROUGE-1 0.6570 / ROUGE-2 0.4086; Llama-RAG 0.6292 / 0.2731 / 0.4804 / 0.3781; Llama-FT 0.4222 / 0.0814 / 0.3631 / 0.0651; Llama-Base 0.4870 / 0.1124 / 0.4099 / 0.0767.
 - Length ratio (tỷ lệ độ dài output/ground truth): LM-DSB 1.01 vs Llama-RAG 0.39 — single-agent RAG chỉ tạo ~1/3 nội dung kỳ vọng.
 - LM-DSB vs Llama-RAG: TF-IDF +11%, BLEU +44%, ROUGE-1 +38%. RAG configs ROUGE-2 cao 4-5× non-RAG (0.41/0.38 vs 0.08/0.07).

@@ -23,7 +23,7 @@ Type: workflow
 3. Chọn decision model tốt nhất trên tập dev: đo accuracy, macro-F1, và sai số chuẩn đoán dự kiến (ECE). Không chọn chỉ dựa trên accuracy — cũng xem niềm tin xếp hạng lỗi thế nào (AUROC) nếu bạn dự định dùng cascade.
 4. Quyết định dùng cascade hay không: nếu niềm tin xếp hạng lỗi tốt (AUROC cao), hãy gửi phần truy vấn không chắc chắn nhất (ví dụ 25% thấp nhất) đến LLM cao cấp, giữ lại phần còn lại cho decision model. Ngưỡng là phân vị của niềm tin, không dùng nhãn.
 5. Cho loại được dự đoán vào máy sinh, kèm định nghĩa và hành vi mong đợi của loại đó; máy sinh viết câu trả lời cuối cùng.
-6. (Tùy chọn) Đánh giá cuối đến cuối: dùng một judge LLM kiểm tra câu trả lời có tuân theo hành vi mong đợi của loại vàng hay không.
+6. (Tùy chọn) Đánh giá cuối đến cuối: dùng một judge LLM kiểm tra câu trả lời có tuân theo hành vi mong đợi của loại chuẩn (gold type) hay không.
 
 ## Output mong đợi
 - Loại xung đột dự đoán cho mỗi truy vấn, cùng niềm tin (confidence).
@@ -31,7 +31,7 @@ Type: workflow
 - Báo cáo accuracy, chi phí và độ trễ của bước phân loại so với việc chỉ dùng LLM cao cấp.
 
 ## Ví dụ áp dụng
-Bạn vận hành hệ thống trả lời hỏi từ web. Trước khi sinh câu trả lời, bạn chạy bước 1–3 và phát hiện decision model rẻ (ví dụ $0.04/1000 truy vấn) đạt accuracy ngang LLM ($1.66/1000 truy vấn) nhưng nhanh 5 lần. Bạn chạy bước 4 và gửi 25% truy vấn không tự tin nhất đến Gemini 3.8 Flash, giữ lại 75% cho decision model — chi phí giảm xuống 25–37% của chi phí chỉ dùng LLM, accuracy dồn dập. Bạn chạy bước 5 và sinh câu trả lời theo loại được dự đoán.
+Bạn vận hành hệ thống trả lời hỏi từ web. Trước khi sinh câu trả lời, bạn chạy bước 1–3 và phát hiện decision model rẻ (ví dụ $0.04/1000 truy vấn) đạt accuracy ngang LLM ($1.66/1000 truy vấn) nhưng nhanh 5 lần. Bạn chạy bước 4 và gửi 25% truy vấn không tự tin nhất đến Gemini 3.8 Flash, giữ lại 75% cho decision model — chi phí giảm xuống 25–37% của chi phí chỉ dùng LLM, accuracy ngang nhau. Bạn chạy bước 5 và sinh câu trả lời theo loại được dự đoán.
 
 ## Gotchas
 - Phân giải taxonomy thành các câu hỏi yes/no làm giảm accuracy với mọi model 11 — hãy dùng câu hỏi lựa chọn trực tiếp (flat), không tách thành yes/no.
