@@ -1,0 +1,16 @@
+{
+  "name": "Context Is a Pipeline, Not a Window: Information Attrition in LLM Agent Harnesses",
+  "authors": [
+    "Yuvraj Sehgal",
+    "Mahsa Panahandeh",
+    "Naser Ezzati-Jivan"
+  ],
+  "link": "https://arxiv.org/abs/2610.36114",
+  "id": "2610.36114",
+  "arxiv_id": "2610.36114v1",
+  "year": 2026,
+  "category": "cs.SE",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "VALID"
+}

@@ -1056,3 +1056,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: bayesian-belief-update-audit | Test: SKILL VALID
 ✓ Insight nổi bật nhất: LLM không reasoning vi phạm Bayes rule (KL lớn sau vài experiments, giảm ≥30% success rate vs oracle); reasoning mode tính đúng posterior closed-form (KL≈0, nhất quán 10+ evidence); nhưng trên likelihood intractable reasoning-only model HALLUCINATE output Monte Carlo — chỉ khi có code execution thật chúng mới xấp xỉ đúng posterior intractable và match oracle → strict harness kiểu BED-LLM có thể bỏ, nhưng phải giữ explicit belief state.
 → Tiếp tục: [YES]
+
+## Paper #252 — Context Is a Pipeline, Not a Window: Information Attrition in LLM Agent Harnesses (2610.36114v1) [applied]
+✓ Skill: agent-context-pipeline-yield-audit | Test: SKILL VALID
+✓ Insight nổi bật nhất: Harness cắt tool output theo vị trí ký tự chứ không theo giá trị, nên bằng chứng quan trọng bị xóa trong khi cửa sổ context vẫn trống 93% — sai sót có thể nằm ở harness chứ không phải model.
+→ Tiếp tục: [YES]
