@@ -1,180 +1,177 @@
 {
   "date": "2026-10-29",
-  "watermark_from": "2026-10-26T17:59:44Z",
-  "seen_before": 340,
+  "watermark_from": "2026-10-27T17:59:59Z",
+  "seen_before": 350,
   "total_fetched": 6079,
-  "after_seen": 5842,
-  "after_category": 5285,
-  "after_heuristic": 5080,
+  "after_seen": 5832,
+  "after_category": 5275,
+  "after_heuristic": 5070,
   "papers": [
     {
-      "id": "2610.37242v1",
-      "title": "Grounding LLM Agents in Business Processes: Process-Aware Knowledge Graphs for Reliable Multi-Step Service Invocation",
-      "abstract": "Large language model (LLM) agents that call enterprise APIs must select the correct endpoints, follow process order, use valid payload keys, and choose coded values from predefined lists. However, current retrieval-augmented service discovery treats endpoints independently and therefore misses process and schema constraints. We address this limitation by integrating Open Data Protocol (OData) metadata and Business Process Model and Notation (BPMN) reference processes in a typed property graph. A hybrid retriever identifies candidate endpoints using dense embeddings and follows process edges to retrieve subsequent endpoints. We evaluate the method on 42 enterprise services with process-chain ground truth. For queries with low lexical overlap between the query and downstream entities, it improves Recall@3 by 5.7 points (n=74), with consistent gains across embedding models and cut-offs. It matches dense retrieval on other queries and provides no improvement on OpenAPI services without a process layer, indicating that the gains arise from process structure. We also evaluate an LLM agent on 81 multi-step queries. It completes 38.7% of tasks, compared with 10.3% for a chunk-based baseline. In an elicitation probe, providing valid code lists eliminates invented codes but leaves invalid keys in 46% of write runs. Full typed context reduces invalid calls to 3% (3 of 101 runs), with no invented codes. These results show that exposing process and schema constraints during retrieval improves the reliability of agent-driven API calls.",
-      "published": "2026-10-27T13:45:29Z",
-      "updated": "2026-10-27T13:45:29Z",
+      "id": "2610.35256v1",
+      "title": "Octen-WebGR: Scaling Generative Retrieval to 200 Million Web Pages",
+      "abstract": "Navigational search aims to find a single target page among hundreds of millions of web pages. Click tables work well for queries seen before but cannot generalise to new formulations, while embedding retrievers generalise across content but often rank navigational targets poorly. We introduce Octen-WebGR, a generative retrieval framework that stores web pages in the parameters of a language model: given a query, the model generates a two-token semantic identifier constrained to a table of real URLs. We develop Octen-WebGR-4B, which indexes 201 million web pages, and evaluate it on real navigational traffic from the month after training. Generative retrieval is most effective on new ways of asking for familiar pages: for unseen queries targeting pages with substantial interaction history, it ranks the correct page first 30.9% of the time, against 17.2% for a dense retriever trained on the same clicks (21.4% with a click prior). Embedding retrieval keeps an advantage on rarely visited pages, so the two approaches generalise on complementary sides, the query and the page. Over all navigational traffic, Octen-WebGR reaches 59.6% top-1 accuracy, against 46.5% for a click-enhanced dense retriever and up to 37.5% for frontier LLMs answering from memory, which cost at least 40 times as much per query. The 4B model runs on a single GPU with 10 GB of memory, compared with 412 GB for exact dense retrieval. Scaling experiments with up to 32 million URLs show that, when every query-page pair is seen equally often, the model size needed grows sublinearly with index size, and that retrieval is constrained more by page exposure than by model capacity. We release Octen-WebGR-4B and Octen-WebGR-0.6B with their identifier tables and inference code.",
+      "published": "2026-10-26T11:39:04Z",
+      "updated": "2026-10-26T11:39:04Z",
       "cats": [
-        "cs.AI",
-        "cs.SE"
+        "cs.IR"
       ],
-      "link": "http://arxiv.org/abs/2610.37242v1",
-      "heuristic": 54,
+      "link": "http://arxiv.org/abs/2610.35256v1",
+      "heuristic": 46,
       "llm_score": 88,
-      "llm_summary": "Tích hợp OData metadata và BPMN business process vào knowledge graph để ground LLM agent khi gọi enterprise API multi-step, giảm mạnh hallucinated calls.",
-      "llm_reason": "Trực tiếp liên quan LLM agent tool-use trong business process, experiment thực tế trên 42 services, insight cực kỳ actionable: process-aware retrieval cải thiện agent reliability rõ rệt.",
+      "llm_summary": "Octen-WebGR lưu 201 triệu trang web trong tham số mô hình 4B và tạo identifier URL hai token để tìm trang đích cho query navigational.",
+      "llm_reason": "Điểm cao nhất vì retrieval cốt lõi được benchmark trên traffic thật sau training, tiết kiệm chi phí/memory rõ rệt và gợi ý chiến lược hybrid cùng chọn kênh tìm kiếm theo page quen hay hiếm.",
       "group": "high"
     },
     {
-      "id": "2610.36980v1",
-      "title": "AutoVend: Benchmarking LLM Agents on Long-Horizon Autonomous Vending Operations",
-      "abstract": "Large language model (LLM) agents are extending agent-mediated commerce on the Web from shopping for consumers to operating businesses for sellers. In online-to-offline (O2O) commerce, decisions are issued through Web-based platforms but realized through costly physical execution. Evaluating such agents requires going beyond individual transactions to ask whether decisions made online turn into sustained economic returns. We introduce AutoVend, a benchmark in which one LLM agent manages 20 vending machines across five site types through a Web-based operating interface for 180 simulated days. Its data-grounded simulator combines a shared warehouse, procurement lead times, paid replenishment, inventory expiration, and recurring operating costs. We evaluate five LLM agents against a rule-based inventory-control baseline and diagnose their site coordination, execution, and performance over time. Four of five evaluated LLM agents fall short of this baseline, and returns per dollar of inference cost rank models differently from returns alone. Operational analyses show that gains in individual metrics do not consistently yield stronger economic growth, as inventory and execution costs erode these gains. Trajectory analysis further reveals difficulties in grounding feasible actions, managing inventory commitments, and converting feedback into effective policy revisions.",
-      "published": "2026-10-27T10:33:06Z",
-      "updated": "2026-10-27T10:33:06Z",
-      "cats": [
-        "cs.AI",
-        "cs.CL"
-      ],
-      "link": "http://arxiv.org/abs/2610.36980v1",
-      "heuristic": 56,
-      "llm_score": 86,
-      "llm_summary": "AutoVend benchmark một LLM agent điều hành 20 máy bán hàng tự động trong 180 ngày qua giao diện Web, đo lợi nhuận thực, chi phí inference và khả năng cải thiện chính sách.",
-      "llm_reason": "Rồi vào đúng mảng agent làm business: experiment kinh tế thật, 4/5 agent thua baseline rule-based, và insight hành động mạnh (ROI theo $ inference, chi phí tồn kho ăn hết lợi) rất đáng làm content và định hướng kinh doanh AI của bạn.",
-      "group": "high"
-    },
-    {
-      "id": "2610.35930v1",
-      "title": "Who Convinced Whom? Tracing How LLMs Change Their Minds in Multi-Agent Systems",
-      "abstract": "Multi-agent debate (MAD) aims to improve language-model decisions through the exchange of arguments, yet agreement after debate need not reflect independent corroboration. We investigate how peer communication influences individual decisions and collective outcomes through behavioral and internal interventions. We introduce MAD Bench, a 2,400-question benchmark spanning knowledge and reasoning, values and moral judgment, and safety and refusal, and evaluate three open-weight models using a round-matched independent-reflection control. Among answer-changing responses, a forced-choice readout before rationale generation matches the eventual answer more often in debate than in reflection (65.4% versus 22.3% on Qwen3.5-9B). Message ablations reveal model-dependent effects of peer answers and reasoning, while attributing identical text to the receiver rather than another agent substantially changes its influence. For the tested source descriptions, stated track record affects answer preferences more strongly than professional-status cues across all three models. Attention masking produces different changes in decision margins across the three checkpoints. On fully parsed, reference-labelled non-numeric questions, debate yields small estimated accuracy improvements over initial majority voting, while increasing the rate of unanimous wrong answers by 3.1-7.4 percentage points relative to reflection. Longer debates show persistent consensus and greater correlation between agents' correctness than reflection. These findings show that stronger consensus can coexist with more shared errors, motivating evaluations that assess dependence and unanimous errors alongside accuracy.",
-      "published": "2026-10-18T16:04:25Z",
-      "updated": "2026-10-18T16:04:25Z",
-      "cats": [
-        "cs.MA",
-        "cs.AI"
-      ],
-      "link": "http://arxiv.org/abs/2610.35930v1",
-      "heuristic": 51,
-      "llm_score": 86,
-      "llm_summary": "Nghiên cứu cách LLM thay đổi quyết định trong multi-agent debate qua benchmark MAD Bench 2.400 câu hỏi, tách biệt debate vs reflection và đo ảnh hưởng của uy tín/nghề nghiệp người gửi.",
-      "llm_reason": "Rất đúng Bel core agent debate + benchmark thật 2.400 câu; insight 'track record thuyết phục hơn chức danh' dùng ngay cho content/social proof.",
-      "group": "high"
-    },
-    {
-      "id": "2610.36114v1",
-      "title": "Context Is a Pipeline, Not a Window: Information Attrition in LLM Agent Harnesses",
-      "abstract": "LLM agents are judged by two numbers: the size of the context window, and how often the final answer is correct. Both numbers miss a third thing: how much of a tool's output is lost before the model ever sees it. We measured this loss in a real tool-using agent. The agent finds the cause of injected faults by reading Linux kernel traces. The context window was almost empty: across 720 runs, the single largest prompt used only 5.75% of it. Yet a third of all tool results (3,827 of 11,189) were cut before they reached the model, and every cut result became broken JSON. The harness cut each result by slicing its JSON text at a fixed length. This does not shorten a result evenly. It deletes whatever data sits near the end. One field reached the model in only 4.7% of calls. A second field, in the very same results, reached the model in 99.3% of calls. Which field held the fault's evidence depended on when the faulty process started: early or late in the trace. The agent's diagnosis accuracy matched this same split. So we ran controlled experiments to test one question: did the data loss cause the drop in accuracy? This paper makes four contributions. First, we model an agent's context as a five-stage pipeline, with a measured failure at each stage. Second, we replay 864 real tool results, including one from a production trace where the shipped cut deletes all 128 records of the fault's evidence. Third, a controlled experiment shows that the cut's real cost appears first as extra work, not as wrong answers: 43% more tool calls, twice the computation, and yield falling from 0.61 to 0.31. The agent still finds the right answer when it has another way to reach it. Fourth, a survey of seven agent frameworks finds two that cut tool output the same unsafe way. Whether the data cut truly causes the accuracy drop is still an open question.",
-      "published": "2026-10-26T18:25:42Z",
-      "updated": "2026-10-26T18:25:42Z",
+      "id": "2610.36015v1",
+      "title": "Do Coding Agents Still Need a Debugger? Frontier-Model-Based Fault Localization at the Accuracy Ceiling",
+      "abstract": "Background: To localize a fault, a coding agent can reason from source code alone or use debugger assistance by running the program and stepping through it in an interactive debugger. While earlier agents struggled with static execution tracing and debugger operation, frontier LLMs have improved at both. Objective: We evaluate how accurately coding agents localize faults without tools across original and transformed programs, how much debugger assistance improves accuracy and at what cost, and how agents use it when optional. Methods: We seed 610 single-line faults into 144 LeetCodeDataset solutions and rewrite each faulty program with five recipes of behavior-preserving transformations. Agents based on Sol 6.1, Luna 6, and Qwen 3.8 localize each fault with no, optional, or encouraged debugger assistance. Results: Without tools, the agents localized 98.2 to 99.9% of faults in original and 96.7 to 99.9% in transformed programs, losing accuracy mainly where recipes restructured loops and conditions. Encouraged assistance removed 63% and 61% of Luna 6's and Qwen 3.8's remaining transformed errors (+2.1 and +1.3 percentage points) at 14.7 to 27.0 times the token use, while Sol 6.1 stayed at 99.9%. With optional assistance, Luna 6 and Qwen 3.8 still gained +1.5 and +1.3 points, though the agents used the interactive debugger in only 0.2 to 6.2% of runs. Conclusions: On short, precisely specified programs, current coding agents localize nearly all faults from source code alone, and debugger assistance removes most errors that remain. Given the choice, agents executed the program far more often than they stepped through it, yet kept most of the benefit.",
+      "published": "2026-10-26T17:20:31Z",
+      "updated": "2026-10-26T17:20:31Z",
       "cats": [
         "cs.SE",
         "cs.AI"
       ],
-      "link": "http://arxiv.org/abs/2610.36114v1",
+      "link": "http://arxiv.org/abs/2610.36015v1",
       "heuristic": 45,
-      "llm_score": 85,
-      "llm_summary": "Đo 720 run agent đọc kernel trace: 1/3 tool output (3.827/11.189) bị cắt trước khi tới model, cắt JSON theo độ dài cố định phá structure làm một field chỉ tới 4.7% lần và kéo accuracy diagnosis theo đúng pattern đó; replay 864 kết quả + controlled experiment xác nhận quan hệ nhân-quả.",
-      "llm_reason": "Cực kỳ actionable (context là pipeline 5 stage, đừng cắt JSON bừa, đo attrition từng stage), experiment thật, áp dụng ngay cho ai build hay dùng agent workflow.",
+      "llm_score": 87,
+      "llm_summary": "Paper đo accuracy fault localization của các coding agent frontier không/đôi/khuyến khích debugger trên chương trình gốc và đã biến đổi, kèm token cost.",
+      "llm_reason": "Điểm cao vì kết hợp agent/tool-use với experiment có biến đổi hệ thống và cho runbook rõ: static trước, debugger tùy chọn cho loop/condition, tránh tăng token 14.7-27x khi gần ceiling.",
       "group": "high"
     },
     {
-      "id": "2610.36433v1",
-      "title": "LM-DSB: A Lightweight Multi-agent System for Automated Daily Safety Bulletin Generation in Construction",
-      "abstract": "Construction safety management still struggles to produce daily safety bulletins (DSBs), structured daily communications that identify site-specific hazards, convey safety protocols, and set preventive measures for workers. Manual DSB creation takes 2-3 hours daily and yields inconsistent quality, with 25% of crews never conducting pretask planning (Olson et al., 2016), diverting safety personnel from field supervision. This study proposes the Lightweight Multi-Agent DSB System (LM-DSB), which integrates retrieval-augmented generation (RAG) with a locally deployable Large Language Model (LLM) to automate DSB generation on consumer-grade personal computers. LM-DSB coordinates specialized planner, researcher, and writer agents in a hierarchical architecture, enhanced by domain-specific fine-tuning on construction safety documentation and RAG grounding in 37 health, safety, and environment (HSE) documents. A two-phase validation assessed feasibility. Phase 1 comparative evaluation showed the multi-agent RAG system (Llama 3-8B) outperformed all alternative configurations, with strong lexical alignment and coherence (TF-IDF: 0.70, BLEU: 0.39, ROUGE-1: 0.66) and near-complete document generation (length ratio: 1.01 vs. 0.39 for single-agent RAG). Phase 2 expert evaluation (N=40) confirmed practical acceptability (mean scores 3.50-4.20 on a 5-point scale), particularly in regulatory compliance (4.20) and factual accuracy (4.10). The findings show that architectural design enables lightweight models to handle safety-critical documentation on consumer-grade hardware, advancing technology democratization in construction safety management. Limitations include knowledge base scope, language constraints, and lack of field deployment validation; future work should address multimodal integration and workflow adoption.",
-      "published": "2026-10-27T00:29:20Z",
-      "updated": "2026-10-27T00:29:20Z",
-      "cats": [
-        "cs.AI"
-      ],
-      "link": "http://arxiv.org/abs/2610.36433v1",
-      "heuristic": 69,
-      "llm_score": 83,
-      "llm_summary": "Xây dựng hệ thống multi-agent nhẹ (LM-DSB) chạy trên máy tiêu dùng để tự động tạo báo cáo an toàn lao động hàng ngày, dùng RAG + Llama 3-8B với kiến trúc planner-researcher-writer.",
-      "llm_reason": "Rất sát với solopreneur: multi-agent tạo content tự động, chạy trên PC cá nhân, có experiment thực (TF-IDF, BLEU, ROUGE, expert eval N=40), và insight về kiến trúc hierarchical agent có thể áp dụng ngay cho quy trình content.",
-      "group": "high"
-    },
-    {
-      "id": "2610.33352v1",
-      "title": "From Hype to ROI: An Economic Model for LLM Adoption in Information Systems and Security Operations",
-      "abstract": "Large Language Models (LLMs) promise significant efficiency gains across information-intensive operations by automating repetitive language-based tasks. However, adoption decisions remain largely opportunistic, as organizations struggle to move from pilots to sustainable industrialization. Without systematic economic frameworks, practitioners cannot assess whether LLM investments create value in a given context. This paper develops a general economic model to support informed LLM adoption decisions in operational information systems. Facing high uncertainty, we represent parameters as random variables centered on authoritative benchmarks, and evaluate the model by Monte Carlo simulation across pessimistic-to-optimistic assumptions on LLM efficiency. The ROI distributions show the probability of profitability and the Value at Risk for each configuration, together with a sensitivity analysis of its main drivers. As a first instantiation, we apply the model to Security Operations Centers (SOCs), mapping workflows onto established standards to identify tasks suited to LLM augmentation. The model balances productivity gains, driven by alert volume, analyst effort, and LLM efficiency, against operational costs, including inference, infrastructure, and error remediation, covering both cloud API and self-hosted deployments. Results show that adoption economics are context-dependent, and that automation is an exploitable lever, gated by accuracy, while the cost of errors and the model's price are secondary. Across the analyzed models and prices, most configurations are unprofitable, with profitability limited to high-accuracy, low-uncertainty deployments. The model gives organizations a quantitative basis for evidence-based adoption decisions, by locating the boundary between profit and loss, and the loss risked beyond it.",
-      "published": "2026-10-23T22:46:08Z",
-      "updated": "2026-10-23T22:46:08Z",
+      "id": "2610.35451v1",
+      "title": "Then there is prompt injection, a malicious email, ...: The Wild Wide West of OpenClaw Agentic System Security",
+      "abstract": "AI-powered personal assistant frameworks such as OpenClaw combine LLM reasoning, persistent memory, tool invocation, local execution, and web-based workflows. These capabilities enable useful automation, but they also create security risks when untrusted inputs, model reasoning, tools, memory, and deployment configuration interact without explicit trust boundaries. This paper presents an empirical study of reported security concerns in OpenClaw using two complementary data sources: Reddit discussions and security-tagged GitHub issues. We analyze more than 25K Reddit posts from 13 OpenClaw-related subreddits and identify 162 security-relevant posts with 1,787 associated comments. We further collect 358 security-tagged GitHub issues and retain 180 issues describing concrete security concerns. Using qualitative analysis and evidence-grounded CWE mapping, we identify 521 CWE instances across 59 distinct weakness types, concentrated in access-control failures, sensitive-data exposure, injection, and unsafe execution. We also extract 543 practitioner mitigation suggestions and consolidate them into seven recurring strategies. To complement the empirical analysis, we present an evidence-grounded illustrative reconstruction of a representative sensitive-data exposure pathway using dummy secret values. Our findings show that OpenClaw security issues are not isolated implementation bugs; they reflect recurring trust-boundary failures across the agent execution pipeline. We discuss how these weaknesses map to both traditional software-security categories and agent-specific failure mechanisms, and derive implications for safer agentic systems, including explicit trust boundaries, least-privilege tool access, execution containment, runtime oversight, and defense-in-depth deployment.",
+      "published": "2026-10-26T13:49:22Z",
+      "updated": "2026-10-26T13:49:22Z",
       "cats": [
         "cs.CR",
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2610.35451v1",
+      "heuristic": 53,
+      "llm_score": 84,
+      "llm_summary": "Nghiên cứu thực nghiệm 25K Reddit + 358 GitHub issue về bảo mật hệ trợ lý agentic OpenClaw: gắn 521 CWE vào 59 loại weakness, rút 543 gợi ý thành 7 chiến lược giảm thiểu.",
+      "llm_reason": "Dữ liệu thực lớn + 7 mitigation strategy rút gọn, dùng được ngay để harden workflow agent cá nhân và làm content cảnh báo cho audience.",
+      "group": "high"
+    },
+    {
+      "id": "2610.30103v1",
+      "title": "Did the Problem Actually Get Harder? Testing LLMs on Paired P and NP-Complete Problems Hardened by Adversarial Multi-Agent Rewriting",
+      "abstract": "Many NP-complete (NPC) problems have a polynomial-time (P) twin that differs in a single structural detail, such as 3- versus 2-colouring a graph. A model that reasons rather than recalls should notice which side of this boundary a problem falls on, yet existing benchmarks either fix the wording of each task or ignore its complexity class, so they cannot separate the two. We introduce P2NPCBench, a benchmark of 12 problem families in which every NPC problem is paired with a P twin posed over the same surface. To remove the textbook cues that enable recall, we build it with AgentGAN, an adversarial multi-agent framework in which a generator rewrites each statement until a panel of frozen code models fails, while an executable validity gate keeps every rewrite answer- and class-preserving. The result is 2,114 hardened statements with hand-verified reference human solvers. Evaluating 12 proprietary and open-source models, we find that every model scores lower on NPC statements than on their P twins (35.4% vs. 63.8% pass@1), and that 95.1% of model-family pairs fail more often on the NPC side. A tenfold time limit raises NPC accuracy only from 28.5% to 31.9%, so failures stem from wrong or crashing programs rather than slow ones. Hardening also narrows the class gap from 24.8 to 14.6 points, showing that part of the apparent gap reflects familiarity with textbook phrasing rather than complexity class.",
+      "published": "2026-10-21T17:50:19Z",
+      "updated": "2026-10-21T17:50:19Z",
+      "cats": [
+        "cs.CL"
+      ],
+      "link": "http://arxiv.org/abs/2610.30103v1",
+      "heuristic": 50,
+      "llm_score": 84,
+      "llm_summary": "P2NPCBench xây 2.114 câu P vs NP-Complete được 'cứng hóa' bởi AgentGAN multi-agent adversarial, cho thấy mọi LLM yếu hơn rõ rệt bên NPC (35,4% vs 63,8%).",
+      "llm_reason": "Insight 'LLM nhận diện wording quen thuộc hơn là suy luận thật' là vàng content về giới hạn reasoning model, benchmark nghiêm túc 12 model + human solver xác thực.",
+      "group": "high"
+    },
+    {
+      "id": "2610.34569v1",
+      "title": "Agentic AI Orchestration Framework for Spatial Intelligence: Supply Chain Deployment",
+      "abstract": "Industrial spatial decisions are assembled across systems that share neither a reference frame nor an owner, and analysts spend substantial effort reconciling those systems rather than reasoning about space. This paper presents ANASSA, a reference architecture integrating structured reasoning, multi-agent workflow orchestration, authoritative spatial grounding, and feedback-driven execution, and reports its instantiation in an operating supply-chain deployment. The architecture places typed data contracts at agent boundaries, validates spatial claims against a certified authoritative foundation, and enforces two blocking human-in-the-loop approvals inside a six-step cognitive loop. The deployment covers multi-hazard risk assessment on an ocean-and-inland freight lane, including cold-chain excursion detection over container telemetry. Across a three-month proof of concept (POC) with three implementation iterations, three deployment outcomes are reported: 25% improvement in data quality, 50% reduction in spatial workflow runtime, and 60% lower decision latency relative to the preceding manual workflow. Absolute deployment-scale quantities and baseline counts are confidential; reported percentages are observed relative changes. These are uncontrolled deployment observations, not controlled experiments. We therefore specify instrumentation and ablation protocols for mechanism-level evaluation.",
+      "published": "2026-10-25T21:12:21Z",
+      "updated": "2026-10-25T21:12:21Z",
+      "cats": [
         "cs.AI",
-        "cs.CE"
+        "cs.MA",
+        "cs.SE"
       ],
-      "link": "http://arxiv.org/abs/2610.33352v1",
-      "heuristic": 51,
-      "llm_score": 83,
-      "llm_summary": "Xây dựng mô hình kinh tế Monte Carlo tính ROI, probability of profitability và Value at Risk khi áp dụng LLM, instantiation cho SOC với cả cloud API và self-hosted.",
-      "llm_reason": "Trực tiếp trả lời 'có nên đầu tư LLM không' bằng framework ROI định lượng với sensitivity analysis — cực kỳ actionable cho solopreneur deciding tool stack, pricing và scale.",
+      "link": "http://arxiv.org/abs/2610.34569v1",
+      "heuristic": 49,
+      "llm_score": 84,
+      "llm_summary": "ANASSA triển khai orchestration multi-agent cho decision spatial trong supply chain với typed contracts, HITL approvals, POC 3 tháng: +25% data quality, -50% runtime, -60% decision latency.",
+      "llm_reason": "Deployment thật kèm ROI đo được, human-in-the-loop loop và protocol ablation là blueprint hành động trực tiếp cho solopreneur đánh giá/đo lường tool AI trong workflow của mình.",
       "group": "high"
     },
     {
-      "id": "2610.37657v1",
-      "title": "Heads of Security: Learned Attention Gates Improve Prompt Injection Robustness",
-      "abstract": "We introduce Heads of Security (HoS), a prompt injection defense that enforces instruction-data separation via a small set of learned per-head attention gates. HoS learns how each head should redistribute attention between trusted and untrusted tokens, enabling models to reason over untrusted content without following injected instructions. We evaluate HoS on Llama-3.3-70B-Instruct and GPT-OSS-20B. We compare it against SecAlign++, a state-of-the-art finetuning-based defense, and ASIDE, a defense that, like ours, builds instruction-data separation into the model architecture. We show that HoS offers greater robustness to adaptive attacks, better performance on standard utility benchmarks, and matches top performance on standard agentic prompt injection benchmarks. More specifically, the black-box RL-Hammer attack reaches 97% ASR against GPT-OSS-20B and 85% against SecAlign, but only 10% against HoS. Claudini, a state-of-the-art white-box attack, strengthened against HoS through autoresearch, requires 3 times more FLOPs to reach the same ASR on HoS as it does on GPT-OSS-20B or SecAlign. HoS preserves base-model utility across standard multiple-choice benchmarks and prompting setups, whereas SecAlign and ASIDE degrade in few-shot settings. On agentic benchmarks with static attacks, HoS and SecAlign perform similarly and substantially improve the security-utility trade-off over the base model. ASIDE struggles with tool use, achieving only 10% utility. These results show that prompt injection robustness can be achieved and improved through targeted attention interventions.",
-      "published": "2026-10-27T17:58:52Z",
-      "updated": "2026-10-27T17:58:52Z",
+      "id": "2610.35056v1",
+      "title": "Hallucination-Aware Multi-Agent RAG via Internal Attention Rewards",
+      "abstract": "Retrieval-augmented generation (RAG) grounds language models in retrieved evidence, but its outputs often contain claims unsupported by that evidence. Recent multi-agent RAG systems decompose the pipeline into cooperative decisions, yet they typically optimize all agents under a shared task reward such as EM or F1, which measures answer overlap rather than faithfulness to evidence. We propose a hallucination-aware multi-agent RAG framework that combines the task reward with an internal hallucination-risk signal computed from the generator's attention-head norms. Three role-specific LoRA adapters, a query planner, an evidence selector, and an answer generator, share a frozen backbone. A lightweight critic is trained once on TruthfulQA truthful/false pairs and then kept frozen, providing a complementary risk score that is added to the shared reward during cooperative PPO training. Across three backbones (Qwen3-8B, Llama3-8B, Llama2-13B) and three benchmarks (RAGTruth, HotpotQA, 2WikiMultiHopQA), our method improves task performance and reduces hallucination rates over the strongest multi-agent baseline. Ablations and critic diagnostics show that the TruthfulQA-calibrated signal provides useful reward shaping that transfers across RAG tasks.",
+      "published": "2026-10-26T09:03:51Z",
+      "updated": "2026-10-26T09:03:51Z",
       "cats": [
-        "cs.LG",
-        "cs.CL",
-        "cs.CR"
-      ],
-      "link": "http://arxiv.org/abs/2610.37657v1",
-      "heuristic": 50,
-      "llm_score": 83,
-      "llm_summary": "Đề xuất Heads of Security (HoS) — cổng attention học được để tách指令/dữ liệu, phòng prompt injection trên Llama-3.3-70B và GPT-OSS-20B.",
-      "llm_reason": "Rất sát AI/LLM security cốt lõi, có experiment tấn công thật (RL-Hammer 97%→10% ASR), giúp người làm content AI hiểu và chọn mô hình/agent an toàn hơn cho workflow nhiều kênh.",
-      "group": "high"
-    },
-    {
-      "id": "2610.34467v1",
-      "title": "DynaFlow: Learning Free-Form Multi-Agent Orchestration",
-      "abstract": "Multi-agent systems often rely on predefined collaboration structures, limiting their ability to adapt to diverse task requirements. We introduce DynaFlow, a framework that integrates free-form executable workflow synthesis into the action space of the main agent. The agent decides when collaboration is needed and generates task-specific programs that coordinate sub-agents through sequential or parallel execution, structured information exchange, and verification. Execution results and traces inform subsequent actions, enabling the agent to adapt collaboration as reasoning progresses. We train only the main agent through supervised fine-tuning on distilled trajectories, followed by refinement on examples filtered for unsupported premises, biased verification, and information-flow defects. All sub-agents remain fixed, separating orchestration learning from executor capability improvement. Across six benchmarks spanning mathematical reasoning, scientific question answering, and multi-hop retrieval, DynaFlow achieves 88.08% overall accuracy in Forced mode, outperforming the strongest evaluated baseline by 10.90 percentage points with the same Qwen3.5-27B backbone. Workflow analysis finds more explicit use, verification, and refinement of upstream outputs after training, highlighting cross-stage information flow as a key dimension of multi-agent orchestration.",
-      "published": "2026-10-25T17:38:55Z",
-      "updated": "2026-10-25T17:38:55Z",
-      "cats": [
-        "cs.MA"
-      ],
-      "link": "http://arxiv.org/abs/2610.34467v1",
-      "heuristic": 51,
-      "llm_score": 81,
-      "llm_summary": "DynaFlow để main agent tự synthesize workflow multi-agent free-form (sequential/parallel, information exchange, verification), đạt 88.08% accuracy trên 6 benchmarks, hơn baseline mạnh nhất 10.9pp cùng backbone.",
-      "llm_reason": "Core multi-agent orchestration với benchmark vững, pattern verification/refinement và cross-stage info flow áp dụng được vào content production pipeline, nhưng chưa gắn trực tiếp marketing/business.",
-      "group": "high"
-    },
-    {
-      "id": "2610.36108v1",
-      "title": "Log-To-Leak: Prompt Injection Attacks on Tool-Using LLM Agents via the Model Context Protocol",
-      "abstract": "LLM agents increasingly access external tools through the Model Context Protocol (MCP), but the natural-language metadata used to describe those tools creates a prompt-injection surface. Within this established tool-poisoning surface, we study Log-To-Leak, an additive post-hoc logging attack that induces a separate attacker-controlled call after the final legitimate call. Its payload targets the user query, MCP server name, server response, and agent response. We operationalize the injected directive through Trigger, Tool Binding, Justification, and Pressure, and separately measure call success, payload fidelity, and preservation of legitimate behavior. We evaluate five MCP servers and four LLM agents using five metrics spanning effectiveness, utility, and efficiency. Across 18 model-server pairs with valid tool execution, Log-To-Leak achieves an attack success rate (ASR) of 62.64-100% and conditional logging accuracy (LA) of 76.55-95.64%; 16 pairs have absolute target-task completion changes of at most 6.63 percentage points. Three evaluated defenses leave residual ASR above 55% on GitHub MCP with GPT-4o, while an instruction detector flags 85.53% of benign descriptions. These results show that successful task completion can coexist with unauthorized post-hoc disclosure and motivate host-controlled authorization for secondary tool calls.",
-      "published": "2026-10-26T18:20:24Z",
-      "updated": "2026-10-26T18:20:24Z",
-      "cats": [
-        "cs.CR",
-        "cs.AI"
-      ],
-      "link": "http://arxiv.org/abs/2610.36108v1",
-      "heuristic": 50,
-      "llm_score": 80,
-      "llm_summary": "Log-To-Leak khai thác tool poisoning qua MCP logging để chèn call attacker sau legit call, ASR 62.6-100% trên 18 model-server pairs, 3 defense còn残余 ASR >55%.",
-      "llm_reason": "Đúng chủ đề tool-use agent và MCP mà solopreneur đang dùng; số liệu đầy đủ và insight 'host-controlled authorization' áp dụng ngay cho hạ tầng agent.",
-      "group": "high"
-    },
-    {
-      "id": "2610.36915v1",
-      "title": "Do We Need an LLM to Know Why Sources Conflict? Decision Models for Knowledge-Conflict Typing in RAG",
-      "abstract": "When the sources retrieved for a query disagree, the right response depends on why they disagree: a question with several valid answers, a contested topic, stale information and a false source each call for different behaviour. Cattan et al. (2025) showed that telling a generator the conflict type improves its responses by about 24 points, but that predicting the type is hard even for frontier LLMs. We study whether typed decision models, which return probabilities over fixed options in a single forward pass instead of generating text, can do this classification fast and cheaply. Using the CONFLICTS benchmark and the original paper's prompt verbatim, we evaluate all 11 decision models served by one commercial inference gateway, from 7 providers, against Gemini models on identical inputs. Asked directly, the decision models reach 50.0--67.0% accuracy; 10 of the 11 match or exceed Gemini 2.5 Flash, the paper's model (61.3%), at 4--39x lower billed cost (2 were free) and 2.6--6.0x lower latency. The current Gemini 3.8 Flash (70.0%) is significantly more accurate than 8 of them, but sending each decision model's least confident quarter of queries to it gives a cascade statistically tied with it for 8 of the 11, at 25--37% of its cost. End to end, answers generated with the types of 10 of the 11 follow the expected behaviour as often as with the LLM's types. Decomposing the taxonomy into yes/no questions lowers accuracy for every model, and a repair fitted on one model does not transfer. Pre-specified diagnostics show that dates play no measurable role and that sensitivity to source order varies widely between models. Decision models detect a planted false source less reliably than the LLM as hard labels, but their probabilities still separate planted from clean sources. We release code, prompts and all model outputs at https://github.com/Parv17k/decision-models-conflict-typing.",
-      "published": "2026-10-27T09:43:21Z",
-      "updated": "2026-10-27T09:43:21Z",
-      "cats": [
-        "cs.CL",
         "cs.IR"
       ],
-      "link": "http://arxiv.org/abs/2610.36915v1",
-      "heuristic": 49,
+      "link": "http://arxiv.org/abs/2610.35056v1",
+      "heuristic": 57,
+      "llm_score": 82,
+      "llm_summary": "Multi-agent RAG kết hợp reward tác vụ với tín hiệu risks hallucination từ attention-head norms, dùng LoRA role planner/selector/generator + critic TruthfulQA, giảm ảo giác trên 3 backbone, 3 benchmark.",
+      "llm_reason": "Trực tiếp phục vụ content AI (RAG, fact-check, viết bài đúng nguồn), có experiment thật và actionable cao: cách ráp wenige role adapter + critic rẻ tiền để content đáng tin hơn cho kênh 30+.",
+      "group": "high"
+    },
+    {
+      "id": "2610.36295v1",
+      "title": "Detecting and Mitigating Query-Based System Prompt Leakage Attacks",
+      "abstract": "Large Language Models (LLMs) rely on proprietary system prompts to enforce task directives, safety policies, and access controls. These prompts are vulnerable to query-based leakage attacks, where black-box adversaries extract confidential instructions through adaptive, multi-turn interactions. Existing defenses often assess queries independently, missing malicious behavior that emerges across interactions. We present AdvGuard, a model-agnostic framework for detecting and mitigating system prompt leakage. AdvGuard models cross-query relationships using a bounded semantic interaction graph, statistically filters candidate components, and converts them into line graphs for graph convolutional network (GCN) classification. This approach captures multi-hop patterns in query similarity that distinguish coordinated extraction from benign workflows. A lightweight prompt-level detector provides protection before sufficient interaction history accumulates, and the framework supports black-box LLM deployments. In mixed-query evaluations, AdvGuard improves recall by up to 36% over the strongest baseline while maintaining a false positive rate of at most 3.4%. In multi-turn workloads, it achieves 97.23%-99.1% F1 with 100% recall. Leave-one-attack-family-out tests yield 99.98% mean recall and 99.99% mean F1, with no observed false positives. Integrated into the adaptive PLeak and LeakAgent attack loops, AdvGuard limits exact-match leakage to 0.00-0.01 and substring-match leakage to 0.01-0.09 across evaluated victim models. These results demonstrate robust detection of unseen attack families and substantially reduced prompt reconstruction.",
+      "published": "2026-10-26T21:23:10Z",
+      "updated": "2026-10-26T21:23:10Z",
+      "cats": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.36295v1",
+      "heuristic": 50,
+      "llm_score": 81,
+      "llm_summary": "AdvGuard phát hiện tấn công trích xuất system prompt bằng graph ngữ nghĩa cross-query + GCN, lọc nguy hiểm trước khi lịch sử tương tác tích lũy.",
+      "llm_reason": "Bảo vệ prompt/system prompt cực thiết thực với người kinh doanh dùng LLM (custom GPT, API), metrics mạnh (F1 97-99%) và insight phòng leakage rất dễ content-hóa thành bài 'hack prompt'.",
+      "group": "high"
+    },
+    {
+      "id": "2610.31809v2",
+      "title": "CuraLoc: Repository-Level Fault Localization via Planned Code Inspection",
+      "abstract": "A bug report describes what went wrong, but rarely where the code should change. Existing repository-level localization methods often let language models iteratively decide what code to inspect next, requiring repeated model calls and substantial token usage. We investigate whether these inspection decisions can instead be planned before source retrieval. In this research, we introduce CuraLoc, which first selects candidate files and represents their symbols using compact behavioral and structural descriptions. In a single planning decision, the model jointly selects starting symbols, chooses code relationships to inspect from each, and forms hypotheses about likely edits. Deterministic retrieval collects the requested source for a final ranking informed by those hypotheses, concentrating model reasoning on choosing and comparing code rather than directing each retrieval step. We demonstrate the efficacy of our proposed approach on the SWE-Bench Lite and Verified datasets. On SWE Bench Verified with GPT-5.2, CuraLoc raises Func@1 from LocAgent's 53.8% to 59.3% while using 90.3% fewer recorded tokens, and also outperforms RepoSearcher (56.2%) and Agentless (39.6%) on Func@1. On SWE-bench Lite, CuraLoc achieves a high 83.8% Func@5 accuracy improving on Agentless by more than 15% in relative accuracy. Additionally, CuraLoc supports different model backbones, with strong localization accuracy demonstrated using both GPT-5.2 and GPT-6 Astra. These results provide evidence that repository-level code inspection can be planned effectively without iterative model-controlled navigation.",
+      "published": "2026-10-22T18:46:37Z",
+      "updated": "2026-10-26T18:03:05Z",
+      "cats": [
+        "cs.LG",
+        "cs.SE"
+      ],
+      "link": "http://arxiv.org/abs/2610.31809v2",
+      "heuristic": 46,
+      "llm_score": 81,
+      "llm_summary": "CuraLoc lên kế hoạch chọn file, ký hiệu và giả thuyết sửa lỗi trước khi truy xuất mã, rồi xếp hạng cuối cùng để giảm lời gọi mô hình.",
+      "llm_reason": "Điểm cao vì gắn LLM/tool-use với benchmark SWE-Bench thật, có cải thiện Func@1 và giảm 90.3% token, nhưng ứng dụng business/content chỉ gián tiếp qua chủ đề agent lập trình và chi phí.",
+      "group": "high"
+    },
+    {
+      "id": "2610.34817v2",
+      "title": "Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Agents",
+      "abstract": "Large language model (LLM) services process massive volumes of user requests, resulting in substantial inference costs. To reduce both cost and latency, providers have introduced prompt caching. However, correctly integrating prompt caching is non-trivial due to heterogeneous provider-specific APIs and continuously evolving caching semantics. To understand prompt-caching mis-integration in downstream applications, we conduct the first empirical study of 120 prompt-caching-related pull requests from 10 popular open-source agent systems. Our findings show that prompt-caching mis-integrations arise in both request-side misconfiguration and read-side usage miscount. More importantly, most mis-integrations fail silently without causing observable runtime failures. Motivated by these findings, we design CACHELINT, which models a prompt-caching mis-integration as an invocation site together with the preconditions required for correct cache integration. CACHELINT locates caching invocation sites with CodeQL and discharges each precondition either against a dated provider capability oracle or with an LLM guard check. CACHELINT achieves 0.71 precision and 0.78 recall in identifying the 120 labeled mis-integrations across the 10 studied agent systems. Our evaluation further demonstrates the effectiveness of CACHELINT in real-world settings, identifying 32 mis-integrations across 571 agent projects with 0.86 precision. These findings have received 21 developer confirmations and led to 18 upstream fixes, including one in Anthropic's official SDK.",
+      "published": "2026-10-26T04:01:18Z",
+      "updated": "2026-10-27T02:04:48Z",
+      "cats": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "link": "http://arxiv.org/abs/2610.34817v2",
+      "heuristic": 47,
       "llm_score": 80,
-      "llm_summary": "So sánh 11 decision model để phân loại kiểu xung đột nguồn trong RAG: cascade model rẻ + Gemini cho top 25% không confident đạt accuracy tương đương với 25-37% chi phí.",
-      "llm_reason": "Trực tiếp usable cho AI content/RAG: pattern classifier rẻ + escalate, có benchmark, cost/latency rõ ràng.",
+      "llm_summary": "Nghiên cứu thực nghiệm đầu tiên về lỗi tích hợp prompt-caching trong 120 PR của 10 hệ thống agent, xây CACHELINT phát hiện với precision 0.71/recall 0.78.",
+      "llm_reason": "Trực tiếp giúp solopreneur chạy nhiều kênh AI tối ưu chi phí inference — lỗi caching 'fail silently' rất phổ biến và dễ kiểm tra, actionable cao nhất bộ.",
+      "group": "high"
+    },
+    {
+      "id": "2610.35412v1",
+      "title": "Read the Route: Attention-Steered Hypergraph Retrieval for Multi-hop RAG",
+      "abstract": "Graph-based retrieval-augmented generation (GraphRAG) answers multi-hop questions by organizing a corpus into a graph and retrieving along its structure. Existing retrieval methods face two limitations. Diffusion- and similarity-based methods expand retrieval along fixed edge weights or by similarity to the question, without resolving its implicit entity references, allowing relevance errors to accumulate across hops. In contrast, exploration-based methods let an LLM reason about the next hop, but require a separate generation at each hop, leading to high inference costs. We observe that an LLM can resolve implicit entity references from retrieved passages and a multi-hop question before generating any tokens. Further analysis identifies a small set of attention heads, termed addressing heads, that capture this capability across multiple hops in a single forward pass. Building on this finding, we propose HyperAddress, which runs Personalized PageRank on a description-labelled hypergraph, using addressing heads to determine the restart distribution and transition weights, thereby guiding multi-hop retrieval without any generation at query time. On MuSiQue, 2WikiMultiHopQA, and HotpotQA, HyperAddress outperforms the strongest baseline by 3.5 points of Recall@5 and 7.4 points of All@5 on average, with gains that grow with the number of hops. It answers more than twice as fast and builds its index at half the cost.",
+      "published": "2026-10-26T13:24:28Z",
+      "updated": "2026-10-26T13:24:28Z",
+      "cats": [
+        "cs.IR"
+      ],
+      "link": "http://arxiv.org/abs/2610.35412v1",
+      "heuristic": 48,
+      "llm_score": 79,
+      "llm_summary": "HyperAddress cải thiện GraphRAG multi-hop: dùng attention heads ('addressing heads') để nhận implicit entity refs, chạy Personalized PageRank trên hypergraph gán nhãn mô tả mà không sinh token ở query time; +3.5 Recall@5, +7.4 All@5, nhanh hơn 2x trên MuSiQue/2Wiki/HotpotQA.",
+      "llm_reason": "Core RAG/LLM retrieval cực sát tool-use cho content (32) + benchmark chuẩn với số liệu rõ + speed (22); RAG multi-hop rất relevant cho researcher/content creator (12); insight addressing heads + PPR hypergraph = áp dụng cải thiện retrieval ngay (13).",
       "group": "high"
     }
   ]

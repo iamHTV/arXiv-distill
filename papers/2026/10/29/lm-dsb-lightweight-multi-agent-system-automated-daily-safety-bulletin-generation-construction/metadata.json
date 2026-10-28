@@ -1,0 +1,26 @@
+{
+  "name": "LM-DSB: A Lightweight Multi-agent System for Automated Daily Safety Bulletin Generation in Construction",
+  "authors": [
+    "Xianxiang Zhao (University of Washington)",
+    "Advik Mehta (University of Alberta)",
+    "Falak Sethi (PCL Industrial Management Inc.)",
+    "Brian Gue (PCL Industrial Management Inc.)",
+    "Qipei Mei (University of Alberta)",
+    "Lingzi Wu (University of Washington)"
+  ],
+  "link": "https://arxiv.org/abs/2610.36433v1",
+  "pdf": "https://arxiv.org/pdf/2610.36433v1",
+  "id": "2610.36433",
+  "arxiv_id": "2610.36433v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "classification": "applied",
+  "skill_status": "created",
+  "skill_name": "planner-researcher-writer-content-pipeline",
+  "skill_test": "SKILL VALID",
+  "citation_count": "[NOT FOUND - Semantic Scholar API rate-limited at distill time]",
+  "llm_score": 68,
+  "full_text_score": 83,
+  "topic_relevance": "multi-agent system, RAG, local LLM deployment, content automation, enterprise workflow",
+  "distill_date": "2026-10-29"
+}

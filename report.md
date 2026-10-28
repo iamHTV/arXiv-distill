@@ -1071,3 +1071,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: enterprise-api-process-aware-retrieval | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Agent chọn đúng API vẫn thất bại nếu phát mã, bỏ khóa bắt buộc, hoặc gọi sai thứ tự xử lý — cần cung cấp ràng buộc xử lý và schema trong ngữ cảnh truy xuất (typed property graph kết hợp OData + BPMN), không chỉ endpoint.
 → Tiếp tục: [YES]
+
+## Paper #255 — LM-DSB: A Lightweight Multi-agent System for Automated Daily Safety Bulletin Generation in Construction (2610.36433v1) [applied]
+✓ Skill: planner-researcher-writer-content-pipeline | Test: SKILL VALID (dry run: bản tin BĐS hàng tuần, corpus 30 báo cáo → 8 sections chuẩn → RAG ChromaDB threshold 0.65 → QA-pairs 2000 examples → LoRA Qwen2.5-7B → LangGraph sequential → output có citation, quality chấp nhận)
+✓ Insight nổi bật nhất: Planner-researcher-writer decomposition trên Llama 3-8B cục bộ đạt length ratio 1.01 (output trọn vẹn ngang ground truth expert) trong khi single-agent RAG chỉ 0.39 — và Llama-FT (chỉ fine-tuning, không RAG) xếp DƯỚI baseline Llama-Base cả 4 metrics (TF-IDF 0.4222 vs 0.4870) → trên model ≤8B, orchestration + RAG grounding mới là yếu tố chính, fine-tuning đơn lẻ có thể hại.
+→ Tiếp tục: [YES]
