@@ -1076,3 +1076,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: planner-researcher-writer-content-pipeline | Test: SKILL VALID (dry run: bản tin BĐS hàng tuần, corpus 30 báo cáo → 8 sections chuẩn → RAG ChromaDB threshold 0.65 → QA-pairs 2000 examples → LoRA Qwen2.5-7B → LangGraph sequential → output có citation, quality chấp nhận)
 ✓ Insight nổi bật nhất: Planner-researcher-writer decomposition trên Llama 3-8B cục bộ đạt length ratio 1.01 (output trọn vẹn ngang ground truth expert) trong khi single-agent RAG chỉ 0.39 — và Llama-FT (chỉ fine-tuning, không RAG) xếp DƯỚI baseline Llama-Base cả 4 metrics (TF-IDF 0.4222 vs 0.4870) → trên model ≤8B, orchestration + RAG grounding mới là yếu tố chính, fine-tuning đơn lẻ có thể hại.
 → Tiếp tục: [YES]
+
+## Paper #256 — Heads of Security: Learned Attention Gates Improve Prompt Injection Robustness (2610.37657v1) [applied]
+✓ Skill: attention-gate-instruction-data-separation | Test: SKILL VALID (dry run: agent support đọc email + CRM API trên Llama-3.3-70B local → 46,080 gate scalars DPO 1 đêm → red-team GRPO ASR 99%→1%, utility 97.3% base PASS gate ≥95%)
+✓ Insight nổi bật nhất: Chỉ huấn luyện 46,080 gate scalars (0.00007% trọng số Llama-3.3-70B) cộng log σ(g) vào attention logits tiền-softmax đạt ASR 1-10% trước RL-Hammer — trong khi SecAlign (DPO 349M params cùng dataset) sụp utility 56.3→16.1% MMLU-Pro 5-shot, 2.0% GSM8K 1-shot → limiting the learning mechanism (ràng buộc cơ chế học) quan trọng hơn dữ liệu khi muốn safety mà không mất utility.
+→ Hết queue hôm nay (2/2 bài từ scans/2026-10-29_filtered.json). Tiếp tục: [STOP] — sang Phase 4: regenerate daily summary.
