@@ -1066,3 +1066,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: rag-conflict-typing-decision-model | Test: SKILL VALID
 ✓ Insight nổi bật nhất: Decision model phân loại loại xung đột trong RAG đúng gần như LLM nhưng tốn 4–39× ít chi phí và nhanh 2.6–6.0 lần, và niềm tin của nó xếp hạng được lỗi nên gửi chỉ phần không tự tin lên LLM cao cấp (cascade).
 → Tiếp tục: [YES]
+
+## Paper #254 — Grounding LLM Agents in Business Processes: Process-Aware Knowledge Graphs for Reliable Multi-Step Service Invocation (2610.37242v1) [applied]
+✓ Skill: enterprise-api-process-aware-retrieval | Test: SKILL VALID
+✓ Insight nổi bật nhất: Agent chọn đúng API vẫn thất bại nếu phát mã, bỏ khóa bắt buộc, hoặc gọi sai thứ tự xử lý — cần cung cấp ràng buộc xử lý và schema trong ngữ cảnh truy xuất (typed property graph kết hợp OData + BPMN), không chỉ endpoint.
+→ Tiếp tục: [YES]
