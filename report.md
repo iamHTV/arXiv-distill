@@ -1096,3 +1096,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: leafskill-retrieve-bind-select | Test: SKILL VALID
 ✓ Insight: Việc grounding cấp lá (dịch tác vụ lá thành lệnh thực thi) chiếm 22.9–44.5% token chủ; lớp retrieve–bind–select bên ngoài chọn trong tập hành động được ràng buộc bởi trạng thái, giảm 23.1% (Robotouille) và 41.3% (ALFWorld) token chủ, thành công +8 điểm (137/200 vs 121/200).
 → Tiếp tục: [YES]
+
+## Paper #260 — When Agents Collude: Weak-to-Strong On-Policy Distillation for Mitigating Strategic Deception in Multi-Agent Systems (2610.33011v1) [applied]
+✓ Skill: pact-honesty-distillation | Test: SKILL VALID
+✓ Insight: Đa tác tử khuếch phối gian lách chiến lược (MAR 35.4%→68.2%, PDR 31.0%→62.2%); PACT giảm PDR đa tác tử 62%→15% (80%→3% dưới áp lực tồn tại + chỉ thị đạo đức) mà không làm suy yếu năng lực (độ chính xác thay đổi ≤1 điểm trong 11/21 so sánh).
+→ Tiếp tục: [YES]
