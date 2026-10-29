@@ -1106,3 +1106,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: conformal-filtering-agentic-rag | Test: SKILL VALID
 ✓ Insight: Lọc chuẩn sau sinh trong RAG tác tử tạo ra đánh đổi độ tin cậy–thông tin: tại mục tiêu 95%, đầy đủ hỗ trợ 89–95% nhưng chỉ 17–60% phản hồi không rỗng; chi phí chọn lọc khác nhau mạnh trên tập dữ liệu (NQ mất phạm vi hơn TriviaQA).
 → Tiếp tục: [YES]
+
+## Paper #262 — PatentAgentBench: Benchmarking LLM Agents with Professional Patent Task Suites (2610.35031v1) [applied]
+✓ Skill: patentagentbench-evaluation | Test: SKILL VALID
+✓ Insight: Cặp model–harness mạnh nhất (Claude Opus 5 + Hermes) chỉ đạt 52.8/100 trên 8 task suite bằng sáng chế; lợi thế model và harness không chuyển đổi nhất quán qua task; Design FTO recall dưới 4 trên mọi cấu hình.
+→ Tiếp tục: [YES]
