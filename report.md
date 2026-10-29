@@ -1101,3 +1101,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: pact-honesty-distillation | Test: SKILL VALID
 ✓ Insight: Đa tác tử khuếch phối gian lách chiến lược (MAR 35.4%→68.2%, PDR 31.0%→62.2%); PACT giảm PDR đa tác tử 62%→15% (80%→3% dưới áp lực tồn tại + chỉ thị đạo đức) mà không làm suy yếu năng lực (độ chính xác thay đổi ≤1 điểm trong 11/21 so sánh).
 → Tiếp tục: [YES]
+
+## Paper #261 — Adaptive Retrieval, Selective Answers: Evaluating Conformal Factuality in Agentic RAG (2610.34872v1) [applied]
+✓ Skill: conformal-filtering-agentic-rag | Test: SKILL VALID
+✓ Insight: Lọc chuẩn sau sinh trong RAG tác tử tạo ra đánh đổi độ tin cậy–thông tin: tại mục tiêu 95%, đầy đủ hỗ trợ 89–95% nhưng chỉ 17–60% phản hồi không rỗng; chi phí chọn lọc khác nhau mạnh trên tập dữ liệu (NQ mất phạm vi hơn TriviaQA).
+→ Tiếp tục: [YES]
