@@ -1086,3 +1086,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: effect-typed-tool-agent-training | Test: SKILL VALID
 ✓ Insight: Agent nhỏ gọi công cụ thô thiển (xóa mà không hỏi, ghi lặp lại) VÌ chỉ được chấm cú pháp gọi hàm, không có khai báo tác dụng của mỗi cuộc gọi — khai báo hiệu ứng (effect declarations) chuyển an toàn và hiệu quả thành tính chất có thể kiểm tra của vết dấu, giúp Qwen3-4B đạt 99% thành công trong phân phối với 1/3 token đầu ra.
 → Tiếp tục: [YES]
+
+## Paper #258 — Words or Deeds? How LLMs Predict Users' Decisions in Human-Agent Dialogue (2610.36813v1) [applied]
+✓ Skill: dialogue-user-decision-evaluation | Test: SKILL VALID
+✓ Insight: LLM over-estimate mức người dùng giữ lời (dự đoán .69, thực tế .40) và không bắt được sự thay đổi hành vi theo persona agent (dự đoán 64.5% vs 63.1%, thực tế 70.6% vs 54.5%), accuracy tổng hợp (.73→.74) ẩn giấu lỗi ngược chiều trên lời bị phá (.65→.17).
+→ Tiếp tục: [YES]
