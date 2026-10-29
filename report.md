@@ -1080,4 +1080,9 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ## Paper #256 — Heads of Security: Learned Attention Gates Improve Prompt Injection Robustness (2610.37657v1) [applied]
 ✓ Skill: attention-gate-instruction-data-separation | Test: SKILL VALID (dry run: agent support đọc email + CRM API trên Llama-3.3-70B local → 46,080 gate scalars DPO 1 đêm → red-team GRPO ASR 99%→1%, utility 97.3% base PASS gate ≥95%)
 ✓ Insight nổi bật nhất: Chỉ huấn luyện 46,080 gate scalars (0.00007% trọng số Llama-3.3-70B) cộng log σ(g) vào attention logits tiền-softmax đạt ASR 1-10% trước RL-Hammer — trong khi SecAlign (DPO 349M params cùng dataset) sụp utility 56.3→16.1% MMLU-Pro 5-shot, 2.0% GSM8K 1-shot → limiting the learning mechanism (ràng buộc cơ chế học) quan trọng hơn dữ liệu khi muốn safety mà không mất utility.
-→ Hết queue hôm nay (2/2 bài từ scans/2026-10-29_filtered.json). Tiếp tục: [STOP] — sang Phase 4: regenerate daily summary.
+→ Tiếp tục: [YES]
+
+## Paper #257 — Small agents should know what their tools do (2610.35981v1) [applied]
+✓ Skill: effect-typed-tool-agent-training | Test: SKILL VALID
+✓ Insight: Agent nhỏ gọi công cụ thô thiển (xóa mà không hỏi, ghi lặp lại) VÌ chỉ được chấm cú pháp gọi hàm, không có khai báo tác dụng của mỗi cuộc gọi — khai báo hiệu ứng (effect declarations) chuyển an toàn và hiệu quả thành tính chất có thể kiểm tra của vết dấu, giúp Qwen3-4B đạt 99% thành công trong phân phối với 1/3 token đầu ra.
+→ Tiếp tục: [YES]
