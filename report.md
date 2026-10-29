@@ -1111,3 +1111,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: patentagentbench-evaluation | Test: SKILL VALID
 ✓ Insight: Cặp model–harness mạnh nhất (Claude Opus 5 + Hermes) chỉ đạt 52.8/100 trên 8 task suite bằng sáng chế; lợi thế model và harness không chuyển đổi nhất quán qua task; Design FTO recall dưới 4 trên mọi cấu hình.
 → Tiếp tục: [YES]
+
+## Paper #263 — OA-RAG: Ontology-based Agentic RAG for Faithful LLM Reasoning (2610.36335v1) [applied]
+✓ Skill: oa-rag-grounded-answer | Test: SKILL VALID
+✓ Insight: OA-RAG ghép formal OWL reasoning (suy luận hình thức bản thể) với LLM qua ReAct loop (vòng hành động–quan sát) SPARQL DESCRIBE/ASK/SELECT, đạt accuracy (độ chính xác) trung bình tốt nhất 50.5% (Llama-3-8B) / 68.1% (Qwen3.5-9B) trên 5 test, +10–15.4 điểm vs strongest baseline (đường cơ sở mạnh nhất) trên Test 1–2 (44.3% vs 28.9%; 59.7% vs 49.7%); Test 3 (ontology-assisted) cạnh tranh với 9.7k vs 96.7k token/câu hỏi (10×); grounding level (mức neo) 4 bậc là reliability signal (tín hiệu tin cậy) đã verify: Qwen Test 3 entailed 94.9% đúng, supported 82.1%, còn lại 72.1%.
+→ Tiếp tục: [YES]
