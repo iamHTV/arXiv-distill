@@ -1091,3 +1091,8 @@ Báo cáo tổng hợp. Mục tiêu: ~300 papers, chất lượng ưu tiên. Hi�
 ✓ Skill: dialogue-user-decision-evaluation | Test: SKILL VALID
 ✓ Insight: LLM over-estimate mức người dùng giữ lời (dự đoán .69, thực tế .40) và không bắt được sự thay đổi hành vi theo persona agent (dự đoán 64.5% vs 63.1%, thực tế 70.6% vs 54.5%), accuracy tổng hợp (.73→.74) ẩn giấu lỗi ngược chiều trên lời bị phá (.65→.17).
 → Tiếp tục: [YES]
+
+## Paper #259 — LeafSkill: Efficient Leaf-Level Action Grounding for Recursive LLM Agents (2610.32412v1) [applied]
+✓ Skill: leafskill-retrieve-bind-select | Test: SKILL VALID
+✓ Insight: Việc grounding cấp lá (dịch tác vụ lá thành lệnh thực thi) chiếm 22.9–44.5% token chủ; lớp retrieve–bind–select bên ngoài chọn trong tập hành động được ràng buộc bởi trạng thái, giảm 23.1% (Robotouille) và 41.3% (ALFWorld) token chủ, thành công +8 điểm (137/200 vs 121/200).
+→ Tiếp tục: [YES]

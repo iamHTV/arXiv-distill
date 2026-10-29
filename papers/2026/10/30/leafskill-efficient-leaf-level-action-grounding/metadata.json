@@ -1,0 +1,12 @@
+{
+  "id": "2610.32412",
+  "arxiv_id": "2610.32412v1",
+  "name": "LeafSkill: Efficient Leaf-Level Action Grounding for Recursive LLM Agents",
+  "authors": ["Shen Liu", "Ze Zhou", "Zhenguo Xu", "Shaopu Wang", "Yike Gao", "Chunlei Wang"],
+  "link": "https://arxiv.org/abs/2610.32412v1",
+  "year": 2026,
+  "category": "cs.AI",
+  "citation_count": null,
+  "classification": "applied",
+  "skill_status": "VALID"
+}
